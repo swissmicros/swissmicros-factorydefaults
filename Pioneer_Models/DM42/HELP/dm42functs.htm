@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>DM42 Functions</title>
+<style>
+body{font-family: sans-serif; font-size:12px}
+h1 {font-weight: bold; color: #000000;}
+a {font-weight: bold;}
+td {vertical-align: top; padding-right: 5em;}
+td.n {display: none;}
+.button {background: #444444;color: #FFFFFF;font-family: monospace;padding: 1px;}
+.lcd {background: #CCCCCC;font-family: VT323, monospace;font-size: 18px; }
+</style>
+</head>
+<body>
+<h1>DM42 Functions</h1>
+
+Source:<br>
+* HP-42s Owner's Manual<br>
+* Docs on Free42 by Thomas Okken<br>
+---  Version 2.0.2, 2025-04-22  ---
+
+<ul>
+<li><a href="#A">A</a> <a href="#B">B</a> <a href="#C">C</a> <a href="#D">D</a> <a href="#E">E</a> <a href="#F">F</a> <a href="#G">G</a> <a href="#H">H</a> <a href="#I">I</a> <a href="#J">J</a> <a href="#K">K</a> <a href="#L">L</a> <a href="#M">M</a></li>
+<li><a href="#N">N</a> <a href="#O">O</a> <a href="#P">P</a> <a href="#Q">Q</a> <a href="#R">R</a> <a href="#S">S</a> <a href="#T">T</a> <a href="#U">U</a> <a href="#V">V</a> <a href="#W">W</a> <a href="#X">X</a> <a href="#Y">Y</a></li>
+<li><a href="#Z-etc">Z-etc</a></li> 
+</ul>
+
+Use following link to open the <a href="dm42help.htm">DM42 Quick Reference Guide</a> help file.
+
+<h2 id="A">------- A -------</h2>
+
+<span class="button">ABS</span><br>Absolute value
+<br><span class="button">ACOS</span><br>Arc cosine
+<br><span class="button">ACOSH</span><br>Arc hyperbolic cosine
+<br><span class="button">ADATE</span><br>Appends the contents of the X register to the ALPHA register, formatted as a date value.
+<br><span class="button">ADV</span><br>Advance paper one line
+<br><span class="button">AGRAPH</span><br>Alpha graphics. Displays a graphics image. Each character in the Alpha register specifies an 8-dot column pattern. The X- and Y-registers specify the pixel location of the image.
+<br><span class="button">AIP</span><br>Appends integer part of x to the Alpha register.
+<br><span class="button">ALENG</span><br>Alpha length
+<br><span class="button">ALL</span><br>Select the All display format
+<br><span class="button">ALLΣ</span><br>ALLΣ mode (13 sum regs)
+<br><span class="button">AND</span><br>Logical AND
+<br><span class="button">ANUM</span><br> Scans the ALPHA register for a number, and places it into the X register. If a number is found, the numeric input flag, flag 22, is set.
+<br><span class="button">AOFF</span><br>Alpha off. Exits from the ALPHA menu.
+<br><span class="button">AON</span><br>Alpha on. Selects the ALPHA menu.
+<br><span class="button">APPEND</span><br> Adds the object in X to the string or list in Y and returns the combined string or list. If Y is a string, the contents of X will be converted to a string in the same way as ARCL. If Y is a list, X will be added to it unchanged. If X is a list, it will be added to Y as one element.
+<br><span class="button">ARCL</span><br>Alpha recall. Copies data into the Alpha register appending it to the current contents. Numbers are formatted using the current display format.
+<br><span class="button">AROT</span><br>Alpha rotate. Rotates the Alpha register by the number of characters specified in the X-register.
+<br><span class="button">ASHF</span><br>Alpha shift. Shifts the six left-most characters out of the Alpha register.
+<br><span class="button">ASIN</span><br>Arc sine
+<br><span class="button">ASINH</span><br>Arc hyperbolic sine
+<br><span class="button">ASSIGN</span><br>Assign CUSTOM menu key
+<br><span class="button">ASTO</span><br>Alpha store. Copies the first six characters in the Alpha register into a register or variable.
+<br><span class="button">ATIME</span><br> Appends time content of the X register to the ALPHA register, formatted as a time value.
+<br><span class="button">ATIME24</span><br> Like ATIME, except it always formats the time in 24-hour format, regardless of the CLK12/CLK24 setting
+<br><span class="button">ATAN</span><br>Arc tangent
+<br><span class="button">ATANH</span><br>Arc hyperbolic tangent
+<br><span class="button">ATOX</span><br>Alpha to X. Converts the left-most character in the Alpha register to its character code (returned to the X-register) and deletes the character.
+<br><span class="button">AVIEW</span><br>Alpha view. Displays the Alpha register.
+<br><span class="button">A2LINE , A2+LINE , and X2LINE</span><br> Create program lines containing the current contents of the ALPHA register, to be set; the ALPHA register, to be appended; and X register, respectively.
+<br><span class="button">A...F</span><br>Sets HEXM mode and activates the A...F menu.
+
+<h2 id="B">------- B -------</h2>
+
+<span class="button">BASE+</span><br>Base add;  Returns the 36-bit sum of y + x.
+<br><span class="button">BASE-</span><br>Base subtract
+<br><span class="button">BASE×</span><br>Base multiply
+<br><span class="button">BASE÷</span><br>Base divide
+<br><span class="button">BASE+/-</span><br>Base change sign (Base change sign. Returns the 36-bit 2's complement of x.)
+<br><span class="button">BEEP</span><br>Sounds a sequence of four tones.
+<br><span class="button">BEST</span><br>Best ﬁt model
+<br><span class="button">BINM</span><br>Selects Binary mode (base 2).
+<br><span class="button">BIT?</span><br>Bit test (x-th bit of y)
+<br><span class="button">BRESET</span><br> Resets all BASE modes back to their defaults, which match the behavior of the real HP-42S: WSIZE 36, signed, not wrapped.
+<br><span class="button">BSIGNED</span><br> Toggles signed mode. In signed mode, numbers are interpreted as two's complement signed integers; in unsigned mode, numbers are always interpreted as non-negative, and negative numbers do not exist. You can check whether signed or unsigned mode is active by checking the MODES menu, where there will be a dot marking the BSGN menu item when signed mode is active. Alternatively, you can check flag 78.
+<br><span class="button">BST</span><br>Back step
+<br><span class="button">BWRAP</span><br> Toggles wrapped mode. In wrapped mode, numbers are kept within WSIZE bits by discarding any bits to the left of bit WSIZE - 1; in non-wrapped mode, numbers outside of the binary range are not allowed and cause Invalid Data errors when parameters are out of range, or Out of Range errors when results are out of range. You can check whether wrapped or non-wrapped mode is active by checking the MODES menu (dot marking the BWRP menu item when wrapped mode is active, alternatively, you can check flag 79).
+
+<h2 id="C">------- C -------</h2>
+
+<span class="button">CAPS and Mixed</span><br>Select whether to display menu labels in all caps, or allow lowercase letters. The HP-42S displays menu all menu labels in all caps, because its menu font doesn't have lowercase letters. Free42, however, has had lowercase letters in its menu font since release 3.0.6. The CAPS setting can be used to preserve the original HP-42S look; the Mixed setting is the new default.
+<br><span class="button">C.LN1+X and C.E↑X-1</span><br> These are complex-capable versions of the HP-42S LN1+X and E↑X-1 functions.
+<br><span class="button">CF</span><br>Clear ﬂag
+<br><span class="button">CLA</span><br>Clear alpha register
+<br><span class="button">CLALL</span><br>Clear all memory
+<br><span class="button">CLD</span><br>Clear display. Clears a message from the display.
+<br><span class="button">CLKEYS</span><br>Clear CUSTOM menu keys
+<br><span class="button">CLK12</span><br> Display the time in 12-hour format with AM/PM
+<br><span class="button">CLK24</span><br> Display the time in 24-hour format
+<br><span class="button">CLLCD</span><br>Clear LCD
+<br><span class="button">CLMENU</span><br>Clear programmable menu
+<br><span class="button">CLP</span><br>Clear program
+<br><span class="button">CLRG</span><br>Clear registers
+<br><span class="button">CLST</span><br>Clear stack
+<br><span class="button">CLV</span><br>Clear variable
+<br><span class="button">CLX</span><br>Clear X-register
+<br><span class="button">CLΣ</span><br>Clear summation registers
+<br><span class="button">COMB</span><br>Combinations of y items taken x at a time. Returns y!/(x!(y — x)!) .
+<br><span class="button">COMPLEX</span><br>Converts two real numbers (or matrices) into a complex number (or matrix). Converts a complex number (or matrix) into two real numbers (or matrices).
+<br><span class="button">CORR</span><br>Returns a correlation coefficient using the current statistical data and curve-fitting model.
+<br><span class="button">COS</span><br>Cosine
+<br><span class="button">COSH</span><br>Hyperbolic cosine
+<br><span class="button">CPXMAT?</span><br> Tests whether the object in the X register is a complex matrix.
+<br><span class="button">CPXRES</span><br>Complex-result enable
+<br><span class="button">CPX?</span><br>If the X-register contains a complex number, executes the next program line; if the X-register does not contain a complex number, skips the next program line.
+<br><span class="button">CROSS</span><br>Cross product
+<br><span class="button">CSLD?</span><br>"Caller's Stack Lift Disabled?" Tests whether the 'stack lift disable' flag (30) was set when the latest XEQ was performed. This can be used when writing functions that return values on the stack, so they exhibit RCL-like behavior when called after CLX or ENTER.
+<br><span class="button">CUSTOM</span><br>CUSTOM menu
+<br><span class="button">C→N and N→C</span><br>Convert character to number or number to character, like ATOX and XTOA.
+
+<h2 id="D">------- D -------</h2>
+
+<span class="button">DATE</span><br> Returns the current date to the X register
+<br><span class="button">DATE+</span><br> Takes a date from the Y register, and adds a number of days from the X register.
+<br><span class="button">DDAYS</span><br> Calculates the number of days between the date in the Y register and the date in the X register. If the date in the Y register is earlier, then the result will be positive.
+<br><span class="button">DECM</span><br>Decimal mode
+<br><span class="button">DEG</span><br>Degrees mode
+<br><span class="button">DEL</span><br>Delete program lines. In Program-entry mode only: From current program pointer position deletes the specified number of lines (not programmable).
+<br><span class="button">DELAY</span><br>Printer delay time
+<br><span class="button">DELR</span><br>Delete matrix row. In Matrix-Editor: Deletes the current row.
+<br><span class="button">DEPTH</span><br>[Big Stack] Returns the current stack depth.
+<br><span class="button">DET</span><br>Determinant
+<br><span class="button">DIM</span><br>Dimensions a matrix to x columns and y rows. If the matrix does not exist, DIM creates it.
+<br><span class="button">DIM?</span><br>Dimensions of matrix in X
+<br><span class="button">DMY</span><br> Display, return, and accept dates in day/month/year format
+<br><span class="button">DOT</span><br>Returns the dot product of two vectors (matrices or complex numbers).
+<br><span class="button">DOW</span><br>Calculates the day of the week for the date in the X register. Returns a number from 0 to 6, where 0 is Sunday, 1 is Monday, and so on. When this function is executed from the keyboard, the day is also displayed in a human-friendly format, i.e. MON for Monday, TUE for Tuesday, etc.
+<br><span class="button">DROP and DROPN n</span><br>[Big Stack] Drops level 1, or levels 1..n. In 4-level mode, the stack is replenished with zeroes from the top.
+<br><span class="button">DSE</span><br>Decrement, skip if (less than or) equal. Given ccccccc.fffii in a variable or register, decrements ccccccc by ii and skips the next program line if ccccccc is now ≤ fff.
+<br><span class="button">DUP and DUPN n</span><br>[Big Stack] Duplicates level 1, or levels 1..n. In 4-level mode, n must be 2 or less.
+
+<h2 id="E">------- E -------</h2>
+
+<span class="button">EDIT</span><br>Edit matrix in X-register
+<br><span class="button">EDITN</span><br>Edit named matrix
+<br><span class="button">END</span><br>End of a program
+<br><span class="button">ENG</span><br>Engineering display format
+<br><span class="button">ENTER</span><br>Separates two numbers keyed in sequentially.
+<br><span class="button">ERRMSG and ERRNO</span><br> These functions return the error message and error number, respectively, for the most recent error to be caught using flag 25. If the error number is outside of the range 1 through 8, the same range that is accepted by RTNERR, then ERRNO will return the error message instead, identical to what is returned by ERRMSG.
+<br><span class="button">EXITALL</span><br>Exit all menus
+<br><span class="button">EXPF</span><br>Curve-fitting model: exp.
+<br><span class="button">EXTEND</span><br> Adds the object in X to the string or list in Y and returns the combined string or list. If Y is a string, the contents of X will be converted to a string in the same way as ARCL. If Y is a list, X will be added to it unchanged. If X is a list, it will be added to Y element by element.
+<br><span class="button">E↑X</span><br>Natural exponential
+<br><span class="button">E↑X-1</span><br>Natural exponential for values of x which are close to zero. Returns E↑X-1, which provides a much higher accuracy in the fractional part of the result.
+
+<h2 id="F">------- F -------</h2>
+
+<span class="button">FC?</span><br>If the specified flag is clear, executes the next program line; if the flag is set, skips the next program line.
+<br><span class="button">FC?C</span><br>If the specified flag is clear, executes the next program line; if the flag is set, skips the next program line. Cleared after the test is complete. (This function can be used only with flags 00 through 35 and 81 through 99.)
+<br><span class="button">FCSTX</span><br>Forecast x given y (stat)
+<br><span class="button">FCSTY</span><br>Forecast y given x (stat)
+<br><span class="button">[FIND]</span><br> locates a specific value, searching the indexed matrix left to right and top to bottom. The function works as a conditional: when a program is running, the following instruction is executed if a match is found, and skipped if a match is not found; when executed interactively, the display shows "Yes" if a match is found and "No" if not. Also, if a match is found, I and J are set to point to it.
+<br>The indexed matrix may be real or complex, and the search value may be real, complex, or string; real or string values are only found in real matrices, and complex values are only found in complex matrices; in other words, 5 is not considered equal to 5 + 0i -- mathematically speaking this is wrong, but on the other hand it is consistent with the behavior of the X=Y? and X≠Y? functions.
+<br><span class="button">FIX</span><br>Fixed dec. display format
+<br><span class="button">FMA</span><br> Fused Multiply-Add. Calculates Z*Y+X using the underlying platform's native FMA function, as provided by the floating-point hardware or library.
+<br><span class="button">FP</span><br>Return fractional part
+<br><span class="button">FRNM</span><br>Frobenius norm of X matrix
+<br><span class="button">FS?</span><br>If the specified flag is set, executes the next program line; if the flag is clear, skips the next program line.
+<br><span class="button">FS?C</span><br>If the specified flag is set, executes the next program line; if the flag is clear, skips the next program line. Clears the flag after the test is complete. (This function can be used only with flags 00 through 35 and 81 through 99.)
+<br><span class="button">FUNC</span><br> Prepare user-defined function. Save the contents of the stack and LASTx; when the function returns, this saved data will be used to restore the stack such that it looks as if a built-in function has executed. FUNC takes a two-digit numeric parameter. Each digit can be from 0 to 4. The first digit indicates the number of parameters consumed by the user-defined function, and the second digit indicates the number of values returned.
+
+<h2 id="G">------- G -------</h2>
+
+<span class="button">GAMMA</span><br>Gamma function
+<br><span class="button">GETKEY</span><br>Put next key number to X-reg. The calculator waits for you to press a key. When you do, the key number is returned to the X-register.
+<br><span class="button">GETKEY1</span><br> This function works like the regular GETKEY, except it does not halt program execution when EXIT or Shift-EXIT are pressed, allowing programs to implement custom behaviors for those keys. GETKEY1 does halt on R/S, like GETKEY.
+<br><span class="button">GETKEYA</span><br> This function works like the regular GETKEY, except it does not wait for a keystroke if the keyboard buffer is empty, but returns 0 immediately in that case.
+<br><span class="button">GETM</span><br>Get matrix. Copies a submatrix into the X-register from the indexed matrix.
+<br><span class="button">GETMI, PUTMI, GETLI, PUTLI</span><br>These functions allow direct access to matrix and list elements, that is, without needing to use INDEX and RCLEL/STOEL. All four functions take the matrix or list to be accessed as the argument, e.g. GETMI "MAT", PUTMI IND 00, PUTLI ST Z. The other parameters are taken from the stack, as follows:
+<br>
+GETMI: Expects a row index in Y and a column index in X; pushes the indexed item onto the stack.
+<br>
+PUTMI: Expects a row index in Z, a column index in Y, and an item in X, and stores the item at the specified indices.
+<br>
+GETLI: Expect an index in X; pushes the indexed item onto the stack.
+<br>
+PUTLI: Expects an index in Y and an item in X, and stores the item at the specified index.
+<br>
+Note that none of these functions remove their arguments from the stack. That is a deliberate design decision, intended to make read-modify-write interactions easy to code. 
+<br><span class="button">GRAD</span><br>Grads angular mode
+<br><span class="button">GROW</span><br>Selects Grow mode. Executing → or J+ causes the matrix to grow by one new row if the index pointers are at the last (lower-right) element in the matrix.
+<br><span class="button">GOTO</span><br>Go to label. From the keyboard, moves the program pointer to the specified label. In a running program, causes the program to branch to the specified label.
+
+<h2 id="H">------- H -------</h2>
+
+<span class="button">HEAD</span><br> Removes and returns the first character or element from the string or list named by the function's parameter. If the string or list is empty, skip the next instruction.
+<br><span class="button">HEXM</span><br>Hexadecimal mode
+<br><span class="button">HMS+</span><br>Add x and y using H.MMSSss
+<br><span class="button">HMS-</span><br>Subtract x from y H.MMSSss
+
+<h2 id="I">------- I -------</h2>
+
+<span class="button">I+</span><br>Increments the row pointer in the indexed matrix.
+<br><span class="button">I-</span><br>Decrements the row pointer in the indexed matrix.
+<br><span class="button">IDENT</span><br>This returns the version of Free42 core used in aabbccdd format, with 3.1.12b being formatted as 3011202, for example.
+<br><span class="button">INDEX</span><br>Indexes a named matrix.
+<br><span class="button">INPUT</span><br>Recalls a register or variable to the X-register, displays the name of the register or variable along with the contents of the X-register, and halts program execution; pressing [R/S] stores x into the register or variable. (Used only in programs.)
+<br><span class="button">INSR</span><br>Insert row. In Matrix-Editor: A new row is inserted at the current position.
+<br><span class="button">INTEG</span><br>Integrate
+<br><span class="button">INVRT</span><br>Invert matrix in X-register
+<br><span class="button">IP</span><br>Return integer part
+<br><span class="button">ISG</span><br>Increment, skip if greater. Given ccccccc.fffii in a variable or register, increments cccccce by ii and skips the next program line if ccccccc is now > fff.
+
+<h2 id="J">------- J -------</h2>
+
+<span class="button">J+</span><br>Increments the column pointer in the indexed matrix.
+<br><span class="button">J-</span><br>Decrements the column pointer in the indexed matrix.
+
+<h2 id="K">------- K -------</h2>
+
+<span class="button">KEYASN</span><br>Key-assignments mode for the CUSTOM menu.
+<br><span class="button">KEYG</span><br>On menu key, go to. Defines the label to be branched to when a particular menu key is pressed.
+<br><span class="button">KEYX</span><br>On menu key, execute. Defines the label to be executed (as a subroutine) when a particular menu key is pressed.
+
+<h2 id="L">------- L -------</h2>
+
+<span class="button">LASTO</span><br>Relates to LSTO like ASTO relates to STO.
+<br><span class="button">LASTX</span><br>Last x
+<br><span class="button">LBL</span><br>Label
+<br><span class="button">LCLBL</span><br>Selects Local label mode for the CUSTOM menu.
+<br><span class="button">LCLV</span><br>CLV for local variables. LCLV only deletes local variables that were created at the current RTN level, making it safe to use without the risk of deleting local variables from a lower stack level, or global variables. If a local variable with the given name does not exist at the current RTN level, LCLV does nothing, and does not raise an error.
+<br><span class="button">LENGTH</span><br> Returns the length of the string or list in X.
+<br><span class="button">LINF</span><br>Linear ﬁt model
+<br><span class="button">LINΣ</span><br>Selects Linear statistics mode, which uses six summation coefficients.
+<br><span class="button">LIST</span><br>Prints a portion of a program listing. (Not programmable.)
+<br><span class="button">LIST?</span><br> Tests whether the object in X is a list.
+<br><span class="button">LIST→</span><br> Performs the inverse of the →LIST operation.
+<br><span class="button">LN</span><br>Natural logarithm
+<br><span class="button">LN1+X</span><br>Natural logarithm for values close to zero. Returns ln(1+x), which provides a much higher accuracy in the fractional part of the result.
+<br><span class="button">LNSTK and L4STK</span><br>[Big Stack] Local N-level / 4-level Stack. These switch to N-level or 4-level stack mode, respectively, but in addition, they automatically restore the previous stack mode when the current function returns. Further, L4STK saves levels 5 and up in a hidden list, and also restores them when the previous stack mode is restored. (The non-local 4STK function simply discards levels 5 and up.) All of these functions are no-ops when the selected stack mode is already active.
+<br><span class="button">LOCK and UNLOCK</span><br>Program locking. When you perform LOCK, the current program is protected against editing. This is indicated by the current line indicator changing from a black triangle to a gray one. You can always make the program editable again later by performing UNLOCK. This feature is meant purely to prevent accidental editing, not to make a program permanently unmodifiable.
+<br>LOCK and UNLOCK must be executed in PRGM mode. They affect only the current program, so if you want to lock or unlock multiple programs, you have to do them one at a time.
+<br><span class="button">LOG</span><br>Common logarithm
+<br><span class="button">LOGF</span><br>Logarithmic ﬁt
+<br><span class="button">LSTO</span><br>Can be used to create local variables. These are variables that exist only for the duration of the current subroutine, and are automatically deleted when it returns.
+<br><span class="button">LXASTO</span><br>See XASTO
+
+<h2 id="M">------- M -------</h2>
+
+<span class="button">[MIN]</span><br>Finds the lowest element of the current column, starting at the current row, of the indexed matrix, and returns the element to X and the row where it was found to Y;
+<br><span class="button">MAN</span><br>Manual printing
+<br><span class="button">MAT?</span><br>Matrix test. If the X-register contains a matrix, executes the next program line; if the X-register does not contain a matrix, skips the next program line.
+<br><span class="button">[MAX]</span><br>Is like [MIN] except it finds the highest element; if the minimum or maximum is not unique (it is found in more than one row), the highest matching row is returned. [MIN] and [MAX] require the indexed matrix to be a real matrix, and they do not allow string elements in the column being searched.
+<br><span class="button">MEAN</span><br>Arithmetic mean (average)
+<br><span class="button">MENU</span><br>Programmable MENU
+<br><span class="button">MDY</span><br>Display, return, and accept dates in month/day/year format
+<br><span class="button">Mixed</span><br>See CAPS.
+<br><span class="button">MOD</span><br>Modulo. Returns the remainder for y/x.
+<br><span class="button">MVAR</span><br>Declares a menu variable.
+
+<h2 id="N">------- N -------</h2>
+
+<span class="button">N!</span><br>Factorial
+<br><span class="button">NEWLIST</span><br> Returns a new empty list.
+<br><span class="button">NEWSTR</span><br> Returns a new empty string. Equivalent to XSTR "".
+<br><span class="button">NEWMAT</span><br>New matrix. Creates a (y*x) matrix in the X-register.
+<br><span class="button">NN→S</span><br>NN→S works like N→S, except it works as if it's always in ALL mode, and it converts the number with the calculator's full precision — that is, without limiting the mantissa to 12 digits.
+<br><span class="button">NOP</span><br>No Operation. Can be used as a filler when ISG is used in a way where it will always skip the next instruction, like when using it as a counter with no upper limit.
+<br><span class="button">NORM</span><br>Normal printing
+<br><span class="button">NOT</span><br>Logical NOT
+<br><span class="button">NSTK</span><br>[Big Stack] N-level Stack. Turns on big stack mode.
+<br><span class="button">N→C</span><br>See C→N.
+<br><span class="button">N→S</span><br>See S→N.
+<br><span class="button">NN→S</span><br>NN→S works like N→S, except it works as if it's always in ALL mode, and it converts the number with the calculator's full precision — that is, without limiting the mantissa to 12 digits.
+
+<h2 id="O">------- O -------</h2>
+
+<span class="button">OCTM</span><br>Octal mode
+<br><span class="button">OFF</span><br>Turns the calculator off (programmable).
+<br><span class="button">OLD</span><br>Recalls the current element from the indexed matrix. (Equivalent to RCLEL.)
+<br><span class="button">ON</span><br>Continuous on. Prevents the calculator from automatically turning off after ten minutes of inactivity.
+<br><span class="button">OR</span><br>Logical OR
+
+<h2 id="P">------- P -------</h2>
+
+<span class="button">PCOMPLX and RCOMPLX</span><br> These functions work like COMPLEX, except PCOMPLX always works in polar mode, and RCOMPLX always works in rectangular mode, regardless of the RECT/POLAR mode setting (flag 73) that is currently in effect. This can be useful when complex constants need to be embedded in programs, allowing such code to work correctly in either mode.
+<br><span class="button">PERM</span><br>Permutations of y items taken x at a time. Returns y!/(y — x)! .
+<br><span class="button">PGMINT</span><br>Program to integrate
+<br><span class="button">PGMMENU</span><br> PGM Menu. Presents a menu of all global labels that have MVAR instructions. When the user makes a selection, the label name is placed in the ALPHA register, and program execution is resumed, similar to the way VARMENU handles a selection. This function allows programs to implement behavior similar to the top-level SOLVER and ∫f(x) menus.
+<br><span class="button">PGMSLV</span><br>Program to solve
+<br><span class="button">PGMVAR</span><br>Print MVAR variables. This prints all the variables associated with the given LBL through MVAR declarations, in other words, the contents of the VARMENU for that label.
+<br><span class="button">PI</span><br>Mathematical constant pi (= 3.14159...)
+<br><span class="button">PICK n and UNPICK n</span><br>[Big Stack] Gets the object from level n, or puts an object into level n. Note that UNPICK consumes the contents of level 1, unlike STO, and n refers to the stack level number after X has been dropped. The effect is that you can modify an object at level n by doing PICK n, &lt;modify the object&gt;, UNPICK n, without having to add 1 to the level number for UNPICK. Also note that this is similar to the behavior of PICK and UNPICK in RPL.
+<br><span class="button">PIXEL</span><br>Turns on a single pixel (dot) in the display. The (X,Y)-location of the pixel is given by the numbers in the X-and Y-registers. Negative values define lines.
+<br><span class="button">POLAR</span><br>Polar mode
+<br><span class="button">POS</span><br> Finds the first occurrence of the string or list X in Y. Or with three parameters: find the first occurrence of string or list X in Z, starting the search from position Y.
+<br><span class="button">POSA</span><br>Position in Alpha. Searches the Alpha register for the target specified in the X-register. If found, returns the character position; if not found, returns -1.
+<br><span class="button">PRA</span><br>Print alpha
+<br><span class="button">PRLCD</span><br>Print LCD
+<br><span class="button">PRMVAR</span><br> Print MVAR variables. This prints all the variables associated with the given LBL through MVAR declarations, in other words, the contents of the VARMENU for that label.
+<br><span class="button">PROFF</span><br>Printing off
+<br><span class="button">PROMPT</span><br>Displays the Alpha register and halts program execution.
+<br><span class="button">PRON</span><br>Printing on
+<br><span class="button">PRP</span><br>Print program
+<br><span class="button">PRREG</span><br>Prints the numbered registers.
+<br><span class="button">PRSTK</span><br>Print stack
+<br><span class="button">PRUSR</span><br>Print user vars and labels
+<br><span class="button">PRV</span><br>Print variable
+<br><span class="button">PRX</span><br>Print X-register
+<br><span class="button">PRΣ</span><br>Print summation registers
+<br><span class="button">PSE</span><br>Pauses program execution for about 1 second.
+<br><span class="button">PUTLI, PUTMI</span><br>See GETMI
+<br><span class="button">PUTM</span><br>Put matrix. Stores the matrix in the X-register into the indexed matrix beginning at the current element.
+<br><span class="button">PWRF</span><br>Power ﬁt
+
+<h2 id="Q">------- Q -------</h2>
+
+<span class="button">QUIET</span><br>Quiet mode. Toggles flag 26 to disable/enable the beeper. (Not programmable.)
+
+<h2 id="R">------- R -------</h2>
+
+<span class="button">RAD</span><br>Radians mode
+<br><span class="button">RAN</span><br>Returns a random number (0 ≤ x < 1).
+<br><span class="button">RCL</span><br>Recalls data into the X-register.
+<br><span class="button">RCL+</span><br>Recall addition. Recalls data and adds it to the contents of the X-register.
+<br><span class="button">RCL-</span><br>Recall subtraction. Recalls data and subtracts it from the contents of the X-register.
+<br><span class="button">RCL×</span><br>Recall multiplication. Recalls data and multiplies it by the contents of the X-register.
+<br><span class="button">RCL÷</span><br>Recall division. Recalls data and divides it into the contents of the X-register.
+<br><span class="button">RCLEL</span><br>Recall element. Recalls the current matrix element from the indexed matrix.
+<br><span class="button">RCLFLAG</span><br> Gets the state of all flags and returns them as a complex number. The real part of this number contains flags 0 through 49, and the imaginary part contains flags 50 through 99, encoded as binary integers with the least significant bits corresponding to the lowest-numbered flags.
+<br><span class="button">RCLIJ</span><br>Recall IJ pointers
+<br><span class="button">RCOMPLX</span><br>See PCOMPLX
+<br><span class="button">RDX,</span><br>Radix comma
+<br><span class="button">RDX.</span><br>Radix period
+<br><span class="button">REALRES</span><br>Real-results only
+<br><span class="button">REAL?</span><br>Real test
+<br><span class="button">RECT</span><br>Rectangular mode
+<br><span class="button">REV</span><br> Reverse the string or list in X.
+<br><span class="button">RND</span><br> Rounds the number in the X-register using the current display format.
+<br><span class="button">RNRM</span><br>Row norm
+<br><span class="button">ROTXY</span><br>Rotates the 36-bit number in the Y-register by x bits.
+<br><span class="button">RSUM</span><br>Row sum
+<br><span class="button">RTN</span><br>Return. In a running program, branches the program pointer back to the line following the most recent XEQ instruction. If there is no matching XEQ instruction, program execution halts. From the keyboard, RTN moves the program pointer to line 00 of the current program.
+<br><span class="button">RTNERR n</span><br>Return Error from function. Raises an error based on the parameter n, as follows:
+0: No Error; 1: Alpha Data Is Invalid; 2: Out of Range; 3: Divide by 0; 4: Invalid Type; 5: Invalid Data; 6:  Nonexistent; 7: Dimension Error; 8: Too Few Arguments. Execution is halted on the XEQ that called the function, unless flag 25 was set, in which case flag 25 is cleared and execution continues. If the stack was saved using FUNC, this restores the stack to its initial state. Also accepts a string as error message.
+<br><span class="button">RTNNO</span><br> Return from conditional function. To be used by functions that act as conditionals. RTNNO causes the line after the calling XEQ to be skipped, or, if the function was called from the keyboard, it will display the message "No", like a built-in conditional.
+<br><span class="button">RTNYES</span><br> Return from conditional function. To be used by functions that act as conditionals. RTNYES is like RTN, except if the function was called from the keyboard, it will display the message "Yes", like a built-in conditional.
+<br><span class="button">R&lt;&gt;R</span><br>Row swap row. Swaps the elements in rows x and y in the indexed matrix.
+<br><span class="button">R↑</span><br>Roll up
+<br><span class="button">R↓</span><br>Roll down
+<br><span class="button">R↓N n and R↑N n</span><br>[Big Stack] Rolls levels 1..n down or up. Note that the standard R↓ and R↑ are equivalent to R↓N depth and R↑N depth.
+
+<h2 id="S">------- S -------</h2>
+
+<span class="button">SCI</span><br>Scientiﬁc notation
+<br><span class="button">SDEV</span><br>Standard deviation. Returns s_x, and s_y, using the current statistical data.
+<br><span class="button">SEED</span><br>Seed (for RAN)
+<br><span class="button">SF</span><br>Set ﬂag
+<br><span class="button">SIGN</span><br>Sign. Returns 1 for x ≥ 0, —1 for x &lt; 0, and 0 for non-numbers. Returns the unit vector of a complex number.
+<br><span class="button">SIN</span><br>Sine
+<br><span class="button">SINH</span><br>Hyperbolic sine
+<br><span class="button">SIZE</span><br>Sets the number of storage registers.
+<br><span class="button">SKIP</span><br> Skips the next line, like a test that always tests false. This can be used to invert the sense of tests that have no convenient inverse; for example: REAL? SKIP GTO 42 will jump to LBL 42 if the object in X is not a real number.
+<br><span class="button">SLOPE</span><br>Returns the slope of the linear transformation of the current curve-fitting model.
+<br><span class="button">SOLVE</span><br>Solve for variable
+<br><span class="button">SQRT</span><br>Square root
+<br><span class="button">SST</span><br>Single step. Moves the program pointer to the next program line. (Not programmable.)
+<br><span class="button">SST↓</span><br>Step Into: Executes one line of code, and if the line in question is a function call, the next line to be executed will be the first line of the function being called. That is, you are Stepping Into the function;
+<br><span class="button">SST→</span><br>Step Over: Executes one line of code, and if that line is a function call, it is executed in that one step. You are not Stepping Into the function; rather, you are Stepping Over it.
+<br><span class="button">SST↑</span><br>Step Out: Starts program execution, continuing until just after the end of the current function. You are Stepping Out of the function.
+<br><span class="button">STO</span><br>Stores a copy of x into a destination register or variable.
+<br><span class="button">STO+</span><br>Store addition. Adds x to an existing register or variable.
+<br><span class="button">STO-</span><br>Store subtraction. Subtracts x from an existing register or variable.
+<br><span class="button">STO×</span><br>Store multiplication. Multiplies an existing register or variable by x.
+<br><span class="button">STO÷</span><br>Store division. Divides an existing register or variable by x.
+<br><span class="button">STOEL</span><br>Store element. Stores a copy of x into the current element of the indexed matrix.
+<br><span class="button">STOFLAG</span><br> Restores the state of all flags that were retrieved using a previous RCLFLAG. Note that this does not affect the following flags: 27 (CUSTOM), 44 (Continuous On), 45 (Solving), 46 (Integrating), 47 (Variable Menu), 48 (ALPHA mode), 49 (Low Battery), 53 (INPUT), 65 (Matrix Editor), and 75 (Programmable Menu).
+You can also choose to restore only a range of flags. With the saved flags in the Y register, and a number bb.ee in X, only flags numbered bb through ee are restored.
+<br><span class="button">STOIJ</span><br>Store IJ pointers
+<br><span class="button">STOP</span><br>Stop program
+<br><span class="button">STRACE</span><br> Stack Trace mode. This turns on a new print mode, which is a variation on TRACE mode, printing the entire stack instead of just X. This can be a valuable debugging tool, but it generates large amounts of output!
+<br><span class="button">STR?</span><br>String test
+<br><span class="button">SUBSTR</span><br> From the string or list in Z, gets the substring/sublist starting at index Y and ending at index X. If X and/or Y are negative, they are counts from the end, rather than the beginning. The very end of the string or list can be specified by leaving off the 'end' parameter, i.e. by having the string or list in Y and the starting index in X.
+<br><span class="button">SUM</span><br>Recall Σx and Σy
+<br><span class="button">S→N and N→S</span><br> Convert string to number or number to string, like ANUM and ARCL.
+
+<h2 id="T">------- T -------</h2>
+
+<span class="button">TAN</span><br>Tangent
+<br><span class="button">TANH</span><br>Hyperbolic tangent
+<br><span class="button">TIME</span><br> Returns the current time in the X register
+<br><span class="button">TONE</span><br>Tone (0-9)
+<br><span class="button">TRACE</span><br>Trace printing
+<br><span class="button">TRANS</span><br>Transpose matrix
+<br><span class="button">TYPE?</span><br> Returns an integer, representing the type of the object in the X register. The numbers correspond to object types as follows: 1: Real Number; 2: Complex Number; 3: Real Matrix; 4: Complex Matrix; 5: String; 6: List.
+
+
+<h2 id="U">------- U -------</h2>
+
+<span class="button">UVEC</span><br>Unit vector. Returns the unit vector for the matrix or complex number in the X-register. That is, each element in the vector is adjusted so that the magnitude (Frobenius norm) is equal to 1.
+<br><span class="button">UNPICK n</span><br> See PICK n
+
+<h2 id="V">------- V -------</h2>
+
+<span class="button">VARMENU</span><br>Variable menu
+<br><span class="button">VARMNU1</span><br>Modified version of VARMENU, with two differences: You can select a variable without having to assign any values first, so you don't have to press the menu key twice if all you want to do is make a selection; and also, it catches EXIT, clearing the ALPHA register and resuming program execution when it is pressed.
+<br><span class="button">VIEW</span><br>Views the contents of a register or variable.
+
+<h2 id="W">------- W -------</h2>
+
+<span class="button">WMEAN</span><br>Weighted mean. Returns the mean of x-values weighted by the y-values: Σxy + Σy.
+<br><span class="button">WRAP</span><br>Selects Wrap mode, which prevents the indexed matrix from growing.
+<br><span class="button">WSIZE</span><br> (BASE) Sets the word size to the number in the X register, which must be between 1 and 64.
+<br><span class="button">WSIZE?</span><br> Returns the current word size.
+
+<h2 id="X">------- X -------</h2>
+
+<span class="button">XASTO and LXASTO</span><br> Like ASTO and LASTO, but the entire ALPHA register, not just the first 6 characters.
+<br><span class="button">X&lt;&gt;</span><br>Swaps the contents of the X-register with another register or variable.
+<br><span class="button">X&lt;&gt;F</span><br>Exchanges flags 0-7 with the X register. The flags are encoded as a binary integer between 0 and 255, with the least significant bits corresponding to the lowest-numbered flags.
+<br><span class="button">X&lt;&gt;Y</span><br>x exchange y
+<br><span class="button">XEQ</span><br>Execute - XEQ instructions are subroutine calls. A subroutine call is not complete until a RTN or END has been executed to return program execution to the line following the XEQ instruction.
+<br><span class="button">XOR</span><br>Exclusive OR
+<br><span class="button">XSTR</span><br> Create a string directly in the X register, without needing the ALPHA register and without the six-character limit of ASTO.
+<br><span class="button">XTOA</span><br>X to alpha
+<br><span class="button">XVIEW</span><br>This function works just like AVIEW, except it takes the text from the X register rather than the ALPHA register, so it doesn't have the 44-character length restriction of AVIEW.
+XVIEW requires the X register to contain a string. This is not intended as a replacement for VIEW ST X; it's meant to make it possible to display longer messages than what AVIEW can handle.
+<br><span class="button">X<sup>2</sup></span><br>Square, x<sup>2</sup>
+<br><span class="button">X=? X≠? X<? X>? X≤? X≥?</span><br> Compare X to any argument. Similar to X=Y?, X≠Y?, etc., except these functions allow you to compare X to any register or variable, not just to Y.
+<br><span class="button">X2LINE</span><br>See A2LINE
+
+<h2 id="Y">------- Y -------</h2>
+
+<span class="button">YINT</span><br>Y-intercept
+<br><span class="button">Y<sup>X</sup></span><br>Power, y<sup>x</sup>
+<br><span class="button">YMD</span><br> Display, return, and accept dates in year/month/day format
+
+<h2 id="Z-etc">----- Z-etc -----</h2>
+
+<span class="button">0=? 0≠? 0<? 0>? 0≤? 0≥?</span><br> Compare any argument to 0. Similar to X=0?, X≠0?, etc., except these functions allow you to compare any register or variable to 0, not just X.
+<br><span class="button">1/X</span><br>Reciprocal
+<br><span class="button">10<sup>X</sup></span><br>Common exponential, 10x
+<br><span class="button">+</span><br>Add
+<br><span class="button">-</span><br>Subtract
+<br><span class="button">×</span><br>Multiply
+<br><span class="button">÷</span><br>Divide
+<br><span class="button">+/-</span><br>Change sign
+<br><span class="button">Σ+</span><br>Summation plus. Accumulates a pair of x- and y-values into the summation registers.
+<br><span class="button">Σ-</span><br>Summation minus. Subtracts a pair of x- and y-values from the summation registers.
+<br><span class="button">ΣREG</span><br>Summation registers. Defines which storage register begins the block of summation registers.
+<br><span class="button">ΣREG?</span><br>Returns the register number of the first summation register.
+<br><span class="button">4STK</span><br>[Big Stack] 4-level Stack. Turns off big stack mode, returning to the TZYX stack.
+<br><span class="button">→DEC</span><br>To decimal
+<br><span class="button">→DEG</span><br>To degrees
+<br><span class="button">→HMS</span><br>To hours-minutes-seconds
+<br><span class="button">→HR</span><br>To decimal hours
+<br><span class="button">→LIST</span><br> Creates a list from objects on the stack. The number of objects is taken from the X register (level 1), the objects themselves are taken from the levels above X. They are stored in the list in the order in which they were pushed, so the objects from the highest levels come first in the list.
+<br><span class="button">→OCT</span><br>To octal
+<br><span class="button">→POL</span><br>To polar
+<br><span class="button">→RAD</span><br>To radians
+<br><span class="button">→REC</span><br>To rectangular
+<br><span class="button">←</span><br>Moves left one element in the indexed matrix.
+<br><span class="button">↑</span><br>Moves up one element in the indexed matrix.
+<br><span class="button">↓</span><br>Moves down one element in the indexed matrix.
+<br><span class="button">→</span><br>Moves right one element in the indexed matrix.
+<br><span class="button">%</span><br>Percent. Returns (x*y)/100. (Leaves the y-value in the Y-register.)
+<br><span class="button">%CH</span><br>Percent change. Returns (x—y)(100/y).
+</body></html>

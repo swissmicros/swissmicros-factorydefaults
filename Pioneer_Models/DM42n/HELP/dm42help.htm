@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Quick Reference Guide</title>
+		<style>
+			body{font-family: sans-serif;}
+			h1 {font-weight: bold; color: #000000;}
+			a {font-weight: bold; }
+			td {vertical-align: top; padding-right: 5em;}
+			td.n {display: none;}
+			.button {background: #444444;color: #FFFFFF;font-family: monospace;padding: 1px;}
+			.lcd {background: #CCCCCC;font-family: VT323, monospace;font-size: 18px; }
+		</style>
+	</head>
+	<body>
+		<h1 id="Top">DM42 Quick Reference Guide</h1>
+		<ul>
+			<li>(c) 2019-2025 SwissMicros GmbH, inspired by the HP-42S Quick Reference Guide (c) Copyright 1988 Dex Smith</li>
+			<li>v3.5.5 (with Free42 3.2.8 Extensions)</li>
+		</ul>
+		Version 2025-04-22<br>
+		Check http://technical.swissmicros.com/dm42/fat/HELP for updates<br>
+
+		Use following link to open the <a href="dm42functs.htm">DM42 functions list</a> help file.
+		
+		<br>
+		<h3>Navigation</h3>
+		<ul>
+			<li>Press <span class="button">÷</span> to move one page backward</li>
+			<li>Press <span class="button">×</span> to move one page forward</li>
+			<li>Press <span class="button">-</span> to move one line backward</li>
+			<li>Press <span class="button">+</span> to move one line forward</li>
+			<li>Press <span class="button">▲</span> to select previous link</li>
+			<li>Press <span class="button">▼</span> to select next link</li>
+			<li>Press <span class="button">ENTER</span> to jump to selected link</li>
+			<li>Press <span class="button">EXIT</span> or <span class="button">F1</span> to exit</li>
+			<li>Press <span class="button">F2</span> to jump to <a href="#Home">Contents</a></li>
+			<li>Press <span class="button">F3</span> to open help file selection dialog</li>
+		</ul>
+		<h3>Numpad-like navigation keys</h3>
+		<ul>
+			<li><span class="button">2</span>/<span class="button">8</span> - single line down/up</li>
+			<li><span class="button">3</span>/<span class="button">9</span> - page down/up</li>
+			<li><span class="button">4</span>/<span class="button">6</span> - prev/next link (same as arrows)</li>
+			<li><span class="button">5</span>     - follow the link (same as <span class="button">ENTER</span>)</li>
+			<li><span class="button">7</span>     - go to the <a href="#Home">Contents</a> (same as <span class="button">F2</span>)</li>
+		</ul>
+
+		<h3>Symbols used in this guide</h3>
+		<ul>
+			<li>A <span class="lcd">123</span> represents a soft button or anything on the LCD</li>
+			<li>A <span class="button">STO</span> represents a physical button</li>
+		</ul><br>
+		<h2 id="Home">Contents</h2>
+		<ul>
+			<li><a href="#Using_Menus">Menus</a></li>
+			<li><a href="#Memory">Storage</a></li>
+			<li><a href="#Data_Types">Data Types</a></li>
+			<li><a href="#Modes">Modes</a></li>
+			<li><a href="#Executing_Functions_Programs">Executing Functions &amp; Programs</a></li>
+			<li><a href="#Programming">Programming</a></li>
+			<li><a href="#Using_a_Variable_Menu">Using a Variable Menu</a></li>
+			<li><a href="#The_Solver">The Solver</a></li>
+			<li><a href="#Numerical_Integration">Numerical Integration</a></li>
+			<li><a href="#Matrix_Operations">Matrix Operations</a></li>
+			<li><a href="#Statistics">Statistics</a></li>
+			<li><a href="#Base_Conversions">Base Conversions</a></li>
+			<li><a href="#HP42_Functions">HP-42S Functions</a></li>
+			<li><a href="#Free42_Extensions">Free42 Extensions</a></li>
+			<li><a href="#HP-41_Functions">HP-41 Function Names</a></li>
+			<li><a href="#Using_the_ALPHA_Menu">Using the ALPHA Menu</a></li>
+			<li><a href="#Flags">Flags</a></li>
+			<li><a href="#Virtual_variables">Virtual variables</a></li>
+			<li><a href="#F_Buttons">F-Buttons</a></li>
+			<li><a href="#Screenshot">Screenshot</a></li>
+			<li><a href="#Setup_Menu">Setup Menu</a></li>
+			<li><a href="#About">About</a></li>
+		</ul>
+		<br>
+
+		<h2 id="Using_Menus">Menus</h2>
+		
+		DM42 calculator has far too many functions to assign a key to each one,
+so most of them are available in menus rather than directly on keys.<br>
+Each menu displays a row of labels at the bottom of the screen, one above
+each key in the top row of the keyboard.<br>
+A function within the menu is activated by pressing the key directly below it.
+If there are more than six functions in the menu then the <span class="lcd">▼▲</span> annunciator is displayed and the <span class="button">▼</span> and <span class="button">▲</span> keys allow you to scroll through the menu's pages. There are two kinds of menu:
+		<ul>
+			<li><a href="#Application_Menus">Application Menu</a></li>
+			<li><a href="#Function_Menus">Function Menu</a></li>	
+		</ul>
+
+		<br>
+		<h3 id="Application_Menus">Application Menu</h3>
+		There are five applications built into the DM42:
+		<ul>
+			<li><span class="button">BASE</span> <a href="#Base_Conversions">Base Conversions</a></li>
+			<li><span class="button">MATRIX</span> <a href="#Matrix_Operations">Matrix Operations</a></li>
+			<li><span class="button">SOLVER</span> <a href="#The_Solver">The Solver</a></li>
+			<li><span class="button">STAT</span> <a href="#Statistics">Statistics</a></li>
+			<li><span class="button">∫f(x)</span> <a href="#Numerical_Integration">Numerical Integration</a></li>
+		</ul><br>
+		When you enter an application and its menu opens, any other menus are 
+closed automatically. However, you can still open a function menu from 
+within the application and when you've finished with it, it will close 
+and reveal the application menu again.<br>
+
+		<br>
+		<h3 id="Function_Menus">Function Menu</h3>
+		<ul>
+		<li><span class="button">CATALOG</span> All <a href="#HP42_Functions">DM42 Functions</a></li>
+		<li><span class="button">CLEAR</span> Functions for clearing programs and variables</li>
+		<li><span class="button">CONVERT</span> Angle, time, and coordinate conversion functions</li>
+		<li><span class="button">CUSTOM</span> Displays custom menu</li>
+		<li><span class="button">DISP</span> <a href="#Display_Formats">Display Formats</a></li>
+		<li><span class="button">FLAGS</span> <a href="#Flags">Flags</a></li>
+		<li><span class="button">MODES</span> <a href="#Angles_Coordinates">Angles and Coordinates</a></li>
+		<li><span class="button">PGM.FCN</span> Functions useful in programs</li>
+		<li><span class="button">PRINT</span> Enable IR <a href="#Printing">Printing</a></li>
+		<li><span class="button">PROB</span> Combinatorics and probability functions</li>
+		</ul><br>
+		Unlike application menus, a Function menu closes as soon as you have 
+used one of the functions that it contains, with the exception of the <span class="button">CUSTOM</span>
+ menu, which remains open. Should you need to use more than one function
+ from a Function menu, you can instruct the DM42 to keep the menu open 
+by opening it twice in succession.<br>
+		<br>
+
+		<h2 id="Memory">Storage</h2>
+		<ul>
+			<li><a href="#The_Stack">The Stack</a></li>
+			<li><a href="#Storage_Registers">Storage Registers</a></li>	
+			<li><a href="#Variables">Variables</a></li>	
+			<li><a href="#Alpha_Register">The Alpha Register</a></li>	
+			<li><a href="#Flags">Flags (00-99)</a></li>	
+			<li><a href="#Available_Memory">Available Memory</a></li>	
+		</ul><br>
+
+		<h3 id="The_Stack">The Stack</h3>
+		The stack is the scratchpad that you use for performing calculations. 
+It stores and shows you intermediate results as you work through a 
+problem.<br>
+The four registers that make up the stack are known as X,Y,Z,T.
+Auxiliary register LASTx holds contents of X register used in most recent numeric function.
+Each of these registers can contain data of any <a href="#Data_Types">type</a>.
+		<br>
+
+		<br>
+		<h3 id="Storage_Registers">Storage Registers</h3>
+		Because of the ephemeral nature of the stack, data in its registers is
+ likely to be lost when a new calculation is started.<br>
+More permanent 
+storage can be achieved in the storage registers, of which there are 25 
+initially, numbered 00 to 24. This number can be altered with the SIZE 
+function in the <span class="button">MODES</span> menu.<br>
+		<span class="button">STO</span> <i>nn</i> STOres the contents of the X register into the storage register with the given number.<br>
+		<span class="button">RCL</span> <i>nn</i> ReCaLls the data from storage register <i>nn</i> into the stack.<br>
+		If SIZE has been used to define more than 100 storage registers then 
+registers numbered 100 and onwards can only be accessed using <a href="#Specifying_Function_Parameters">indirect addressing</a>.<br>
+		The <span class="button">STAT</span>istics application uses some of the storage registers for its internal housekeeping:<br>
+		<ul>
+			<li>R11 Σ x</li>
+			<li>R12 Σ x<sup>2</sup></li>
+			<li>R13 Σ y</li>
+			<li>R14 Σ y<sup>2</sup></li>
+			<li>R15 Σ xy</li>
+			<li>R16 n</li>
+		</ul>
+		If <span class="lcd">ALLΣ</span> mode is being used (as opposed to <span class="lcd">LINΣ</span> mode) then the following additional storage registers are used:
+		<ul>
+			<li>R17 Σ ln x</li>
+			<li>R18 Σ (ln x)<sup>2</sup></li>
+			<li>R19 Σ ln y</li>
+			<li>R20 Σ (ln y)<sup>2</sup></li>
+			<li>R21 Σ ln x ln y</li>
+			<li>R22 Σ x ln y</li>
+			<li>R23 Σ y ln x</li>
+		</ul>
+		The storage registers can be all real numbers or all complex numbers. See <a href="#Variables">Variables</a> for how to switch between the two.
+		<br>
+		
+		<br>
+		<h3 id="Variables">Variables</h3>
+		Rather than referring to stored data by a simple number (the number of
+ the storage register containing it), it is possible to create named 
+variables. Variables allow you to associate a meaningful name with the 
+data. Also, named variables can contain any <a href="#Data_Types">type of data</a>, not just real or complex numbers.<br>
+		E.g. suppose you have just calculated the volume of a shape. Store the 
+value currently in the X register representing this volume in a variable
+ named <i>VOL</i>:<br>
+		<span class="button">STO</span> <span class="button">ENTER</span> <span class="lcd">VOL</span> <span class="button">ENTER</span><br>
+		Variables can have names up to seven characters long.<br>
+		There is one system-reserved variable, <span class="lcd">REGS</span>. <span class="lcd">REGS</span> is a matrix containing the storage registers. <span class="lcd">REGS</span> can be a real matrix, in which case all of the storage registers, i.e. the elements of <span class="lcd">REGS</span>, are real numbers, or it can be a complex matrix, in which case all of the storage registers are complex numbers.<br>
+		To convert <span class="lcd">REGS</span> (or any other real matrix) to a complex matrix:<br>
+		0 <span class="button">ENTER</span> <span class="button">COMPLEX</span> <span class="button">STO</span> <span class="button">+</span> <span class="lcd">REGS</span><br>
+		To convert <span class="lcd">REGS</span> from a complex matrix back into a real matrix:<br>
+		<span class="button">RCL</span> <span class="lcd">REGS</span> <span class="button">COMPLEX</span> <span class="button">x&lt;&gt;y</span> <span class="button">STO</span> <span class="lcd">REGS</span><br>
+		
+		<br>
+		<h3 id="Alpha_Register">The Alpha Register</h3>
+		The alpha Register can store up to 44 characters of text, which equate to two lines of text on the original HP-42S.<br>
+
+		<br>
+		<h3 id="Available_Memory">Available Memory</h3>
+		The DM42 has about 70KB of system memory that your programs and variables can use. The <a href="#Storage_Registers">storage register</a> matrix <span class="lcd">REGS</span> uses some of this space.<br>
+		To find out how much memory your DM42 has available, open the <span class="button">CATALOG</span> menu and then press and hold <span class="lcd">MEM</span>.<br>
+		If you need more memory then use the <span class="lcd">CLP</span> (CLear Program) and <span class="lcd">CLV</span> (CLear Variable) functions from the <span class="button">CLEAR</span> menu to remove unnecessary programs and variables and thus free up additional memory.<br>
+		DO NOT DELETE THE <span class="lcd">REGS</span> VARIABLE! Remember, it holds your storage registers! If necessary you can reduce its size with the <span class="lcd">SIZE</span> command from the <span class="button">MODES</span> menu.<br>
+		
+		<br>
+		<h2 id="Data_Types">Data Types</h2>
+		<ul>
+			<li><a href="#Real_Numbers">Real Numbers</a></li>
+			<li><a href="#Complex_Numbers">Complex Numbers</a></li>
+			<li><a href="#Alpha_Strings">Alpha Strings</a></li>
+			<li><a href="#Matrices">Matrices</a></li>
+			<li><a href="#Lists">Lists</a></li>
+		</ul><br>
+		
+		<h3 id="Real_Numbers">Real Numbers</h3>
+		Real numbers cover integer and decimal numbers, positive or negative. The 
+range of numbers that the DM42 can handle is approximately 10<sup>-6143</sup> to 10<sup>6144</sup> with a precision of 34 digits.<br>
+		
+		<br>
+		<h3 id="Complex_Numbers">Complex Numbers</h3>
+		A complex number consists of two real numbers associated to form its real part and its imaginary part (<i>rectangular</i> coordinate mode).<br>
+		Complex numbers are always stored internally in rectangular form but can be displayed directly:<br>
+		<span class="lcd">0.2343 i1.4456</span><br>
+		or in <i>polar</i> coordinate mode with a magnitude and an angle:<br>
+		<span class="lcd">1.4645 ∡80.7937</span><br>
+		Both of the examples here represent the same complex number.<br>
+		To enter a complex number in rectangular mode:<br>
+		<i>real part</i> <span class="button">ENTER</span> <i>imaginary part</i> <span class="button">COMPLEX</span><br>
+		To enter a complex number in polar mode:<br>
+		<i>Magnitude</i> <span class="button">ENTER</span> <i>angle</i> <span class="button">COMPLEX</span><br>
+		The <span class="button">COMPLEX</span> function either combines real 
+numbers (or matrices) in the X and Y stack registers to form a complex 
+number (or matrix) in X, or it performs the opposite operation by 
+splitting the complex number (or matrix) in X into two real numbers (or 
+matrices) in X and Y.<br>
+The role of the real number (or matrix) taken from
+ X when combining X and Y or left in X when splitting the complex number
+ (or matrix) in X depends on the display mode, rectangular or polar, in 
+force when <span class="button">COMPLEX</span> is executed. If <i>rectangular</i> then X is/was the imaginary part. If <i>polar</i> then X is/was the angle.<br>
+		Complex numbers are displayed in polar mode normalised such that the 
+magnitude is always positive and the absolute value of the angle does 
+not exceed 180 degrees.<br>
+		
+		<br>
+		<h3 id="Alpha_Strings">Alpha Strings</h3>
+		The alpha register contains strings of text up to 44 characters (2 lines on the HP-42S) in length.<br>
+		Real variables and elements of real matrices (including <span class="lcd">REGS</span> )
+ can also contain strings of up to 6 characters in length. Basically, 
+you can store snippets of text anywhere you can store real numbers. 
+However, you cannot store two such snippets in a complex variable.<br>
+		With Free 42 it's possible to have strings with more than 6 or 44 characters. The related functions are in the function catalog: 
+		<span class="button">CATALOG</span> <span class="lcd">STR</span>.<br>
+		
+		<br>
+		<h3 id="Matrices">Matrices</h3>
+		Matrices can be one-dimensional or two-dimensional. A matrix can have 
+any number of rows and columns as long as there is enough memory in the 
+DM42 to store all of its individual elements.<br>
+		See <a href="#Matrix_Operations">Matrix Operations</a> for more details.<br>
+		
+		<br>
+		<h3 id="Lists">Lists</h3>
+		Lists are a new data type introduced by Free42, which is an ordered collection of objects of any type, including other lists. <br>
+		List functions are included with Free42 string functions in the function catalog: <span class="button">CATALOG</span> <span class="lcd">STR</span>.<br>
+
+		<br>
+		<h2 id="Modes">Modes</h2>
+		<ul>
+			<li><a href="#Angles_Coordinates">Angles and Coordinates</a></li>
+			<li><a href="#Other_Modes">Other Modes</a></li>
+			<li><a href="#Display_Formats">Display Formats</a></li>
+			<li><a href="#Printing">Printing</a></li>
+		</ul><br>
+
+		<h3 id="Angles_Coordinates">Angles and Coordinates</h3>
+		Press <span class="button">MODES</span><br>
+		The angle specifiers <span class="lcd">DEG</span>, <span class="lcd">RAD</span> and <span class="lcd">GRAD</span> tell the DM42 to use degrees, radians, and gradians respectively when displaying and interpreting angles.<br>
+		<span class="lcd">RECT</span> and <span class="lcd">POLAR</span> tell the DM42 to display and interpret complex numbers in rectangular and polar mode, respectively.<br>
+
+		<br>
+		<h3 id="Other_Modes">Other Modes</h3>
+		Press <span class="button">MODES</span> <span class="button">▼</span><br>
+		<span class="lcd">SIZE</span> resizes the <span class="lcd">REGS</span> matrix variable, thus defining the number of <a href="#Storage_Registers">storage registers</a> you can use.<br>
+		<span class="lcd">QUIET</span> switches off the internal buzzer and keeps the DM42 nice and.... quiet!<br>
+		<span class="lcd">CPXRES</span> allows the DM42 to return complex results when working on real numbers (e.g. square root of a negative number) 
+		while <span class="lcd">REALRES</span> ensures that only real numbers are returned. In this case, operations that would otherwise return a complex result trigger an <span class="lcd">Invalid Data</span> error. 
+		Operations given a complex number as an argument will return a complex number regardless of the <span class="lcd">CPXRES</span>/<span class="lcd">REALRES</span> setting.<br>
+		<span class="lcd">KEYASN</span> means that variables and programs assigned to the <span class="button">CUSTOM</span> menu with the <span class="button">ASSIGN</span> command will be shown 
+		in the <span class="button">CUSTOM</span> menu. If <span class="lcd">LCLBL</span> is selected then local alpha labels populate the <span class="button">CUSTOM</span> menu.<br>
+
+		<br>
+		<h3 id="Display_Formats">Display Formats</h3>
+		Press <span class="button">DISP</span><br>
+		<span class="lcd">FIX</span>, <span class="lcd">SCI</span> and <span class="lcd">ENG</span>
+ instruct the DM42 to display real numbers in fixed decimal, scientific 
+and engineering notation, respectively, with a set number of decimals.<br>
+		When <span class="lcd">ALL</span> is selected, numbers are displayed with up to 12 digits precision, which was the native precision of the HP-42S.<br>
+		Depending on where in the world you are, you will be used to using a 
+dot as the decimal separator and a comma for grouping digits three by 
+three before the decimal (e.g. <span class="lcd">1,234.56</span> ) or, as in most of Europe, a comma as the decimal separator and a dot for grouping digits before the decimal (e.g. <span class="lcd">1.234,56</span> ). <span class="lcd">RDX.</span> selects the dot as the decimal separator and <span class="lcd">RDX,</span> selects the comma.<br>
+
+		<br>
+		<h3 id="Printing">Printing</h3>
+		Press <span class="button">PRINT</span> <span class="button">▲</span><br>
+		<span class="lcd">PRON</span> and <span class="lcd">PROFF</span> enable and disable printing by setting or clearing respectively <a href="#Flags">flags</a> 21 and 55.<br>
+		<span class="lcd">MAN</span> leads to items being printed manually. <span class="lcd">NORM</span> leads to input and calculation results alone being printed automatically while <span class="lcd">TRACE</span> sends a trace of all operations to the printer.<br>
+		Additional modes are described under "Matrix Operations" and "Statistics."<br>
+		<br>
+
+		<h2 id="Executing_Functions_Programs">Executing Functions &amp; Programs</h2>
+		<ul>
+			<li><a href="#Short_Cuts">Quick access to programs and functions</a></li>
+			<li><a href="#Specifying_Function_Parameters">Addressing modes</a></li>
+		</ul><br>
+
+		Any function or program can be executed by pressing <span class="button">XEQ</span> and entering its name. If there is more than one program with the same name then when you attempt to <span class="button">XEQ</span> that program, the one closest to the permanent <span class="lcd">.END.</span> marker will be executed.<br>
+		Only the current program will be searched if the name that you give is that of a local label.<br>
+
+		<br>
+		<h3 id="Short_Cuts">Quick access to programs and functions</h3>
+		There are four ways to get at your programs and at the DM42's functions quickly:
+		<ul>
+			<li>You can <span class="button">ASSIGN</span> up to 18 names of programs or variables to the <span class="button">CUSTOM</span> menu. Pressing an item in the <span class="button">CUSTOM</span> menu is the same as executing it (<span class="button">XEQ</span> ) if it's a program or built in function or, if it is a variable, recalling it (<span class="button">RCL</span> ).</li>
+			<li>When you press the <span class="button">XEQ</span> button, the program catalog is automatically presented to you. Simply scroll through the catalog with the <span class="button">▲</span> and <span class="button">▼</span> keys if needed and select the program to run.</li>
+			<li>The Run/Stop Key <span class="button">R/S</span> starts running 
+the current program at the current line or stops a running program once 
+the instruction that it is working on has completed.</li>
+			<li>All of the built in functions of the DM42 are available in the Function Catalog that can be opened by pressing <span class="button">CATALOG</span> <span class="lcd">FCN</span> </li>
+		</ul><br>
+
+		<h3 id="Specifying_Function_Parameters">Addressing modes</h3>
+		Some functions require a parameter that tells them on what specific 
+item to operate. These functions accept one or more of the following
+ addressing modes:
+		<ul>
+			<li><b>Numeric</b>: these functions include <span class="button">RCL</span>, <span class="lcd">SF</span>, <span class="button">GTO</span>,
+ and others. They prompt you to enter a numerical value by displaying an
+ underscore for each digit that they are expecting. For example, if you 
+press <span class="button">SIZE</span>, the DM42 displays<br>
+			<span class="lcd">SIZE ____</span><br>prompting you to input four digits. You can always input fewer digits and terminate the input with <span class="button">ENTER</span> and the DM42 will assume that the missing digits are zeroes on the left.</li>
+			<li><b>Alpha</b>: some functions that accept numeric addressing also accept alpha addressing. An example of one such function is <span class="button">RCL</span>, which allows you to specify the number of a <a href="#Storage_Registers">storage register</a>
+ to recall or the (alpha) name of a variable. In many cases, the DM42 
+will show you a menu of alpha names that are valid for the instruction 
+that you are typing but if not, you can always use the <span class="button">ALPHA</span> menu to type it in yourself.</li>
+			<li><b>Stack</b>: because the stack registers can hold anything that a
+ storage register can, they can also be used in place of a storage 
+register. For example, to recall the contents of the T register into X 
+(trick to roll the stack upwards instead of downwards), do the 
+following:<br>
+			<span class="button">RCL</span> <span class="button">.</span> <span class="lcd">ST T</span></li>
+			<li><b>Indirect Addressing</b>: this is a technique that does not give the DM42 the parameter that it needs. Instead, it tells the DM42 <i>where</i> to find that parameter. For example, to execute the program whose name is stored in storage register 24, you would:
+			<span class="button">XEQ</span> <span class="button">.</span> 24<br>
+			Stack registers can also be used with indirect addressing. For 
+example, suppose that the name of the program that you want to execute 
+is not in R24 but in the X register of the stack. In this case you 
+would:<br>
+			<span class="button">XEQ</span> <span class="button">.</span> <span class="button">.</span> <span class="lcd">ST X</span></li>
+		</ul><br>
+
+		<h2 id="Programming">Programming</h2>
+		<ul>
+			<li><a href="#Program_Entry">Program-Entry</a></li>
+			<li><a href="#Labels">Labels</a></li>
+			<li><a href="#Do_If_True_Rule">The Do-lf-True Rule</a></li>
+			<li><a href="#Looping">Looping</a></li>
+		</ul><br>
+
+		<h3 id="Program_Entry">Program-Entry</h3>
+		<ul>
+			<li><span class="button">PRGM</span> enters or exits Program-entry mode</li>
+			<li><span class="button">GTO</span> <span class="button">.</span> <span class="button">.</span> moves to a new program space</li>
+			<li><span class="button">GTO</span> <span class="button">.</span> nnnn moves to line number nnnn</li>
+			<li><span class="button">←</span> deletes the current program line</li>
+			<li><span class="button">SST</span> moves to the next program line*</li>
+			<li><span class="button">BST</span> moves to the previous pgm line*</li>
+		</ul><br>
+		* Use <span class="button">▲</span> or <span class="button">▼</span> if no menu is displayed.<br>
+		<br>
+
+		<h3 id="Labels">Labels</h3>
+		A program label is simply a marker used to identify a program or a routine within a program.<br>
+		<b>Global labels</b> can be accessed from anywhere in memory (and 
+therefore should be unique). Global labels are distinguished from local 
+labels by quotation marks (such as <span class="lcd">LBL "SAMPLE"</span> ).<br>
+		<b>Local labels</b> can be accessed only within the current program 
+(and should be unique within the current program). There are two types 
+of local labels:<br>
+
+		<ul>
+			<li>Numeric (LBL 00 - LBL 99)</li>
+			<li>Alpha (<span class="lcd">LBL A</span> - <span class="lcd">LBL J</span> and <span class="lcd">LBL a</span> - <span class="lcd">LBL e</span> )</li>
+		</ul><br>
+
+		<h3 id="Do_If_True_Rule">The Do-lf-True Rule</h3>
+		The do-if-true rule determines how program lines are executed when a 
+conditional function is encountered. If the condition is "true," the 
+line immediately following the conditional is <i>executed</i>. If the condition is "false," the line following the conditional is <i>skipped.</i><br>
+		<br>
+
+		<h3 id="Looping">Looping</h3>
+		The ISG and DSE functions control looping. Each accesses a variable or register containing a control number in the form <i>ccccccc.fffii</i>; where <i>ccccccc</i> is the current counter value, and <i>fff</i> is the ﬁnal counter value, and <i>ii</i>
+ is the increment size (default is 1). Both ISG and DSE follow a 
+variation of the do-if-true rule: if the count is not complete, the line
+ following the instruction is executed (usually a branch to the top of 
+the loop).<br>
+For example, this program segment counts from 1 to 52 by 
+threes (executing the loop 18 times) and then beeps.<br>
+		<span class="lcd">17 1.05203</span><br>
+		<span class="lcd">18 STO "COUNT"</span><br>
+		<span class="lcd">19 LBL 01</span><br>
+		…<br>
+		<span class="lcd">23 ISG "COUNT"</span><br>
+		<span class="lcd">24 GTO 01</span><br>
+		<span class="lcd">25 BEEP</span><br>
+		<br>
+
+		<h2 id="Using_a_Variable_Menu">Using a Variable Menu</h2>
+		A variable menu may be displayed by the Solver or Integration 
+applications, or by the VARMENU function within a program. Each label in
+ the menu represents a variable. While the menu is displayed, you can:<br>
+		<ul>
+			<li><b>Store a value into a variable:</b><br>Key in the value and then press the menu key.</li>
+			<li><b>Recall the contents of a variable:</b><br>Press <span class="button">RCL</span> and then the menu key.</li>
+			<li><b>View the contents of a variable without recalling it:</b><br>Press (shift) and then hold the menu key down.</li>
+			<li><b>Select a variable:</b><br>Press the menu key without keying in
+ a number first. This action places the variable name in the alpha 
+register and continues execution.<br>(For the Solver, this is how you 
+select the unknown variable. For Integration, this is how you select the
+ variable of integration.)</li>
+		</ul>
+		You can select and use any function menu without exiting from the variable menu.<br>
+		<br>
+
+		<h2 id="The_Solver">The Solver</h2>
+		The Solver is a root finder that allows you to solve for an unknown 
+variable in an expression, given values for all the other variables. 
+Expressions are written as programs. There are three parts to a Solver 
+program:<br>
+		<ul>
+			<li>The program must begin with <b>a global label.</b></li>
+			<li>Immediately following the global label, <b>menu variables</b> are declared with MVAR instructions.</li>
+			<li>Finally, the body of the program should evaluate the expression. Recall the variables as they are needed and calculate <i>f(x)</i> (where <i>f(x)</i> = 0 for your expression of one or many variables).</li>
+		</ul><br>
+
+		After entering the program, these are the steps for using the Solver:<br>
+		<ul>
+			<li>Press <span class="button">SOLVER</span></li>
+			<li>Select a Solver pgm from the menu.</li>
+			<li>Use the variable menu to store a value into each of the known 
+variables. Optional: store one or two guesses into the unknown variable 
+to direct the Solver to a solution.</li>
+			<li>Solve for the unknown variable by pressing the corresponding menu key.</li>
+		</ul><br>
+
+		<b>A Simple Example:</b> For the expression <i>A + B = C</i>, rewrite the expression as <i>A + B - C</i> = 0. The Solver program looks like this:<br>
+		<br>
+		<span class="lcd">01 LBL "SIMPLE"</span><br>
+		<span class="lcd">02 MVAR "A"</span><br>
+		<span class="lcd">03 MVAR "B"</span><br>
+		<span class="lcd">04 MVAR "C"</span><br>
+		<span class="lcd">05 RCL "A"</span><br>
+		<span class="lcd">06 RCL+ "B"</span><br>
+		<span class="lcd">07 RCL- "C"</span><br>
+		<span class="lcd">08 END</span><br>
+		<br>
+		Hint: create the variables before entering the program.	After entering
+ the program, you can use it to solve for any variable, given a value 
+for each of the others. For example, find <i>A</i> when <i>B</i> = 12 and <i>C</i> = log(<i>B</i>).<br>
+		<br>
+		Select the program: <span class="button">SOLVER</span> <span class="lcd">SIMPL</span><br>
+		Store <i>B</i>: 12 <span class="lcd">B</span><br>
+		Store <i>C</i>: <span class="button">LOG</span> <span class="lcd">C</span><br>
+		Solve for <i>A</i>: <span class="lcd">A</span>
+		<br><br>
+
+		<h2 id="Numerical_Integration">Numerical Integration</h2>
+		The Numeric Integration application allows you to calculate an approximation of a definite integral. The integrand, <i>f(x)</i>, is written as a program similar to a Solver program (see <a href="#The_Solver">The Solver</a> ). That is, the program must use a global label, declare the menu variables, and evaluate <i>f(x)</i>.<br>
+		<br>
+		After entering the integrand program, here are the steps for using the Integration application:<br>
+		<ol>
+			<li>Press <span class="button">∫f(x)</span></li>
+			<li>Select an integrand program from the menu.</li>
+			<li>Use the variable menu to store a value into each of the variables that should remain constant.</li>
+			<li>Select the variable of integration by pressing the corresponding menu key.</li>
+			<li>Store the lower limit (<i>LLIM</i> ), the upper limit (<i>ULIM</i> ), and the accuracy factor (<i>ACC</i> ).</li>
+			<li>Press <span class="lcd">∫</span> to calculate the integral. The 
+approximation for the integral is returned to the X-register and the 
+uncertainty of computation is returned to the Y-register.</li>
+		</ol>
+		<br>
+
+		<h2 id="Matrix_Operations">Matrix Operations</h2>
+
+		To create a new <i>m × n</i> matrix, enter the dimensions:<br>
+		<i>m</i> <span class="button">ENTER</span> <i>n</i> (for m rows and n columns) and then press:<br>
+		<span class="button">MATRIX</span> <span class="lcd">NEW</span> for a matrix in the X-register.<br>
+		Or <span class="button">MATRIX</span> <span class="button">▼</span> <span class="lcd">DIM</span> <span class="button">ENTER</span> <i>name</i> <span class="button">ENTER</span> for a matrix in a variable. If the matrix already exists, the DIM function redimensions it.<br>
+		<br>
+		<b>Edit the matrix in the X-register:</b><br>
+		<span class="button">MATRIX</span> <span class="lcd">EDIT</span><br>
+		<br>
+		<b>Edit a named matrix:</b><br>
+		<span class="button">MATRIX</span> <span class="lcd">▼</span> <span class="lcd">EDITN</span> <span class="button">name</span><br>
+		<br>
+		When a matrix is being edited it is said to be indexed. (To index a 
+named matrix without editing it, use the INDEX function.) Whenever 
+there’s an indexed matrix, two pointers are used to indicate the row and
+ column of the current element: <i>I</i> and <i>J</i>, respectively.<br>
+		<br>
+		<b>Wrap and Grow Modes.</b> If the index pointers are positioned to the last (lower-right) element in a matrix and you move to the right one position:<br>
+		<ul>
+		<li>The pointers wrap around to the first element of the matrix (Wrap mode).</li>
+		<li>Or, the matrix grows by one complete row and the pointers move to the new row (Grow mode).</li>
+		</ul>
+		Wrap mode is automatically selected whenever you enter or exit the 
+matrix editor. (The WRAP and GROW functions are in the second row of the
+ editor menu.)<br>
+		<br>
+		<b>Matrix Arithmetic.</b> Most arithmetic and other operations work 
+for matrices just as for individual numbers. Anytime a matrix is used in
+ a mathematical operation with a complex number, the result is a complex
+ matrix. Therefore, you can make any matrix complex by adding 0 + <i>i</i>0 to it:<br>
+
+		0 <span class="button">ENTER</span> <span class="button">COMPLEX</span> <span class="button">+</span><br>
+		or 0 <span class="button">ENTER</span> <span class="button">COMPLEX</span> <span class="button">STOM</span> <span class="button">+</span> name<br>
+		<br>
+		<b>To solve a system of simultaneous linear equations represented by the matrix equation AX = B:</b><br>
+		<ol>
+			<li>Press <span class="button">MATRIX</span> <span class="lcd">SIMQ</span>.</li>
+			<li>Key in the number of unknowns. The calculator automatically creates or redimensions the matrix variables <i>MATA, MATB,</i> and <i>MATX.</i></li>
+			<li>Optional: If your equations involve complex numbers, make <i>MATA</i> and/or <i>MATB</i> complex (as shown at the top of this page).</li>
+			<li>Press <span class="lcd">MATA</span> , fill the matrix and press <span class="button">EXIT</span></li>
+			<li>Press <span class="lcd">MATB</span> , fill the matrix and press <span class="button">EXIT</span></li>
+			<li>Press <span class="lcd">MATX</span> to calculate the solution matrix. Use the matrix editor keys to view the results.</li>
+		</ol>
+		<br>
+
+		<h2 id="Statistics">Statistics</h2>
+		Statistical data is accumulated into 6 or 13 sequential <a href="#Storage_Registers">storage registers</a>.
+ Initially, the first summation register is R11. Use the ΣREG function 
+to change the location of the first summation register. ΣREG does not 
+move the data in the registers.<br>
+		<br>
+		<b>Options to set the summation mode:</b><br>
+		<ul>
+		<li><span class="button">STAT</span> <span class="button">▼</span> <span class="lcd">ALLΣ</span> to use all 13 coefficients</li>
+		<li><span class="button">STAT</span> <span class="button">▼</span> <span class="lcd">LINΣ</span> to use only the first six coefficients (which allows only linear curve fitting)</li>
+		</ul>
+		<b>Clear the summation registers:</b><br>
+		<span class="button">CLEAR</span> <span class="lcd">CLΣ</span><br>
+		<br>
+		<b>Options to accumulate data:</b><br>
+		<ul>
+		<li>For each <i>x-y</i> data pair: <i>y-value</i> <span class="button">ENTER</span> <i>x-value</i> <span class="button">Σ+</span></li>
+		<li>For each single-point data value: <i>x-value</i> <span class="button">Σ+</span></li>
+		<li>For <i>x-y</i> data pairs stored in a two-column matrix (<i>x-values</i> in column 1; <i>y-values</i> in column 2): Place the matrix in the X-register and then press <span class="button">Σ+</span></li>
+		</ul><br>
+
+		<b>To undo mistakes:</b><br>
+		Put the incorrect data in the stack (try <span class="button">LASTx</span> ).<br>
+		Press <span class="button">Σ-</span> and continue accumulating data.<br>
+		<br>
+		<b>To select a curve model for forecasting:</b><br>
+		Press <span class="button">STAT</span> <span class="lcd">CFIT</span> <span class="lcd">MODL</span><br>
+		and then one of the following:<br>
+		<ul>
+		<li><span class="lcd">LINF</span> <i>linear model: y = mx + b</i></li>
+		<li><span class="lcd">LOGF</span> <i>logarithmic model: y = m ln(x) + b</i></li>
+		<li><span class="lcd">EXPF</span> <i>exponential model: ln(y) = mx + ln(b)</i></li>
+		<li><span class="lcd">PWRF</span> <i>power model: ln(y) = m ln(x) + ln(b)</i></li>
+		<li><span class="lcd">BEST</span> selects the model that returns the best correlation coefficient</li>
+		</ul><br>
+
+		<h2 id="Base_Conversions">Base Conversions</h2>
+		Real numbers are displayed according to the current base mode 
+(Hexadecimal, Decimal, Octal, or Binary). You can change the base mode 
+using the BASE menu or by manually executing HEXM, DECM, OCTM, or BINM. 
+Decimal mode is automatically selected when you exit from the BASE menu.<br>
+		By default integer numbers have a 36-bit size as on the HP-42S. With the <a href="#Base">WSIZE</a> function this size can be set from 1 to 64 bits.<br> 
+		Press and hold <span class="button">SHOW</span> to display:<br>
+		<ul>
+			<li>A hexadecimal or decimal number in full-precision decimal form.</li>
+			<li>An octal number in octal form.</li>
+			<li>All the bits of a binary number of 44-bits or less.</li>
+			<li>Or a binary number with more than 44-bits in hexadecimal form.</li>
+		</ul><br>
+		When the BASE menu is displayed, the following keys are temporarily redefined with these integer functions:<br>
+		<table>
+		<tbody><tr><td><span class="button">+/-</span> BASE+/-</td><td> 2’s complement.</td></tr>
+		<tr><td><span class="button">÷</span> BASE÷</td><td>    integer divide.</td></tr>
+		<tr><td><span class="button">×</span> BASE×</td><td>    integer multiply.</td></tr>
+		<tr><td><span class="button">-</span> BASE-</td><td>    integer subtract.</td></tr>
+		<tr><td><span class="button">+</span> BASE+</td><td>    integer add.</td></tr>
+		</tbody></table>
+		<br>
+		Bits are numbered from right to left beginning with 0. Bit 35 (or the 
+most significant bit depending on WSIZE) is the sign bit. Negative numbers are represented 
+in 2’s complement form. Nondecimal numbers longer than WSIZE are 
+displayed as <span class="lcd">&lt;Too&nbsp;Big&gt;</span>
+		<br><br>
+
+		<h2 id="HP42_Functions">HP-42S Functions</h2>
+		Under <span class="button">CATALOG</span> <span class="lcd">FCN</span>):
+		<ul>
+			<li><a href="#A">A</a> <a href="#B">B</a> <a href="#C">C</a> <a href="#D">D</a> <a href="#E">E</a> <a href="#F">F</a></li>
+			<li><a href="#G">G</a> <a href="#H">H</a> <a href="#I">I</a> <a href="#J">J</a> <a href="#K">K</a> <a href="#L">L</a></li>
+			<li><a href="#M">M</a> <a href="#N">N</a> <a href="#O">O</a> <a href="#P">P</a> <a href="#Q">Q</a> <a href="#R">R</a></li>
+			<li><a href="#S">S</a> <a href="#T">T</a> <a href="#U">U</a> <a href="#V">V</a> <a href="#W">W</a> <a href="#X">X</a> <a href="#Y">Y</a></li>
+			<li><a href="#Test_Functions">Test Functions</a></li> 
+			<li><a href="#1+-">1+-</a> <a href="#Σ">Σ</a> <a href="#Conversions">→</a> <a href="#Matrix_Pointers">Matrix Pointers</a> <a href="#%">%</a></li>
+			<li><a href="#Hidden_matrix_functions">Hidden Matrix Functions</a></li>
+		</ul>
+		
+		<table>
+			<tbody>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="A">A</h2></td></tr>
+			<tr><td>ABS</td><td class="n"></td><td>Absolute value</td></tr>
+			<tr><td>ACOS</td><td class="n"></td><td>Arc cosine</td></tr>
+			<tr><td>ACOSH</td><td class="n"></td><td>Arc hyperbolic cosine</td></tr>
+			<tr><td>ADV</td><td class="n"></td><td>Advance paper</td></tr>
+			<tr><td>AGRAPH</td><td>Alpha graphics</td></tr>
+			<tr><td>AIP</td><td class="n"></td><td>Alpha integer part</td></tr>
+			<tr><td>ALENG</td><td class="n"></td><td>Alpha length</td></tr>
+			<tr><td>ALL</td><td class="n"></td><td>All display format</td></tr>
+			<tr><td>ALLΣ</td><td class="n"></td><td>ALLΣ mode (13 sum regs)</td></tr>
+			<tr><td>AND</td><td class="n"></td><td>Logical AND</td></tr>
+			<tr><td>AOFF</td><td class="n"></td><td>Alpha off</td></tr>
+			<tr><td>AON</td><td class="n"></td><td>Alpha on</td></tr>
+			<tr><td>ARCL</td><td class="n"></td><td>Alpha recall</td></tr>
+			<tr><td>AROT</td><td class="n"></td><td>Alpha rotate</td></tr>
+			<tr><td>ASHF</td><td class="n"></td><td>Alpha shift</td></tr>
+			<tr><td>ASIN</td><td class="n"></td><td>Arc sine</td></tr>
+			<tr><td>ASINH</td><td class="n"></td><td>Arc hyperbolic sine</td></tr>
+			<tr><td>ASSIGN</td><td>Assign CUSTOM menu key</td></tr>
+			<tr><td>ASTO</td><td class="n"></td><td>Alpha store</td></tr>
+			<tr><td>ATAN</td><td class="n"></td><td>Arc tangent</td></tr>
+			<tr><td>ATANH</td><td>Arc hyperbolic tangent</td></tr>
+			<tr><td>ATOX</td><td class="n"></td><td>Alpha to X</td></tr>
+			<tr><td>AVIEW</td><td class="n"></td><td>Alpha view</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="B">B</h2></td></tr>
+			<tr><td>BASE+</td><td class="n"></td><td>Base add</td></tr>
+			<tr><td>BASE-</td><td class="n"></td><td>Base subtract</td></tr>
+			<tr><td>BASE×</td><td class="n"></td><td>Base multiply</td></tr>
+			<tr><td>BASE÷</td><td class="n"></td><td>Base divide</td></tr>
+			<tr><td>BASE+/-</td><td>Base change sign (2’s compl.)</td></tr>
+			<tr><td>BEEP</td><td class="n"></td><td>Beep</td></tr>
+			<tr><td>BEST</td><td class="n"></td><td>Best ﬁt model</td></tr>
+			<tr><td>BINM</td><td class="n"></td><td>Binary mode</td></tr>
+			<tr><td>BIT?</td><td class="n"></td><td>Bit test (x-th bit of y)</td></tr>
+			<tr><td>BST</td><td class="n"></td><td>Back step</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="C">C</h2></td></tr>
+			<tr><td>CF</td><td class="n"></td><td class="n"></td><td>Clear ﬂag</td></tr>
+			<tr><td>CLA</td><td class="n"></td><td>Clear alpha register</td></tr>
+			<tr><td>CLALL</td><td class="n"></td><td>Clear all memory</td></tr>
+			<tr><td>CLD</td><td class="n"></td><td>Clear display</td></tr>
+			<tr><td>CLKEYS</td><td>Clear CUSTOM menu keys</td></tr>
+			<tr><td>CLLCD</td><td class="n"></td><td>Clear LCD</td></tr>
+			<tr><td>CLMENU</td><td>Clear programmable menu</td></tr>
+			<tr><td>CLP</td><td class="n"></td><td>Clear program</td></tr>
+			<tr><td>CLRG</td><td class="n"></td><td>Clear registers</td></tr>
+			<tr><td>CLST</td><td class="n"></td><td>Clear stack</td></tr>
+			<tr><td>CLV</td><td class="n"></td><td>Clear variable</td></tr>
+			<tr><td>CLX</td><td class="n"></td><td>Clear X-register</td></tr>
+			<tr><td>CLΣ</td><td class="n"></td><td>Clear summation registers</td></tr>
+			<tr><td>COMB</td><td class="n"></td><td>Combinations</td></tr>
+			<tr><td>COMPLEX</td><td>Complex</td></tr>
+			<tr><td>CORR</td><td class="n"></td><td>Correlation</td></tr>
+			<tr><td>COS</td><td class="n"></td><td>Cosine</td></tr>
+			<tr><td>COSH</td><td class="n"></td><td>Hyperbolic cosine</td></tr>
+			<tr><td>CPXRES</td><td>Complex-result enable</td></tr>
+			<tr><td>CPX?</td><td class="n"></td><td>Complex test</td></tr>
+			<tr><td>CROSS</td><td>Cross product</td></tr>
+			<tr><td>CUSTOM</td><td>CUSTOM menu</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="D">D</h2></td></tr>
+			<tr><td>DECM</td><td class="n"></td><td>Decimal mode</td></tr>
+			<tr><td>DEG</td><td class="n"></td><td>Degrees mode</td></tr>
+			<tr><td>DEL</td><td class="n"></td><td>Delete program lines</td></tr>
+			<tr><td>DELAY</td><td>Printer delay time</td></tr>
+			<tr><td>DELR</td><td class="n"></td><td>Delete matrix row</td></tr>
+			<tr><td>DET</td><td class="n"></td><td>Determinant</td></tr>
+			<tr><td>DIM</td><td class="n"></td><td>Dimension matrix</td></tr>
+			<tr><td>DIM?</td><td class="n"></td><td>Dimensions of matrix in X</td></tr>
+			<tr><td>DOT</td><td class="n"></td><td>Dot product</td></tr>
+			<tr><td>DSE</td><td class="n"></td><td>Decrement, skip if ≤ zero</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="E">E</h2></td></tr>
+			<tr><td>EDIT</td><td class="n"></td><td>Edit matrix in X-register</td></tr>
+			<tr><td>EDITN</td><td class="n"></td><td>Edit named matrix</td></tr>
+			<tr><td>END</td><td class="n"></td><td>End of a program</td></tr>
+			<tr><td>ENG</td><td class="n"></td><td>Engineering display format</td></tr>
+			<tr><td>ENTER</td><td>Enter</td></tr>
+			<tr><td>EXITALL</td><td>Exit all menus</td></tr>
+			<tr><td>EXPF</td><td class="n"></td><td>Curve-fitting model: exp.</td></tr>
+			<tr><td>E↑X</td><td class="n"></td><td>Natural exponential</td></tr>
+			<tr><td>E↑X-1</td><td class="n"></td><td>Nat. exp values near zero</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="F">F</h2></td></tr>
+			<tr><td>FCSTX</td><td>Forecast x given y (stat)</td></tr>
+			<tr><td>FCSTY</td><td>Forecast y given x (stat)</td></tr>
+			<tr><td>FIX</td><td class="n"></td><td>Fixed dec. display format</td></tr>
+			<tr><td>FRNM</td><td class="n"></td><td>Frobenius norm of X matrix</td></tr>
+			<tr><td>FP</td><td class="n"></td><td class="n"></td><td>Return fractional part</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="G">G</h2></td></tr>
+			<tr><td>GAMMA</td><td class="n"></td><td>Gamma function</td></tr>
+			<tr><td>GETKEY</td><td>Put next key number to X-reg</td></tr>
+			<tr><td>GETM</td><td class="n"></td><td>Get matrix</td></tr>
+			<tr><td>GRAD</td><td class="n"></td><td>Grads angular mode</td></tr>
+			<tr><td>GROW</td><td class="n"></td><td>Grow mode (matrix edition)</td></tr>
+			<tr><td>GOTO</td><td class="n"></td><td>Go to label</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="H">H</h2></td></tr>
+			<tr><td>HEXM</td><td class="n"></td><td>Hexadecimal mode</td></tr>
+			<tr><td>HMS+</td><td class="n"></td><td>Add x and y using H.MMSSss</td></tr>
+			<tr><td>HMS-</td><td class="n"></td><td>Subtract x from y H.MMSSss</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="I">I</h2></td></tr>
+			<tr><td>I+</td><td class="n"></td><td class="n"></td><td>Inc. row pointer (matrix)</td></tr>
+			<tr><td>I-</td><td class="n"></td><td class="n"></td><td>Dec. row pointer (matrix)</td></tr>
+			<tr><td>INDEX</td><td class="n"></td><td>Index matrix</td></tr>
+			<tr><td>INPUT</td><td class="n"></td><td>User input (prog. only)</td></tr>
+			<tr><td>INSR</td><td class="n"></td><td>Insert row (matrix edition)</td></tr>
+			<tr><td>INTEG</td><td class="n"></td><td>Integrate</td></tr>
+			<tr><td>INVRT</td><td>Invert matrix in X-register</td></tr>
+			<tr><td>IP</td><td class="n"></td><td class="n"></td><td>Return integer part</td></tr>
+			<tr><td>ISG</td><td class="n"></td><td>Increment, skip if greater</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="J">J</h2></td></tr>
+			<tr><td>J+</td><td class="n"></td><td class="n"></td><td>Inc. column pointer (matrix)</td></tr>
+			<tr><td>J-</td><td class="n"></td><td class="n"></td><td>Dec. column pointer (matrix)</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="K">K</h2></td></tr>
+			<tr><td>KEYASN</td><td>Key-assignments mode</td></tr>
+			<tr><td>KEYG</td><td class="n"></td><td>On key, go to</td></tr>
+			<tr><td>KEYX</td><td class="n"></td><td>On key, execute</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="L">L</h2></td></tr>
+			<tr><td>LASTX</td><td>Last x</td></tr>
+			<tr><td>LBL</td><td class="n"></td><td>Label</td></tr>
+			<tr><td>LCLBL</td><td class="n"></td><td>Local label mode</td></tr>
+			<tr><td>LINF</td><td class="n"></td><td>Linear ﬁt model</td></tr>
+			<tr><td>LINE</td><td class="n"></td><td>Linear mode (six sum regs)</td></tr>
+			<tr><td>LIST</td><td class="n"></td><td>List program lines</td></tr>
+			<tr><td>LN</td><td class="n"></td><td class="n"></td><td>Natural logarithm</td></tr>
+			<tr><td>LN1+X</td><td class="n"></td><td>Nat log for values near zero</td></tr>
+			<tr><td>LOG</td><td class="n"></td><td>Common logarithm</td></tr>
+			<tr><td>LOGF</td><td class="n"></td><td>Logarithmic ﬁt</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="M">M</h2></td></tr>
+			<tr><td>MAN</td><td class="n"></td><td>Manual printing</td></tr>
+			<tr><td>MAT?</td><td class="n"></td><td>Matrix test</td></tr>
+			<tr><td>MEAN</td><td class="n"></td><td>Arithmetic mean (average)</td></tr>
+			<tr><td>MENU</td><td class="n"></td><td>Programmable MENU</td></tr>
+			<tr><td>MOD</td><td class="n"></td><td>Modulo</td></tr>
+			<tr><td>MVAR</td><td class="n"></td><td>Menu variable</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="N">N</h2></td></tr>
+			<tr><td>N!</td><td class="n"></td><td class="n"></td><td>Factorial</td></tr>
+			<tr><td>NEWMAT</td><td>New matrix</td></tr>
+			<tr><td>NORM</td><td class="n"></td><td>Normal printing</td></tr>
+			<tr><td>NOT</td><td class="n"></td><td>Logical NOT</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="O">O</h2></td></tr>
+			<tr><td>OCTM</td><td class="n"></td><td>Octal mode</td></tr>
+			<tr><td>OFF</td><td class="n"></td><td>Off</td></tr>
+			<tr><td>OLD</td><td class="n"></td><td>Old element value</td></tr>
+			<tr><td>ON</td><td class="n"></td><td class="n"></td><td>Continuous on</td></tr>
+			<tr><td>OR</td><td class="n"></td><td class="n"></td><td>Logical OR</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="P">P</h2></td></tr>
+			<tr><td>PERM</td><td class="n"></td><td>Permutations</td></tr>
+			<tr><td>PGMINT</td><td>Program to integrate</td></tr>
+			<tr><td>PGMSLV</td><td>Program to solve</td></tr>
+			<tr><td>PI</td><td class="n"></td><td class="n"></td><td>pi</td></tr>
+			<tr><td>PIXEL</td><td class="n"></td><td>Pixel on</td></tr>
+			<tr><td>POLAR</td><td>Polar mode</td></tr>
+			<tr><td>POSA</td><td class="n"></td><td>Position in alpha</td></tr>
+			<tr><td>PRA</td><td class="n"></td><td>Print alpha</td></tr>
+			<tr><td>PRLCD</td><td>Print LCD</td></tr>
+			<tr><td>PROFF</td><td>Printing off</td></tr>
+			<tr><td>PROMPT</td><td>Prompt</td></tr>
+			<tr><td>PRON</td><td class="n"></td><td>Printing on</td></tr>
+			<tr><td>PR?</td><td class="n"></td><td>Print program</td></tr>
+			<tr><td>PRSTK</td><td>Print stack</td></tr>
+			<tr><td>PRUSR</td><td>Print user vars and labels</td></tr>
+			<tr><td>PRV</td><td class="n"></td><td>Print variable</td></tr>
+			<tr><td>PRX</td><td class="n"></td><td>Print X-register</td></tr>
+			<tr><td>PR2</td><td class="n"></td><td>Print summation registers</td></tr>
+			<tr><td>PSE</td><td class="n"></td><td>Pause</td></tr>
+			<tr><td>PUTM</td><td class="n"></td><td>Put matrix</td></tr>
+			<tr><td>PWRF</td><td class="n"></td><td>Power ﬁt</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="Q">Q</h2></td></tr>
+			<tr><td>QUIET</td><td class="n"></td><td>Quiet mode</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="R">R</h2></td></tr>
+			<tr><td>RAD</td><td class="n"></td><td>Radians mode</td></tr>
+			<tr><td>RAN</td><td class="n"></td><td>Random number</td></tr>
+			<tr><td>RCL</td><td class="n"></td><td>Recall</td></tr>
+			<tr><td>RCL+</td><td class="n"></td><td>Recall add</td></tr>
+			<tr><td>RCL-</td><td class="n"></td><td>Recall subtract</td></tr>
+			<tr><td>RCL×</td><td class="n"></td><td>Recall multiply</td></tr>
+			<tr><td>RCL÷</td><td class="n"></td><td>Recall divide</td></tr>
+			<tr><td>RCLEL</td><td>Recall element</td></tr>
+			<tr><td>RCLIJ</td><td class="n"></td><td>Recall IJ pointers</td></tr>
+			<tr><td>RDX,</td><td class="n"></td><td>Radix comma</td></tr>
+			<tr><td>RDX.</td><td class="n"></td><td>Radix period</td></tr>
+			<tr><td>REALRES</td><td>Real-results only</td></tr>
+			<tr><td>REAL?</td><td class="n"></td><td>Real test</td></tr>
+			<tr><td>RECT</td><td class="n"></td><td>Rectangular mode</td></tr>
+			<tr><td>RND</td><td class="n"></td><td>Round</td></tr>
+			<tr><td>RNRM</td><td class="n"></td><td>Row norm</td></tr>
+			<tr><td>ROTXY</td><td>Rotate y by x bits</td></tr>
+			<tr><td>RSUM</td><td class="n"></td><td>Row sum</td></tr>
+			<tr><td>RTN</td><td class="n"></td><td>Return</td></tr>
+			<tr><td>R&lt;&gt;R</td><td class="n"></td><td>Row swap row</td></tr>
+			<tr><td>R↑</td><td class="n"></td><td class="n"></td><td>Roll up</td></tr>
+			<tr><td>R↓</td><td class="n"></td><td class="n"></td><td>Roll down</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="S">S</h2></td></tr>
+			<tr><td>SCI</td><td class="n"></td><td>Scientiﬁc notation</td></tr>
+			<tr><td>SDEV</td><td class="n"></td><td>Standard deviation</td></tr>
+			<tr><td>SEED</td><td class="n"></td><td>Seed (for RAN)</td></tr>
+			<tr><td>SF</td><td class="n"></td><td class="n"></td><td>Set ﬂag</td></tr>
+			<tr><td>SIGN</td><td class="n"></td><td>Sign</td></tr>
+			<tr><td>SIN</td><td class="n"></td><td>Sine</td></tr>
+			<tr><td>SINH</td><td class="n"></td><td>Hyperbolic sine</td></tr>
+			<tr><td>SIZE</td><td class="n"></td><td>Size of REGS</td></tr>
+			<tr><td>SLOPE</td><td class="n"></td><td>Slope</td></tr>
+			<tr><td>SOLVE</td><td class="n"></td><td>Solve for variable</td></tr>
+			<tr><td>SQRT</td><td class="n"></td><td>Square root</td></tr>
+			<tr><td>SST</td><td class="n"></td><td>Single step</td></tr>
+			<tr><td>STO</td><td class="n"></td><td>Store</td></tr>
+			<tr><td>STO+</td><td class="n"></td><td>Store add</td></tr>
+			<tr><td>STO-</td><td class="n"></td><td>Store subtract</td></tr>
+			<tr><td>STO×</td><td class="n"></td><td>Store multiply</td></tr>
+			<tr><td>STO÷</td><td class="n"></td><td>Store divide</td></tr>
+			<tr><td>STOEL</td><td>Store element</td></tr>
+			<tr><td>STOIJ</td><td class="n"></td><td>Store IJ pointers</td></tr>
+			<tr><td>STOP</td><td class="n"></td><td>Stop program</td></tr>
+			<tr><td>STR?</td><td class="n"></td><td>String test</td></tr>
+			<tr><td>SUM</td><td class="n"></td><td>Recall Σx and Σy</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="T">T</h2></td></tr>
+			<tr><td>TAN</td><td class="n"></td><td>Tangent</td></tr>
+			<tr><td>TANH</td><td class="n"></td><td>Hyperbolic tangent</td></tr>
+			<tr><td>TONE</td><td class="n"></td><td>Tone (0-9)</td></tr>
+			<tr><td>TRACE</td><td>Trace printing</td></tr>
+			<tr><td>TRANS</td><td>Transpose matrix</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="U">U</h2></td></tr>
+			<tr><td>UVEC</td><td class="n"></td><td>Unit vector</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="V">V</h2></td></tr>
+			<tr><td>VARMENU</td><td>Variable menu</td></tr>
+			<tr><td>VIEW</td><td class="n"></td><td>View</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="W">W</h2></td></tr>
+			<tr><td>WMEAN</td><td>Weighted mean</td></tr>
+			<tr><td>WRAP</td><td class="n"></td><td>Wrap mode</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="X">X</h2></td></tr>
+			<tr><td>X&lt;&gt;</td><td class="n"></td><td>x exchange</td></tr>
+			<tr><td>X&lt;&gt;Y</td><td class="n"></td><td>x exchange y</td></tr>
+			<tr><td>XEQ</td><td class="n"></td><td>Execute</td></tr>
+			<tr><td>XOR</td><td class="n"></td><td>Exclusive OR</td></tr>
+			<tr><td>XTOA</td><td class="n"></td><td>X to alpha</td></tr>
+			<tr><td>X<sup>2</sup></td><td class="n"></td><td class="n"></td><td>Square, x<sup>2</sup></td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="Y">Y</h2></td></tr>
+			<tr><td>YINT</td><td class="n"></td><td>Y-intercept</td></tr>
+			<tr><td>Y<sup>X</sup></td><td class="n"></td><td class="n"></td><td>Power, y<sup>x</sup></td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="1+-">1-+</h2></td></tr>
+			<tr><td>1/X</td><td class="n"></td><td>Reciprocal</td></tr>
+			<tr><td>10<sup>X</sup></td><td class="n"></td><td>Common exponential, 10x</td></tr>
+			<tr><td>+</td><td class="n"></td><td class="n"></td><td>Add</td></tr>
+			<tr><td>-</td><td class="n"></td><td class="n"></td><td>Subtract</td></tr>
+			<tr><td>×</td><td class="n"></td><td class="n"></td><td>Multiply</td></tr>
+			<tr><td>÷</td><td class="n"></td><td class="n"></td><td>Divide</td></tr>
+			<tr><td>+/-</td><td class="n"></td><td>Change sign</td></tr>
+			<tr><td>%</td><td class="n"></td><td class="n"></td><td>Percent</td></tr>
+			<tr><td>%CH</td><td class="n"></td><td>Percent change</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="Σ">Summation</h2></td></tr>
+			<tr><td>Σ<b>+</b></td><td class="n"><td class="n"></td><td>Summation plus</td></tr>
+			<tr><td>Σ<b>-</b></td><td class="n"><td class="n"></td><td>Summation minus</td></tr>
+			<tr><td>Σ<b>REG</b></td><td class="n"></td><td>Set loc. of 1st sum reg</td></tr>
+			<tr><td>Σ<b>REG?</b></td><td class="n"></td><td>Recall loc. of 1st sum reg</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="Conversions">→ Conversions</h2></td></tr>
+			<tr><td><b>→DEC</b></td><td class="n"></td><td>To decimal.</td></tr>
+			<tr><td><b>→DEG</b></td><td class="n"></td><td>To degrees.</td></tr>
+			<tr><td><b>→HMS</b></td><td class="n"></td><td>To hours-minutes-seconds.</td></tr>
+			<tr><td><b>→HR</b></td><td class="n"></td><td>To decimal hours.</td></tr>
+			<tr><td><b>→OCT</b></td><td class="n"></td><td>To octal.</td></tr>
+			<tr><td><b>→POL</b></td><td class="n"></td><td>To polar.</td></tr>
+			<tr><td><b>→RAD</b></td><td class="n"></td><td>To radians.</td></tr>
+			<tr><td><b>→REC</b></td><td class="n"></td><td>To rectangular.</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="Matrix_Pointers">Matrix Pointers</h2></td></tr>
+			<tr><td><b>←</b></td><td class="n"><td class="n"></td><td>Index pointers left.</td></tr>
+			<tr><td><b>↑</b></td><td class="n"><td class="n"></td><td>Index pointers up</td></tr>
+			<tr><td><b>↓</b></td><td class="n"><td class="n"></td><td>Index pointers down</td></tr>
+			<tr><td><b>→</b></td><td class="n"><td class="n"></td><td>Index pointers right</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="%">Percentage</h2></td></tr>
+			<tr><td>%</td><td class="n"></td><td class="n"></td><td>Percent</td></tr>
+			<tr><td>%CH</td><td class="n"></td><td>Percent change</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="Hidden_matrix_functions">Hidden Matrix Functions</h2></td></tr>
+			<tr><td colspan="2">These functions hidden in the HP-42s are at the end of the DM42 catalog:</td></tr>
+			<tr><td><b>[MIN]</b></td><td class="n"></td><td>Gets a column smallest element</td></tr>
+			<tr><td><b>[MAX]</b></td><td class="n"></td><td>Gets a column largest element</td></tr>
+			<tr><td><b>[FIND]</b></td><td>Searches a matrix for a given element</td></tr>
+		</tbody></table><br>
+		<br>
+
+		<h2 id="Test_Functions">Test Functions</h2>
+		If true, execute the next program line. If false, skip the next program line.<br>
+		<table>
+			<tbody><tr><td>X&lt;0?</td><td>less than zero</td></tr>
+			<tr><td>X&lt;Y?</td><td>less than y</td></tr>
+			<tr><td>X≤0?</td><td>less than or equal to zero</td></tr>
+			<tr><td>X≤Y?</td><td>less than or equal to y</td></tr>
+			<tr><td>X=0?</td><td>equal to zero</td></tr>
+			<tr><td>X=Y?</td><td>equal to y</td></tr>
+			<tr><td>X≠0?</td><td>not equal to zero</td></tr>
+			<tr><td>X≠Y?</td><td>not equal to y</td></tr>
+			<tr><td>X&gt;0?</td><td>greater than zero</td></tr>
+			<tr><td>X&gt;Y?</td><td>greater than y</td></tr>
+			<tr><td>X≥0?</td><td>greater than or equal to zero</td></tr>
+			<tr><td>X≥Y?</td><td>greater than or equal to y</td></tr>
+		</tbody></table><br>
+		<br>
+
+		
+		<h2 id="Free42_Extensions">Free42 Extensions</h2>
+		The Free42 Extensions can be found in the second and third rows of the CATALOG: <span class="button">CATALOG</span> <span class="lcd">▼</span>. 
+		They are grouped in several sub-catalogs, which correspond with the sections below. 
+		<ul>
+			<li><span class="lcd">TIME</span> <a href="#Time">Time and Date Functions</a></li>
+			<li><span class="lcd">XFCN</span> <a href="#Xfcn">Extended Functions</a></li>
+			<li><span class="lcd">BASE</span> <a href="#Base">BASE Enhancements</a></li>
+			<li><span class="lcd">PRGM</span> <a href="#Prgm">Programming Utilities</a></li>
+			<li><span class="lcd">STR</span> <a href="#String">String and List Functions</a></li>
+			<li><span class="lcd">STK</span> <a href="#Stk">Stack</a></li>
+			<li><span class="lcd">MISC</span> <a href="#Misc">Other Extensions</a></li>
+		</ul><br>
+		A few functions are not in the CATALOG and need to be accessed by their name with XEQ <i>name</i> or ASSIGN <i>name</i>:
+		<ul>
+			<li><a href="#NoCAT">Not in CATALOG</a></li>
+		</ul><br>
+		
+
+		<table><tbody>	
+			<tr><td colspan="2"><h2 id="Time">Time and Date Functions</h2></td></tr>
+			<tr><td><b>ADATE</b></td><td>Appends the contents of the X register to the ALPHA register, formatted as a date value.</td></tr>
+			<tr><td><b>ATIME</b></td><td class="n"><td> Appends the contents of the X register to the ALPHA register, formatted as a time value.</td></tr>
+			<tr><td><b>ATIME24</b></td><td>Like ATIME, except it always formats the time in 24-hour format.</td></tr>
+			<tr><td><b>CLK12</b></td><td class="n"></td><td>FDisplay the time in 12-hour format with AM/PM.</td></tr>
+			<tr><td><b>CLK24</b></td><td>Display the time in 24-hour format. </td></tr>
+			<tr><td><b>DATE</b></td><td class="n"></td><td>Returns the current date to the X register.</td></tr>
+			<tr><td><b>DATE+</b></td><td>Takes a date from Y, and adds a number of days from X.</td></tr>
+			<tr><td><b>DDAYS</b></td><td>Number of days between the dates in Y and in X. </td></tr>
+			<tr><td><b>DMY</b></td><td class="n"></td><td>Set the date format to day/month/year.</td></tr>
+			<tr><td><b>DOW</b></td><td class="n"></td><td>Calculates the day of the week for the date in X. (Sunday=0; Monday=1; etc)</td></tr>
+			<tr><td><b>MDY</b></td><td class="n"></td><td>Set the date format to month/day/year.</td></tr>
+			<tr><td><b>TIME</b></td><td class="n"></td><td>Returns the current time in X in 24-hour format.</td></tr>
+			<tr><td><b>YMD</b></td><td class="n"></td><td>Set the date format to year/month/day.</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="Xfcn">Extended Functions</h2></td></tr>
+			<tr><td><b>ANUM</b></td><td class="n"></td><td>Scans the ALPHA register for a number, and places it into X.</td></tr>
+			<tr><td><b>RCLFLAG</b></td><td>Gets the state of all flags and returns them as a complex number.</td></tr>
+			<tr><td><b>STOFLAG</b></td><td>Restores the state of all flags that were retrieved using a previous RCLFLAG.</td></tr>
+			<tr><td><b>X&lt;&gt;F</b></td><td class="n"></td><td>Exchanges flags 0-7 with the X register.</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="Base">BASE Enhancements</h2></td></tr>
+			<tr><td><b>A...F</b></td><td>Sets HEXM mode and activates the A...F menu.</td></tr>
+			<tr><td><b>BRESET</b></td><td>Resets all BASE modes back to the HP-42S defaults: WSIZE 36, signed, not wrapped.</td></tr>
+			<tr><td><b>BSIGNED</b></td><td>Toggles signed mode.</td></tr>
+			<tr><td><b>BWRAP</b></td><td>Toggles wrapped mode.</td></tr>
+			<tr><td><b>WSIZE</b></td><td>Sets the word size to the number in X, between 1 and 64.</td></tr>
+			<tr><td><b>WSIZE?</b></td><td>Returns the current word size.</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="Prgm">Programming Utilities</h2></td></tr>
+			<tr><td><b>CPXMAT?</b></td><td>Tests whether the object in the X register is a complex matrix.</td></tr>
+			<tr><td><b>CSLD?</b></td><td>Tests whether the 'stack lift disable' flag (30) was set when the latest XEQ was performed.</td></tr>
+			<tr><td><b>ERRMSG</b></td><td>Returns the error message for the most recent error to be caught using flag 25.</td></tr>
+			<tr><td><b>ERRNO</b></td><td>Returns the error number for the most recent error to be caught using flag 25.</td></tr>
+			<tr><td><b>FUNC</b></td><td class="n"></td><td>Save the contents of the stack and LASTx, and restore then when the function returns, according to the parameter.</td></tr>
+			<tr><td><b>GETKEY1</b></td><td class="n"></td><td>Like GETKEY, except it does not halt program execution when EXIT or Shift-EXIT are pressed.</td></tr>
+			<tr><td><b>GETKEYA</b></td><td class="n"></td><td>Like GETKEY, except it does not wait for a keystroke if the keyboard buffer is empty, returns 0 immediately in that case.</td></tr>
+			<tr><td><b>GETLI</b></td><td class="n"></td><td>Direct matrix access: expect an index in X; pushes the indexed item onto the stack. See PUTLI.</td></tr>
+			<tr><td><b>GETMI</b></td><td class="n"></td><td>Direct matrix access: expects a row index in Y and a column index in X; pushes the indexed item onto the stack. See PUTMI.</td></tr>
+			<tr><td><b>LSTO</b></td><td class="n"></td><td>Creates local variables that exist only for the duration of the current subroutine, and are automatically deleted when it returns.</td></tr>
+			<tr><td><b>LASTO</b></td><td>Relates to LSTO like ASTO relates to STO.</td></tr>
+			<tr><td><b>LCLV</b></td><td class="n"></td><td>CLV for local variables. LCLV only deletes local variables that were created at the current RTN level.</td></tr>
+			<tr><td><b>NOP</b></td><td class="n"></td><td>No Operation, encoded as 0xF0, which corresponds to TEXT 0 in the HP-41.</td></tr>
+			<tr><td><b>PGMMENU</b></td><td>Presents a menu of all global labels that have MVAR instructions</td></tr>
+			<tr><td><b>PGMVAR</b></td><td>Prints all the variables associated with the given LBL through MVAR declarations.</td></tr>
+			<tr><td><b>PUTLI</b></td><td class="n"></td><td>Direct matrix access: expects an index in Y and an item in X, and stores the item at the specified index. See GETLI.</td></tr>
+			<tr><td><b>PUTMI</b></td><td class="n"></td><td>Direct matrix access: expects a row index in Z, a column index in Y, and an item in X, and stores the item at the specified indices. See GETMI.</td></tr>
+			<tr><td><b>RTNERR</b></td><td>Return Error from a function.</td></tr>
+			<tr><td><b>RTNNO</b></td><td>Return from conditional function, RTNNO causes the line after the calling XEQ to be skipped.</td></tr>
+			<tr><td><b>RTNYES</b></td><td>Return from conditional function, return to the line after the calling XEQ.</td></tr>
+			<tr><td><b>SKIP</b></td><td class="n"></td><td>Skips the next line, like a test that always tests false.</td></tr>
+			<tr><td><b>SST↑</b></td><td class="n"></td><td>Step Out: Starts program execution, continuing until just after the end of the current function.</td></tr>
+			<tr><td><b>SST→</b></td><td class="n"></td><td>Step Over: Executes one line of code, and if that line is a function call, it is executed in that one step. </td></tr>
+			<tr><td><b>SST↓</b></td><td class="n"></td><td>Step Into: Executes one line of code, alias for the original SST function. Not in CATALOG.</td></tr>
+			<tr><td><b>TYPE?</b></td><td>Returns an integer, representing the type of the object in the X register.<br> 1: Real Number, 2: Complex Number, 3: Real Matrix, 4: Complex Matrix, 5: String, 6: List</td></tr>
+			<tr><td><b>VARMENU1</b></td><td class="n"></td><td>Modified version of VARMENU.</td></tr> 
+			<tr><td><b>X=?</b> <b>X≠?</b> <b>X&lt;?</b> <b>X&gt;?</b> <b>X≤?</b> <b>X≥?</b></td><td><br>Compare X to any register or variable.</td></tr>
+			<tr><td><b>0=?</b> <b>0≠?</b> <b>0&lt;?</b> <b>0&gt;?</b> <b>0≤?</b> <b>0≥?</b></td><td><br>Compare any register or variable to 0.</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="String">String and List Functions</h2></td></tr>
+			<tr><td colspan="2">These string functions introduced by Free42 work with unlimited-length strings, on the stack. (see XSTR for creating such strings)</td></tr>
+			<tr><td><b>APPEND</b></td><td>Adds the object in X to the string or list in Y. If Y is a string, the contents of X will be converted to a string. If X is a list, it will be added to Y as one element. </td></tr>
+			<tr><td><b>C→N</b></td><td class="n"></td><td>Convert character to number.</td></tr>
+			<tr><td><b>EXTEND</b></td><td>Adds the object in X to the string or list in Y. If Y is a string, the contents of X will be converted to a string. If X is a list, it will be added to Y element by element. </td></tr>
+			<tr><td><b>HEAD</b></td><td class="n"></td><td>Removes and returns the first character or element from the string or list named by the function's parameter.</td></tr>
+			<tr><td><b>LENGHT</b></td><td>Returns the length of the string or list in X. </td></tr>
+			<tr><td><b>→LIST</b></td><td>Creates a list from objects on the stack. The number of objects is taken from the X register.</td></tr>
+			<tr><td><b>LIST→</b></td><td>Performs the inverse of the →LIST operation.</td></tr>
+			<tr><td><b>LIST?</b></td><td class="n"></td><td>Tests whether the object in X is a list. </td></tr>
+			<tr><td><b>LXASTO</b></td><td>Like LASTO, but the entire ALPHA register, not just the first 6 characters.</td></tr>
+			<tr><td><b>NEWLIST</b></td><td>Returns a new empty list.</td></tr>
+			<tr><td><b>N→C<b></td><td class="n"></td><td>Convert number to character.</td></tr>
+			<tr><td><b>N→S<b></td><td class="n"></td><td>Convert number to string.</td></tr>
+			<tr><td><b>NN→S</b></td><td class="n"></td><td>Like N→S, but works as if it's always in ALL mode.</td></tr>
+			<tr><td><b>POS</b></td><td class="n"></td><td>Finds the first occurrence of the string/list X in Y. Or of the string/list X in Z starting from Y.</td></tr>
+			<tr><td><b>REV</b></td><td class="n"></td><td>Reverse the string or list in X. </td></tr>
+			<tr><td><b>SUBSTR</b></td><td>From the string/list in Z, gets the substring/sublist starting at index Y and ending just before index X.</td></tr>
+			<tr><td><b>S→N</b></td><td class="n"></td><td>Convert string to number.</td></tr>
+			<tr><td><b>XASTO</b></td><td>Like ASTO, but the entire ALPHA register, not just the first 6 characters.</td></tr>
+			<tr><td><b>XSTR</b></td><td class="n"></td><td>Create a string directly in the X register, without needing the ALPHA register and without the six-character limit of ASTO.</td></tr>
+			<tr><td><b>XVIEW</b></td><td>This function works just like AVIEW, except it takes the text from the X register rather than the ALPHA register, so it doesn't have the 44-character length restriction of AVIEW. </td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="Stk">Stack</h2></td></tr>
+			<tr><td colspan="2">The big stack functions are enabled only if the option "Dynamic Stack Extension" is checked in Setup → Settings.</td></tr>
+			<tr><td><b>4STK</b></td><td class="n"></td><td>4-level Stack. Turns off big stack mode, returning to the TZYX stack.</td></tr>
+			<tr><td><b>DEPTH</b></td><td>Returns the current stack depth.</td></tr>
+			<tr><td><b>DROP</b></td><td class="n"></td><td>Drops level 1. In 4-level mode, the stack is replenished with zeroes from the top. </td></tr>
+			<tr><td><b>DROPN n</b></td><td>Drops levels 1..n. In 4-level mode, the stack is replenished with zeroes from the top. </td></tr>
+			<tr><td><b>DUP</b></td><td class="n"></td><td>Duplicates level 1. </td></tr>
+			<tr><td><b>DUPN n</b></td><td>Duplicates levels 1..n. In 4-level mode, n must be 2 or less. </td></tr>
+			<tr><td><b>L4STK</b></td><td>Local 4-level Stack, automatically restore the previous stack mode when the current function returns.</td></tr>
+			<tr><td><b>LNSTK</b></td><td>Local N-level Stack, automatically restore the previous stack mode when the current function returns.</td></tr>
+			<tr><td><b>NSTK</b></td><td class="n"></td><td>N-level Stack. Turns on big stack mode.</td></tr>
+			<tr><td><b>PICK n</b></td><td>Gets the object from level n.</td></tr>
+			<tr><td><b>R↑N n</b></td><td class="n"></td><td>Rolls up levels 1..n. R↑ is equivalent to R↑N <i>depth</i>.</td></tr>
+			<tr><td><b>R↓N n</b></td><td class="n"></td><td>Rolls down levels 1..n. R↓ is equivalent to  R↓N <i>depth</i>.</td></tr>
+			<tr><td><b>UNPICK n</b></td><td>Puts an object into level <i>n</i>. Consumes the contents of level 1, unlike STO, and <i>n</i> refers to the stack level number after X has been dropped.</td></tr>
+			<tr><td><br/></td></tr>
+			<tr><td colspan="2"><h2 id="Misc">Other Extensions</h2></td></tr>
+			<tr><td><b>A2LINE</b></td><td>Create program lines containing the current contents of the ALPHA register, to be set.</td></tr>
+			<tr><td><b>A2+LINE</b></td><td>Create program lines containing the current contents of the ALPHA register, to be appended.</td></tr>
+			<tr><td><b>C.LN1+X</b></td><td>Complex-capable version of LN1+X.</td></tr>
+			<tr><td><b>C.E↑X-1</b></td><td>Complex-capable version of E↑X-1.</td></tr>
+			<tr><td><b>CAPS</b></td><td class="n"></td><td>NOP on the DM42 which is always in Mixed mode.</td></tr>
+			<tr><td><b>FMA</b></td><td class="n"></td><td>Fused Multiply-Add. Calculates Z*Y+X using the DM42's native FMA function.</td></tr>
+			<tr><td><b>IDENT</b></td><td class="n"></td><td>Returns the version of Free42 core used in aabbccdd format, with 3.1.12b being formatted as 3011202.</td></tr>
+			<tr><td><b>LOCK, UNLOCK</b></td><td class="n"></td><td>Protect/Unprotect current program against editing. Program pointer arrow is gray when locked. Must be executed in PRGM mode. Affect only the current program.</td></tr>
+			<tr><td><b>Mixed</b></td><td>NOP on the DM42 which is always in Mixed mode.</td></tr>
+			<tr><td><b>PCOMPLEX</b></td><td>Works like COMPLEX, but always in polar mode.</td></tr>
+			<tr><td><b>RCOMPLEX</b></td><td>Works like COMPLEX, but always in rectangular mode.</td></tr>
+			<tr><td><b>PRREG</b></td><td>Prints the numbered registers. Also located in PRINT menu.</td></tr>
+			<tr><td><b>STRACE</b></td><td>Stack Trace mode. Variation on TRACE mode, printing the entire stack instead of just X.</td></tr>
+			<tr><td><b>X2LINE</b></td><td>Create program lines containing the current contents of the X register, to be set.</td></tr>
+			<tr><td><b>WIDTH</b><br><b>HEIGHT</b></td><td>Get the display size, in pixels. The main use of these functions is to make programs that use PIXEL and AGRAPH resolution-independent.</td></tr>
+			<tr><td colspan="2"><h2 id="NoCAT">Not in CATALOG</h2></td></tr>
+			<tr><td><b>SST↓</b></td><td class="n"></td><td>Step Into: Executes one line of code, alias for the original SST function.</td></tr>
+		</tbody></table><br>
+		<br>
+
+		<h2 id="HP-41_Functions">HP41 Function Names</h2>
+		Some function names used in the DM42 are different from those on the HP-41, even though they work identically.
+		<br> 
+		The HP-41 function names do not appear in the function catalog, when executed they are automatically converted to the corresponding DM42 function.<br>
+		<br>
+		<table>
+			<tbody>
+			<tr><td><b>HP-41</b></td><td class="n"></td><td><b>DM42</b></td></td></tr>
+			<tr><td>CHS</td><td class="n"></td><td>+/-</td></tr>
+			<tr><td>DEG</td><td class="n"></td><td>→DEG</td></tr>
+			<tr><td>D-R</td><td class="n"></td><td>→RAD</td></tr>
+			<tr><td>ENTER↑</td><td>ENTER</td></tr>
+			<tr><td>FACT</td><td class="n"></td><td>N!</td></tr>
+			<tr><td>FRC</td><td class="n"></td><td>FP</td></tr>
+			<tr><td>HMS</td><td class="n"></td><td>→HMS</td></tr>
+			<tr><td>HR</td><td class="n"></td><td class="n"></td><td>→HR</td></tr>
+			<tr><td>INT</td><td class="n"></td><td>IP</td></tr>
+			<tr><td>OCT</td><td class="n"></td><td>→OCT</td></tr>
+			<tr><td>P-R</td><td class="n"></td><td>→REC</td></tr>
+			<tr><td>RDN</td><td class="n"></td><td>R↓</td></tr>
+			<tr><td>R-D</td><td class="n"></td><td>→DEG</td></tr>
+			<tr><td>R-P</td><td class="n"></td><td>→POL</td></tr>
+			<tr><td>ST+</td><td class="n"></td><td>STO+</td></tr>
+			<tr><td>ST-</td><td class="n"></td><td>STO-</td></tr>
+			<tr><td>ST*</td><td class="n"></td><td>STO×</td></tr>
+			<tr><td>ST/</td><td class="n"></td><td>STO÷</td></tr>
+			<tr><td>X&lt;=0?</td><td class="n"></td><td>X≤0?</td></tr>
+			<tr><td>X&lt;=Y?</td><td class="n"></td><td>X≤Y?</td></tr>
+			<tr><td>*</td><td class="n"></td><td class="n"></td><td>×</td></tr>
+			<tr><td>/</td><td class="n"></td><td class="n"></td><td>÷</td></tr>
+		</tbody></table><br>
+		<br>
+
+		<h2 id="Using_the_ALPHA_Menu">Using the ALPHA Menu</h2>
+		To type an alpha string into the alpha register:
+		<ol>
+			<li>Press <span class="button">ALPHA</span> to select the ALPHA menu.</li>
+			<li>Optional: press <span class="button">ENTER</span> to turn on the cursor (in Program-entry mode, inserts the I- symbol).</li>
+			<li>Type the string using the characters shown below. Use <span class="button">shift</span> to type lowercase letters.</li>
+			<li>Press <span class="button">EXIT</span> or <span class="button">ENTER</span></li>
+		</ol>
+		<br>
+
+		<h2 id="Flags">Flags</h2>
+		<ul>
+			<li>00-10 User Flags</li>
+			<li>11 Auto Execute</li>
+			<li>12 Print Double-wide</li>
+			<li>13 Print Lowercase</li>
+			<li>15-16 Print Mode</li>
+			<li>19-20 General Use</li>
+			<li>21 Printer Enable</li>
+			<li>22 Numeric Input</li>
+			<li>23 Alpha Input</li>
+			<li>24 Ignore Range Errors</li>
+			<li>25 Ignore Next Error</li>
+			<li>26 Beeper Enable</li>
+			<li>27 CUSTOM Menu</li>
+			<li>28 Radix Mark Period</li>
+			<li>29 Digit Separators</li>
+			<li>30 Stack Lift Disable</li>
+			<li>31 DMY Date Format</li>
+			<li>34-35 AGRAPH Control</li>
+			<li>36-39 Number of Digits</li>
+			<li>40-41 Display Format</li>
+			<li>42 Grads Mode</li>
+			<li>43 Radians Mode</li>
+			<li>44 Continuous On</li>
+			<li>45 Solving</li>
+			<li>46 Integrating</li>
+			<li>47 Variable Menu</li>
+			<li>48 Alpha Mode</li>
+			<li>49 Low Battery Power</li>
+			<li>50 Message</li>
+			<li>51 Two-Line Message</li>
+			<li>52 Program-Entry Mode</li>
+			<li>53 INPUT</li>
+			<li>55 Printer Existence</li>
+			<li>56 Linear Model</li>
+			<li>57 Logarithmic Model</li>
+			<li>58 Exponential Model</li>
+			<li>59 Power Model</li>
+			<li>60 AllΣ Mode</li>
+			<li>61 Log Model Invalid</li>
+			<li>62 Exp Model Invalid</li>
+			<li>63 Pwr Model Invalid</li>
+			<li>64 Shift State</li>
+			<li>65 Matrix Editor In Use</li>
+			<li>66 Grow Mode</li>
+			<li>67 YMD Date Format</li>
+			<li>68-71 Base Mode</li>
+			<li>72 Local-Label Mode</li>
+			<li>73 Polar Mode</li>
+			<li>74 Real-Result Only</li>
+			<li>75 MENU</li>
+			<li>76 Edge Wrap</li>
+			<li>77 End Wrap</li>
+			<li>78 Base Signed</li>
+			<li>79 Base Wrap</li>
+			<li>80 Big Stack mode</li>
+			<li>81-99 User Flags</li>
+		</ul>
+		<b>Flags 0-10</b> are indicated by annunciators at the top of the display.<br>
+		<b>Flags 36-80</b> are read-only and cannot be altered with SF, CF, FS?C, or FC?C.<br>
+		<br>
+
+		<h2 id="Virtual_variables">Virtual variables</h2>
+		The concept of "Virtual Variables" is used to manage some of the new features specific to the DM42 calculator.
+		These are variables that do not (and cannot, for that matter) exist in the DM42's variable table, but are used
+		to read or change state variables specific to DM42.<br>
+		<table>
+			<tbody><tr><td><b>DevID</b></td><td>(read-only) Hardware Device ID </td></tr>
+			<tr><td><b>RefLCD</b></td><td>(read-write) Refresh Zones
+				<ul>
+					<li>0 = None</li>
+					<li>1 = Main area</li>
+					<li>2 = Goose</li>
+					<li>3 = Main area and goose</li>
+					<li>4 = Annunciators</li>
+					<li>5 = Annunciators and main area</li>
+					<li>6 = Annunciators and goose</li>
+					<li>7 = Everything</li>
+				</ul>
+			</td></tr>
+			<tr><td><b>GrMod</b></td><td>(read-write) Graphics Modes
+				<ul>
+					<li>0 = HP-42S resolution 131x16</li>
+					<li>1 = reserved (maps to 0)</li>
+					<li>2 = DM42 half resolution 200x120</li>
+					<li>3 = DM42 full resolution 400x240</li>
+				</ul>
+			</td></tr>
+			<tr><td><b>ResX</b></td><td>(read-only) X-resolution for current graphics mode set in GrMod</td></tr>
+			<tr><td><b>ResY</b></td><td>(read-only) Y-resolution for current graphics mode set in GrMod</td></tr>
+			<tr><td><b>Vbat</b></td><td>(read-only) battery voltage</td></tr>
+		</tbody></table><br>
+		<br>
+
+		<h2 id="F_Buttons">F-Buttons</h2>
+		The top row consists of six unprinted buttons referenced as F-Buttons (F1-F6) or soft-menu buttons.
+		<ul>
+			<li><b>F1</b> Displays this Help</li>
+			<li><b>F2</b> Toggle the system soft menu visibility</li>
+			<li><b>F3</b> In Help mode, open help file selection dialog</li>
+			<li><b>F4</b> Increase buzzer volume</li>
+			<li><b>Shift-F4</b> Decrease buzzer volume</li>
+			<li><b>F5</b> Toggle stack alignment (Left, Right, Right Underlined)</li>
+			<li><b>Shift-F5</b> Toggle between sans and HP font</li>
+			<li><b>F6</b> Increase font size</li>
+			<li><b>Shift-F6</b> Decrease font size</li>
+		</ul><br>
+		Note that font changes using F5/F6 affect displaying of calculator stack and font in program mode
+		and are stored independently for both stack and program mode. 
+		<br><br>
+
+		<h2 id="Screenshot">Screenshot</h2>
+		Pressing <span class="button">SHIFT</span> and <span class="button">DISP</span> simultaneously
+		makes a screenshot and saves a BMP graphics file in the folder /SCREENS.<br/>
+		The file name is made up by the current date and time.
+		<br><br>
+
+		<h2 id="Setup_Menu">Setup Menu</h2>
+		<ul>
+			<li><a href="#File">File</a></li>
+			<li><a href="#Calculator_State">Calculator State</a></li>
+			<li><a href="#Print_To_File">Print_To_File</a></li>
+			<li><a href="#Settings">Settings</a></li>
+			<li><a href="#System">System</a></li>
+			<li><a href="#About">About</a></li>
+		</ul><br>
+		<br>
+
+		<h3 id="File">Setup Menu → File</h3>
+		Save and Load DM42 Programs to FAT Disk as *.raw files.
+		<ul>
+			<li>Load Program<br>Select RAW file and load in DM42 memory</li>
+			<li>Save Program<br>Select one or more DM42 programs from memory and save as one RAW file</li>
+			<li>Activate USB Disk<br>Prepare DM42 for connection with computer for file exchange</li>
+			<li>Show Disk Info<br>Display FAT Disk information</li>
+		</ul><br>
+
+		<h3 id="Calculator_State">Setup Menu → Calculator State</h3>
+		The complete calculator state can be saved and loaded as one file (*.f42).
+		<ul>
+			<li>Load State<br>Load previously saved calculator state</li>
+			<li>Save State<br>Save current calculator state as a file</li>
+			<li>Load Clean State<br>Load default settings</li>
+		</ul><br>
+
+		<h3 id="Print_To_File">Setup Menu → Print To File</h3>
+		<ul>
+			<li>Graphics Print<br>Selecting this menu item enables printing to graphics file.</li>
+			<li>Text Print<br>Selecting this menu item  enables printing to text file.</li>
+			<li>Graphics in Text<br>Selecting this menu item enables to see graphics in text file.</li>
+			<li>Don't print to IR<br>Selecting this menu item disables default printing to IR printer.</li>
+		</ul>
+
+		<h3 id="Settings">Setup Menu → Settings</h3>
+		<ul>
+			<li>Set Time<br>Set time and select 12h/24h format</li>
+			<li>Set Date<br>Set date and select MDY/DMY format</li>
+			<li>Status Bar<br>
+				Display <b>State Filename</b><br>
+				Display <b>Day of Week</b> <br>
+				Display <b>Date</b><br>
+				Select a <b>Date Separator</b> of . - /<br>
+				Display <b>Month Shortcut</b> as 3 letter abrv.<br>
+				Display <b>Time</b><br>
+				Display <b>Power Voltage in Header</b>
+			</li>
+			<li>Stack Font Sizes<br>
+				Allows to set font size offsets for registers X, Y, Z, T, L and A
+			</li>
+			<li>Beep Mute<br>Mute beep in all cases.</li>
+			<li>Slow Auto-repeat<br>This option makes auto-repeat of pressed and held buttons slower.</li>
+			<li>Stack Layout<br>These are the options:<br>XYZTL<br>XYZTA<br>XYZL<br>XYZA<br>XY<br>LXYZT</li>
+			<li>Dynamic Stack Extension<br>This option enables or disables the 'Big Stack' extension of Free42</li>
+		</ul><br>
+
+		<h3 id="System">Setup Menu → System</h3>
+		Warning: Certain actions in this menu can <b>destroy all stored data</b> of the calculator.<br>Please run 'Save Calculator State' in 'File' menu first to preserve data over potential RESET.<br>
+		<ul>
+			<li>Flashing firmware from FAT<br>
+				Starts flashing of new firmware if firmware file is copied to root of FAT filesystem.
+			</li>
+			<li>Bootloader<br>Connect USB to enter bootloader mode. Note that reset is the only way to exit bootloader mode.</li>
+			<li>Program Info<br>Displays info about currently loaded program</li>
+			<li>Reset to DMCP menu<br>Resets calculator and enters DMCP menu</li>
+			<li>Format FAT Disk<br>This will format FAT filesystem. All data will be erased!</li>
+			<li>FAT Disk Media Test<br>All data stored in the FAT disk will be destroyed by this low-level media test!</li>
+			<li>Power OFF mode<br>Allows to set power OFF mode. Only for diagnostics.</li>
+			<li>Self Test<br>Set of tests for KBD, LCD, IR, BEEP and Diagnostics</li>
+		</ul><br>
+		<br>
+
+		<h3 id="About">About</h3>
+		<ul>
+			<li><b>DM Calculator Platform</b><br>(C) 2014-2025, SwissMicros GmbH</li>
+			<li><b>Free42</b><br> (C) 2004-2025, Thomas Okken</li>
+			<li><b>Intel Decimal Floating-Point Lib</b><br>(C) 2007-2018, Intel Corp.</li>
+			<li><b>DM42 Quick Reference Guide</b><br>based on HP-42S Quick Reference Guide (c) Copyright 1988 Dex Smith</li>
+			<li>Thanks to user Nagash_X for helpful contribution.</li>
+		</ul><br>
+		<a href="#Top">Top</a>
+
+</body></html>

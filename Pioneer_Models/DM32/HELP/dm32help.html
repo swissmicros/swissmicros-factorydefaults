@@ -1,0 +1,2349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="content-type" content="text/html" charset="UTF-8">
+<meta name="author" content="SwissMicros GmbH">
+<title>DM32 Quick Reference Guide</title>
+<link rel="stylesheet" href="https://tech.swissmicros.com/User-Manuals/usermanuals.css">
+/*<link rel="stylesheet" href="helpfile.css">*/
+</head>
+
+<body>
+
+<h1>DM32 Quick Reference Guide</h1>
+<span id="author" class="author">SwissMicros GmbH</span><br>
+<span id="revdate">Copyright 2024 v2.80 2024-03-05</span><br><br>
+
+<b>Table of Contents</b>
+
+<ul>
+<li><a href="#About">About this guide</a><br>
+■ <a href="#_symbols_used">Symbols used</a><br>
+■ <a href="#_navigation">Navigation</a><br>
+</li>
+    
+<li><a href="#FKey">F-Keys</a></li>
+    
+<li><a href="#Screenshot">Screenshot</a></li>
+    
+<li><a href="#Setup_Menu">Setup menu</a><br>
+■ <a href="#File">Setup Menu → 1. File</a><br>
+■ <a href="#Settings">Setup Menu → 2. Settings</a><br>
+■ <a href="#System">Setup Menu → 3. System</a><br>
+■ <a href="#AboutItem">Setup Menu → 4. About</a>
+</li>
+    
+<li><a href="#Functions">Functions reference by context/topic</a>
+</li>
+    
+<li><a href="#Index">Functions alphabetical index</a><br>
+■ <a href="#_#">#</a><br>
+■ <a href="#_a">A</a><br>
+■ <a href="#_b">B</a><br>
+■ <a href="#_c">C</a><br>
+■ <a href="#_d">D</a><br>
+■ <a href="#_e">E</a><br>
+■ <a href="#_f">F</a><br>
+■ <a href="#_g">G</a><br>
+■ <a href="#_h">H</a><br>
+■ <a href="#_i">I</a><br>
+■ <a href="#_k">K</a><br>
+■ <a href="#_l">L</a><br>
+■ <a href="#_m">M</a><br>
+■ <a href="#_n">N</a><br>
+■ <a href="#_o">O</a><br>
+■ <a href="#_p">P</a><br>
+■ <a href="#_r">R</a><br>
+■ <a href="#_s">S</a><br>
+■ <a href="#_t">T</a><br>
+■ <a href="#_v">V</a><br>
+■ <a href="#_x">X</a><br>
+■ <a href="#_y">Y</a>
+</li>
+</ul><br>
+
+<h2 id="About">About this guide</h2><br>
+
+<h3 id="_symbols_used">Symbols used</h3>
+
+<ul>
+<li>
+<span class="dm32L">123</span> characters on a light grey background represent a soft button or anything on the LCD
+</li>
+
+<li>
+<span class="dm32B">STO</span> characters on a dark grey background represent a physical button
+</li>
+
+<li>
+<span class="dm32B">↰</span> represents the orange key, or left-shift, or LS
+</li>
+
+<li>
+<span class="dm32B">↱</span> represents the blue key, or right-shift, or RS
+</li>
+
+<li>
+| a vertical bar in key sequences show options where different keypresses are possible
+</li>
+</ul><br>
+
+Functions accessed using shifted keys are shown as <span class="dm32B">Shift-Key</span> + <span class="dm32B">Key</span> + [Function label]<br>
+For instance, invoking number pi is shown as <span class="dm32B">↱</span> <span class="dm32B">SIN</span> [π].<br><br>
+
+<h3 id="_navigation">Navigation</h3>
+<ul>
+<li>
+<span class="dm32B">2</span>/<span class="dm32B">8</span> or <span class="dm32B">+</span>/<span class="dm32B">-</span> move one line down/up
+</li>
+
+<li>
+<span class="dm32B">3</span>/<span class="dm32B">9</span> or <span class="dm32B">×</span>/<span class="dm32B">÷</span> move one page down/up
+</li>
+
+<li>
+<span class="dm32B">4</span>/<span class="dm32B">6</span> previous/next link
+</li>
+
+<li>
+<span class="dm32B">5</span> or <span class="dm32B">ENTER</span> jump to selected link
+</li>
+
+<li>
+<span class="dm32B">←</span> jump back to previously selected link
+</li>
+
+<li>
+<span class="dm32B">7</span> or <span class="dm32B">F2</span> back to top
+</li>
+
+<li>
+<span class="dm32B">F3</span> open help file selection dialog
+</li>
+
+<li>
+<span class="dm32B">C</span>, <span class="dm32B">F1</span> or <span class="dm32B">F6</span> close help file
+</li>
+</ul><br>
+
+<h2 id="FKey">F-Keys</h2><br><br>
+
+Blank keys at the top of the keypad are numbered <span class="dm32B">F1</span> to <span class="dm32B">F6</span> from left to right.<br><br>
+<span class="dm32B">F1</span> opens/closes the present onboard help.<br>
+<span class="dm32B">F2</span> opens the Debug view configuration dialog and cycles through its modes.<br>
+<span class="dm32B">F3</span> step-over and step-out debug feature (opens the help file selection dialog while onboard help is open).<br>
+<span class="dm32B">F4</span> opens the States list (use <span class="dm32B">C</span> to close it).<br>
+<span class="dm32B">F5</span> = up arrow key (<span class="dm32B">↰</span> <span class="dm32B">8</span> [▲]).<br>
+<span class="dm32B">F6</span> = down arrow key (<span class="dm32B">↰</span> <span class="dm32B">7</span> [▼]).<br><br>
+
+
+<h2 id="Screenshot">Screenshot</h2>
+Pressing <span class="dm32B">E</span> while holding <span class="dm32B">↱</span> saves a 1-bit BMP screenshot file in folder /SCREENS. 
+The file name is made up of the current date and time. Folders on the internal FAT disk can be accessed by connecting the calculator to a computer and activating USB disk mode in the <a href="#File">Setup → File menu.</a><br><br>
+
+<h2 id="Setup_Menu">Setup menu</h2><br>
+
+<h3 id="File">Setup Menu → 1. File</h3>
+Save and Load complete calculator state to and from Statefile on internal USB disk as *.d32 files. Calculator Statefile contains:
+
+<ul>
+<li>
+complete stack (XYZT and LASTx),
+</li>
+
+<li>
+<a href="#fVariables">variables A to Z</a>,
+</li>
+
+<li>
+<a href="#INDONLY">indirect-only Extended registers (100-999)</a>,
+</li>
+
+<li>
+<a href="#mFlags">flags</a> status,
+</li>
+
+<li>
+active <a href="#mModes">MODES</a> and <a href="#mDisp">DISP</a> selections (like RAD, FIX 6, etc),
+</li>
+
+<li>
+<a href="#fFractions">fraction display</a> (FDISP and /c),
+</li>
+
+<li>
+<a href="#fEquations">equations</a>,
+</li>
+
+<li>
+<a href="#fProgramming">program(s)</a>.
+</li>
+
+</ul><br>
+
+<ol>
+<li>
+<b>Load State</b><br>
+Load State from *.d32 file.
+</li>
+
+<li>
+<b>Save State</b><br>
+Save State to *.d32 file.
+</li>
+
+<li>
+<b>Load Clean State</b><br>
+Global reset, clears everything and resets settings to defaults. Cannot be undone.
+</li>
+
+<li>
+<b>Activate USB Disk</b><br>
+Prepare DM32 for connection with computer for file exchange.
+</li>
+
+<li>
+<b>Show Disk Info</b><br>
+Display FAT Disk information.
+</li>
+</ol><br><br>
+
+The DM32 can hold several States in memory, simultaneously.
+See <a href="#fStates">Multi-state</a>.<br><br>
+
+<h3 id="Settings">Setup Menu → 2. Settings</h3>
+<ol>
+<li>
+<b>Set Time</b><br>
+Set time and select 12h/24h format.
+</li>
+
+<li>
+<b>Set Date</b><br>
+Set date and select MDY/DMY format.
+</li>
+
+<li>
+<b>Load Dependencies</b><br>
+Behavior when loading a State with one or more Remote XEQ instructions.
+</li>
+
+<li>
+<b>Stack Font</b><br>
+Cycle through available font variants.
+</li>
+</ol><br><br>
+
+<h3 id="System">Setup Menu → 3. System</h3>
+Warning: certain actions in this menu can <b>destroy all stored data</b> of the calculator. Please run 'Save State' in <a href="#File">File menu</a> first to preserve data over potential RESET.<br>
+<ol>
+<li>
+<b>Flashing firmware from FAT</b><br>
+Starts flashing of new firmware if firmware file is copied to root of FAT filesystem.
+</li>
+
+<li>
+<b>Bootloader</b><br>
+Connect USB to enter bootloader mode. Note that reset is the only way to exit bootloader mode.
+</li>
+
+<li>
+<b>Program Info</b><br>
+Displays info about currently loaded program.
+</li>
+
+<li>
+<b>Reset to DMCP menu</b><br>
+Resets calculator and enters DMCP menu.
+</li>
+
+<li>
+<b>Format FAT Disk</b><br>
+This will format FAT filesystem. All data will be erased!
+</li>
+
+<li>
+<b>FAT Disk Media Test</b><br>
+All data stored in the FAT disk will be destroyed by this low-level media test!
+</li>
+
+<li>
+<b>Power OFF mode</b><br>
+Allows to set power OFF mode. Only for diagnostics.
+</li>
+
+<li>
+<b>Self Test</b><br>
+Set of tests for KBD, LCD, IR, BEEP and Diagnostics.
+</li>
+</ol><br>
+
+<h3 id="AboutItem">Setup Menu → 4. About</h3>
+General OS and firmware information.
+<br><br>
+
+<h2 id="Functions">Functions reference by context/topic</h2>
+Below is a list of functions grouped by topic. Some function names are duplicated as the same function can have various effects depending on the context/topic. Here are links to jump to specific context/topic:
+<ul>
+
+<li>
+<a href="#fMainModes">Calculator modes</a>
+</li>
+
+<li>
+<a href="#fVariables">Variables and indirect addressing</a></li>
+
+<li>
+<a href="#fComplex">Complex numbers</a>
+</li>
+
+<li>
+<a href="#fFractions">Fractions</a>
+</li>
+
+<li>
+<a href="#fEquations">Equations</a>
+</li>
+
+<li>
+<a href="#fSolving">Solving</a>
+</li>
+
+<li>
+<a href="#fIntegration">Integration</a>
+</li>
+
+<li>
+<a href="#fProgramming">Programming</a>
+</li>
+
+<li>
+<a href="#fStatistics">Statistics</a>
+</li>
+
+<li>
+<a href="#fMenus">Menus</a>
+</li>
+
+<li>
+<a href="#fStates">Multi-state</a>
+</li>
+
+<h3 id="fMainModes">Calculator modes</h3>
+The calculator has 3 modes:
+<ul>
+<li>
+Calculator mode; where calculations take place and the stack is displayed.
+</li>
+
+<li>
+Equation list; to select, solve (<i>list</i> mode) and write (<i>entry</i> sub-mode) equations in algebraic format. Press <span class="dm32B">↱</span> <span class="dm32B">STO</span> [EQN] to activate.<br>
+</li>
+
+<li>
+Program mode; allows for writing of programs. Press <span class="dm32B">↰</span> <span class="dm32B">R/S</span> [PRGM] to activate.
+</li>
+</ul><br>
+
+The calculator turns on in the same mode it was turned off in. To enter Equation list, press <span class="dm32B">↱</span> <span class="dm32B">STO</span> [EQN].<br>To exit Equation list, press <span class="dm32B">C</span> . To enter program mode, press <span class="dm32B">↰</span> <span class="dm32B">R/S</span> [PRGM]. To exit program mode, press <span class="dm32B">C</span>. To enter a CLEAR instruction as a program line while in program mode, use functions from the <a href="#mClear">clear menu</a>.<br><br>
+
+<h3 id="fVariables">Variables and indirect addressing</h3>
+See <a href="#mMem">MEM menu</a> to query the calculator about variables memory usage.<br><br>
+
+<b>About variables</b><br>
+Numbers are stored in memory registers called <i>variables</i>. There are 26 variables and they have a single-letter name from <i>A</i> to <i>Z</i>.<br>
+Additional variables <i>i and</i> <i>(i)</i> are used for <a href="#VARIND">indirect addressing</a>. There are an additional 1800 variables which are <a href="#INDONLY">only addressable indirectly</a>.<br><br>
+
+<b>STO</b><br>
+<span class="dm32B">STO</span> <span class="dm32L">A..Z</span><br>
+Stores a variable. Valid memory registers are letters <i>A</i> to <i>Z</i>.<br><br>
+
+<b>RCL</b><br>
+<span class="dm32B">RCL</span> <span class="dm32L">A..Z</span><br>
+Recalls a variable to the x-register. Variables can be recalled from memory registers <i>A</i> to <i>Z</i>.<br><br>
+
+<b>STO ARITHMETIC</b><br>
+<span class="dm32B">STO</span> <span class="dm32B">+</span> | <span class="dm32B">-</span> | <span class="dm32B">×</span> | <span class="dm32B">×</span> <span class="dm32L">A..Z</span><br>
+Applies arithmetic with value from x-register to variable (variable changes, x-register doesn't).<br><br>
+
+<b>RCL ARITHMETIC</b><br>
+<span class="dm32B">RCL</span> <span class="dm32B">+</span> | <span class="dm32B">-</span> | <span class="dm32B">×</span> | <span class="dm32B">×</span> <span class="dm32L">A..Z</span><br>
+Applies arithmetic with value from variable to x-register (x-register changes, variable doesn't).<br><br>
+
+<b>x&lt;&gt;</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">x&lt;&gt;y</span> <span class="dm32L">A..Z</span><br>
+Exchange x-register with a value from a variable. Also works with <a href="#VARIND">indirect addressing</a>.<br><br>
+
+<b>VIEW</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">0</span> <span class="dm32L">A..Z</span><br>
+Displays the contents of a variable. Exiting VIEW with <span class="dm32B">←</span> or <span class="dm32B">C</span> has no effect on the stack.<br>
+Exiting VIEW with <span class="dm32B">ENTER</span> places the viewed value on the stack. Also works with <a href="#VARIND">indirect addressing</a>.<br><br>
+
+<p id="VARIND"><b>Indirect addressing with i and (i)</b></p><br>
+Variables <i>i</i> and <i>(i)</i> work together:<br><i>i</i> serves as an index to <i>(i)</i>.<br>Example:
+<ul>
+<li>
+store value 32 in variable C:<br><span class="dm32B">3</span> <span class="dm32B">2</span> <span class="dm32B">STO</span> <span class="dm32B">LN</span> (the LN key invokes letter <i>C</i>),
+</li>
+
+<li>
+store value 3 in variable <i>i</i>:<br><span class="dm32B">3</span> <span class="dm32B">STO</span> <span class="dm32B">.</span> (the dot key invokes letter <i>i</i>),
+</li>
+
+<li>
+<i>indirectly</i> recall value in variable C by using index variable <i>i</i>:<br><span class="dm32B">RCL</span> <span class="dm32B">R/S</span> (the R/S key invokes letter <i>(i)</i>),
+</li>
+
+<li>
+value 32 from variable C is recalled to x-register.
+</li>
+</ul><br>
+
+The example above works because variable names are mapped to numeric memory registers, so that number <i>3</i> is mapped to variable <i>C</i>:
+<ul>
+<li>
+A-Z to registers 1-26
+</li>
+
+<li>
+i to register 27
+</li>
+</ul><br><br>
+
+<p id="INDONLY"><b>Indirect-only registers</b></p><br>
+There are 1800 indirectly addressable variables:
+<ul>
+<li>
+<i>Extended</i> variables, index 100 up to 999,
+</li>
+<li>
+<i>Global</i> variables, index -100 down to -999
+</li>
+</ul>
+
+Example:
+<ul>
+<li>
+store value 500 in index variable <i>i</i>:<br>
+<span class="dm32B">5</span> <span class="dm32B">0</span> <span class="dm32B">0</span> <span class="dm32B">STO</span> <span class="dm32B">.</span> (the dot key invokes letter <i>i</i>),
+</li>
+
+<li>
+store value 16 in Extended variable <i>500</i>:<br>
+<span class="dm32B">1</span> <span class="dm32B">6</span> <span class="dm32B">STO</span> <span class="dm32B">R/S</span> (the R/S key invokes indirect address function <i>(i)</i>),
+</li>
+
+<li>
+<i>indirectly</i> recall value in variable <i>500</i> by using index variable <i>i</i>:<br><span class="dm32B">RCL</span> <span class="dm32B">R/S</span> (the R/S key invokes indirect address function <i>(i)</i>),
+</li>
+
+<li>
+value 16 from Extended variable <i>500</i> is recalled to x-register.
+</li>
+</ul>
+
+While Extended variables are visible only to the State they belong to, Global variables are shared and accessible by all States.
+Extended variables are part of (and thus, saved with) the Statefile, and Global variables are not.<br><br>
+
+<h3 id="fComplex">Complex numbers</h3>
+The x/y and z/t register pairs can be interpreted by the calculator as two complex numbers for certain operations.<br>In this case, registers x and z are the real parts of both numbers and registers y and t are the imaginary parts.<br><br>
+
+<b>CMPLX</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span><br>
+Prefix used to indicate the next operation is intended to act upon one or a pair of <a href="#fComplex">complex numbers.</a>
+<ul>
+<li>
+Available complex unary functions (expect one complex number stored in x- and y-registers):<br>
+■ +/-<br>
+■ 1/x<br>
+■ LN<br>
+■ eˣ<br>
+■ SIN<br>
+■ COS<br>
+■ TAN
+</li>
+
+<li>
+Available complex binary functions (expect two complex numbers stored in x/y and z/t registers):<br>
+■ +<br>
+■ -<br>
+■ ×<br>
+■ ÷<br>
+■ yˣ
+</li>
+</ul><br>
+
+<h3 id="fFractions">Fractions</h3>
+Fractional number entry requires using <span class="dm32B">.</span> twice. To enter 1 2/3, use <span class="dm32B">1</span> <span class="dm32B">.</span> <span class="dm32B">2</span> <span class="dm32B">.</span> <span class="dm32B">3</span>.<br>Fraction display mode is only a representational feature; all numbers are always stored in memory with maximum calculator precision.<br><br>
+
+<p id="FDISP"><b>FDISP</b></p><br>
+<span class="dm32B">↰</span> <span class="dm32B">.</span><br>
+Toggles fraction display mode. 
+If displayed fraction doesn't represent stored number exactly, annunciators <span class="dm32L">▲</span> or <span class="dm32L">▼</span> appear to indicate that stored number 
+is <i>larger</i> or <i>smaller</i>, respectively, than the displayed fraction.<br><br>
+
+<p id="C"><b>/c</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">.</span><br>
+Uses value in x-register to set current maximum denominator and puts the display in <a href="#FDISP">fraction mode</a>. Possible values: 2-4095. 1 and 0 have special action:
+<ul>
+<li>
+0 sets current denominator to maximum allowed value 4095,
+</li>
+
+<li>
+1 recalls current maximum denominator to x-register (doesn't toggle the display to fraction mode).
+</li>
+</ul><br>
+
+<b>About flags 7, 8, 9</b><br>
+These <a href="#mFlags">flags</a> control <a href="#FDISP">fraction display.</a> They work in a "cascading" fashion, with flag 9 only effective when flag 8 is set, and 8 only when 7 is set.
+<ul>
+<li>
+Flag 7: toggles between decimal and fraction display. Identical to using <span class="dm32B">↰</span> <span class="dm32B">.</span> [FDISP].
+</li>
+
+<li>
+Flag 8 (flag 7 must be set):<br>
+■ cleared: displayed fraction is the most precise possible with current maximum denominator as <a href="#C">specified with /c,</a><br>
+■ set: displayed fraction uses factors of the current maximum denominator.
+</li>
+
+<li>
+Flag 9 (flag 8 must be set):<br>
+■ set: displayed fraction uses fixed current maximum denominator.
+</li>
+</ul><br>
+
+<h3 id="fEquations">Equations</h3>
+    Equations are written using the calculator's <a href="#EQNMODE">Equation list</a>. They are written in algebraic form. There are 3 types of equations:
+<ul>
+<li>
+Assignment: A = W × L
+</li>
+
+<li>
+Equality: A + B² = C³
+</li>
+
+<li>
+Expression: √W + 4
+</li>
+</ul><br>
+
+Assignment-type equations <a href="#EVAL">evaluate differently</a> whether <span class="dm32B">ENTER</span> or <span class="dm32B">XEQ</span> is used.<br><br>
+
+<b>Note</b><br>
+All functions below describe calculator behavior when in <a href="#EQNMODE">equation list mode</a>. Functions in paragraph <a href="#EQNENTRY">Equation entry mode</a> are only valid when that sub-mode is active.<br><br>
+
+<p id="EQNMODE"><b>EQN</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">STO</span><br>
+Toggles Equation list and annunciator <span class="dm32L">EQN</span>. The Equation list can be browsed using the arrow keys <span class="dm32B">↰</span> <span class="dm32B">7</span> [▼] / <span class="dm32B">↰</span> <span class="dm32B">8</span> [▲]. Displayed equation is the one currently selected.<br><br>
+
+<p id="EQNENTRY"><b>Equation entry mode</b></p><br>
+When <a href="#EQNMODE">in equation list mode</a> (annunciator <span class="dm32L">EQN</span> is on), pressing any key (number, function or variable name) activates equation entry mode to start writing a new equation.<br>Pressing <span class="dm32B">←</span> while viewing an existing equation in the <a href="#EQNMODE">equation list</a> also switches to equation entry to edit the selected equation.<br><br>
+
+<p id="EQNWRT"><b>Writing and modifying equations</b></p><br>
+Pressing <span class="dm32B">←</span> while equation entry is active deletes the right-most character from the equation. Arguments to binary functions (e.g. <a href="#iCHG">%CHG</a>) must be separated by a space (<span class="dm32B">R/S</span>).
+To enter variable names, use <span class="dm32B">STO</span> or <span class="dm32B">RCL</span> before pressing corresponding letter key.<br>
+Terminate equation entry with <span class="dm32B">ENTER</span>. The calculator reverts to <a href="#EQNMODE">equation list mode</a>.<br><br>
+
+<p id="EVAL"><b>ENTER / XEQ</b></p><br>
+<span class="dm32B">ENTER</span> / <span class="dm32B">XEQ</span><br>
+When in <a href="#EQNMODE">equation list mode</a>, both keys evaluate the currently selected equation, depending on its <a href="#fEquations">type</a>.
+<ul>
+<li>
+Equality: both <span class="dm32B">ENTER</span> and <span class="dm32B">XEQ</span> calculate left side <i>minus</i> right side and return result to x-register.
+</li>
+
+<li>
+Expression: both <span class="dm32B">ENTER</span> and <span class="dm32B">XEQ</span> evaluate expression and return value to x-register.
+</li>
+
+<li>
+Assignment:<br>
+■ <span class="dm32B">ENTER</span> returns result to x-register AND stores it in variable name on left side.<br>
+■ <span class="dm32B">XEQ</span> calculates left side <i>minus</i> right side and returns result to x-register.
+</li>
+</ul><br>
+
+The calculator prompts for variable values in order to evaluate. For each query, either
+
+<ul>
+<li>
+the current value can be kept as is,
+</li>
+
+<li>
+or a new value can be entered directly,
+</li>
+
+<li>
+or a calculation can be performed to obtain a new value.
+</li>
+</ul><br>
+
+With desired value ready, <span class="dm32B">R/S</span> proceeds to the next value prompt or, if all equation values have been entered, performs the evaluation.<br><br>
+
+<b>Equation editing</b><br>
+<span class="dm32B">←</span><br>
+To modify a stored equation, select it from the <a href="#EQNMODE">equation list</a> and press <span class="dm32B">←</span>. Switches the calculator to <a href="#EQNENTRY">equation entry mode.</a> A block cursor displays at the end of the line, which allows for adding characters to the equation of deleting the rightmost character by pressing <span class="dm32B">←</span>.<br><br>
+
+<b>C</b><br>
+<span class="dm32B">C</span><br>
+Leaves <a href="#EQNMODE">Equation list</a>. Annunciator <span class="dm32L">EQN</span> turns off.<br><br>
+
+<b>CLEAR</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">←</span><br>
+Deletes <a href="#EQNMODE">currently selected equation</a> instantly. Cannot be undone.<br><br>
+
+<b>SCRL</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">RCL</span><br>
+Toggles equation scrolling on/off. In <a href="#EQNMODE">Equation list</a>, if the currently selected equation is too long for the display, keys <span class="dm32B">√x</span> and <span class="dm32B">Σ+</span> are used to scroll the equation. <br>To enter a new equation starting with <span class="dm32B">√x</span> from here, this scrolling function must therefore be deactivated. Function SCRL does that in this context.
+<br><br><h3 id="fSolving">Solving</h3>
+The <a href="#SLV">solve function</a> finds a value for a selected variable in either an equation or a program. The solver algorithm attempts to find a value so that:
+<ul>
+<li>
+for an equation (can be of any of <a href="#fEquations">the 3 types</a>):<br>
+■ assignment: the right side equals 0,<br>
+■ expression: the expression equals 0,<br>
+■ equality: left side <i>minus</i> right side equals 0,
+</li>
+
+<li>
+for a program:<br>
+■ the <a href="#fProgramming">program</a> returns 0 to the x-register.
+</li>
+</ul><br>
+
+<p id="SLVFN"><b>FN=</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">XEQ</span><br>
+Defines the label to be used for solving when using a <a href="#SLVPRG">program as function</a>.<br><br>
+
+<p id="SLV"><b>SOLVE</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">7</span><br><br>
+
+<p id="EQNSLV"><b>To solve an equation</b></p><br>
+Use the SOLVE function with the <a href="#EQNMODE">Equation list open</a> and the desired equation selected. The calculator prompts for the unknown variable name to be solved for. Press the corresponding letter-key. The calculator then prompts for value of each of the known variables. For each query, either:
+<ul>
+<li>
+the current value can be kept as is, or
+</li>
+
+<li>
+a new value can be entered directly, or
+</li>
+
+<li>
+a calculation can be performed manually to obtain a new value.
+</li>
+
+</ul><br>
+
+With the desired value ready, <span class="dm32B">R/S</span> proceeds to the next value prompt. If all known values have been entered, <span class="dm32B">R/S</span> starts solving. Value in x-register and of the variable being solved for are used as clues, as starting values, for the solver algorithm. <br>The variable value which solves the equation is displayed and stored in the x-register. The <a href="#SLVSTK">y- and z- registers hold special values</a> after a solution has been found.<br><br>
+<p id="SLVPRG"><b>To solve a program</b></p><br>
+
+Finds a root for a function defined in the form of a <a href="#SLVPRGSTR">program</a>. The program label to use must be designated beforehand with <a href="#SLVFN">function FN=</a>. To solve a program:
+<ul>
+<li>
+unlike when <a href="#EQNSLV">solving an equation</a>, the calculator must be in <a href="#fMainModes">Calculator mode</a>,
+</li>
+
+<li>
+press <span class="dm32B">↱</span> <span class="dm32B">XEQ</span> [FN=],
+</li>
+
+<li>
+select solve program label <span class="dm32L">A..Z</span>,
+</li>
+
+<li>
+press <span class="dm32B">↱</span> <span class="dm32B">7</span> [SOLVE],
+</li>
+<li>
+from there, the calculation proceeds as with <a href="#EQNSLV">solving an equation</a>.
+</li>
+
+</ul><br>
+
+<p id="SLVPRGSTR"><b>Structure of a "solve program"</b></p><br>
+A "solve program" is really a <a href="#fProgramming">regular calculator program</a> or program label which must follow these guidelines:
+<ul>
+<li>
+ start with a <a href="#PRGMEM">label</a> (to later identify with FN=),
+</li>
+
+<li>
+include an <a href="#INPUT">INPUT instruction</a> for every variable (even the unknown),
+</li>
+
+<li>
+must be designed to return 0 to x-register; for instance, if the equation is f(x) = g(x), then the program should calculate f(x) - g(x); "=0" is implied,
+</li>
+
+<li>
+end with a RTN instruction.
+</li>
+</ul><br>
+
+Example solve program listing for Ohm's law (V=R×I):
+<ul>
+<li>
+V01 LBL V
+</li>
+
+<li>
+V02 INPUT V
+</li>
+
+<li>
+V03 INPUT R
+</li>
+
+<li>
+V04 INPUT I
+</li>
+
+<li>
+V05 RCL R
+</li>
+
+<li>
+V06 RCL I
+</li>
+
+<li>
+V07 ×
+</li>
+
+<li>
+V08 RCL- V
+</li>
+
+<li>
+V09 RTN
+</li>
+</ul><br>
+
+<p id="SLVSTK"><b>Stack status after SOLVE</b></p><br>
+<ul>
+<li>
+x-register: variable value which solves the equation (i.e. makes it equal 0),
+</li>
+
+<li>
+y-register: previous estimate for the solution (SOLVE algorithm works by iterations, this is the second-to-last value it could find),
+</li>
+
+<li>
+z-register: value of the equation at the solution point; 0 means exact root has been found, non-zero means the root is an approximation.
+</li>
+</ul><br>
+
+<b>Programmatic usage</b><br>
+SOLVE can be called as an instruction in a <a href="#fProgramming">program</a>. The function to solve must itself be stored <a href="#SLVPRG">as a "solve program"</a>. To use SOLVE in this context, <a href="#SLVFN">function FN=</a> must be called first, then SOLVE. <br>When SOLVE is done, the found value is stored in the variable being solved for without notice. To display the result, add a <a href="#iVIEW">VIEW <i>variable</i></a> instruction as a program line immediately after the call to SOLVE. If no root can be found, the program line following the call to SOLVE is skipped.<br>Calls to SOLVE can't be nested, i.e. SOLVE cannot find a root for a program which itself calls SOLVE.<br><br>
+
+<b>Interruption</b><br>
+<span class="dm32B">C</span> | <span class="dm32B">R/S</span><br>
+If interrupted, the solving algorithm leaves the current best guess in the variable being solved for.<br><br>
+
+<h3 id="fIntegration">Integration</h3>
+The integrand's function is stored in the calculator as an equation, either in the <a href="#EQNMODE">Equation list</a> or as a program line. The latter is necessary if the goal is to call the integrating function from a running program. Depending on the <a href="#fEquations">equation type</a>, the value of the integrand's function is equal to:
+<ul>
+<li>
+assignment: left side minus right side,
+</li>
+
+<li>
+expression: the expression value,
+</li>
+
+<li>
+equality: left side minus right side.
+</li>
+</ul><br>
+
+<p id="INTFN"><b>FN=</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">XEQ</span><br>
+Defines the label to be used for integration when using a <a href="#int_program">program as the integrand's function</a>.<br><br>
+
+<b>∫FN d (INTEGRATE)</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">8</span><br><br>
+
+<p id="INTEQN"><b>To integrate an equation</b></p><br>
+Before using the function, lower and upper boundaries must be entered in the x- and y-register, respectively. Use the ∫FN d function with the <a href="#EQNMODE">Equation list open</a> and the desired equation selected. <br>The calculator prompts for the variable name to be used for integration. Press the corresponding letter-key. The calculator then prompts for value each of the other variables. For each query, either:
+<ul>
+<li>
+the current value can be kept as is,
+</li>
+
+<li>
+or a new value can be entered directly,
+</li>
+
+<li>
+or a calculation can be performed manually to obtain a new value.
+</li>
+</ul><br>
+
+With desired value ready, <span class="dm32B">R/S</span> proceeds to the next value prompt or, if all values have been entered, integration starts. The display shows <span class="dm32L">INTEGRATING</span> and annunciator <span class="dm32L">EQN</span> flashes until the result is placed in the x-register. <br>At that point, the y-register holds the <i>uncertainty</i> of the result.&nbsp; Upper/lower boundaries have been pushed to the z- and t-register, respectively.<br><br>
+
+<p id="int_program"><b>To integrate a program</b></p><br>
+The integrand's function can take the shape of a program. The program label to use must be designated beforehand with <a href="#INTFN">function FN=</a>.
+<ul>
+<li>
+Unlike when <a href="#INTEQN">integrating an equation</a>, the calculator must be in <a href="#fMainModes">Calculator mode</a>,
+</li>
+
+<li>
+remember to enter the lower and upper boundaries into the x- and y-register, respectively
+</li>
+
+<li>
+press <span class="dm32B">↱</span> <span class="dm32B">XEQ</span> [FN=],
+</li>
+
+<li>
+select <a href="#INTPRG">integration program</a> label <span class="dm32L">A..Z</span>,
+</li>
+
+<li>
+press <span class="dm32B">↱</span> <span class="dm32B">8</span> [∫],
+</li>
+<li>
+from there, the calculation proceeds as with <a href="#INTEQN">integrating an equation</a>.
+</li>
+</ul><br>
+
+<p id="INTPRG"><b>Structure of an "integration program"</b></p><br>
+An "integration program" must follow these guidelines:
+<ul>
+<li>
+start with a label (to later identify with <a href="#INTFN">FN=</a>),
+</li>
+
+<li>
+include an <a href="#INPUT">INPUT instruction</a> for every variable, even the integration variable,
+</li>
+
+<li>
+from there, either:<br>
+■ write a multi-line program which calculates the function values to integrate (similiar to a <a href="#SLVPRGSTR">"solve program"</a>), or<br>
+■ enter the function as an equation on a program line. If preferred, this equation can automatically prompt for variable values <i>in lieu</i> of manually added <a href="#INPUT">INPUT</a> instructions earlier in the program, and for this to happen <a href="#flag_11">flag 11</a> has to be set,
+</li>
+
+<li>
+end with a RTN instruction.
+</li>
+</ul><br>
+
+<b>Programmatic usage</b><br>
+The integration algorithm can be called as an instruction in a <a href="#fProgramming">program</a>. The integrand's function itself must be stored as an <a href="#INTPRG">"integration program"</a>. The two integration instructions appear in the program as:
+<ul>
+<li>
+<p class="dm32L">FN= <i><b>label</b></i></p>
+</li>
+
+<li>
+<p class="dm32L">∫FN d <i><b>variable</b></i></p>
+</li>
+</ul><br>
+
+Remember to explicitly define or prompt (with instruction <a href="#INPUT">INPUT</a>) for the boundaries. The result of the programmed ∫FN d instruction does not display because it is assumed it will be used for further calculations inside the program. <br>If displaying the result is desired, a PSE (<span class="dm32B">↱</span> <span class="dm32B">R/S</span>) or STOP (<span class="dm32B">R/S</span>) instruction must be entered after the ∫FN d instruction.<br>Calls to ∫FN d can't be nested, i.e. ∫FN d cannot integrate a program which itself calls ∫FN d.<br><br>
+
+<b>Integration accuracy</b><br>
+The precision of integration calculation is determined by the current <a href="#mDisp">display format setting</a> (FIX, SCI, ENG or ALL). The more digits are displayed, the more accurate the calculation is and the longer it takes for the calculation to complete. <br><br>
+
+<b>Interruption</b><br>
+<span class="dm32B">C</span> | <span class="dm32B">R/S</span><br>
+Integration can be interrupted, but no information is available unless the calculation finishes normally.<br><br>
+
+<h3 id="fProgramming">Programming</h3>
+
+See <a href="#mMem">MEM menu</a> to query the calculator about program memory usage.<br><br>
+<p id="PRGMEM"><b>About program memory and labels</b></p><br>
+Program memory is made of program lines (of which the first at the top is permanent and called PRGM TOP). Consecutive lines can be associated with a <a href="#LBL">label</a>.<br>
+It is then possible to execute only the program lines associated with a specific label using function <span class="dm32B">XEQ</span> <span class="dm32L"><i>label</i></span>.<br>
+It could be said that individual programs exist as <i>label-delimited ranges of lines</i>, rather than as self-contained objects. The word <i>label</i> is therefore used, by extension, to designate the program that it delimits. <br>
+Another way of thinking is to consider program memory as one large program in which labels define sub-routines, or modules, made to work together in the larger program. <br>
+Note that, although labels are also named with letters <i>A-Z</i>, they have nothing to do with <a href="#fVariables">variables</a>.<br><br>
+
+<p id="SUB"><b>About nesting and sub-routines</b></p><br>
+Programs aren't nested when writing them. Nesting happens at execution, i.e. a program can <a href="#XEQSUB">make a nested call to another</a>. <br>An instruction line of program A can call program B (using function XEQ), which when executed returns (when the <a href="#RTN">RTN instruction</a> is met) to program A right after the XEQ instruction, effectively making program B a sub-routine of program A.<br><br>
+
+<p id="RUNSTOP"><b>About program pointer and run/stop</b></p><br>
+The <i>program pointer</i> is positioned at the program line to be executed next. <span class="dm32B">R/S</span> starts execution from where the pointer sits. Pressing it again stops execution.<br>
+In Calculator mode, pressing <span class="dm32B">XEQ</span> <span class="dm32L"><i>label</i></span> makes the pointer jump to the specified label and starts execution from there immediately.<br>
+In either Calculator or Program mode, pressing <span class="dm32B">↰</span> <span class="dm32B">XEQ</span> [GTO] <span class="dm32L"><i>label</i></span> makes the pointer jump to the specified label without starting execution.<br><br>
+
+<p id="PRGM"><b>PRGM</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">R/S</span></p><br>
+Toggles program input mode. Displayed line is where the <a href="#RUNSTOP">pointer</a> is at. Toggles annunciator <span class="dm32L">PRGM</span>.<br><br>
+
+<b>XEQ</b><br>
+<span class="dm32B">XEQ</span> <span class="dm32L"><i>label</i></span><br>
+Executes program at specified label.<br><br>
+
+<p id="_remote_xeq"><b>Remote XEQ</b></p><br>
+<span class="dm32B">XEQ</span> <span class="dm32B">XEQ</span> <span class="dm32L"><i>State</i></span> <span class="dm32L"><i>label</i></span><br>
+Executes program at specified remote label. Opens a State selection dialog; select target State and then enter label to execute from that State.<br><br>
+
+<p id="XEQSUB"><b>XEQ in a program</b></p><br>
+Can be used programmatically to make a nested call to another program, effectively using it as a <a href="#SUB">sub-routine.</a> Up to 15 programs can be nested. <a href="#RTN">Function RTN</a> is used to exit a nested program. When invoked, RTN returns the program pointer to parent program at the line following the XEQ nesting command.<br>
+This includes <a href="#_remote_xeq">Remote XEQ calls.</a><br><br>
+
+<p id="RTN"><b>RTN</b></p><br>
+<span class="dm32B">↰</span> <span class="dm32B">+</span><br>
+Program instruction useful to return to top of program memory or exit nested routine.
+<ul>
+<li>
+If RTN is met while executing a nested program (after <a href="#XEQSUB">a programmatic call to XEQ</a>), returns the pointer to where it was in the parent program after call to XEQ and proceeds with execution. It is the mechanism allowing for building <a href="#SUB">sub-routine structures</a>.
+</li>
+
+<li>
+If RTN is met while executing the top-most program (no nesting occurring), returns to the <a href="#PRGMEM">top of program memory at PRGM TOP</a> and stops execution.
+</li>
+</ul><br>
+
+<p id="LBL"><b>LBL</b></p><br>
+<span class="dm32B">LBL</span> <span class="dm32L"><i>label</i></span><br>
+Defines entry points for programs. Has no effect when out of <a href="#PRGM">program mode</a>. Only one program can exist in <a href="#PRGMEM">memory</a> without a label.<br><br>
+
+<b>GTO</b> (standard)<br>
+<span class="dm32B">↰</span> <span class="dm32B">XEQ</span> <span class="dm32L"><i>label</i></span><br>
+Immediately moves the program pointer to specified label. If executed manually, stays at the specified label. If executed programmatically, resumes program execution from the specified label.<br><br>
+
+<b>GTO</b> (standard) with line number<br>
+<span class="dm32B">↰</span> <span class="dm32B">XEQ</span> <span class="dm32B">.</span> <span class="dm32L"><i>label</i></span> <span class="dm32L"><i>nn</i></span><br>
+Immediately moves the program pointer to specified <i>label</i> and program line number <i>nn</i>. May be used in Calculator and Program <a href="#fMainModes">mode</a> to quickly reach a part of the code. Cannot be written as a program line.<br>
+Note that 0 ≤ <i>nn</i> ≤ 99 and only labeled program lines can be reached.<br><br>
+
+<b>GTO GTO</b> (extended)<br>
+<span class="dm32B">↰</span> <span class="dm32B">XEQ</span> <span class="dm32B">XEQ</span> <span class="dm32L"><i>label</i></span> <span class="dm32L"><i>nnnn</i></span> <span class="dm32B">R/S</span><br>
+Immediately moves the program pointer to specified <i>label</i> and program line number <i>nnnn</i>. May be used in Calculator and Program <a href="#fMainModes">mode</a> to quickly reach a part of the code. Cannot be written as a program line.<br>
+Note that <i>nnnn</i> is unlimited. Unlabeled program lines can be reached (to do so, use <span class="dm32B">.</span> instead of a <span class="dm32L"><i>label</i></span>).<br><br>
+
+<b>GTO top of program memory</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">XEQ</span> <span class="dm32B">.</span> <span class="dm32B">.</span><br>
+Immediately moves the program pointer to line PRGM TOP at the top of <a href="#PRGMEM">program memory</a>.<br><br>
+
+<b>Single-step execution: step-into and step-back</b><br>
+<span class="dm32B">F6</span> [▼] / <span class="dm32B">F5</span> [▲]<br>
+Moves the program pointer down/up.
+<ul>
+<li>
+While in <a href="#fMainModes">Calculator mode</a>: stepping-into (<span class="dm32B">F6</span> [▼]) executes program line <a href="#RUNSTOP">at the pointer</a> and moves the pointer down one line. <br>
+Stepping-back (<span class="dm32B">F5</span> [▲]) moves the pointer up one line without executing. Program line content is shown until key ▼ is released. Useful for debugging.
+</li>
+
+<li>
+In <a href="#fMainModes">Program mode</a>: scrolls through the program lines for editing. Entering a new instruction inserts a new program line directly <i>below</i> the <a href="#RUNSTOP">pointer.</a>
+</li>
+</ul><br>
+
+<b>Single-step execution: step-over</b><br>
+<span class="dm32B">F3</span><br>
+Same action as step-into above (<span class="dm32B">F6</span> [▼]) except when, in Calculator mode, the pointer meets an XEQ instruction (call to a subroutine). Then, treats XEQ as a single instruction invoking the whole subroutine in one step.<br><br>
+
+<b>Single-step execution: step-out</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">F3</span><br>
+Automatically runs the subroutine and stops after the RTN from the subroutine. In other words, it steps out of the current subroutine and returns to the line following the parent XEQ call.<br><br>
+
+<p id="INPUT"><b>INPUT</b></p><br>
+<span class="dm32B">↰</span> <span class="dm32B">0</span> <span class="dm32L">A..Z</span><br>
+Halts program and prompts for user input for a variable.<br><br>
+
+<h3 id="fStatistics">Statistics</h3>
+
+All statistics operations are performed from specific menus:
+<ul>
+<li>
+<a href="#mLR">L.R.</a> for linear regression
+</li>
+
+<li>
+<a href="#mXY">x̄,ȳ</a> for mean and weighted mean
+</li>
+
+<li>
+<a href="#mSD">s,σ</a> for sample and population standard deviation
+</li>
+
+<li>
+<a href="#mSums">SUMS</a> for various statistics summations
+</li>
+</ul><br>
+
+<p id="STATACC">The entry of statistical data itself is done directly using function Σ+.</p><br><br>
+
+<b>Σ+</b><br>
+<span class="dm32B">Σ+</span><br>
+Accumulates statistics data from the x- and y-register. The datapoints entered are added to <a href="#mSums">dedicated summation registers</a>. <br>If the data to enter is based on one variable only, values accumulated for the Y data point can be ignored (there <i>will</i> be Y data accumulated because <span class="dm32B">Σ+</span> accumulates from both registers no matter what; it's just unconsequential if not needed). If two-variable data is needed, then for each datapoint entered:
+<ul>
+<li>
+in the case of <a href="#mLR">linear regression</a>, the X value is the <i>independent</i> variable and the Y the <i>dependent</i> variable,
+</li>
+
+<li>
+in the case of a <a href="#mXY">weighted mean</a>, the X value is the <i>quantity</i> and the Y the <i>weight</i> for that datapoint.
+</li>
+
+</ul><br>
+
+Of course, it is also possible to use the X and Y values of a datapoint as two parallel and (possibly) unrelated series.
+Pay attention to the fact that an <i>x,y</i> data pair must be entered in reverse order to end up in the right places on the calculator stack (<i>y</i> <span class="dm32B">ENTER</span> <i>x</i>).<br><br>
+
+<b>Σ-</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">Σ+</span> [Σ-]<br>
+Deletes statistics data. To remove a datapoint from the <a href="#mSums">summation registers</a>:
+
+<ul>
+<li>
+enter the same, erroneous datapoint in the x-register (and y-register if the data is based on two-variable series),
+</li>
+
+<li>
+press <span class="dm32B">↰</span> <span class="dm32B">Σ+</span> [Σ-].
+</li>
+</ul><br>
+
+<h3 id="fMenus">Menus</h3>
+
+Some calculator functions are picked from menus. These menus are opened from the calculator keypad using shift keys.<br>
+When a menu is displayed, the F-Keys act as soft buttons to select the function displayed directly above them or to go down a step in the menu hierarchy. To go up a step in the menu hierarchy, press <span class="dm32B">←</span>. To immediately exit a menu, press <span class="dm32B">C</span>.<br>There are 15 calculator menus. The links below list them as they appear on the keypad, from left-to-right and top-to-bottom:
+<ul>
+<li>
+<a href="#mParts">PARTS</a>
+</li>
+
+<li>
+<a href="#mProb">PROB</a>
+</li>
+
+<li>
+<a href="#mLR">L.R.</a>
+</li>
+
+<li>
+<a href="#mXY">x,y</a>
+</li>
+
+<li>
+<a href="#mSD">s,σ</a>
+</li>
+
+<li>
+<a href="#mSums">SUMS</a>
+</li>
+
+<li>
+<a href="#mMem">MEM</a>
+</li>
+
+<li>
+<a href="#mModes">MODES</a>
+</li>
+
+<li>
+<a href="#mDisp">DISP</a>
+</li>
+
+<li>
+<a href="#mClear">CLEAR</a>
+</li>
+
+<li>
+<a href="#mX-Y">x?y</a>
+</li>
+
+<li>
+<a href="#mX-0">x?0</a>
+</li>
+
+<li>
+<a href="#mBase">BASE</a>
+</li>
+
+<li>
+<a href="#mFlags">FLAGS</a>
+</li>
+</ul><br>
+
+<p id="mParts"><b>PARTS</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">√</span><br>
+Useful to return parts of a number in x-register. The returned value replaces contents of x-register.
+<ul>
+<li>
+<span class="dm32L">IP</span> integer part.
+</li>
+
+<li>
+<span class="dm32L">FP</span> fractional part.
+</li>
+
+<li>
+<span class="dm32L">ABS</span> absolute value.
+</li>
+</ul><br>
+
+<p id="mProb"><b>PROB</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">eˣ</span><br>
+Calculates probabilities and controls random number functions.
+<ul>
+<li>
+<span class="dm32L">Cn,r</span> returns number of combinations of <i>r</i> (in x-register) different elements selected from <i>n</i> (in y-register) elements. Different sequences do not count as separate. Formula: n!/(r!(n-r)!)
+</li>
+
+<li>
+<span class="dm32L">Pn,r</span> returns number of permutations of <i>r</i> (in x-register) different elements selected from <i>n</i> (in y-register) elements. Different sequences count as separate. Formula: n!/(n-r)!
+</li>
+
+<li>
+<span class="dm32L">SD</span> uses number in x-register as random seed. One given seed will return the same sequence of pseudo-random numbers when using function R. Defining a seed will restart the random number sequence given by function R.
+</li>
+
+<li>
+<span class="dm32L">R</span> returns next pseudo-random number to x-register. Lifts the stack.
+</li>
+</ul><br>
+
+<p id="mLR"><b>L.R.</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">LN</span><br>
+Linear Regression: calculates a best-fit line based on X/Y statistics accumulation (<a href="#STATACC">using command Σ+</a>).
+<ul>
+<li>
+<span class="dm32L">x</span> takes x-register value as Y and returns estimated value for X.
+</li>
+
+<li>
+<span class="dm32L">y</span> takes x-register value as X and returns estimated value for Y.
+</li>
+
+<li>
+<span class="dm32L">r</span> correlation coefficient.<br>1 = perfect fit.
+</li>
+
+<li>
+<span class="dm32L">m</span> slope of best-fit line.
+</li>
+
+<li>
+<span class="dm32L">b</span> Y-offset of best-fit line.
+</li>
+</ul><br>
+
+<p id="mXY"><b>x̄,ȳ</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">yˣ</span><br>
+Calculates mean values based on X/Y statistics accumulation (<a href="#STATACC">using command Σ+</a>).
+<ul>
+<li>
+<span class="dm32L">x̄</span> mean of accumulated X-values.
+</li>
+
+<li>
+<span class="dm32L">ȳ</span> mean of accumulated Y-values.
+</li>
+
+<li>
+<span class="dm32L">x̄w</span> mean of accumulated X-values weighted by Y-values.
+</li>
+</ul><br>
+
+<p id="mSD"><b>s,σ</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">1/x</span><br>
+Calculates standard deviation based on X/Y statistics accumulation (<a href="#STATACC">using command Σ+</a>).
+<ul>
+<li>
+<span class="dm32L">Sx</span> sample standard deviation of X values (divider <i>n-1</i>).
+</li>
+
+<li>
+<span class="dm32L">Sy</span> sample standard deviation of Y values (divider <i>n-1</i>).
+</li>
+
+<li>
+<span class="dm32L">σx</span> population standard deviation of X values (divider <i>n</i>).
+</li>
+
+<li>
+<span class="dm32L">σy</span> population standard deviation of Y values (divider <i>n</i>).
+</li>
+</ul><br>
+
+<p id="mSums"><b>SUMS</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">Σ+</span><br>
+Returns various sums based on X/Y statistics accumulation (<a href="#STATACC">using command Σ+</a>).<br>
+Specific memory registers number 28 to 33 are used to store these numbers; variables in DM32 are all stored in letter-registers, but they all have a numeric counterpart. Statistics sums can be returned manually using this menu, or programmatically using <a href="#fVariables">indirect addressing</a>.
+<ul>
+<li>
+<p id="STATREGS"><span class="dm32L">n</span> register 28: number of Σ entries</p>
+</li>
+
+<li>
+<span class="dm32L">x</span> register 29: Σx
+</li>
+
+<li>
+<span class="dm32L">y</span> register 30: Σy
+</li>
+
+<li>
+<span class="dm32L">x²</span> register 31: Σx²
+</li>
+
+<li>
+<span class="dm32L">y²</span> register 32: Σy²
+</li>
+
+<li>
+<span class="dm32L">xy</span> register 33: Σxy
+</li>
+</ul><br>
+
+<p id="mMem"><b>MEM</b></p><br>
+<span class="dm32B">↰</span> <span class="dm32B">x&lt;&gt;y</span><br>
+Shows remaining calculator memory. Sub-menus show information about, and allows for selective deletion of, variables and program labels.
+<ul>
+<li>
+<span class="dm32L">VAR</span> list of stored, non-zero variables.<br>
+Scroll through the list using <span class="dm32B">↰</span> <span class="dm32B">7</span> [▼] / <span class="dm32B">↰</span> <span class="dm32B">8</span> [▲].<br>
+Pressing <span class="dm32B">↰</span> <span class="dm32B">←</span> [CLEAR] deletes the displayed variable immediately. Cannot be undone.<br>
+Pressing <span class="dm32B">ENTER</span> recalls the displayed value to the x-register and exits the MEM screen.<br>
+Pressing <span class="dm32B">←</span> (no shift key) returns to the previous screen.
+</li>
+
+<li>
+<span class="dm32L">PGM</span> list of stored <a href="#PRGMEM">program labels</a> and size in bytes for each.<br>
+Scroll through the list using <span class="dm32B">↰</span> <span class="dm32B">7</span> [▼] / <span class="dm32B">↰</span> <span class="dm32B">8</span> [▲].<br>
+Pressing <span class="dm32B">↰</span> <span class="dm32B">←</span> [CLEAR] deletes the displayed program label and all its program lines immediately. Cannot be undone.<br>
+Pressing <span class="dm32B">↰</span> <span class="dm32B">R/S</span> [PRGM] switches to program mode with the program pointer at the displayed label.<br>
+Pressing <span class="dm32B">←</span> (no shift key) returns to the previous screen.
+</li>
+</ul><br>
+
+<p id="mModes"><b>MODES</b></p><br>
+<span class="dm32B">↰</span> <span class="dm32B">+/-</span><br>
+Selects trigonometric format and style of decimal separator.
+<ul>
+<li>
+<span class="dm32L">DG</span> degrees (full turn = 360). Default mode, no annunciator visible.
+</li>
+
+<li>
+<span class="dm32L">RD</span> radians (full turn = 2π). Annunciator <span class="dm32L">RAD</span> is lit.
+</li>
+
+<li>
+<span class="dm32L">GR</span> gradians (full turn = 400). Annunciator <span class="dm32L">GRAD</span> is lit.
+</li>
+
+<li>
+<span class="dm32L">.</span> sets decimal separator to dot.
+</li>
+
+<li>
+<span class="dm32L">,</span> sets decimal separator to comma.
+</li>
+</ul><br>
+
+<p id="mDisp"><b>DISP</b></p><br>
+<span class="dm32B">↰</span> <span class="dm32B">E</span><br>
+Controls display format.
+<ul>
+<li>
+<span class="dm32L">FX</span> fixed digits after decimal separator. Enter number of digits from 00 to 11.
+</li>
+
+<li>
+<span class="dm32L">SC</span> scientific exponent format with desired number of digits after decimal separator.
+</li>
+
+<li>
+<span class="dm32L">EN</span> engineering format where exponents are always factors of 3, with desired number of digits before exponent.
+</li>
+
+<li>
+<span class="dm32L">ALL</span> display number in full precision. Trailing zeroes in fractional part are not shown. If number has no fractional part, only the integer appears with no decimal separator.
+</li>
+</ul><br>
+
+<p id="mClear"><b>CLEAR</b></p><br>
+<span class="dm32B">↰</span> <span class="dm32B">←</span><br>
+Clearing utility. Has different effects in PRGM and EQN mode. Action cannot be undone.
+<ul>
+<li>
+<span class="dm32L">x</span> clears x-register. Useful as a program instruction.
+</li>
+
+<li>
+<span class="dm32L">VARS</span> clears all variables.
+</li>
+
+<li>
+<span class="dm32L">ALL</span> clears all variables and programs.
+</li>
+
+<li>
+<span class="dm32L">Σ</span> clears <a href="#STATREGS">statistics registers</a> 28 to 33.
+</li>
+</ul><br>
+
+<p id="mX-Y"><b>x?y</b></p><br>
+<span class="dm32B">↰</span> <span class="dm32B">÷</span><br>
+Tests x-register against y-register with 6 relational operators.
+<ul>
+<li>
+In a program, if test returns <i>true</i>, next program line is executed.
+</li>
+
+<li>
+In a program, if test returns <i>false</i>, next program line is skipped.
+</li>
+
+<li>
+If executed outside of a program, <i>true</i> returns <span class="dm32L">YES</span>, and <i>false</i> returns <span class="dm32L">NO</span> without altering the stack.
+</li>
+</ul><br>
+
+<p id="mX-0"><b>x?0</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">÷</span><br>
+Tests whether x-register against y-register with 6 relational operators.
+<ul>
+<li>
+In a program, if test returns <i>true</i>, next program line is executed.
+</li>
+
+<li>
+In a program, if test returns <i>false</i>, next program line is skipped.
+</li>
+<li>
+If executed outside of a program, <i>true</i> returns <span class="dm32L">YES</span>, and <i>false</i> returns <span class="dm32L">NO</span> without altering the stack.
+</li>
+</ul><br>
+
+<p id="mBase"><b>BASE</b></p><br>
+<span class="dm32B">↰</span> <span class="dm32B">×</span><br>
+Controls number base.
+<ul>
+
+<li>
+<span class="dm32L">DEC</span> decimal floating point, 12 BCD digits (to define).
+</li>
+
+<li>
+<span class="dm32L">HX</span> hexadecimal fixed point 55 bits (to define).
+</li>
+
+<li>
+<span class="dm32L">OC</span> octal.
+</li>
+
+<li>
+<span class="dm32L">BN</span> binary.
+</li>
+</ul><br>
+
+<p id="mFlags"><b>FLAGS</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">×</span><br>
+Allows setting, clearing and testing flags. Flags are 1-bit pieces of information (either <i>set</i> or <i>cleared</i>) always present in a dedicated memory space. First select operation to carry out and then specify flag number to test for or act upon.
+<ul>
+<li>
+<span class="dm32L">SF</span> to set a flag.
+</li>
+
+<li>
+<span class="dm32L">CF</span> to clear a flag.
+</li>
+<li>
+<span class="dm32L">FS?</span> to test the current status of a flag:<br>
+■ As a program instruction, if test returns <i>true</i>, next program line is executed.<br>
+■ As a program instruction, if test returns <i>false</i>, next program line is skipped.<br>
+■ Outside of a program, <i>true</i> returns <span class="dm32L">YES</span>, and <i>false</i> returns <span class="dm32L">NO</span> without altering the stack.
+</li>
+</ul><br>
+
+After selecting one of the operations, enter the flag number. There are 12 flags:
+<ul>
+<li>
+<b>0 - 4</b><br>
+User flags. Flags 0-3 show as annunciators on the display if set for immediate visual feedback.
+</li>
+
+<li>
+<b>5</b><br>
+When set, program stops on <span class="dm32L">OVERFLOW</span>.
+</li>
+
+<li>
+<b>6</b><br>
+Automatically set on <span class="dm32L">OVERFLOW</span>.
+</li>
+
+<li>
+<b>7 - 9</b><br>
+Control the <a href="#flag_11">display of fractions</a>.
+</li>
+
+<li>
+<b>10</b><br>
+Controls the evaluation of <a href="#fEquations">equations</a> in programs.<br>
+■ Clear: equation is evaluated and result written to x-register.<br>
+■ Set: equation is displayed using VIEW. If a PSE follows the equation, execution resumes after 1 second.
+</li>
+<li>
+
+<p id="flag_11"><b>11</b></p><br>
+Controls the input for equation variables when an <a href="#fEquations">equation</a> is evaluated, solved or integrated during program execution. Flag is automatically cleared after operation.<br>
+■ Clear: evaluation, solving and integration are done with variable values as stored without any user input.<br>
+■ Set: program stops and calculator prompts for variable values when first encountered; enter value and proceed with program execution with <span class="dm32B">R/S</span>.
+</li>
+</ul><br>
+
+<h3 id="fStates">Multi-state</h3>
+
+The DM32 can hold several States in memory (max. 128) and it is possible to switch to any of the Available States by selecting one from the Available States list.<br><br>
+
+To open the Available States list, press <span class="dm32B">F4</span>.
+To switch to one of the States (make it <i>Active</i>), navigate up and down the list with <span class="dm32B">–</span> / <span class="dm32B">+</span>
+to highlight the desired State and press <span class="dm32B">ENTER</span>.<br>
+The States list can also be navigated with <span class="dm32B">÷</span> / <span class="dm32B">×</span> which jump up and down one page.<br><br>
+
+The available soft-keys in the States list are:<br>
+<span class="dm32L">New</span> adds a blank State to the list<br>
+<span class="dm32L">Load</span> opens a file selection dialog to load a Statefile from USB disk; adds a State to the States list<br>
+<span class="dm32L">Save</span> opens a file selection dialog to save the currently highlighted State to USB disk<br>
+<span class="dm32L">Info</span> provides information about the currently highlighted State<br>
+<span class="dm32L">Del</span> removes the currently highlighted State from the States list<br><br>
+
+<b>Dependencies loading</b><br>
+If a State to load contains one or more <a href="#_remote_xeq">Remote XEQ</a> instructions, dependent Statefiles are automatically loaded as States in the Available States list.<br>
+If the calculator cannot find one of the dependent Statefiles, the load operation is interrupted and an error message appears.<br>
+The default behavior of this feature can be set in the <a href="#Settings">Setup Menu → 2. Settings</a>.<br><br>
+
+<h2 id="Index">Functions alphabetical index</h2><br>
+ 
+<h3 id="_#">#</h3>
+ 
+<b>+/-</b><br>
+<span class="dm32B">+/-</span><br>
+changes sign of number<br><br>
+ 
+<b>+</b><br>
+<span class="dm32B">+</span><br>
+addition<br><br>
+ 
+<b>-</b><br>
+<span class="dm32B">-</span><br>
+subtraction<br><br>
+ 
+<b>×</b><br>
+<span class="dm32B">×</span><br>
+multiplication<br><br>
+ 
+<b>÷</b><br>
+<span class="dm32B">÷</span><br>
+changes sign of number<br><br>
+ 
+<b>yˣ</b><br>
+<span class="dm32B">yˣ</span><br>
+power<br><br>
+ 
+<b>←</b><br>
+<span class="dm32B">←</span>
+<ul>
+<li>delete last digit entered</li>
+<li>exit a menu</li>
+<li>erase last function keyed in an equation</li>
+<li>start editing existing equation</li>
+<li>delete program step</li>
+</ul><br>
+
+<b>▼</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">▼</span>
+<ul>
+<li>move to previous catalog entry</li>
+<li>move to previous equation in the list</li>
+<li>move program pointer to previous step</li>
+</ul><br>
+
+<b>▲</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">▲</span>
+<ul>
+<li>move to next catalog entry</li>
+<li>move to next equation in the list</li>
+<li>move program pointer to next step (while editing)</li>
+<li>execute program step at pointer and moves it to next step (while not editing)</li>
+</ul><br>
+
+<b>1/x</b><br>
+<span class="dm32B">1/x</span><br>
+reciprocal<br><br>
+
+<b>10ˣ</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">eˣ</span><br>
+10 raised to x-register power<br><br>
+
+<b>%</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">COS</span><br>
+(x × y) ÷ 100<br><br>
+
+<p id="iCHG"><b>%CHG</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">TAN</span><br>
+(x - y) × (100 ÷ y)<br><br>
+
+<b>π</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">SIN</span><br>
+3.14159265359 (12 digits approximation of pi)<br><br>
+
+<b>Σ+</b><br>
+<span class="dm32B">Σ+</span><br>
+accumulate (y,x) into statistics registers<br><br>
+
+<b>Σ-</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">Σ+</span><br>
+remove (y,x) from statistics registers<br><br>
+
+<b>Σx</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">Σ+</span> [SUMS]<br>
+statistics: sum of x-values<br><br>
+
+<b>Σx²</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">Σ+</span> [SUMS]<br>
+statistics: sum of squares of x-values<br><br>
+
+<b>Σxy</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">Σ+</span> [SUMS]<br>
+statistics: sum of products of x- and y-values<br><br>
+
+<b>Σy</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">Σ+</span> [SUMS]<br>
+statistics: sum of y-values<br><br>
+
+<b>Σy²</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">Σ+</span> [SUMS]<br>
+statistics: sum of squares of y-values<br><br>
+
+<b>σx</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">s,σ</span> [s,σ] <span class="dm32L">σx</span><br>
+population standard deviation of x-values<br><br>
+
+<b>σy</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">s,σ</span> [s,σ] <span class="dm32L">σy</span><br>
+population standard deviation of y-values<br><br>
+
+<b>Θ,r → y,x</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">4</span><br>
+convert coordinates in x- and y-registers from polar to rectangular<br><br>
+
+<b>∫FN d</b>
+<span class="dm32B">↱</span> <span class="dm32B">8</span><br>
+integrate equation or program selected by function FN=, using x-register and y-register as uppr and lower limit<br><br> 
+
+<b>(</b>
+<span class="dm32B">↱</span> <span class="dm32B">E</span><br>
+ opening parethesis<br><br>
+
+<b>)</b>
+<span class="dm32B">↱</span> <span class="dm32B">E</span><br>
+closing parethesis<br><br>
+
+<br><br><h3 id="_a">A</h3>
+<b>A through Z</b><br><br>
+
+<span class="dm32B">STO</span> <span class="dm32L"><i>variable</i></span> or <span class="dm32B">RCL</span> <span class="dm32L"><i>variable</i></span><br>
+value of named variable<br><br>
+
+<b>ABS</b>
+<span class="dm32B">↱</span> <span class="dm32B">√</span> [PARTS] <span class="dm32L">ABS</span><br>
+absolute value<br><br>
+
+<b>ACOS</b>
+<span class="dm32B">↰</span> <span class="dm32B">COS</span><br>
+arc cosine<br><br>
+
+<b>ACOSH</b>
+<span class="dm32B">↰</span> <span class="dm32B">HYP</span> <span class="dm32B">↰</span> <span class="dm32B">COS</span><br>
+hyperbolic arc cosine<br><br>
+
+<b>ALOG</b>
+<span class="dm32B">↰</span> <span class="dm32B">eˣ</span><br>
+antilogarithm<br><br>
+
+<b>ALL</b>
+<span class="dm32B">↰</span> <span class="dm32B">E</span> [DISP] <span class="dm32L">ALL</span><br>
+display full precision<br><br>
+
+<b>ASIN</b>
+<span class="dm32B">↰</span> <span class="dm32B">SIN</span><br>
+arc sine<br><br>
+
+<b>ASINH</b>
+<span class="dm32B">↰</span> <span class="dm32B">HYP</span> <span class="dm32B">↰</span> <span class="dm32B">SIN</span><br>
+hyperbolic arc sine<br><br>
+
+<b>ATAN</b>
+<span class="dm32B">↰</span> <span class="dm32B">TAN</span><br>
+arc tangent<br><br>
+
+<b>ATANH</b>
+<span class="dm32B">↰</span> <span class="dm32B">HYP</span> <span class="dm32B">↰</span> <span class="dm32B">TAN</span><br>
+hyperbolic arc tangent<br><br>
+
+<br><br><h3 id="_b">B</h3>
+
+<b>b</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">LN</span> [L.R.] <span class="dm32L">b</span><br>
+y-intercept of regression line<br><br>
+
+<b>BASE menu</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">×</span> [BASE]<br>
+call menu to select base number<br><br>
+
+<b>BIN</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">×</span> [BASE] <span class="dm32L">BN</span><br>
+select binary mode (base 2)<br><br>
+
+<h3 id="_c">C</h3>
+
+<b>C</b><br>
+<span class="dm32B">C</span>
+<ul>
+<li>turn calculator on</li>
+<li>clear x-register</li>
+<li>clear message and prompt</li>
+<li>cancel menus</li>
+<li>cancel catalogs</li>
+<li>cancel equation entry</li>
+<li>cancel program entry</li>
+<li>halt execution of equation or program</li>
+</ul><br>
+
+<b>/c</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">.</span><br>
+set maximum fraction denominator<br><br>
+
+<b>→°C</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">2</span><br>
+convert from °F to °C<br><br>
+
+<b>CF</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">×</span> [FLAGS] <span class="dm32L">CF</span> <span class="dm32L"><i>nn</i></span><br>
+clear flag <i>nn</i><br><br>
+
+<b>CLEAR</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">←</span> [CLEAR]<br>
+call menu with clearing functions<br><br>
+
+<b>CLEAR ALL</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">←</span> [CLEAR] <span class="dm32L">ALL</span><br>
+clear all stored data, equations and programs<br><br>
+
+<b>CLEAR PGM</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">←</span> [CLEAR] <span class="dm32L">PGM</span><br>
+clear all stored programs<br>
+calculator must be in program mode<br><br>
+
+<b>CLEAR EQN</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">←</span> [CLEAR] <span class="dm32L">EQN</span><br>
+clear equation in program<br>
+calculator must be in program mode<br><br>
+
+<b>CLΣ</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">←</span> [CLEAR] <span class="dm32L">Σ</span><br>
+clear statistics registers<br><br>
+
+<b>CLVARS</b>
+<span class="dm32B">↰</span> <span class="dm32B">←</span> [CLEAR] <span class="dm32L">VARS</span><br>
+clear all variables (set them to zero)
+
+<b>CLx</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">←</span> [CLEAR] <span class="dm32L">x</span><br>
+clear x-register (set to zero)<br><br>
+
+<b>→CM</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">3</span><br>
+convert from inch to centimeter<br><br>
+
+<b>CMPLX</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B"><i>operation</i></span><br>
+set <span class="dm32L">CMPLX_</span> prefix for complex functions<br><br>
+
+<b>CMPLX+/-</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">+/-</span><br>
+complex: change sign<br><br>
+
+<b>CMPLX+</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">+</span><br>
+complex: addition<br><br>
+
+<b>CMPLX-</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">-</span><br>
+complex: subtraction<br><br>
+
+<b>CMPLX×</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">×</span><br>
+complex: multiplication<br><br>
+
+<b>CMPLX÷</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">÷</span><br>
+complex: division<br><br>
+
+<b>CMPLX1/x</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">1/x</span><br>
+complex: reciprocal<br><br>
+
+<b>CMPLXCOS</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">COS</span><br>
+complex: cosine<br><br>
+
+<b>CMPLXeˣ</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">eˣ</span><br>
+complex: natural exponential<br><br>
+
+<b>CMPLXLN</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">LN</span><br>
+complex: natural log<br><br>
+
+<b>CMPLXSIN</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">SIN</span><br>
+complex: sine<br><br>
+
+<b>CMPLXTAN</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">TAN</span><br>
+complex: tangent<br><br>
+
+<b>CMPLXyˣ</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">STO</span> [CMPLX] <span class="dm32B">yˣ</span><br>
+complex: power<br><br>
+
+<b>Cn,r</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">eˣ</span> [PROB] <span class="dm32L">Cn,r</span><br>
+combinations of <i>n</i> items taken <i>r</i> at a time<br>
+
+<b>COS</b><br>
+<span class="dm32B">COS</span><br>
+cosine<br><br>
+
+<b>COSH</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">HYP</span> <span class="dm32B">COS</span><br>
+hyperbolic cosine<br><br>
+
+<br><br><h3 id="_d">D</h3>
+
+<b>DEC</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">×</span> [BASE] <span class="dm32L">DEC</span><br>
+select decimal mode (base 10)<br><br>
+
+<b>DEG</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">×</span> [MODES] <span class="dm32L">DG</span><br>
+select degrees for angle representation<br>
+
+<b>→DEG</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">6</span><br>
+convert from radians to degrees<br><br>
+
+<b>DISP</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">E</span> [DISP]<br>
+call menu to select number display format<br><br>
+
+<b>DSE</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">9</span> <span class="dm32L"><i>variable</i></span><br>
+Decrement, Skip if Equal or less<br>
+used as program instruction<br><br>
+
+
+<br><br><h3 id="_e">E</h3>
+
+<b>E</b><br>
+<span class="dm32B">E</span><br>
+entry of exponent<br><br>
+
+<b>ENG</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">E</span> [DISP] <span class="dm32L">EN</span> <span class="dm32L"><i>nn</i></span><br>
+engineering notation display with number of digits<br>
+use <span class="dm32B">.</span> for values over 9<br><br>
+
+<b>ENTER</b><br>
+<span class="dm32B">ENTER</span><br>
+<ul>
+<li>separate two numbers</li>
+<li>terminate equation entry</li>
+<li>evaluate selected equation</li>
+</ul><br>
+
+<b>EQN</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">STO</span><br>
+toggles Equation list<br><br>
+
+<b>eˣ</b><br>
+<span class="dm32B">eˣ</span><br>
+natural exponential<br><br>
+
+<b>EXP()</b><br>
+<span class="dm32B">eˣ</span><br>
+natural exponential in an equation<br><br>
+
+
+<br><br><h3 id="_f">F</h3>
+
+<b>→°F</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">2</span><br>
+convert from °C to °F<br><br>
+
+<b>FDISP</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">.</span><br>
+toggles fraction display mode<br><br>
+
+<b>FIX</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">E</span> [DISP] <span class="dm32L">FX</span> <span class="dm32L"><i>nn</i></span><br>
+fixed display with <i>n</i> decimal places<br>
+use <span class="dm32B">.</span> for values over 9<br><br>
+
+<b>FLAGS</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">×</span> [FLAGS]
+call menu for flag management and testing<br><br>
+
+<p id="iFN"><b>FN=</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">XEQ</span> [FN=] <span class="dm32L"><i>label</i></span><br>
+select <i>labeled</i> program as current function to SOLVE<br><br>
+
+<b>FP</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">√x</span> [PARTS] <span class="dm32L">FP</span><br>
+fractional part of number in x-register<br><br>
+
+<b>FS?</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">×</span> [FLAGS] <span class="dm32L">FS?</span> <span class="dm32L"><i>nn</i></span><br>
+test status of flag <i>nn</i><br>
+use <span class="dm32B">.</span> for values over 9<br><br>
+
+
+<br><br><h3 id="_g">G</h3>
+
+<b>→GAL</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">-</span><br>
+convert from liter to gallon<br><br>
+
+<b>GRAD</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">×</span> [MODES] <span class="dm32L">GR</span><br>
+select gradians for angle representation<br><br>
+
+<b>GTO</b> (standard GTO)<br>
+<span class="dm32B">↰</span> <span class="dm32B">XEQ</span> [GTO] <span class="dm32L"><i>label</i></span><br>
+set program pointer to <i>label</i><br><br>
+
+<b>GTO.</b> (standard GTO + line number)<br>
+<span class="dm32B">↰</span> <span class="dm32B">XEQ</span> [GTO] <span class="dm32B">.</span> <span class="dm32L"><i>label</i></span> <span class="dm32L"><i>nn</i></span><br>
+set program pointer to line <i>nn</i> of program <i>label</i><br>
+0 ≤ <i>nn</i> ≤ 99 and only works for labeled program lines.<br><br>
+
+<b>GTO GTO</b> (extended GTO)<br>
+<span class="dm32B">↰</span> <span class="dm32B">XEQ</span> [GTO] <span class="dm32B">XEQ</span> <span class="dm32L"><i>label</i></span> <span class="dm32L"><i>nnnn</i></span> <span class="dm32B">R/S</span><br>
+set program pointer to line <i>nn</i> of program <i>label</i><br>
+<i>nn</i> is unlimited and works for unlabeled lines (use <span class="dm32B">.</span> instead of a <i>label</i>).<br><br>
+
+<b>GTO..</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">XEQ</span> <span class="dm32B">.</span> <span class="dm32B">.</span><br>
+set program pointer to PRGM TOP<br><br>
+
+
+<br><br><h3 id="_h">H</h3>
+
+<b>HEX</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">×</span> [BASE] <span class="dm32L">HX</span><br>
+select hexadecimal mode (base 16)<br><br>
+
+<b>HYP</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">HYP</span> [HYP] <span class="dm32B"><i>operation</i></span><br>
+set <span class="dm32L">HYP_</span> prefix for hyperbolic functions<br><br>
+
+<b>→HMS</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">5</span><br>
+convert decimal hour format to <span class="dm32L"><i>hh.mmss</i></span><br><br>
+
+<b>→HR</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">5</span><br>
+convert <span class="dm32L"><i>hh.mmss</i></span> hour format to decimal<br><br>
+
+
+<br><br><h3 id="_i">I</h3>
+
+<b>i</b><br>
+<span class="dm32B">STO</span> <span class="dm32B">.</span> [i] or <span class="dm32B">RCL</span> <span class="dm32B">.</span> [i]<br>
+stores or recalls value of variable i<br><br>
+
+<b>(i)</b><br>
+<span class="dm32B">STO</span> <span class="dm32B">R/S</span> [(i)] or <span class="dm32B">RCL</span> <span class="dm32B">R/S</span> [(i)]<br>
+stores or recalls value of variable indirectly designated by variable i<br><br>
+
+<b>→IN</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">3</span><br>
+convert from centimeter to inch<br><br>
+
+<b>INPUT</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">0</span> [INPUT] <span class="dm32L"><i>variable</i></span><br>
+prompt for variable value<br>
+only used as program instruction<br><br>
+
+<b>INV(<i>arg</i>)</b><br>
+<span class="dm32B">1/x</span>
+reciprocal of <i>argument</i> in an equation<br><br>
+
+<b>IP</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">√x</span> [PARTS] <span class="dm32L">IP</span><br>
+integer part of number in x-register<br><br>
+
+<b>ISG</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">9</span> <span class="dm32L"><i>variable</i></span><br>
+Increment, Skip if Greater<br>
+used as program instruction<br><br>
+
+
+<br><br><h3 id="_k">K</h3>
+
+<b>→KG</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">1</span><br>
+convert from pound to kilogram<br><br>
+
+
+<br><br><h3 id="_l">L</h3>
+
+<b>→L</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">-</span><br>
+convert from gallon to liter<br><br>
+
+<b>LASTx</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">ENTER</span><br>
+return last number stored in LASTx register<br>
+LASTx keeps value of x-register before last operation<br><br>
+
+<b>→LB</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">1</span><br>
+convert from kilogram to pound<br><br>
+
+<b>LBL</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">+</span> [LBL] <span class="dm32L"><i>label</i></span><br>
+name a program with <i>label</i><br>
+for reference by XEQ, GTO or FN= functions<br>
+only for programs<br><br>
+
+<b>LN</b><br>
+<span class="dm32B">LN</span><br>
+natural logarithm<br><br>
+
+<b>LOG</b>
+<span class="dm32B">↰</span> <span class="dm32B">LN</span>
+common logarithm<br><br>
+
+<b>L.R.</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">L.R.</span> [L.R.]
+call menu for linear regression functions<br><br>
+
+
+<br><br><h3 id="_m">M</h3>
+
+<b>m</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">L.R.</span> [L.R.] <span class="dm32L">m</span><br>
+slope of regression line<br><br>
+
+<b>MEM</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">x&lt;&gt;y</span> [MEM]<br>
+call menu for memory information<br>
+display remaining memory<br><br>
+
+<b>MEM PGM</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">x&lt;&gt;y</span> [MEM] <span class="dm32L">PGM</span><br>
+show programs catalog<br><br>
+
+<b>MEM VAR</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">x&lt;&gt;y</span> [MEM] <span class="dm32L">VAR</span><br>
+show variables catalog<br><br>
+
+<b>MODES</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">+/-</span> [MODES]<br>
+call menu for angle representation units and decimal separator format<br><br>
+
+
+<br><br><h3 id="_n">N</h3>
+
+<b>n</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">Σ+</span> [SUMS] <span class="dm32L">n</span><br>
+ statistics: number of accumulated datapoints to x-register<br><br>
+
+
+<br><br><h3 id="_o">O</h3>
+
+<b>OCT</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">×</span> [BASE] <span class="dm32L">OC</span><br>
+select octal mode (base 8)<br><br>
+
+<b>OFF</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">C</span> or <span class="dm32B">↱</span> <span class="dm32B">C</span>
+turn calculator off<br>
+cannot be used in a program<br><br>
+
+
+<br><br><h3 id="_p">P</h3>
+
+<b>PARTS</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">√x</span> [PARTS]<br>
+call menu for picking parts of a number<br><br>
+
+<b>Pn,r</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">eˣ</span> [PROB] <span class="dm32L">Pn,r</span><br>
+permutations of <i>n</i> items taken <i>r</i> at a time<br><br>
+
+<b>PRGM</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">R/S</span><br>
+toggle program mode<br><br>
+
+<b>PROB</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">eˣ</span> [PROB]<br>
+call menu for probability function<br><br>
+
+<b>PSE</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">R/S</span><br>
+pause<br>
+only for programs<br><br>
+
+
+<br><br><h3 id="_r">R</h3>
+
+<b>r</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">Σ+</span> [SUMS] <span class="dm32L">r</span><br>
+statistics: correlation coefficient between x- and y-values<br><br>
+
+<b>RAD</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">×</span> [MODES] <span class="dm32L">RD</span><br>
+select radians for angle representation<br><br>
+
+<b>→RAD</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">6</span><br>
+convert from degrees to radians<br><br>
+
+<b>RADIX,</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">×</span> [MODES] <span class="dm32L">,</span><br>
+select comma as decimal separator<br><br>
+
+<b>RADIX.</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">×</span> [MODES] <span class="dm32L">.</span><br>
+select period as decimal separator<br><br>
+
+<b>RANDOM</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">eˣ</span> [PROB] <span class="dm32L">R</span><br>
+pseudo-random number to x-register<br>
+pseudo-random sequence is defined by function SEED<br><br>
+
+<b>RCL</b><br>
+<span class="dm32B">RCL</span> <span class="dm32L"><i>variable</i></span><br>
+recall <i>variable</i> to x-register<br><br>
+
+<b>RCL+</b><br>
+<span class="dm32B">RCL</span> <span class="dm32B">+</span> <span class="dm32L"><i>variable</i></span><br>
+add <i>variable</i> and x-register, put result to x-register<br><br>
+
+<b>RCL-</b><br>
+<span class="dm32B">RCL</span> <span class="dm32B">+</span> <span class="dm32L"><i>variable</i></span><br>
+subtract <i>variable</i> from x-register, put result to x-register<br><br>
+
+<b>RCL×</b><br>
+<span class="dm32B">RCL</span> <span class="dm32B">+</span> <span class="dm32L"><i>variable</i></span><br>
+multiply <i>variable</i> and x-register, put result to x-register<br><br>
+
+<b>RCL÷</b><br>
+<span class="dm32B">RCL</span> <span class="dm32B">+</span> <span class="dm32L"><i>variable</i></span><br>
+divide x-register by <i>variable</i>, put result to x-register<br><br>
+
+<b>RND</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">RCL</span><br>
+round stored number to FIX <i>n</i> decimal places<br>
+round stored number to closest as represented in fraction display mode<br><br>
+
+<b>RTN</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">+</span><br>
+marks end of a program<br>
+program pointer returns to top of memory<br>
+if in sub-routine, returns pointer to calling routine<br><br>
+
+<b>R↓</b><br>
+<span class="dm32B">R↓</span><br>
+roll stack down<br><br>
+
+<b>R↑</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">R↓</span><br>
+roll stack up<br><br>
+
+
+<br><br><h3 id="_s">S</h3>
+
+<b>s,σ</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">1/x</span> [s,σ]<br>
+call menu for calculating standard deviation<br><br>
+
+<b>SCI</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">E</span> [DISP] <span class="dm32L">SC</span> <span class="dm32L"><i>nn</i></span><br>
+scientific display with <i>nn</i> decimal places<br>
+use <span class="dm32B">.</span> for values over 9<br><br>
+
+<b>SCRL</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">RCL</span><br>
+toggles scrolling of equations<br><br>
+
+<b>SEED</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">eˣ</span> [PROB] <span class="dm32L">SD</span><br>
+set and restart pseudo-random sequence of function RANDOM<br><br>
+
+<b>SF</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">×</span> [FLAGS] <span class="dm32L">SF</span> <span class="dm32L">nn</span><br>
+set flag <i>nn</i><br>
+use <span class="dm32B">.</span> for values over 9<br><br>
+
+<b>SHOW</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">ENTER</span><br>
+Displays the SHOW box using a smaller font. Has varying function depending on mode.
+
+<ul>
+<li>
+<b>Calculator mode</b><br>
+Displays the number in the x-register with full precision.
+</li>
+
+<li>
+<b>Equation list</b><br>
+Displays more of the currently selected equation.
+</li>
+
+<li>
+<b>Program mode</b><br>
+Acts differently whether the line at the pointer contains:<br>
+■ a long number, acts like in Calculator mode,<br>
+■ an equation, acts like in Equation list,<br>
+■ a fractional number, displays the number as a fraction <i>if it has been entered as such</i>.
+</li>
+</ul><br>
+
+Function SHOW has 3 modes of operation:<br>
+<ul>
+<li><b>peek</b> — press and immediately release SHOW to display the SHOW box for about 2 seconds;</li>
+<li><b>momentary</b> — press and hold SHOW to display the SHOW box as long as held down;</li>
+<li><b>hold</b> — press SHOW twice to keep the SHOW box on display indefinitely. Cancel with <span class="dm32B">C</span> or <span class="dm32B">←</span>.</li>
+</ul>
+<br><br>
+
+<b>SIN</b><br>
+<span class="dm32B">SIN</span><br>
+sine<br><br>
+
+<b>SINH</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">HYP</span> <span class="dm32B">SIN</span><br>
+hyperbolic sine<br><br>
+
+<b>SOLVE</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">7</span> <span class="dm32L"><i>variable</i></span><br>
+solve displayed equation or program designated by FN= for <i>variable</i><br><br>
+
+<b>SPACE</b><br>
+<span class="dm32B">R/S</span><br>
+insert blank space in equation entry mode<br><br>
+
+<b>SQ(<i>arg</i>)</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">√x</span><br>
+square of <i>argument</i> (in an equation)<br><br>
+
+<b>SQRT(<i>arg</i>)</b><br>
+<span class="dm32B">√x</span><br>
+square root of <i>argument</i> (in an equation)<br><br>
+
+<b>STO</b><br>
+<span class="dm32B">STO</span> <span class="dm32L"><i>variable</i></span><br>
+copy x-register to <i>variable</i><br><br>
+
+<b>STO+</b><br>
+<span class="dm32B">STO</span> <span class="dm32B">+</span> <span class="dm32L"><i>variable</i></span><br>
+add x-register and <i>variable</i>, store result in <i>variable</i><br><br>
+
+<b>STO-</b><br>
+<span class="dm32B">STO</span> <span class="dm32B">-</span><span class="dm32L"><i>variable</i></span><br>
+subtract x-register from <i>variable</i>, store result in <i>variable</i><br><br>
+
+<b>STO×</b><br>
+<span class="dm32B">STO</span> <span class="dm32B">×</span> <span class="dm32L"><i>variable</i></span><br>
+multiply x-register and <i>variable</i>, store result in <i>variable</i><br><br>
+
+<b>STO÷</b><br>
+<span class="dm32B">STO</span> <span class="dm32B">÷</span> <span class="dm32L"><i>variable</i></span><br>
+divide <i>variable</i> by x-register, store result in <i>variable</i><br><br>
+
+<b>STOP</b><br>
+<span class="dm32B">R/S</span><br>
+with program stopped, start running program from pointer position<br>
+with program running, stop execution<br>
+as a program instruction, stop execution and display x-register<br><br>
+
+<b>SUMS</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">Σ+</span> [SUMS]<br>
+call menu for returning various statistics sums<br><br>
+
+<b>sx</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">1/x</span> [s,σ] <span class="dm32L">sx</span><br>
+statistics: sample standard deviation of x-values<br><br>
+
+<b>sy</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">1/x</span> [s,σ] <span class="dm32L">sy</span><br>
+statistics: sample standard deviation of y-values<br><br>
+
+
+<br><br><h3 id="_t">T</h3>
+
+<b>TAN</b><br>
+<span class="dm32B">TAN</span><br>
+tangent<br><br>
+
+<b>TANH</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">HYP</span> <span class="dm32B">TAN</span><br>
+hyperbolic tangent<br><br>
+
+
+<br><br><h3 id="_v">V</h3>
+
+<p id="iVIEW"><b>VIEW</b></p><br>
+<span class="dm32B">↱</span> <span class="dm32B">0</span> <span class="dm32L"><i>variable</i></span><br>
+display contents of <i>variable</i> without recalling it to stack<br><br>
+
+
+<br><br><h3 id="_x">X</h3>
+
+<b>XEQ</b> (EQN mode)<br>
+<span class="dm32B">XEQ</span><br>
+evaluate equation<br><br>
+
+<b>XEQ</b><br>
+<span class="dm32B">XEQ</span> <span class="dm32L"><i>label</i></span><br>
+execute program identified by <i>label</i><br><br>
+
+<b>XEQ (Remote)</b><br>
+<span class="dm32B">XEQ</span> <span class="dm32B">XEQ</span> <span class="dm32L"><i>State</i></span> <span class="dm32L"><i>label</i></span><br>
+execute remote program identified by<i>State</i>:<i>label</i><br><br>
+
+<b>x²</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">√x</span><br>
+square of x-register<br><br>
+
+<b>x√y</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">yˣ</span><br>
+x-register root of y-register<br><br>
+
+<b>x̄</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">yˣ</span> [̄x̄,ȳ] <span class="dm32L">̄</span><br>
+statistics: mean of x-values<br><br>
+
+<b>̂x̂</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">LN</span> [L.R.] <span class="dm32L">̂x̂</span><br>
+return x-value forecast for y-value in x-register<br><br>
+
+<b>x!</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">1/x</span><br>
+factorial<br><br>
+
+<b>XROOT(<i>arg1</i> <i>arg2</i>)</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">yˣ</span>
+<i>argument1</i> root of <i>argument2</i> (in an equation)<br><br>
+
+<b>x̄w</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">yˣ</span> [̄x̄,ȳ] <span class="dm32L">w</span><br>
+statistics: weighted mean of x-values<br><br>
+
+<b>̄x̄</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">yˣ</span> [̄x̄,ȳ]<br>
+call menu for mean of statistics data<br><br>
+
+<b>x&lt;&gt;</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">x&lt;&gt;y</span> <span class="dm32L"><i>variable</i></span><br>
+exchange x-register with <i>variable</i><br><br>
+
+<b>x&lt;&gt;y</b><br>
+<span class="dm32B">x&lt;&gt;y</span><br>
+swap x-register with y-register<br><br>
+
+<b>x?y</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">÷</span> [x?y]<br>
+call menu for comparing x- and y-registers; useful in programs<br>
+if test returns true, next program line is executed<br>
+if test returns false, next program line is skipped<br>
+if used outside of a program, displays YES or NO without affecting the stack<br><br>
+
+<b>x≠y?</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">÷</span> [x?y] <span class="dm32L">≠</span><br>
+test whether x-register is NOT EQUAL TO y-register<br><br>
+
+<b>x≤y?</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">÷</span> [x?y] <span class="dm32L">≤</span><br>
+test whether x-register is LESS THAN OR EQUAL TO y-register<br><br>
+
+<b>x&lt;y?</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">÷</span> [x?y] <span class="dm32L">&lt;</span><br>
+test whether x-register is LESS THAN y-register<br><br>
+
+<b>x&gt;y?</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">÷</span> [x?y] <span class="dm32L">&gt;</span><br>
+test whether x-register is GREATER THAN y-register<br><br>
+
+<b>x≥y?</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">÷</span> [x?y] <span class="dm32L">≥</span><br>
+<br>test whether x-register is GREATER THAN OR EQUAL TO y-register<br><br>
+
+<b>x=y?</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">÷</span> [x?y] <span class="dm32L">≥</span><br>
+test whether x-register is EQUAL TO y-register<br><br>
+
+<b>x?0</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">÷</span> [x?0]<br>
+call menu for comparing x-register to 0; useful in programs<br>
+if test returns true, next program line is executed<br>
+if test returns false, next program line is skipped<br>
+if used outside of a program, displays YES or NO without affecting the stack<br><br>
+
+<b>x≠0?</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">÷</span> [x?0] <span class="dm32L">≠</span><br>
+test whether x-register is NOT EQUAL TO 0<br><br>
+
+<b>x≤0?</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">÷</span> [x?0] <span class="dm32L">≤</span><br>
+test whether x-register is LESS THAN OR EQUAL TO 0<br><br>
+
+<b>x&lt;0?</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">÷</span> [x?0] <span class="dm32L">&lt;</span><br>
+test whether x-register is LESS THAN 0<br><br>
+
+<b>x&gt;0?</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">÷</span> [x?0] <span class="dm32L">&gt;</span><br>
+test whether x-register is GREATER THAN 0<br><br>
+
+<b>x≥0?</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">÷</span> [x?0] <span class="dm32L">≥</span><br>
+test whether x-register is GREATER THAN OR EQUAL TO 0<br><br>
+
+<b>x=0?</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">÷</span> [x?y] <span class="dm32L">≥</span><br>
+test whether x-register is EQUAL TO y-register<br><br>
+
+<br><br><h3 id="_y">Y</h3>
+
+<b>ȳ</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">yˣ</span> [x̄,ȳ] <span class="dm32L">ȳ</span><br>
+statistics: mean of y-values<br><br>
+
+<b>ŷ</b><br>
+<span class="dm32B">↱</span> <span class="dm32B">LN</span> [L.R.] <span class="dm32L">ŷ</span><br>
+return y-value forecast for x-value in x-register<br><br>
+
+<b>y,x → Θ,r</b><br>
+<span class="dm32B">↰</span> <span class="dm32B">4</span><br>
+convert coordinates in x- and y-registers from rectangular to polar<br><br>
+
+<b>yˣ</b><br>
+<span class="dm32B">yˣ</span><br>
+returns y raised to the x power<br><br>
+
+EOF
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Angel's Help System</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323">
+		<style>
+			body{font-family: sans-serif;}
+			h1 {font-weight: bold; color: #000000;}
+			a {font-weight: bold; }
+			td {vertical-align: top;}
+			.button {background: #444444;color: #FFFFFF;font-family: monospace;padding: 1px;}
+			.lcd {background: #CCCCCC;font-family: VT323, monospace;font-size: 18px; }
+		</style>
+	</head>
+	<body>
+		<h1>Angel's Help System</h1>
+		<br>
+
+	<h2 id="Home">Contents</h2>
+	<ul>
+		<li><a href="#HS_Flags Help">Flags Help</a></li>
+		<li><a href="#HS_Warp Core Help">Warp Core Help</a></li>
+		<li><a href="#HS_Formula_Eval">Formula_Eval</a></li>
+		<li><a href="#HS_Sub-Functions">Sub-Functions</a></li>
+		<li><a href="#HS_Buffer Allocation">Buffer Allocation</a></li>
+		<li><a href="#HS_X-Mem File Types">X-Mem File Types</a></li>
+		<li><a href="#HS_System Catalogs">System Catalogs</a></li>
+		<li><a href="#HS_HEX EDITOR">HEX EDITOR</a></li>
+		<li><a href="#HS_ASCII EDITOR">ASCII EDITOR</a></li>
+		<li><a href="#HS_Others">Others</a></li>
+	</ul>
+	<br>
+	<h3 id="HS_Flags Help">Flags Help</h3>
+	<table><tbody>
+		<tr><td>[0-4]</td><td>ANNUNCIATORS</td></tr>
+		<tr><td>[5-8]</td><td>GENERAL-PURPOSE</td></tr>
+		<tr><td>09:</td><td>MATRIX EOL</td></tr>
+		<tr><td>10:</td><td>MATRIX EOC</td></tr>
+		<tr><td>11:</td><td>AUTO XEQ</td></tr>
+		<tr><td>13:</td><td>PRT LWR CASE</td></tr>
+		<tr><td>14:</td><td>CRDR OVERWRITE</td></tr>
+		<tr><td>15:</td><td>ILPRT MANUAL</td></tr>
+		<tr><td>16:</td><td>ILPRT NORM</td></tr>
+		<tr><td>17:</td><td>INC0MPLETE REC</td></tr>
+		<tr><td>18:</td><td>IL INTERRUPT</td></tr>
+		<tr><td>19,20</td><td>GNRL-PURP</td></tr>
+		<tr><td>21:</td><td>PRT ENABLE</td></tr>
+		<tr><td>22:</td><td>NUMERIC INPUT</td></tr>
+		<tr><td>23:</td><td>ALPHA INPUT</td></tr>
+		<tr><td>24:</td><td>IGNORE RANGE</td></tr>
+		<tr><td>25:</td><td>IGNORE ALL</td></tr>
+		<tr><td>26:</td><td>AUDIO</td></tr>
+		<tr><td>27:</td><td>USER</td></tr>
+		<tr><td>28:</td><td>RADIX TYPE</td></tr>
+		<tr><td>29:</td><td>DIGIT GROUP</td></tr>
+		<tr><td>30:</td><td>CATALOG SET</td></tr>
+		<tr><td>31:</td><td>DATE MODE</td></tr>
+		<tr><td>32:</td><td>IL MANIO</td></tr>
+		<tr><td>33:</td><td>IL CONTROL</td></tr>
+		<tr><td>34:</td><td>IL AUTO ADR</td></tr>
+		<tr><td>35:</td><td>NO AUTO</td></tr>
+		<tr><td>36-39:</td><td>#DIGITS</td></tr>
+		<tr><td>40,41:</td><td>DSP MODE</td></tr>
+		<tr><td>42,43:</td><td>ANG MODE</td></tr>
+		<tr><td>44:</td><td>CONTINUOUS ON</td></tr>
+		<tr><td>45:</td><td>SYS DATA ENTRY</td></tr>
+		<tr><td>46:</td><td>PART. KEY SEQ</td></tr>
+		<tr><td>47:</td><td>SHIFT</td></tr>
+		<tr><td>48:</td><td>ALPHA</td></tr>
+		<tr><td>49: L</td><td>OW BAT</td></tr>
+		<tr><td>50:</td><td>MESSAGE</td></tr>
+		<tr><td>51:</td><td>SST MODE</td></tr>
+		<tr><td>52:</td><td>PRGM</td></tr>
+		<tr><td>53: I</td><td>L I/O</td></tr>
+		<tr><td>54:</td><td>PAUSE</td></tr>
+		<tr><td>55:</td><td>PRINTER EXISTENCE</td></tr>
+	</tbody></table><br>
+	<br>
+	<br>
+	<h3 id="HS_Warp Core Help">Warp Core Help</h3>
+	<table><tbody>
+		<tr><td>WARP_CORE</td></tr>
+		<tr><td>XEQ+ HOTKEYS</td></tr>
+		<tr><td>[+]</td><td>NXT PAGE</td></tr>
+		<tr><td>[-]</td><td>PRV PAGE</td></tr>
+		<tr><td>[^]</td><td>NXT CHAR</td></tr>
+		<tr><td>[ ]^</td><td>PRV CHAR</td></tr>
+		<tr><td>[/]</td><td>SPCL. CHR</td></tr>
+		<tr><td>[P]</td><td>TO PAGE#</td></tr>
+		<tr><td>[M]</td><td>FNC. INFO</td></tr>
+		<tr><td>[K]</td><td>EXECUTE</td></tr>
+		<tr><td>[]K</td><td>ASSIGN</td></tr>
+		<tr><td>[SST]</td><td>NXT FNC.</td></tr>
+		<tr><td>[BST]</td><td>PRV FNC.</td></tr>
+		<tr><td>[R/S]</td><td>LIST</td></tr>
+		<tr><td>[;]</td><td>LAST-5</td></tr>
+		<tr><td>[USER]</td><td>OS/XR</td></tr>
+		<tr><td>[PRGM]</td><td>XEQ__</td></tr>
+		<tr><td>[ALPH]</td><td>XEQ$</td></tr>
+	</tbody></table><br>
+	<br>
+	<br>
+	<h3 id="HS_Formula_Eval">Formula_Eval</h3>
+	<table><tbody>
+		<tr><td>FRMLA_EVAL</td></tr>
+		<tr><td>SYNTAX HELP</td></tr>
+		<tr><td>[+]</td><td>PLUS</td></tr>
+		<tr><td>[-]</td><td>MINUS</td></tr>
+		<tr><td>[*]</td><td>MULT</td></tr>
+		<tr><td>[/]</td><td>DIVIDE</td></tr>
+		<tr><td>[^]</td><td>POWER</td></tr>
+		<tr><td>[#]</td><td>CHS</td></tr>
+		<tr><td>[&]</td><td>MOD</td></tr>
+		<tr><td>[%]</td><td>PERCENT</td></tr>
+		<tr><td>[(]</td><td>OPEN P.</td></tr>
+		<tr><td>[)]</td><td>CLOSE P.</td></tr>
+		<tr><td>ABS()</td><td>ABS</td></tr>
+		<tr><td>AC()</td><td>ACOS</td></tr>
+		<tr><td>AHC()</td><td>HYP AC</td></tr>
+		<tr><td>AHS()</td><td>HYP AS</td></tr>
+		<tr><td>AHT()</td><td>HYP AT</td></tr>
+		<tr><td>AS()</td><td>ASIN</td></tr>
+		<tr><td>AT()</td><td>ATAN</td></tr>
+		<tr><td>C()</td><td>COSINE</td></tr>
+		<tr><td>E()</td><td>EXPONENTIAL</td></tr>
+		<tr><td>FP()</td><td>FRACTIONAL</td></tr>
+		<tr><td>FT()</td><td>FACTORIAL</td></tr>
+		<tr><td>G()</td><td>SIGN</td></tr>
+		<tr><td>HC()</td><td>HYP COS</td></tr>
+		<tr><td>HS()</td><td>HYP SIN</td></tr>
+		<tr><td>HT()</td><td>HYP TAN</td></tr>
+		<tr><td>IP()</td><td>INTEGER</td></tr>
+		<tr><td>LG()</td><td>LOGARITHM</td></tr>
+		<tr><td>LN()</td><td>NATURAL LOG</td></tr>
+		<tr><td>N() T</td><td>ANGENT</td></tr>
+		<tr><td>Q()</td><td>SQUARE ROOT</td></tr>
+		<tr><td>R()</td><td>SQUARE</td></tr>
+		<tr><td>S()</td><td>SINE</td></tr>
+		<tr><td>U()</td><td>CUBE</td></tr>
+		<tr><td>[a-e,F}</td><td>BUFFER VARS</td></tr>
+		<tr><td>{X,Y,Z,T,L} VARS</td></tr>
+		<tr><td>π</td><td>PI</td></tr>
+		<tr><td>{0-9}</td><td>CONSTANTS</td></tr>
+	</tbody></table><br>
+	<br>
+	<br>
+	<h3 id="HS_Sub-Functions">Sub-Functions</h3>
+		SUB-FNC FAT<br>
+		LAUNCHERS<br>
+		ΣZL 41Z_DL<br>
+		ZF# ; ZF$<br>
+		ΣFL SANDMATH<br>
+		MF# ; MF$<br>
+		ΣML SANDMATRIX<br>
+		[]ΣVL VECTOR CALC<br>
+		[]ΣPL POLYNOMIALS<br>
+		VF# ; VF$<br>
+		ΣCL POWER_CL<br>
+		XFAT ; XQ1/2$<br>
+		YMEM CLXPRGS<br>
+		YF# ; YF$<br>
+		CAT"0 AMCOSX<br>
+		XQ# ; XQ$<br>
+		16C 16C_SIML<br>
+		16# ; 16$<br>
+		-STKT WARP1<br>
+		WF# ; WF$<br>
+		ΣEVL: FRML_EV<br>
+		SF# ; SF$<br>
+		XEQ+: WARP2<br>
+		XEQ$: WARP3<br>
+		HEPAX_4H<br>
+		HPX# ; HPX$<br>
+		XF# ; XF$<br>
+	<br>
+	<br>
+	<h3 id="HS_Buffer Allocation">Buffer Allocation</h3>
+	<table><tbody>
+		<tr><td>I/O BUFFERS</td></tr>
+		<tr><td>ALLOCATION</td></tr>
+		<tr><td>1,2:</td><td>DAVD ASSMBLR</td></tr>
+		<tr><td>3,4:</td><td>ERAMCO RSU</td></tr>
+		<tr><td>05:</td><td>WSZE, SEED</td></tr>
+		<tr><td>06:</td><td>FRMLA OPS</td></tr>
+		<tr><td>6,7:</td><td>SKWID IL</td></tr>
+		<tr><td>07:</td><td>SHADOW STACK</td></tr>
+		<tr><td>08:</td><td>41Z STACK</td></tr>
+		<tr><td>09:</td><td>LASTF/5</td></tr>
+		<tr><td>10:</td><td>TIMER ALARMS</td></tr>
+		<tr><td>11:</td><td>16C SIML STACKS</td></tr>
+		<tr><td>11:</td><td>PLOTTER</td></tr>
+		<tr><td>12:</td><td>IL-DEVEL</td></tr>
+		<tr><td>12:</td><td>CMT-200</td></tr>
+		<tr><td>13:</td><td>CMT-300</td></tr>
+		<tr><td>13:</td><td>FORTH 41</td></tr>
+		<tr><td>14:</td><td>SOLVE & INTEGRATE</td></tr>
+		<tr><td>15:</td><td>KEY ASSIGNMENTS</td></tr>
+	</tbody></table><br>
+	<br>
+	<br>
+	<h3 id="HS_X-Mem File Types">X-Mem File Types</h3>
+		XM FILE SYS<br>
+		FILE TYPES<br>
+		01: PROGRAM<br>
+		02: DATA<br>
+		03: ASCII<br>
+		04: MATRIX<br>
+		05: BUFFER<br>
+		06: KEYS<br>
+		07: STATUS<br>
+		08: Z-STACK<br>
+		09: LIFO<br>
+		10: FORTH<br>
+		11: 16C STACK<br>
+		12-15: GENRL<br>
+	<br>
+	<br>
+	<h3 id="HS_System Catalogs">System Catalogs</h3>
+	<table><tbody>
+		<tr><td>HP41 SYSTEM</td></tr>
+		<tr><td>CATALOGS</td></tr>
+		<tr><td>0:</td><td>HPIL LOOP</td></tr>
+		<tr><td>1:</td><td>RAM PRGMS</td></tr>
+		<tr><td>2:</td><td>ROM FUNCS</td></tr>
+		<tr><td>3:</td><td>O/S FUNCS</td></tr>
+		<tr><td>4:</td><td>XMEM FILES</td></tr>
+		<tr><td>5:</td><td>TIME ALMS</td></tr>
+		<tr><td>6:</td><td>USER KEYS</td></tr>
+		<tr><td>7:</td><td>DISK DIR</td></tr>
+		<tr><td>[B]</td><td>BUFFERS</td></tr>
+		<tr><td>[G]</td><td>PAGES</td></tr>
+		<tr><td>[H]</td><td>HEPX DIR</td></tr>
+		<tr><td>[K]</td><td>SYS CHK</td></tr>
+		<tr><td>[;]</td><td>XR# ID'S</td></tr>
+		<tr><td>7/8-F:</td><td>>PG#</td></tr>
+	</tbody></table><br>
+	<br>
+	<br>
+	<h3 id="HS_HEX EDITOR">HEX EDITOR</h3>
+	<table><tbody>
+		<tr><td>HEX EDITOR</td></tr>
+		<tr><td>HEPAX ROM</td></tr>
+		<tr><td>[A-F]</td><td>A-F</td></tr>
+		<tr><td>[ENTER^] 000</td></tr>
+		<tr><td>[+]</td><td>BANK+</td></tr>
+		<tr><td>[-]</td><td>BANK-</td></tr>
+		<tr><td>[G]</td><td>CLEAR</td></tr>
+		<tr><td>[D]</td><td>DELETE</td></tr>
+		<tr><td>[I]</td><td>INSERT</td></tr>
+		<tr><td>[L]</td><td>CPU_L\H</td></tr>
+		<tr><td>[M]</td><td>COPY</td></tr>
+		<tr><td>[SST]</td><td>1+</td></tr>
+		<tr><td>[BST]</td><td>1-</td></tr>
+		<tr><td>[CLX]</td><td>EXIT.</td></tr>
+	</tbody></table><br>
+	<br>
+	<br>
+	<h3 id="HS_ASCII EDITOR">ASCII EDITOR</h3>
+	<table><tbody>
+		<tr><td>TEXT EDITOR</td></tr>
+		<tr><td>ENHANCED</td></tr>
+		<tr><td>[ON]</td><td>EXIT</td></tr>
+		<tr><td>[USER]</td><td>1-</td></tr>
+		<tr><td>[ ]USER</td><td>12-</td></tr>
+		<tr><td>[PRGM]</td><td>1+</td></tr>
+		<tr><td>[ ]PRGM</td><td>12+</td></tr>
+		<tr><td>[ALPHA]</td><td>SPCL</td></tr>
+		<tr><td>[K]</td><td>APPEND</td></tr>
+		<tr><td>[L]</td><td>INSERT</td></tr>
+		<tr><td>[M]</td><td>GOTO</td></tr>
+		<tr><td>[BST]</td><td>REC-</td></tr>
+		<tr><td>[SST]</td><td>REC+</td></tr>
+		<tr><td>[ R/S]</td><td>^REC+</td></tr>
+		<tr><td>[ ]R/S</td><td>^REC-</td></tr>
+	</tbody></table><br>
+	<br>
+	<br>
+	<h3 id="HS_Others">Others</h3>
+	<table><tbody>
+		<tr><td>OTHR UTILS</td></tr>
+		<tr><td>MNFR ___</td></tr>
+		<tr><td>0:</td><td>CAT</td></tr>
+		<tr><td>2:</td><td>DEL</td></tr>
+		<tr><td>3:</td><td>COPY</td></tr>
+		<tr><td>4:</td><td>CLP</td></tr>
+		<tr><td>6:</td><td>SIZE</td></tr>
+		<tr><td>10:</td><td>PACK</td></tr>
+		<tr><td>12:</td><td>ALPHA</td></tr>
+		<tr><td>14:</td><td>SHIFT</td></tr>
+		<tr><td>15:</td><td>ASN</td></tr>
+		<tr><td>666:</td><td>ASTO</td></tr>
+		<tr><td>MSG ___</td></tr>
+		<tr><td>24:</td><td>ALPHA DATA</td></tr>
+		<tr><td>34:</td><td>DATA ERROR</td></tr>
+		<tr><td>45:</td><td>MEMORY LOST</td></tr>
+		<tr><td>56:</td><td>NONEXISTENT</td></tr>
+		<tr><td>59:</td><td>NULL</td></tr>
+		<tr><td>67:</td><td>PRIVATE</td></tr>
+		<tr><td>79:</td><td>OU OF RANGE</td></tr>
+		<tr><td>86:</td><td>PACKING</td></tr>
+		<tr><td>95:</td><td>TRY AGAIN</td></tr>
+		<tr><td>98:</td><td>YES</td></tr>
+		<tr><td>100:</td><td>NO</td></tr>
+		<tr><td>103:</td><td>RAM</td></tr>
+		<tr><td>106:</td><td>ROM</td></tr>
+	</tbody></table><br>
+	<br>
+
+
+
+	<br><br>
+	</body>
+</html>

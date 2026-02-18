@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>DM41X Quick Reference</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323"/>
+	<style>
+		body{font-family: sans-serif;}
+		h1 {font-weight: bold; color: #000000;}
+		h2 {font-weight: bold; color: #000000; margin-bottom: 0.2em;}
+		ul {padding-left: 1.5em; }
+		a {font-weight: bold; }
+		td {vertical-align: top;}
+		.button {background: #444444;color: #FFFFFF;font-family: monospace;padding: 1px;}
+		.lcd {background: #CCCCCC;font-family: VT323, monospace;font-size: 18px; }
+	</style>
+</head>
+<body>
+	<h1>DM41X Quick Reference</h1>
+
+	<h2 id="Home">Contents</h2>
+	<ul>
+		<li><a href="#about">About this manual</a></li>
+		<li><a href="#helpnav">I. Help Navigation</a></li>
+		<li><a href="#dm41x_ref">II. DM41X Unique Features</a></li>
+		<li><a href="#41c_ref">III. Key 41C Reference Topics</a></li>
+		<li><a href="#ext_ref">IV. External References</a></li>
+	</ul>
+	<br>
+
+	<h2 id="about">About this manual</h2>
+	This manual is an excerpt of the more detailed DM41X User Manual available at<br>
+	https://technical.swissmicros.com/dm41x/doc<br>
+	<br>
+
+
+	<h2 id="helpnav">I. Help Navigation</h2>
+		<h3>Global navigation</h3>
+		Use <span class="button">A</span> or <span class="button">ON</span> to exit<br>
+		Use <span class="button">B</span> to jump to <a href="#Home">Contents</a><br>
+		Use <span class="button">C</span> to open help file from disk<br>
+		<h3>Navigation keys</h3>
+		Press <span class="button">+</span> to move one line forward<br>
+		Press <span class="button">-</span> to move one line backward<br>
+		Press <span class="button">&times;</span> to move one page forward<br>
+		Press <span class="button">&divide;</span> to move one page backward<br>
+		Use arrow keys to navigate to next/previous link<br>
+		<span class="button">ENTER</span> to follow link<br>
+		<span class="button">←</span> to go back to place where was 
+		  <span class="button">ENTER</span> used.<br>
+		The arrow keys navigate to the next/previous page if there is no link to navigate to.
+		<h3>Numpad-like navigation keys</h3>
+		<span class="button">2</span>/<span class="button">8</span> - single line down/up<br>
+		<span class="button">3</span>/<span class="button">9</span> - page down/up<br>
+		<span class="button">4</span>/<span class="button">6</span> - prev/next link (same as arrows)<br>
+		<span class="button">5</span>     - follow the link (same as <span class="button">ENTER</span>)<br>
+		<span class="button">7</span>     - jump to the <a href="#Home">Contents</a>(same as <span class="button">B</span>)<br>
+	<br>
+
+
+	<h2 id="dm41x_ref">II. DM41X Unique Features</h2>
+	<ul>
+		<li><a href="#lcd_viewa">A. LCD Views and DSP Control</a></li>
+		<li><a href="#cstm">B. CST Menu use and Setup</a></li>
+		<li><a href="#help_access">C. Help Access</a></li>
+		<li><a href="#rom_map">D. ROM MAP</a></li>
+		<li><a href="#state_files">E. Load/Save State</a></li>
+		<li><a href="#raw_files">F. Load/Save RAW files</a></li>
+		<li><a href="#usb_disk">G. USB Disk mode access</a></li>
+		<li><a href="#flags">H. Flags</a></li>
+		<li><a href="#scrshots">I. Screen shots</a></li>
+		<li><a href="#off_images">J. OFF Screen Images</a></li>
+		<li><a href="#new_fns">K. New Built-in Functions</a></li>
+		<li><a href="#modules">L. Modules</a></li>
+		<li><a href="#menus">M. Menu summary</a></li>
+	</ul>
+	<br>
+
+
+	<h2 id="lcd_viewa">A. LCD Views and DSP Control</h2>
+	The large screen allows the display of full calculator stack at once. Which is the default view.<br>
+	There are other possible views both in calculation mode and programing mode.<br>
+	View modes are cycled using <span class="button">DSP</span> key.<br>
+	Calculation mode:
+	<ul>
+		<li>Stack view</li>
+		<li><a href="#si_view">SI view</a> XA</li>
+		<li><a href="#si_view">SI view</a> XY</li>
+	</ul>
+	Programming mode:
+	<ul>
+		<li><a href="#si_view">SI pgm view</a> - single line basic view</li>
+		<li>Multiline pgm view - 4 lines</li>
+		<li>Multiline pgm view - 6 lines</li>
+		<li>Multiline pgm view - 8 lines</li>
+	</ul>
+	<br>
+	<h3 id="si_view">SI View</h3>
+	Enhanced "System Info" view:
+	<ul>
+		<li><a href="#si_line1">SI first line</a> -  Status of Alarms</li>
+		<li><a href="#si_line2">SI second line</a> - Memory status</li>
+		<li><a href="#si_line3">SI third line</a> - Program and printer status</li>
+	</ul>
+
+	<h3 id="si_line1">SI first line</h3>
+	Displays status of your Alarms, there are 3 icons on the far left:
+<ul>
+	<li>A coffee cup indicates that no alarms are pending</li>
+	<li>An alarm clock indicates at least one pending alarm</li>
+	<li>A bell indicates a past-due alarm</li>
+</ul>
+Next, the alarm text of your next pending (or past-due) alarm is shown.<br>
+On the far right, the number of pending alarms is shown in parentheses.<br>
+
+<h3 id="si_line2">SI second line</h3>
+Displays the memory status.<br>
+On the far left, free (available for use) main Program Memory and free Extended Memory are shown as xxx/yyy.<br>
+On the far right on line 2 is the current 41 SIZE status, indicating how many data storage registers have been allocated.<br>
+
+<h3 id="si_line3">SI third line</h3>
+Displays information about your current Program and Printer status.<br>
+Starting from the left, the program’s name (topmost global Alpha label), current line number and max number of lines is displayed.<br>
+On the far right of line-3, the current printer status is displayed following the PRN: label as follows:
+<ul>
+<li>MAN	- Manual Print Mode</li>
+<li>TRA	- Trace Print Mode</li>
+<li>NRM	- Normal Print Mode</li>
+<li>OFF	- The Printer has been disabled</li>
+<li>N/A	- The Printer Module has not been plugged-in</li>
+</ul>
+<br>
+
+
+	<h2 id="cstm">B. CST Menu use and Setup</h2>
+	CST functionality allows to assign commands to keys in the similar way as the standard ASN function works. Those assignments are then accessible in CST screen invoked by pressing <span class="button">CST</span> key.<br>
+	CST configuration could be activated by the <span class="button">SHIFT</span> <span class="button">CST</span> key sequence,
+	it is possible to make 16 assignments to keys from 'A' to 'P' and assign commands to three special keys:
+	<span class="button">SHIFT</span> <span class="button">▲</span>, <span class="button">SHIFT</span> <span class="button">▼</span>  and <span class="button">SHIFT</span> <span class="button">ALPHA</span>.
+	The key assignments could be also save/loaded to/from the .cst files in CST configuration screen.<br>
+	The default directory for the .cst files is /KEYS/.<br>
+	<br>
+
+
+	<h2 id="help_access">C. Help Access</h2>
+	DM41X contains internal help browser.<br>
+
+	This functionality is accessible by pressing <span class="button">CST</span> <span class="button">1</span>.<br>
+	The default directory for the .html help files is /HELP/.<br>
+
+	Calculator comes with basic set of help files, but it allows to add other user files.<br>
+	Note that the html browser implementation is extremely minimalistic and help files have
+	to be designed to comply with all the limitations.<br>
+	Basic information for creation of user <a href="help_devel.html">help files</a>.<br>
+	<br>
+
+
+	<h2 id="rom_map">D. ROM Map</h2>
+	ROM Map shows ROM placement in pages and banks.<br>
+	This functionality is accessible by pressing <span class="button">CST</span> <span class="button">2</span><br>
+	Each row corresponds to page denoted at the beginning of the line, columns represent banks.<br>
+	RAM pages are shown in first bank if other only as RAM banking isn’t supported now.<br>
+	Soft menu items allow to:
+	<ul>
+		<li><span class="button">Pg 8-F</span>/<span class="button">Pg 0-7</span> - Toggle page range</li>
+		<li><span class="button">ROM-id</span>/<span class="button">ROM-nr</span> - Toggle ROM labels</li>
+		<li><a href="#am_menu"><span class="button">⇒ AM</span></a> - Invokes Active Modules screen.</li>
+		<li><span class="button">ModLst</span> - Switches right side between 'Modules list' and 'Modules by page'</li>
+	</ul>
+	<br>
+
+
+	<h2 id="state_files">E. Load/Save State</h2>
+	It is possible to load and save calculator state - i.e. contents of memory and CPU registers from/to .d41 file
+	from/to <a href="#usb_disk">FAT disk</a> (respectively).
+	<br>
+	Note that this loads only calculator memory and doesn’t affect state of currently loaded modules.<br>
+	The default directory for the .d41 files is /STATE/.<br>
+	This functionality is accessible in <a href="#file_menu">File menu</a>.<br>
+	<br>
+
+
+	<h2 id="raw_files">F. Load/Save RAW files</h2>
+	It is possible to load and save programs from/to standard .raw files from/to <a href="#usb_disk">FAT disk</a> (respectively).<br>
+	Using the functional equivalent of GETP/SAVEP extended memory command. Only that the .raw file is read/written
+	from/to FAT disk instead of extended memory.<br>
+	Note that the program name for save has to be prepared in ALPHA register.<br>
+	Default directory for .raw files is /PROG/.<br>
+	This functionality is accessible through <a href="#cstm">CST menu</a> or in <a href="#file_menu">File menu</a>.<br>
+	<br>
+
+
+	<h2 id="usb_disk">G. USB Disk mode access</h2>
+The calculator has 6MB of internal flash storage formatted as a FAT filesystem that is used for loading/saving programs and for backing up calculator state.<br>
+It is accessible as USB disk when activated via the menu File > <a href="#usb_disk_menu">Activate USB Disk</a>.<br>
+
+There are several directories with special names (and purpose) on the FAT disk:<br>
+<ul>
+<li>/HELP - Contains help file(s) for built-in DM41X help that <a href="#help_access">can be activated</a> from CST menu.</li>
+<li>/KEYS - Contains files with <a href="#cstm">Custom Menu</a> key mappings.</li>
+<li>/MODS - Default directory for module files.</li>
+<li>/OFFIMG - <a href="#off_images">Bitmap files</a> from this directory are displayed when the calculator is turned off</li>
+<li>/PROG - <a href="#raw_files">Raw files</a> with programs are loaded/saved from/to this directory</li>
+<li>/RAM - Contains saved <a href="#mod_ram">RAM pages</a></li>
+<li>/SCREENS - <a href="#scrshots">Screenshots</a> of calculator LCD are saved into this directory</li>
+<li>/STATE - <a href="#state_files">Calculator state</a> files with extension .d41 are stored in this directory</li>
+</ul>
+	<br>
+
+
+	<h2 id="flags">H. Flags</h2>
+
+Calculator flags could be quickly examined at once on Flag Status screen accessible by
+<span class="button">CST</span> <span class="button">6</span>.
+<br>
+DM41X extends use of some flags:
+<ul>
+	<li>Flags 15/16 Control the Printer mode (MAN/TRACE/NORM) as follows:
+<table><tbody>
+<tr><td>15</td><td>16</td><td></td></tr>
+<tr><td> 0 -</td><td> 0</td><td>MAN (manual)</td></tr>
+<tr><td> 0 -</td><td> 1</td><td>NORM (normal)</td></tr>
+<tr><td> 1 -</td><td> 0</td><td>TRACE</td></tr>
+</tbody></table>
+</li>
+	<li>Flag 21 - controls if the printer is enabled or disabled (exactly like a 41C) and initially follows the state of flag 55 at power-on</li>
+	<li>Flag 55 - Indicates printer module presence</li>
+</ul>
+<br>
+
+
+
+	<h2 id="scrshots">I. Screen shots</h2>
+Hold <span class="button">SHIFT</span> and press <span class="button">DSP</span> to get a screenshot.<br>
+You will find a `.bmp` file named according to the current time and date in the `/SCREENS` folder of the FAT disk.<br>
+	<br>
+
+
+	<h2 id="off_images">J. OFF Screen Images</h2>
+	The LCD display used in DM41X calculator behaves in the similar way as e-ink displays and contents of the LCD is visible for a long time after the calculator is turned OFF.<br>
+	This feature is used to display images when the calculator is turned OFF.<br>
+	Custom OFF images could be stored in /OFFIMG/ directory.<br>
+  OFF images require specific image format. It has to be .bmp file with dimensions 400 x 240 and 1 bit depth.<br>
+	<br>
+
+
+	<h2 id="new_fns">K. New Built-in Functions</h2>
+
+<ul>
+<li><a href="#fn_syscm">System Control and Misc</a></li>
+<li><a href="#fn_alfn">Alpha Functions</a></li>
+<li><a href="#fn_exmf">Extended Memory Functions:</a></li>
+</ul>
+
+<h3 id="fn_syscm">System Control and Misc</h3>
+	<ul>
+		<li id="fn_slow"><a href="#fn_slow">SLOW</a> -  Sets SLOW mode for compatibility with legacy Modules</li>
+		<li id="fn_fast"><a href="#fn_fast">FAST</a> -  Restores FAST mode</li>
+		<li id="fn_fill"><a href="#fn_fill">FILL</a> -  Fills the stack with the value in X</li>
+		<li id="fn_x_i_y"><a href="#fn_x_i_y">X&lt;I&gt;Y</a> -  Exchanges the contents of IND X and IND Y</li>
+		<li id="fn_trng"><a href="#fn_trng">TRNG</a> -  Time-Based (True) Random Number Generator</li>
+		<li id="fn_lkaoff"><a href="#fn_lkaoff">LKAOFF</a> -  Turns Local KA (Key Assignments) off, i.e. those assigned to the two top rows</li>
+		<li id="fn_lkaon"><a href="#fn_lkaon">LKAON</a> -  Turns Local KA (Key Assignments) back on</li>
+	</ul>
+	<br>
+
+
+<h3 id="fn_alfn">Alpha Functions</h3>
+	<ul>
+		<li id="fn_absp"><a href="#fn_absp">ABSP</a> -  ALPHA Back Space. Deletes the rightmost char in ALPHA</li>
+		<li id="fn_aint"><a href="#fn_aint">AINT</a> -  Appends integer value from Reg X to ALPHA (includes sign)</li>
+		<li id="fn_aswap"><a href="#fn_aswap">ASWAP</a> -  Swaps ALPHA strings around the comma characters, i.e. A,B changes to B,A</li>
+		<li id="fn_clac"><a href="#fn_clac">CLAC</a> -  Clears ALPHA after the comma character, i.e. A,B changes to A,</li>
+	</ul>
+	<br>
+
+
+<h3 id="fn_exmf">Extended Memory Functions:</h3>
+	<ul>
+		<li id="fn_clem"><a href="#fn_clem">CLEM</a> -  Clears all Extended Memory</li>
+		<li id="fn_eds"><a href="#fn_eds">ED$</a> -  Enhanced ASCII File Editor with support for lower-case and special characters.
+The operation is controlled by the status of the <span class="button">ALPHA</span> annunciator.
+<span class="button">ALPHA</span> On is the standard mode, selected when you first enter the editor.
+Switch <span class="button">ALPHA</span> OFF to access non-keyable characters in the standard mode.
+Use the shifted keys to access the lower-case characters and the un-shifted keys to access the special characters.</li>
+		<li id="fn_flcopy"><a href="#fn_flcopy">FLCOPY</a> -  Copies the content of a file into another. Both files must exist and be of the same type. The destination file should be of equal size or larger than the source file.</li>
+		<li id="fn_flhd"><a href="#fn_flhd">FLHD</a> -  Returns to X the address (in decimal) of the File Header. Stack lifts if CPU F11 is set</li>
+		<li id="fn_fltype"><a href="#fn_fltype">FLTYPE</a> -  Returns to X the type of the file, ie. 1 for program, 2 for Data, etc. Stack lifts if CPU F11 is set</li>
+		<li id="fn_renmfl"><a href="#fn_renmfl">RENMFL</a> -  Renames an X-Mem file. Alpha contains OLDNAME,NEWNAME</li>
+		<li id="fn_retpfl"><a href="#fn_retpfl">RETPFL</a> -  Re-types an X-Mem file. X has the new type value (1 to 15)</li>
+		<li id="fn_workfl"><a href="#fn_workfl">WORKFL</a> -  Appends the name of the current ("Working") X-Mem file to <span class="button">ALPHA</span>.</li>
+	</ul>
+	<br>
+
+
+	<h2 id="modules">L. Modules</h2>
+	<ul>
+		<li><a href="#mod_format">Supported format</a></li>
+		<li><a href="#mod_use">How to add and use modules</a></li>
+		<li><a href="#mod_print">Printer module</a></li>
+		<li><a href="#mod_flash">Import modules to Flash</a></li>
+		<li><a href="#mod_am">Activating modules from Flash</a></li>
+		<li><a href="#mod_order">Module load order</a></li>
+		<li><a href="#mod_ram">Module RAM</a></li>
+	</ul>
+	<br>
+
+
+	<h2 id="mod_format">Supported format</h2>
+DM41X is able to load and use usual .mod files only.<br>
+	<br>
+
+
+	<h2 id="mod_use">How to add and use modules</h2>
+<ul>
+<li>Load .mod file to DM41X - using <a href="#usb_disk">USB disk</a> functionality</li>
+<li>Import .mod file to internal Flash Module area - see how to <a href="#mod_flash">Import modules to Flash</a></li>
+<li>Add module to the 'Active Modules' list - see how to <a href="#mod_am">Activate modules</a></li>
+</ul>
+	<br>
+
+
+	<h2 id="mod_flash">Import modules to Flash</h2>
+<i>Flash Module Area</i> is special region of flash memory dedicated for module use. It is the only place from where the emulator can access module ROMs and run module code.<br>
+Thus, all modules before <a href="#mod_am">activation</a> have to be loaded to <i>Flash Module Area</i>.<br>
+Use <span class="button">Imprt</span> in <a href="#mmf_menu">Manage Modules in flash</a> for that.<br>
+	<br>
+
+	<h2 id="mod_am">Activating modules from Flash</h2>
+'Activating module' corresponds to module plug-in on real calculator.<br>
+Module has to be first <a href="#mod_flash">loaded in Flash Module Area</a>.<br>
+Use <span class="button">Plug</span> in <a href="#am_menu">Active Modules</a> for module plug-in.<br>
+	<br>
+
+	<h2 id="mod_print">Printer module</h2>
+	There is preloaded 'PRINTER' module to simplify printer use.<br>
+	<a href="#mod_am">Activate</a> PRINTER module to enable printer functionality.<br>
+	<br>
+
+	<h2 id="mod_order">Module load order</h2>
+	Module order in <a href="#mod_am">Active modules list</a> is relevant. Pages assigned to modules
+		are based on this order and information in original .mod files.<br>
+	This list describes procedure for page assignment:
+<ul>
+	<li>Pass 0 - ROMs assigned in .mod files to fixed pages go exactly there.</li>
+	<li>Pass 1 - Others ROMs are assigned to pages 8-F in order of appearance - first those with prescribed mutual relative positions (in single .mod file).</li>
+	<li>Pass 2 - Finally ROMs using single pages with no other requirements are placed at free pages.</li>
+</ul>
+<br>
+
+
+	<h2 id="mod_ram">Module RAM</h2>
+The DM41X can provide up to 8 Pages of RAM.<br>
+Thus, any module can define its own RAM (in .mod file) and subsequently access it using WROM(WMLDL) and CXISA(FETCH S&amp;X). HEPAX instructions WPTOG and BLKMOV are implemented too.<br>
+The only restriction in current implementation is that RAM doesn’t support banks.<br>
+Contents of RAM pages could be <a href="#ram_save_menu">saved</a> and <a href="#ram_load_menu">restored</a> to/from disk.<br>
+	<br>
+
+
+	<h2 id="menus">M. Menu summary</h2>
+Main Setup Menu<br>
+	<ul>
+		<li><a href="#file_menu">1. File menu</a></li>
+		<li><a href="#module_menu">2. Module menu</a></li>
+		<li><a href="#settings_menu">3. Settings menu</a></li>
+		<li><a href="#system_menu">4. System menu</a></li>
+		<li>5. About - Displays About screen</li>
+	</ul>
+	<br>
+
+	<h2 id="file_menu">File menu</h2>
+	<ul>
+		<li>1. Load DM41 State File ><br>Loads the .d41 state files</li>
+		<li>2. Save DM41 State File ><br>Saves calculator’s state to a .d41 state file</li>
+		<li>3. Load RAW Program ><br>Loads the .raw program file</li>
+		<li>4. Save RAW Program ><br>Saves program to .raw file</li>
+		<li id="usb_disk_menu">5. Activate USB Disk<br>Used to copy files from/to a host computer</li>
+		<li>6. Show Disk Info<br>Displays disk status and disk block info</li>
+	</ul>
+	<br>
+
+	<h2 id="module_menu">Module menu</h2>
+	<ul>
+		<li id="am_menu">1. Active Modules (AM)<br>Screen for management of active modules</li>
+		<li id="mmf_menu">2. Manage Modules in Flash<br>Allows to add/remove modules to/from this area and display information about modules</li>
+		<li>3. Module ROM Map<br>ROM map shows ROM placement in pages and banks</li>
+		<li><a href="#loadmod_menu">4. Load Modules</a></li>
+		<li><a href="#savemod_menu">5. Save Modules</a></li>
+		<li id="ram_load_menu">6. Load RAM Pages ><br>Fills RAM Area from the file</li>
+		<li id="ram_save_menu">7. Save RAM Pages ><br>Saves RAM Area into the file.</li>
+	</ul>
+	<br>
+
+	<h2 id="loadmod_menu">Load Modules</h2>
+	<ul>
+		<li>1. Load AM List<br>Loads Active Modules from the .m41 file</li>
+		<li>2. Load Flash and AM Lists<br>Loads both AM list and .mod files into the Flash according to the .m41 file list</li>
+		<li>3. Load Flash, clear AM List<br>Loads only .mod files into the Flash according to the .m41 file list</li>
+	</ul>
+	<br>
+
+	<h2 id="savemod_menu">Save Modules</h2>
+	<ul>
+		<li>1. Save AM List only<br>Saves Active Modules list into the .m41 file</li>
+		<li>2. Save Flash and AM Lists<br>Saves both Active Modules list and list of .mod files loaded into Flash to the .m41 file</li>
+	</ul>
+	<br>
+
+	<h2 id="settings_menu">Settings menu</h2>
+	<ul>
+		<li>1. Set Time ><br>Sets time and time format</li>
+		<li>2. Set Date ><br>Sets date and date format</li>
+		<li>3. Slow Auto-repeat<br>Allows to lower key repeat rate</li>
+		<li>4. Printer Line Delay<br>Sets IR printer line delay</li>
+		<li>5. Create Full Backup<br>Complete calculator's backup</li>
+		<li>6. Restore from Backup<br>Restore from complete backup</li>
+		<li>7. Export Settings to 'param.cfg'<br>Writes Persistent Configuration Settings to the /param.cfg file</li>
+		<li>8. Reset settings to defaults<br>Resets Persistent Configuration Settings to defaults.</li>
+	</ul>
+	<br>
+
+	<h2 id="system_menu">System menu</h2>
+	<ul>
+		<li>1. Flash firmware from FAT<br>Starts flashing the firmware file from root directory of FAT disk</li>
+		<li>2. Bootloader<br>Activates bootloader mode for firmware flashing</li>
+		<li>3. Program Info<br>Displays information about currently loaded DM41X</li>
+		<li>4. Reset to DMCP menu<br>Reboots calculator to DMCP system menu</li>
+		<li>5. Format FAT Disk ><br>Format the internal FAT disk storage</li>
+		<li>6. FAT Disk Media Test ><br>Checks whole flash disk FAT area for bad blocks (disk is erased)</li>
+		<li>7. Power OFF mode<br>Don't touch this, only for OFF current diagnosing</li>
+		<li>8. Self Test<br>Opens self test menu</li>
+	</ul>
+	<br>
+
+
+
+
+
+	<h2 id="41c_ref">III. Key 41C Reference Topics</h2>
+	<ul>
+		<li><a href="#41c_isg_dse">A. ISG/DSE Format</a></li>
+		<li><a href="#41c_date">B. Date Formats</a></li>
+		<li><a href="#41c_time">C. Time Formats</a></li>
+		<li><a href="#41c_alarm">D. Alarm formats</a></li>
+	</ul>
+	<br>
+
+
+	<h2 id="41c_isg_dse">A. ISG/DSE Format</h2>
+The functions ISG (increment and skip if greater) and DSE (decrement and skip if equal) are used to effectively control the loops using the number<br>
+iiiii.fffcc where:
+<ul>
+<li>iiiii is the current counter value</li>
+<li>fff is the counter test value</li>
+<li>cc is the increment value, if the cc value isn't specified, it is taken as cc=01</li>
+</ul>
+Each time ISG is executed, it first increments iiiii by cc, then it tests to see if iiiii is greater than fff. If it is then the next program line is skipped.<br>
+Each time DSE is executed, it first decrements iiiii by cc, then it tests to see if iiiii is equal to or less than fff. If it is then the next program line is skipped.<br>
+	<br>
+
+
+	<h2 id="41c_date">B. Date Formats</h2>
+	For date inputs:
+<ul>
+	<li>Use the (MM.DDYYYY) format by default or after MDY function</li>
+	<li>Use the (DD.MMYYYY) format after DMY function</li>
+</ul>
+	DATE function places date into the X-register in currently selected DMY/MDY format.<br>
+	<br>
+
+
+	<h2 id="41c_time">C. Time Formats</h2>
+	Use the (HH.MMSShh) format for time inputs.<br>
+	Time inputs for hours later than 12:00 p.m. (noon) can be input either as negative numbers or in the 24-hours time format.<br>
+	TIME function places time into the X-register (always) in 24-hours time format.
+	<br>
+	<br>
+
+
+
+	<h2 id="41c_alarm">D. Alarm formats</h2>
+All clock alarms are set by XYZALM (XYZ alarm) function using the data in the X, Y, Z, and ALPHA registers:
+	<ul>
+		<li><a href="#alm_rep">Z - Alarm Repeat Interval</a><br>HHHH.MMSSt</li>
+		<li><a href="#alm_date">Y - Alarm Date</a><br>MM.DDYYYY or DD.MMYYYY</li>
+		<li><a href="#alm_time">X - Alarm Time</a><br>HH.MMSSt</li>
+		<li><a href="#alm_alpha">ALPHA - Message or Function</a><br>
+			Blank, Message, Label or Function</li>
+	</ul>
+	<br>
+
+
+	<h2 id="alm_rep">Z - Alarm Repeat Interval</h2>
+	This parameter (r) causes the alarm to repeat itself after the specified interval.<br>
+ 	Format of r: HHHH.MMSSt<br>
+ 	Range of r:  10 Seconds ≤ r &lt; 10,000 Hours<br>
+ 	No Repeat:   Use r = 0<br>
+	<br>
+
+
+	<h2 id="alm_date">Y - Alarm Date</h2>
+	This parameter (d) is the date on which you want the alarm to activate.<br>
+	Format of d:   MM.DDYYYY or DD.MMYYYY<br>
+	Range of d:    January 1, 1900 through December 31, 2199<br>
+	Current date:  Use d = 0	<br>
+	<br>
+
+
+	<h2 id="alm_time">X - Alarm Time</h2>
+	This parameter (T) is the time of day at which you want the alarm to be activated.<br>
+	Format of T:  HH.MMSSt<br>
+	Range of T:   –23.59599 ≤ T ≤ 23.59599<br>
+	<br>
+
+	<h2 id="alm_alpha">ALPHA - Message or Function</h2>
+	Contents of ALPHA register determines the alarm type:
+	<ul>
+	<li>Tone Alarm - [Empty]
+		<br>
+		Alarm produces a series of tones and a flashing time/date display.
+	</li>
+	<li>Message Alarm - [Alpha string Message] Up to 24 Characters
+		<br>
+		Alarm produces a flashing ALPHA string message and a series of tones.
+	</li>
+	<li>Interrupting Control Alarm - [↑↑program label] or [↑↑function name]
+		<br>
+		Executes a program or a plug-in-device function that you specify.
+	</li>
+	<li>Noninterrupting Control Alarm - [↑program label] or [↑function name]
+		<br>
+		Executes a program or a plug-in-device function only while the calculator is turned off or is displaying the clock.
+	</li>
+ 	</ul>
+	<br>
+
+
+
+
+
+
+
+	<h2 id="ext_ref">IV. External References</h2>
+	<ul>
+		<li><a href="am_help.html">Angel's Help</a></li>
+	</ul>
+	<br>
+	<br>
+
+
+</body>
+</html>
