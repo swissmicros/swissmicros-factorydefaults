@@ -42,7 +42,7 @@ For Voyager models, the firmware can be updated easily using the web-based Voyag
     -   Click **Flash** to start the update process.
 5.  **Verification**: After flashing is complete, the calculator will restart with the new firmware.
 
-*Note: The legacy method using `lpc21isp` or `FlashMagic` is still possible but the Web Tool is recommended for ease of use. `STM32CubeProgrammer` is **not compatible** with Voyager models as they use a different CPU architecture (NXP LPC).*
+*Note: The legacy method using `lpc21isp` or `FlashMagic` is still possible but the Web Tool is recommended for ease of use.*
 
 ---
 
