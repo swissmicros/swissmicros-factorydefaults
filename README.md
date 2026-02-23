@@ -1,16 +1,29 @@
 # SwissMicros Factory Defaults
 
-This repository hosts the factory default files for various **SwissMicros** calculator models. It serves as a central location for users to download and restore their devices to their original factory state.
+This repository hosts the **factory default files** (programs, help files, images, etc.) that are pre-installed on SwissMicros calculators. It serves as a central location for users to download and restore their devices to their original state.
 
-## Important Notice: Support & Communication
+## ⚠️ Important Notice
 
-We are a small team dedicated to developing and manufacturing high-quality calculators. To maintain our focus on product development and order fulfillment, we kindly ask that you **do not use GitHub Issues for general support questions or feature requests**.
+We are a small team focused on development and manufacturing. To help us work efficiently, please direct support questions to the appropriate channels below.
 
-- **Technical Support:** For technical questions, please visit our documentation at [technical.swissmicros.com](https://technical.swissmicros.com) or contact us via email at `support@swissmicros.com`.
-- **Orders & Logistics:** For order-related inquiries, please email `orders@swissmicros.com`.
-- **Bug Reports:** If you find a verified bug in the factory default files hosted here, please open an Issue with clear reproduction steps.
+- **This repository is NOT for:**
+  - Firmware bug reports
+  - Feature requests
+  - General calculator support
+  - Order inquiries
 
-Thank you for understanding and helping us stay focused!
+- **Please only open an Issue here if:**
+  - A factory default file in this repo is corrupt or missing.
+  - The restoration instructions are unclear or incorrect.
+
+## Support & Community
+
+- **Community Forum:** [forum.swissmicros.com](https://forum.swissmicros.com) (Best place for general questions & tips)
+- **Technical Documentation:** [technical.swissmicros.com](https://technical.swissmicros.com)
+- **Technical Support:** `support@swissmicros.com`
+- **Orders & Logistics:** `orders@swissmicros.com`
+
+Thank you for understanding!
 
 ## Repository Structure
 
