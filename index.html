@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwissMicros Factory Defaults</title>
+    <link rel="stylesheet" href="https://swissmicros.github.io/swissmicros-factorydefaults/assets/css/style.css?v=2">
+    <style>
+        body { font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+        .file-list { list-style: none; padding: 0; margin-top: 2rem; }
+        .file-item { padding: 1rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .file-item:last-child { border-bottom: none; }
+        .file-name { font-weight: bold; color: #159957; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .file-name:hover { text-decoration: underline; }
+        .download-btn { background-color: #159957; color: white; padding: 0.5rem 1rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; transition: background 0.2s; }
+        .download-btn:hover { background-color: #1e6bb8; }
+        .folder-icon::before { content: "📁"; margin-right: 5px; }
+        .file-icon::before { content: "📄"; margin-right: 5px; }
+        .breadcrumb { margin-bottom: 1rem; font-size: 0.9rem; color: #606c71; }
+        .breadcrumb a { color: #159957; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .loading { text-align: center; color: #606c71; margin-top: 2rem; }
+        #content { max-width: 800px; margin: 0 auto; padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .header-content { text-align: center; margin-bottom: 2rem; }
+        .header-content h1 { margin-bottom: 0.5rem; }
+        .header-content p { color: #606c71; }
+    </style>
+</head>
+<body>
+
+    <section class="page-header">
+        <h1 class="project-name">SwissMicros Factory Defaults</h1>
+        <h2 class="project-tagline">Factory default files for Pioneer & Voyager models</h2>
+        <a href="https://swissmicros.com" class="btn">Shop</a>
+        <a href="https://technical.swissmicros.com" class="btn">Documentation</a>
+        <a href="https://forum.swissmicros.com" class="btn">Community Forum</a>
+    </section>
+
+    <section class="main-content">
+        <div id="content">
+            <div class="header-content">
+                <p>Browse and download factory default files below.</p>
+                <div class="breadcrumb" id="breadcrumb">
+                    <a href="#" onclick="loadDir('')">Home</a>
+                </div>
+            </div>
+
+            <div id="file-list-container">
+                <ul class="file-list" id="file-list">
+                    <li class="loading">Loading files...</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <span class="site-footer-owner"><a href="https://github.com/swissmicros/swissmicros-factorydefaults">SwissMicros Factory Defaults</a> is maintained by <a href="https://github.com/swissmicros">SwissMicros</a>.</span>
+        </footer>
+    </section>
+
+    <script>
+        const REPO_OWNER = 'swissmicros';
+        const REPO_NAME = 'swissmicros-factorydefaults';
+        const BRANCH = 'main';
+        let currentPath = '';
+
+        async function fetchRepoContents(path = '') {
+            const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}?ref=${BRANCH}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Failed to fetch contents');
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error(error);
+                return [];
+            }
+        }
+
+        function renderBreadcrumb(path) {
+            const parts = path.split('/').filter(p => p);
+            let html = '<a href="#" onclick="loadDir(\'\')">Home</a>';
+            let current = '';
+            parts.forEach((part, index) => {
+                current += part + '/';
+                const cleanPath = current.slice(0, -1); // remove trailing slash
+                html += ` / <a href="#" onclick="loadDir('${cleanPath}')">${part}</a>`;
+            });
+            document.getElementById('breadcrumb').innerHTML = html;
+        }
+
+        function renderFileList(files) {
+            const list = document.getElementById('file-list');
+            list.innerHTML = '';
+
+            // Sort: folders first, then files
+            files.sort((a, b) => {
+                if (a.type === b.type) return a.name.localeCompare(b.name);
+                return a.type === 'dir' ? -1 : 1;
+            });
+
+            if (currentPath !== '') {
+                const parentPath = currentPath.split('/').slice(0, -1).join('/');
+                const li = document.createElement('li');
+                li.className = 'file-item';
+                li.innerHTML = `
+                    <a href="#" class="file-name folder-icon" onclick="loadDir('${parentPath}')">.. (Parent Directory)</a>
+                `;
+                list.appendChild(li);
+            }
+
+            if (files.length === 0) {
+                list.innerHTML = '<li class="file-item">No files found.</li>';
+                return;
+            }
+
+            files.forEach(file => {
+                // Skip hidden files/configs
+                if (file.name.startsWith('.') || file.name === 'index.html' || file.name === '_config.yml') return;
+
+                const li = document.createElement('li');
+                li.className = 'file-item';
+
+                if (file.type === 'dir') {
+                    li.innerHTML = `
+                        <a href="#" class="file-name folder-icon" onclick="loadDir('${file.path}')">${file.name}</a>
+                    `;
+                } else {
+                    const downloadUrl = file.download_url; // Direct raw link
+                    // For folder download, we'd need a third-party service like DownGit, or just link to raw file
+                    // GitHub API rate limits prevent fetching folder contents recursively client-side easily for zip.
+                    // linking to raw file download for now.
+                    li.innerHTML = `
+                        <span class="file-name file-icon">${file.name}</span>
+                        <a href="${downloadUrl}" class="download-btn" download>Download</a>
+                    `;
+                }
+                list.appendChild(li);
+            });
+        }
+
+        async function loadDir(path) {
+            document.getElementById('file-list').innerHTML = '<li class="loading">Loading...</li>';
+            currentPath = path;
+            renderBreadcrumb(path);
+            const files = await fetchRepoContents(path);
+            renderFileList(files);
+        }
+
+        // Initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadDir('');
+        });
+    </script>
+</body>
+</html>
