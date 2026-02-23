@@ -28,17 +28,18 @@ For Pioneer models, the factory default files are stored in directories named af
 
 ## 2. Voyager Models (DM11, DM12, DM15, DM16, DM41)
 
-For Voyager models, the repository provides firmware files in `.hex` format located in the `Voyager_Models` directory.
+For Voyager models, the firmware can be updated easily using the web-based Voyager Web Tool.
 
 ### Steps:
-1.  **Locate Firmware**: Navigate to the `Voyager_Models` directory and find the `.hex` file corresponding to your specific model variant.
-2.  **Flashing Tool**: You will need a suitable flashing tool to write the firmware to your calculator. Common tools include the STM32CubeProgrammer or similar utilities compatible with the microcontroller used in your device.
-3.  **Flash Firmware**:
-    -   Connect your calculator to the computer using the appropriate interface/cable for flashing.
-    -   Open your flashing software.
-    -   Load the `.hex` file you downloaded.
-    -   Execute the flash/program operation.
-4.  **Verification**: After flashing is complete, disconnect the calculator and power it on to verify it is running the restored firmware.
+1.  **Open Web Tool**: Navigate to [https://tech.swissmicros.com/FlashingTool/](https://tech.swissmicros.com/FlashingTool/) using a browser that supports WebSerial (e.g., Chrome, Edge, Opera).
+2.  **Connect**: Connect your calculator to your computer via USB and click the **Connect** button in the web tool.
+3.  **Select Firmware**: Switch to the **Firmware** tab. You can select the desired firmware from the dropdown menu or load a local `.hex` file from the `Voyager_Models` directory of this repository.
+4.  **Flash**:
+    -   Ensure your calculator is in bootloader mode (see User Manual or press the reset button/hole).
+    -   Click **Flash** to start the update process.
+5.  **Verification**: After flashing is complete, the calculator will restart with the new firmware.
+
+*Note: The legacy method using STM32CubeProgrammer is still possible but the Web Tool is recommended for ease of use.*
 
 ---
 
