@@ -83,6 +83,12 @@ body {
     transition: all 0.2s;
 }
 
+.btn-sep {
+    color: rgba(255,255,255,0.25);
+    font-weight: normal;
+    user-select: none;
+}
+
 .btn:hover {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
