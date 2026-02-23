@@ -1,5 +1,7 @@
 # SwissMicros Factory Defaults
 
+**Repository:** [https://github.com/swissmicros/swissmicros-factorydefaults](https://github.com/swissmicros/swissmicros-factorydefaults)
+
 This repository hosts the **factory default files** (programs, help files, images, etc.) that are pre-installed on SwissMicros calculators. It serves as a central location for users to download and restore their devices to their original state.
 
 ## ⚠️ Important Notice
