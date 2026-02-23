@@ -35,7 +35,10 @@ For Voyager models, the firmware can be updated easily using the web-based Voyag
 2.  **Connect**: Connect your calculator to your computer via USB and click the **Connect** button in the web tool.
 3.  **Select Firmware**: Switch to the **Firmware** tab. You can select the desired firmware from the dropdown menu or load a local `.hex` file from the `Voyager_Models` directory of this repository.
 4.  **Flash**:
-    -   Ensure your calculator is in bootloader mode (see User Manual or press the reset button/hole).
+    -   **Enter Bootloader Mode**:
+        -   **Method 1 (Menu)**: On the calculator, go to `SETUP` -> `SYSTEM` -> `Bootloader` (see [User Manual](https://technical.swissmicros.com/voyager/doc/voyager_user_manual.html#conf_bootloader)).
+        -   **Method 2 (No Battery)**: Since the USB chip (CP2102) is powered by the cable, you can enter bootloader mode without a battery. Connect the calculator via USB, click **Connect** in the web tool, then insert the battery within 1-2 seconds.
+        -   *Note: Newer models with LPC111X CPUs do not have a physical bootloader button.*
     -   Click **Flash** to start the update process.
 5.  **Verification**: After flashing is complete, the calculator will restart with the new firmware.
 
