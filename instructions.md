@@ -6,7 +6,7 @@ This document provides detailed instructions on how to use the files in this rep
 
 First, determine which series your calculator belongs to:
 
-- **Pioneer Models**: DM32, DM42, DM41X, DM42n, etc. These typically mount as a USB drive when connected to a computer.
+- **Pioneer Models**: DM32, DM42, DM41X, DM42n, etc. These mount as a USB drive when connected to a computer and USB disk mode is activated.
 - **Voyager Models**: DM11, DM12, DM15, DM16, DM41. The firmware for these models is typically flashed using a specific tool.
 
 ---
@@ -19,11 +19,10 @@ For Pioneer models, the factory default files are stored in directories named af
 1.  **Backup**: Before proceeding, ensure you have backed up any important programs or data currently on your calculator. Restoring factory defaults may overwrite existing files.
 2.  **Locate Files**: Navigate to the `Pioneer_Models` directory in this repository and find the subdirectory matching your calculator model.
     -   Example: For a DM42, go to `Pioneer_Models/DM42`.
-3.  **Connect Calculator**: Connect your calculator to your computer via USB. It should appear as a removable drive (e.g., `DM42`).
+3.  **Connect Calculator**: Connect your calculator to your computer via USB and activate USB disk mode from the setup menu. It should appear as a removable drive (e.g., `DM42`).
 4.  **Copy Files**: Look for folders like `HELP`, `PROGRAMS`, and `OFFIMG` within the model's directory in this repository. Copy these folders to the root directory of your calculator's USB drive.
     -   **Overwrite**: If prompted, confirm that you want to overwrite existing files.
-5.  **Firmware Updates**: If there are `.bin` files (firmware updates), these are typically placed in the root of the calculator's drive. After copying, safely eject the drive and follow the standard firmware update procedure for your device (usually initiated from the calculator's system menu).
-6.  **Eject**: Safely eject the calculator drive from your computer.
+5.  **Firmware Updates**: If there are `.bin` files (firmware updates), these should be copied to the root of the calculator's drive. After copying, safely eject the drive. The update will be initiated automatically.
 
 ---
 
