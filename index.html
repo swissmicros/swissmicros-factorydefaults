@@ -4,39 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwissMicros Factory Defaults</title>
-    <link rel="stylesheet" href="https://swissmicros.github.io/swissmicros-factorydefaults/assets/css/style.css?v=2">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Retro Fonts -->
+    <style>
+        @font-face { font-family: 'Theinhardt'; src: url('assets/fonts/Theinhardt-Regular.ttf') format('truetype'); font-weight: normal; font-style: normal; }
+        @font-face { font-family: 'Theinhardt'; src: url('assets/fonts/Theinhardt-Bold.ttf') format('truetype'); font-weight: bold; font-style: normal; }
+        @font-face { font-family: 'Theinhardt'; src: url('assets/fonts/Theinhardt-Italic.ttf') format('truetype'); font-weight: normal; font-style: italic; }
+        @font-face { font-family: 'Theinhardt'; src: url('assets/fonts/Theinhardt-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; }
+    </style>
+
     <style>
         :root {
-            --border:      #d0d7de;
-            --panel-bg:    #ffffff;
-            --th-bg:       #24292f;
-            --th-text:     #f6f8fa;
-            --th-hover:    #32383f;
-            --th-active:   #79c0ff;
-            --row-alt:     #f6f8fa;
-            --row-hover:   #ddf4ff;
-            --text:        #24292f;
-            --muted:       #57606a;
-            --link:        #0969da;
-            --link-hover:  #0550ae;
-            --status-bg:   #f6f8fa;
-            --radius:      6px;
-            --shadow:      0 1px 3px rgba(27,31,36,0.12), 0 1px 2px rgba(27,31,36,0.08);
+            /* Retro Palette */
+            --bg-color:      #e8e8e8;
+            --panel-bg:      #f4f4f4;
+            --border:        #999;
+            
+            --text:          #222;
+            --muted:         #555;
+            
+            --accent:        #d00; /* Swiss Red */
+            --link:          #000;
+            --link-hover:    #d00;
+            
+            --th-bg:         #333;
+            --th-text:       #fff;
+            --th-hover:      #555;
+            
+            --row-alt:       #eaeaea;
+            --row-hover:     #fff;
+            
+            --radius:        0px; /* Sharp corners for retro feel */
+            --shadow:        4px 4px 0 rgba(0,0,0,0.15);
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Theinhardt', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text);
+            line-height: 1.5;
+            padding-bottom: 2rem;
+        }
+
+        /* ── Header ─────────────────────────────────────────────── */
+        .page-header {
+            background-color: #222;
+            color: #fff;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .project-name {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .project-tagline {
+            margin: 0.5rem 0 1.5rem;
+            font-weight: normal;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            font-family: 'Theinhardt', sans-serif;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.2rem;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.4);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .btn:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* ── Main Layout ────────────────────────────────────────── */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
         /* ── Directory Panel ─────────────────────────────────────── */
         .dir-panel {
             background: var(--panel-bg);
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             overflow: hidden;
@@ -47,166 +110,128 @@
         .breadcrumb-bar {
             display: flex;
             align-items: center;
-            gap: 0.375rem;
-            padding: 0.5rem 0.875rem;
-            background: #f6f8fa;
-            border-bottom: 1px solid var(--border);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--muted);
-            min-height: 34px;
-            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: #ddd;
+            border-bottom: 2px solid var(--border);
+            font-family: 'Theinhardt', monospace;
+            font-size: 0.9rem;
+            color: var(--text);
         }
-        .breadcrumb-bar svg { flex-shrink: 0; }
-        .breadcrumb-bar a { color: var(--link); text-decoration: none; }
-        .breadcrumb-bar a:hover { text-decoration: underline; }
-        .breadcrumb-bar strong { color: var(--text); font-weight: 600; }
-        .bc-sep { color: #bbb; user-select: none; }
+        .breadcrumb-bar a { color: var(--link); text-decoration: none; font-weight: bold; }
+        .breadcrumb-bar a:hover { text-decoration: underline; color: var(--accent); }
+        .bc-sep { color: #888; user-select: none; }
 
-        /* ── Table wrapper ───────────────────────────────────────── */
+        /* ── Table ───────────────────────────────────────────────── */
         .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
-        /* ── Directory Table ─────────────────────────────────────── */
         .dir-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
         }
 
-        /* Head */
-        .dir-table thead tr { background: var(--th-bg); }
         .dir-table thead th {
-            padding: 0.5rem 0.75rem;
-            text-align: left;
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-weight: 600;
-            font-size: 0.7rem;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+            background: var(--th-bg);
             color: var(--th-text);
-            white-space: nowrap;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent);
+            cursor: pointer;
             user-select: none;
         }
-        .dir-table thead th.sortable { cursor: pointer; }
-        .dir-table thead th.sortable:hover { background: var(--th-hover); }
-        .dir-table thead th.sort-active { color: var(--th-active); }
-        .dir-table thead th .sort-arrow { margin-left: 4px; font-size: 0.65rem; opacity: 0.5; }
-        .dir-table thead th.sort-active .sort-arrow { opacity: 1; }
+        .dir-table thead th:hover { background: var(--th-hover); }
+        .dir-table thead th.sort-active { color: #fff; text-decoration: underline; }
+        .sort-arrow { font-size: 0.7em; margin-left: 5px; opacity: 0.7; }
 
-        /* Column widths */
-        .th-icon  { width: 40px; padding-left: 1rem !important; }
-        .th-name  { min-width: 200px; }
-        .th-size  { width: 90px; text-align: right !important; }
-        .th-type  { width: 120px; }
-        .th-dl    { width: 110px; padding-right: 1rem !important; }
-
-        /* Body rows */
         .dir-table tbody tr {
-            border-bottom: 1px solid var(--border);
-            transition: background 0.08s ease;
+            border-bottom: 1px solid #ccc;
+            transition: background 0.1s;
         }
-        .dir-table tbody tr:last-child { border-bottom: none; }
         .dir-table tbody tr:nth-child(even) { background: var(--row-alt); }
         .dir-table tbody tr:hover { background: var(--row-hover); }
 
-        .dir-table tbody td {
-            padding: 0.375rem 0.75rem;
-            vertical-align: middle;
-        }
-        .td-icon { padding-left: 1rem !important; width: 40px; }
-        .td-size {
-            text-align: right;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.78rem;
-            color: var(--muted);
-        }
-        .td-type { font-size: 0.78rem; color: var(--muted); }
-        .td-dl   { text-align: right; padding-right: 1rem !important; }
+        .dir-table td { padding: 0.6rem 0.75rem; vertical-align: middle; }
+        
+        .td-icon { width: 40px; text-align: center; }
+        .td-size { text-align: right; font-family: 'Theinhardt', monospace; color: #444; width: 100px; }
+        .td-type { width: 140px; color: #666; font-size: 0.8rem; text-transform: uppercase; }
+        .td-dl   { text-align: right; width: 120px; }
 
-        /* File name links */
+        /* Links */
         .name-link {
             color: var(--link);
             text-decoration: none;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.8125rem;
+            font-weight: 500;
         }
-        .name-link:hover { color: var(--link-hover); text-decoration: underline; }
+        .name-link:hover { text-decoration: underline; color: var(--accent); }
 
         .parent-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            color: var(--muted);
+            font-style: italic;
+            color: #555;
             text-decoration: none;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.8125rem;
         }
-        .parent-link:hover { color: var(--link); text-decoration: underline; }
+        .parent-link:hover { text-decoration: underline; }
 
-        /* Download button */
+        /* Download Button */
         .dl-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            padding: 0.2rem 0.55rem;
-            background: transparent;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            color: var(--muted);
-            font-size: 0.72rem;
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-weight: 500;
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid #333;
+            color: #333;
             text-decoration: none;
-            transition: background 0.12s, border-color 0.12s, color 0.12s;
-            white-space: nowrap;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            background: transparent;
+            font-weight: bold;
         }
         .dl-btn:hover {
-            background: var(--link);
-            border-color: var(--link);
+            background: #333;
             color: #fff;
-            text-decoration: none;
         }
 
         /* Status bar */
         .status-bar {
-            padding: 0.375rem 0.875rem;
-            background: var(--status-bg);
-            border-top: 1px solid var(--border);
-            font-size: 0.75rem;
-            color: var(--muted);
-            font-family: 'IBM Plex Sans', sans-serif;
-            min-height: 30px;
-            display: flex;
-            align-items: center;
+            padding: 0.5rem 1rem;
+            background: #ddd;
+            border-top: 2px solid var(--border);
+            font-size: 0.8rem;
+            color: #444;
+            font-family: 'Theinhardt', monospace;
+            text-align: right;
         }
 
-        /* Loading / error states */
-        .state-cell {
+        /* Footer */
+        .site-footer {
             text-align: center;
-            padding: 2.5rem 1rem !important;
-            color: var(--muted);
-            font-style: italic;
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
         }
-        .state-cell.is-error { color: #cf222e; font-style: normal; }
+        .site-footer a { color: #333; }
 
+        /* Spinner */
         .spinner {
             display: inline-block;
-            width: 14px;
-            height: 14px;
-            border: 2px solid var(--border);
-            border-top-color: var(--link);
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ccc;
+            border-top-color: #333;
             border-radius: 50%;
-            animation: spin 0.65s linear infinite;
-            margin-right: 0.5rem;
+            animation: spin 0.8s linear infinite;
             vertical-align: middle;
+            margin-right: 8px;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* Responsive: hide Size & Type on small screens */
-        @media (max-width: 580px) {
-            .th-size, .th-type,
-            .dir-table tbody td:nth-child(3),
-            .dir-table tbody td:nth-child(4) { display: none; }
+        /* Mobile */
+        @media (max-width: 600px) {
+            .th-size, .th-type, .td-size, .td-type { display: none; }
         }
     </style>
 </head>
@@ -223,13 +248,9 @@
 <section class="main-content">
 
     <div class="dir-panel">
-
         <!-- Breadcrumb -->
-        <div class="breadcrumb-bar" id="breadcrumb-bar">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="#d4a72c">
-                <path d="M1.75 2.5h3.5l2 2h6.25c.966 0 1.75.784 1.75 1.75v6.5A1.75 1.75 0 0 1 13.5 14.5H1.75A1.75 1.75 0 0 1 0 12.75V4.25C0 3.284.784 2.5 1.75 2.5z"/>
-            </svg>
-            <span id="breadcrumb"><a href="#" id="bc-root">root</a></span>
+        <div class="breadcrumb-bar">
+            <span id="breadcrumb"></span>
         </div>
 
         <!-- Table -->
@@ -238,22 +259,16 @@
                 <thead>
                     <tr>
                         <th class="th-icon"></th>
-                        <th class="th-name sortable sort-active" data-col="name">
-                            Name <span class="sort-arrow">↑</span>
-                        </th>
-                        <th class="th-size sortable" data-col="size" style="text-align:right">
-                            Size <span class="sort-arrow">↕</span>
-                        </th>
-                        <th class="th-type sortable" data-col="type">
-                            Type <span class="sort-arrow">↕</span>
-                        </th>
+                        <th class="th-name" data-col="name">Name <span class="sort-arrow">↑</span></th>
+                        <th class="th-size" data-col="size" style="text-align:right">Size <span class="sort-arrow">↕</span></th>
+                        <th class="th-type" data-col="type">Type <span class="sort-arrow">↕</span></th>
                         <th class="th-dl"></th>
                     </tr>
                 </thead>
                 <tbody id="dir-body">
                     <tr>
-                        <td colspan="5" class="state-cell">
-                            <span class="spinner"></span>Loading directory contents…
+                        <td colspan="5" style="text-align:center; padding: 2rem;">
+                            <span class="spinner"></span> Loading directory contents...
                         </td>
                     </tr>
                 </tbody>
@@ -262,8 +277,7 @@
 
         <!-- Status bar -->
         <div class="status-bar" id="status-bar">&nbsp;</div>
-
-    </div><!-- /.dir-panel -->
+    </div>
 
     <footer class="site-footer">
         <span class="site-footer-owner">
@@ -282,7 +296,7 @@
     const REPO_OWNER = 'swissmicros';
     const REPO_NAME  = 'swissmicros-factorydefaults';
     const BRANCH     = 'main';
-    const HIDDEN     = new Set(['index.html', '_config.yml', 'CNAME', 'README.md', 'instructions.md']);
+    const HIDDEN     = new Set(['index.html', '_config.yml', 'CNAME', 'README.md', 'instructions.md', 'assets']);
 
     /* ── State ─────────────────────────────────────────────────── */
     let currentPath  = '';
@@ -290,103 +304,49 @@
     let sortCol      = 'name';
     let sortDir      = 'asc';
 
-    /* ── SVG icons ─────────────────────────────────────────────── */
-    const ICON_FOLDER = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M1.75 2.5h3.5l2 2h6.25c.966 0 1.75.784 1.75 1.75v6.5
-                 A1.75 1.75 0 0 1 13.5 14.5H1.75A1.75 1.75 0 0 1 0 12.75
-                 V4.25C0 3.284.784 2.5 1.75 2.5z" fill="#d4a72c"/>
-    </svg>`;
-
-    const ICON_UP = `<svg width="14" height="14" viewBox="0 0 16 16" fill="#57606a">
-        <path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06
-                 l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042
-                 L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06z"/>
-    </svg>`;
-
-    const ICON_DL = `<svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor">
-        <path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5
-                 c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0
-                 v2.5A1.75 1.75 0 0 1 13.25 14Z"/>
-        <path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.97
-                 a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0
-                 L4.22 6.779a.749.749 0 1 1 1.06-1.06z"/>
-    </svg>`;
-
-    /* ext → stroke colour for document icon */
-    const EXT_COLOR = {
-        bin:'#0969da', hex:'#0969da',
-        raw:'#6e40c9', mod:'#6e40c9', p47:'#6e40c9', s47:'#6e40c9',
-        bmp:'#2da44e',
-        html:'#e16b36', htm:'#e16b36',
-        txt:'#57606a', rtf:'#57606a',
-    };
+    /* ── Icons ─────────────────────────────────────────────────── */
+    const ICON_FOLDER = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.75 2.5h3.5l2 2h6.25c.966 0 1.75.784 1.75 1.75v6.5A1.75 1.75 0 0 1 13.5 14.5H1.75A1.75 1.75 0 0 1 0 12.75V4.25C0 3.284.784 2.5 1.75 2.5z" fill="#d4a72c"/></svg>`;
+    const ICON_UP     = `<svg width="16" height="16" viewBox="0 0 16 16" fill="#555"><path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06z"/></svg>`;
+    const ICON_DL     = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.97a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.779a.749.749 0 1 1 1.06-1.06z"/></svg>`;
 
     function fileIcon(ext) {
-        const c = EXT_COLOR[ext] || '#57606a';
-        return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513
-                     l2.914 2.914c.329.328.513.773.513 1.237v9.586
-                     A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75z"
-                  fill="${c}" fill-opacity="0.15" stroke="${c}" stroke-width="1.25"/>
-            <path d="M10 .5v3a.5.5 0 0 0 .5.5h3"
-                  stroke="${c}" stroke-width="1.25" stroke-linecap="round"/>
-        </svg>`;
+        return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75z" fill="#f0f0f0" stroke="#888" stroke-width="1.5"/><path d="M10 .5v3a.5.5 0 0 0 .5.5h3" stroke="#888" stroke-width="1.5" stroke-linecap="round"/></svg>`;
     }
 
-    /* ── Utilities ─────────────────────────────────────────────── */
-    function h(str) {
-        return String(str)
-            .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-            .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
-
-    function ext(name) {
-        const i = name.lastIndexOf('.');
-        return i > 0 ? name.slice(i + 1).toLowerCase() : '';
-    }
-
-    function typeLabel(file) {
-        if (file.type === 'dir') return 'Folder';
-        const e = ext(file.name);
-        return e ? e.toUpperCase() + '\u2009File' : 'File';
-    }
-
+    /* ── Utils ─────────────────────────────────────────────────── */
+    function h(str) { return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function ext(name) { const i = name.lastIndexOf('.'); return i > 0 ? name.slice(i+1).toLowerCase() : ''; }
+    function typeLabel(f) { return f.type === 'dir' ? 'Folder' : (ext(f.name).toUpperCase() + ' File'); }
     function fmtSize(bytes) {
         if (!bytes) return '—';
-        if (bytes < 1024)        return bytes + '\u202fB';
-        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + '\u202fKB';
-        return (bytes / (1024 * 1024)).toFixed(2) + '\u202fMB';
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024*1024) return (bytes/1024).toFixed(1) + ' KB';
+        return (bytes/(1024*1024)).toFixed(2) + ' MB';
     }
+    function hidden(name) { return name.startsWith('.') || HIDDEN.has(name); }
 
-    function hidden(name) {
-        return name.startsWith('.') || HIDDEN.has(name);
-    }
-
-    /* ── GitHub API ─────────────────────────────────────────────── */
+    /* ── Logic ─────────────────────────────────────────────────── */
     async function fetchRepoContents(path) {
         const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}?ref=${BRANCH}`;
         const res = await fetch(url);
-        if (!res.ok) throw new Error(`HTTP\u00a0${res.status}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
     }
 
-    /* ── Sort ───────────────────────────────────────────────────── */
     function sorted(files) {
-        return [...files].sort((a, b) => {
+        return [...files].sort((a,b) => {
             if (a.type !== b.type) return a.type === 'dir' ? -1 : 1;
-
             let av, bv;
             if (sortCol === 'name') { av = a.name.toLowerCase(); bv = b.name.toLowerCase(); }
-            else if (sortCol === 'size') { av = a.size || 0; bv = b.size || 0; }
-            else { av = typeLabel(a).toLowerCase(); bv = typeLabel(b).toLowerCase(); }
-
+            else if (sortCol === 'size') { av = a.size||0; bv = b.size||0; }
+            else { av = typeLabel(a); bv = typeLabel(b); }
             const cmp = av < bv ? -1 : av > bv ? 1 : 0;
             return sortDir === 'asc' ? cmp : -cmp;
         });
     }
 
     function updateHeaders() {
-        document.querySelectorAll('.dir-table thead th[data-col]').forEach(th => {
+        document.querySelectorAll('th[data-col]').forEach(th => {
             const arrow = th.querySelector('.sort-arrow');
             if (th.dataset.col === sortCol) {
                 th.classList.add('sort-active');
@@ -398,50 +358,45 @@
         });
     }
 
-    /* ── Breadcrumb ─────────────────────────────────────────────── */
     function renderBreadcrumb(path) {
         const parts = path ? path.split('/') : [];
-        let html = `<a href="#" data-path="">root</a>`;
-        let cur  = '';
-        parts.forEach((part, i) => {
-            cur += (cur ? '/' : '') + part;
+        let html = `<a href="#" data-path="">/ root</a>`;
+        let cur = '';
+        parts.forEach((p, i) => {
+            cur += (cur ? '/' : '') + p;
             html += ` <span class="bc-sep">/</span> `;
-            if (i < parts.length - 1) {
-                html += `<a href="#" data-path="${h(cur)}">${h(part)}</a>`;
-            } else {
-                html += `<strong>${h(part)}</strong>`;
-            }
+            if (i < parts.length - 1) html += `<a href="#" data-path="${h(cur)}">${h(p)}</a>`;
+            else html += `<strong>${h(p)}</strong>`;
         });
         document.getElementById('breadcrumb').innerHTML = html;
     }
 
-    /* ── Table rendering ────────────────────────────────────────── */
     function renderTable(files) {
         const tbody = document.getElementById('dir-body');
-        const list  = sorted(files);
-        let   rows  = '';
+        const list = sorted(files);
+        let rows = '';
 
         if (currentPath) {
-            const parent = currentPath.split('/').slice(0, -1).join('/');
+            const parent = currentPath.split('/').slice(0,-1).join('/');
             rows += `<tr>
                 <td class="td-icon">${ICON_UP}</td>
-                <td colspan="3"><a href="#" class="parent-link" data-path="${h(parent)}">..\u2002(Parent Directory)</a></td>
+                <td colspan="3"><a href="#" class="parent-link" data-path="${h(parent)}">.. (Parent Directory)</a></td>
                 <td class="td-dl"></td>
             </tr>`;
         }
 
         if (list.length === 0) {
-            rows += `<tr><td colspan="5" class="state-cell">This folder is empty.</td></tr>`;
+            rows += `<tr><td colspan="5" style="text-align:center; padding:2rem; font-style:italic;">Empty directory.</td></tr>`;
         } else {
             list.forEach(f => {
-                const icon  = f.type === 'dir' ? ICON_FOLDER : fileIcon(ext(f.name));
+                const icon = f.type === 'dir' ? ICON_FOLDER : fileIcon(ext(f.name));
                 const label = typeLabel(f);
-                const size  = f.type === 'dir' ? '—' : fmtSize(f.size);
-
+                const size = f.type === 'dir' ? '—' : fmtSize(f.size);
+                
                 if (f.type === 'dir') {
                     rows += `<tr>
                         <td class="td-icon">${icon}</td>
-                        <td><a href="#" class="name-link" data-path="${h(f.path)}">${h(f.name)}</a></td>
+                        <td><a href="#" class="name-link" data-path="${h(f.path)}">${h(f.name)}/</a></td>
                         <td class="td-size">—</td>
                         <td class="td-type">${label}</td>
                         <td class="td-dl"></td>
@@ -454,75 +409,50 @@
                         <td><a href="${dl}" class="name-link" download="${fn}">${fn}</a></td>
                         <td class="td-size">${size}</td>
                         <td class="td-type">${label}</td>
-                        <td class="td-dl"><a href="${dl}" class="dl-btn" download="${fn}">${ICON_DL} Download</a></td>
+                        <td class="td-dl"><a href="${dl}" class="dl-btn" download="${fn}">Download</a></td>
                     </tr>`;
                 }
             });
         }
-
         tbody.innerHTML = rows;
-
-        const nDir  = files.filter(f => f.type === 'dir').length;
-        const nFile = files.filter(f => f.type === 'file').length;
-        const parts = [];
-        if (nDir)  parts.push(`${nDir} folder${nDir  !== 1 ? 's' : ''}`);
-        if (nFile) parts.push(`${nFile} file${nFile !== 1 ? 's' : ''}`);
-        document.getElementById('status-bar').textContent = parts.join(', ') || 'Empty directory';
+        
+        const count = files.length;
+        document.getElementById('status-bar').textContent = `${count} item${count!==1?'s':''} total`;
     }
 
-    /* ── Load directory ─────────────────────────────────────────── */
     async function loadDir(path) {
         currentPath = path;
         renderBreadcrumb(path);
-
         const tbody = document.getElementById('dir-body');
-        tbody.innerHTML = `<tr><td colspan="5" class="state-cell">
-            <span class="spinner"></span>Loading…
-        </td></tr>`;
-        document.getElementById('status-bar').innerHTML = '&nbsp;';
-
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:2rem;"><span class="spinner"></span> Loading...</td></tr>`;
+        
         try {
-            const data   = await fetchRepoContents(path);
+            const data = await fetchRepoContents(path);
             currentFiles = data.filter(f => !hidden(f.name));
             renderTable(currentFiles);
         } catch (err) {
-            tbody.innerHTML = `<tr><td colspan="5" class="state-cell is-error">
-                ⚠ Failed to load: ${h(err.message)}
-            </td></tr>`;
-            document.getElementById('status-bar').textContent = 'Error loading contents.';
+            tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:2rem; color:red;">Error loading: ${h(err.message)}</td></tr>`;
         }
     }
 
-    /* ── Event delegation ───────────────────────────────────────── */
+    /* ── Events ────────────────────────────────────────────────── */
     document.addEventListener('click', e => {
-        /* Breadcrumb links */
-        const bcLink = e.target.closest('#breadcrumb a, #bc-root');
-        if (bcLink) {
+        const link = e.target.closest('a[data-path]');
+        if (link) {
             e.preventDefault();
-            loadDir(bcLink.dataset.path ?? '');
-            return;
+            loadDir(link.dataset.path);
         }
-
-        /* Folder nav links in table */
-        const dirLink = e.target.closest('a[data-path]');
-        if (dirLink) {
-            e.preventDefault();
-            loadDir(dirLink.dataset.path);
-            return;
-        }
-
-        /* Sort headers */
+        
         const th = e.target.closest('th[data-col]');
         if (th) {
             const col = th.dataset.col;
-            sortDir = (sortCol === col && sortDir === 'asc') ? 'desc' : 'asc';
+            sortDir = (sortCol===col && sortDir==='asc') ? 'desc' : 'asc';
             sortCol = col;
             updateHeaders();
             renderTable(currentFiles);
         }
     });
 
-    /* ── Boot ───────────────────────────────────────────────────── */
     document.addEventListener('DOMContentLoaded', () => loadDir(''));
 })();
 </script>

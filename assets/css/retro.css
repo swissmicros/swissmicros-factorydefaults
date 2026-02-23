@@ -1,0 +1,200 @@
+@font-face {
+    font-family: 'Theinhardt';
+    src: url('../fonts/Theinhardt-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Theinhardt';
+    src: url('../fonts/Theinhardt-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Theinhardt';
+    src: url('../fonts/Theinhardt-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Theinhardt';
+    src: url('../fonts/Theinhardt-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --accent-color: #d00; /* Swiss red-ish */
+    --header-bg: #222;
+    --header-text: #fff;
+    --card-bg: #fff;
+    --border-color: #ccc;
+    --hover-bg: #eee;
+    --link-color: #000;
+}
+
+body {
+    font-family: 'Theinhardt', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.page-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom: 4px solid var(--accent-color);
+}
+
+.project-name {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.project-tagline {
+    margin: 0.5rem 0 1.5rem;
+    font-weight: normal;
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    margin: 0.2rem;
+    color: var(--header-text);
+    border: 1px solid rgba(255,255,255,0.3);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+}
+
+#content {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: var(--card-bg);
+    padding: 2rem;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.1); /* Hard shadow for retro feel */
+    border: 1px solid var(--border-color);
+}
+
+.breadcrumb {
+    font-family: 'Theinhardt', monospace;
+    background: #eee;
+    padding: 0.8rem;
+    border-left: 4px solid var(--accent-color);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.breadcrumb a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.file-list {
+    list-style: none;
+    padding: 0;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    border-bottom: 1px dashed var(--border-color);
+    transition: background 0.1s;
+}
+
+.file-item:hover {
+    background-color: var(--hover-bg);
+}
+
+.file-name {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.folder-icon::before {
+    content: "📁";
+    filter: grayscale(100%);
+}
+
+.file-icon::before {
+    content: "📄";
+    filter: grayscale(100%);
+}
+
+.download-btn {
+    background: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 0.3rem 0.8rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.download-btn:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+.site-footer {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.site-footer a {
+    color: #333;
+    text-decoration: underline;
+}
+
+/* Retro CRT scanline effect (subtle) */
+/*
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+*/
