@@ -2,6 +2,16 @@
 
 This repository hosts the factory default files for various **SwissMicros** calculator models. It serves as a central location for users to download and restore their devices to their original factory state.
 
+## Important Notice: Support & Communication
+
+We are a small team dedicated to developing and manufacturing high-quality calculators. To maintain our focus on product development and order fulfillment, we kindly ask that you **do not use GitHub Issues for general support questions or feature requests**.
+
+- **Technical Support:** For technical questions, please visit our documentation at [technical.swissmicros.com](https://technical.swissmicros.com) or contact us via email at `support@swissmicros.com`.
+- **Orders & Logistics:** For order-related inquiries, please email `orders@swissmicros.com`.
+- **Bug Reports:** If you find a verified bug in the factory default files hosted here, please open an Issue with clear reproduction steps.
+
+Thank you for understanding and helping us stay focused!
+
 ## Repository Structure
 
 The repository is organized into two main categories:
@@ -22,4 +32,4 @@ For detailed step-by-step instructions on how to use these files, please refer t
 
 ## Contributing
 
-Contributions, corrections, or updates to the default files are welcome! Please open an issue or submit a pull request if you notice any discrepancies or have newer versions of the factory default files.
+Contributions, corrections, or updates to the default files are welcome! Please submit a pull request if you notice any discrepancies or have newer versions of the factory default files.
