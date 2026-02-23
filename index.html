@@ -208,6 +208,37 @@
             .dir-table tbody td:nth-child(3),
             .dir-table tbody td:nth-child(4) { display: none; }
         }
+
+        /* BMP hover preview */
+        #img-preview {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px rgba(27,31,36,0.22);
+            padding: 5px;
+            pointer-events: none;
+            max-width: 260px;
+        }
+        #img-preview img {
+            display: block;
+            max-width: 250px;
+            max-height: 220px;
+            image-rendering: pixelated;
+            border-radius: 2px;
+        }
+        #img-preview .preview-name {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            padding: 3px 2px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 250px;
+        }
     </style>
 </head>
 <body>
@@ -273,6 +304,11 @@
     </footer>
 
 </section>
+
+<div id="img-preview">
+    <img id="img-preview-img" src="" alt="">
+    <div class="preview-name" id="img-preview-name"></div>
+</div>
 
 <script>
 (function () {
