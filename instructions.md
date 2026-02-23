@@ -24,6 +24,8 @@ For Pioneer models, the factory default files are stored in directories named af
     -   **Overwrite**: If prompted, confirm that you want to overwrite existing files.
 5.  **Firmware Updates**: If there are `.bin` files (firmware updates), these should be copied to the root of the calculator's drive. After copying, safely eject the drive. The update will be initiated automatically.
 
+*Note: For advanced recovery or if the USB disk method is unavailable, the `STM32CubeProgrammer` tool can be used with Pioneer models.*
+
 ---
 
 ## 2. Voyager Models (DM11, DM12, DM15, DM16, DM41)
