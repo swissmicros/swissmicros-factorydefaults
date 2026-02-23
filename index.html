@@ -282,7 +282,7 @@
     const REPO_OWNER = 'swissmicros';
     const REPO_NAME  = 'swissmicros-factorydefaults';
     const BRANCH     = 'main';
-    const HIDDEN     = new Set(['index.html', '_config.yml', 'CNAME', 'README.md', 'instructions.md']);
+    const HIDDEN     = new Set(['index.html', '_config.yml', 'CNAME', 'README.md', 'instructions.md', 'assets']);
 
     /* ── State ─────────────────────────────────────────────────── */
     let currentPath  = '';
@@ -439,12 +439,13 @@
                 const size  = f.type === 'dir' ? '—' : fmtSize(f.size);
 
                 if (f.type === 'dir') {
+                    const dlUrl = `https://download-directory.github.io/?url=https://github.com/${REPO_OWNER}/${REPO_NAME}/tree/${BRANCH}/${h(f.path)}`;
                     rows += `<tr>
                         <td class="td-icon">${icon}</td>
                         <td><a href="#" class="name-link" data-path="${h(f.path)}">${h(f.name)}</a></td>
                         <td class="td-size">—</td>
                         <td class="td-type">${label}</td>
-                        <td class="td-dl"></td>
+                        <td class="td-dl"><a href="${dlUrl}" class="dl-btn" target="_blank" rel="noopener">${ICON_DL} Download</a></td>
                     </tr>`;
                 } else {
                     const dl = h(f.download_url);
