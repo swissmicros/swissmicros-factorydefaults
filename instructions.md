@@ -6,8 +6,8 @@ This document provides detailed instructions on how to use the files in this rep
 
 First, determine which series your calculator belongs to:
 
-- **Pioneer Models**: DM32, DM42, DM41X, DM42n, etc. These mount as a USB drive when connected to a computer and USB disk mode is activated.
-- **Voyager Models**: DM11, DM12, DM15, DM16, DM41. The firmware for these models is typically flashed using a specific tool.
+- **Pioneer Models**: DM32, DM42, DM41X, DM42n, etc. (STM32U5 CPU). These mount as a USB drive when connected to a computer and USB disk mode is activated.
+- **Voyager Models**: DM11, DM12, DM15, DM16, DM41 (LPC1115 CPU). The firmware for these models is typically flashed using a specific tool.
 
 ---
 
