@@ -437,13 +437,13 @@
     /* ── Breadcrumb ─────────────────────────────────────────────── */
     function renderBreadcrumb(path) {
         const parts = path ? path.split('/') : [];
-        let html = `<a href="#" data-path="">root</a>`;
+        let html = `<a href="./" data-path="">root</a>`;
         let cur  = '';
         parts.forEach((part, i) => {
             cur += (cur ? '/' : '') + part;
             html += ` <span class="bc-sep">/</span> `;
             if (i < parts.length - 1) {
-                html += `<a href="#" data-path="${h(cur)}">${h(part)}</a>`;
+                html += `<a href="#${h(cur)}" data-path="${h(cur)}">${h(part)}</a>`;
             } else {
                 html += `<strong>${h(part)}</strong>`;
             }
@@ -461,7 +461,7 @@
             const parent = currentPath.split('/').slice(0, -1).join('/');
             rows += `<tr>
                 <td class="td-icon">${ICON_UP}</td>
-                <td colspan="3"><a href="#" class="parent-link" data-path="${h(parent)}">..\u2002(Parent Directory)</a></td>
+                <td colspan="3"><a href="${parent ? '#' + h(parent) : './'}" class="parent-link" data-path="${h(parent)}">..\u2002(Parent Directory)</a></td>
                 <td class="td-dl"></td>
             </tr>`;
         }
@@ -478,7 +478,7 @@
                     const dlUrl = `https://download-directory.github.io/?url=https://github.com/${REPO_OWNER}/${REPO_NAME}/tree/${BRANCH}/${h(f.path)}`;
                     rows += `<tr>
                         <td class="td-icon">${icon}</td>
-                        <td><a href="#" class="name-link" data-path="${h(f.path)}">${h(f.name)}</a></td>
+                        <td><a href="#${h(f.path)}" class="name-link" data-path="${h(f.path)}">${h(f.name)}</a></td>
                         <td class="td-size">—</td>
                         <td class="td-type">${label}</td>
                         <td class="td-dl"><a href="${dlUrl}" class="dl-btn" target="_blank" rel="noopener">${ICON_DL} Download</a></td>
@@ -486,7 +486,9 @@
                 } else {
                     const dl = h(f.download_url);
                     const fn = h(f.name);
-                    rows += `<tr>
+                    const isBmp = ext(f.name) === 'bmp';
+                    const bmpAttr = isBmp ? ` data-bmp="${dl}" data-bmp-name="${fn}"` : '';
+                    rows += `<tr${bmpAttr}>
                         <td class="td-icon">${icon}</td>
                         <td><a href="${dl}" class="name-link" download="${fn}">${fn}</a></td>
                         <td class="td-size">${size}</td>
@@ -508,8 +510,12 @@
     }
 
     /* ── Load directory ─────────────────────────────────────────── */
-    async function loadDir(path) {
+    async function loadDir(path, addHistory = true) {
         currentPath = path;
+        if (addHistory) {
+            const url = path ? '#' + path : (location.pathname + location.search);
+            history.pushState({ path }, '', url);
+        }
         renderBreadcrumb(path);
 
         const tbody = document.getElementById('dir-body');
@@ -551,8 +557,54 @@
         }
     });
 
+    /* ── BMP hover preview ──────────────────────────────────────── */
+    const preview      = document.getElementById('img-preview');
+    const previewImg   = document.getElementById('img-preview-img');
+    const previewName  = document.getElementById('img-preview-name');
+
+    document.getElementById('dir-body').addEventListener('mouseover', e => {
+        const row = e.target.closest('tr[data-bmp]');
+        if (row) {
+            const url = row.dataset.bmp;
+            if (previewImg.getAttribute('src') !== url) {
+                previewImg.src = url;
+                previewName.textContent = row.dataset.bmpName || '';
+            }
+            preview.style.display = 'block';
+        } else {
+            preview.style.display = 'none';
+        }
+    });
+
+    document.getElementById('dir-body').addEventListener('mouseleave', () => {
+        preview.style.display = 'none';
+    });
+
+    document.addEventListener('mousemove', e => {
+        if (preview.style.display !== 'block') return;
+        const offset = 16;
+        const pw = preview.offsetWidth;
+        const ph = preview.offsetHeight;
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const x = e.clientX + offset + pw > vw ? e.clientX - pw - offset : e.clientX + offset;
+        const y = e.clientY + offset + ph > vh ? e.clientY - ph - offset : e.clientY + offset;
+        preview.style.left = x + 'px';
+        preview.style.top  = y + 'px';
+    });
+
+    /* ── Browser back/forward ───────────────────────────────────── */
+    window.addEventListener('popstate', e => {
+        const path = e.state != null ? e.state.path : decodeURIComponent(location.hash.slice(1));
+        loadDir(path, false);
+    });
+
     /* ── Boot ───────────────────────────────────────────────────── */
-    document.addEventListener('DOMContentLoaded', () => loadDir(''));
+    document.addEventListener('DOMContentLoaded', () => {
+        const path = decodeURIComponent(location.hash.slice(1));
+        history.replaceState({ path }, '', location.href);
+        loadDir(path, false);
+    });
 })();
 </script>
 
