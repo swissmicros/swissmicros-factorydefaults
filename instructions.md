@@ -6,14 +6,16 @@ This document provides detailed instructions on how to use the files in this rep
 
 First, determine which series your calculator belongs to:
 
-- **Pioneer Models**: DM32, DM42, DM41X, DM42n, etc. (STM32U5 CPU). These mount as a USB drive when connected to a computer and USB disk mode is activated.
+- **Pioneer Models**: DM32, DM42, DM41X, and R47. (Includes variants like DM42n and DM41Xn; STM32U5 CPU). These mount as a USB drive when connected to a computer and USB disk mode is activated.
 - **Voyager Models**: DM11, DM12, DM15, DM16, DM41 (LPC1115 CPU). The firmware for these models is typically flashed using a specific tool.
 
 ---
 
-## 1. Pioneer Models (DM32, DM42, DM41X, etc.)
+## 1. Pioneer Models (DM32, DM42, DM41X, R47)
 
 For Pioneer models, the factory default files are stored in directories named after the model (e.g., `Pioneer_Models/DM42`).
+
+**Note regarding R47:** The R47 is a community-developed project (see [GitLab releases](https://gitlab.com/rpncalculators/c43/-/releases)). Although not yet fully public, it is available via this [hidden shop link](https://www.swissmicros.com/product/model-r47).
 
 ### Steps:
 1.  **Backup**: Before proceeding, ensure you have backed up any important programs or data currently on your calculator. Restoring factory defaults may overwrite existing files.
