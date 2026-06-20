@@ -1,0 +1,2 @@
+# Generated release artifacts (built by scripts/build-release.sh / CI)
+/dist/
