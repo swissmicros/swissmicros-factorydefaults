@@ -35,13 +35,24 @@ carrying the zip artifacts and manifest the firmware needs.
 ```json
 {
   "voyager_zip": "Voyager_Models.zip",
+  "voyager_version": "34",
   "pioneer": [
     { "name": "DM32", "zip": "DM32.zip" }
   ]
 }
 ```
 
-Constraints honored: ≤24 pioneer entries, `name` ≤24 chars, `zip` ≤48 chars.
+Constraints honored: ≤24 pioneer entries, `name` ≤24 chars, `zip` ≤48 chars,
+`voyager_version` ≤24 chars (incl. NUL).
+
+`voyager_version` is an opaque string the firmware compares against the
+last-applied version stored on FAT; it re-downloads the Voyager zip when the
+value differs (even if the files are already present). It is derived from the
+shared version tag in the Voyager `.hex` filenames — the last
+underscore-delimited token before `.hex` (`DM10_34.hex`, `DM15_M80_34.hex` →
+`34`). If files disagree on the tag, the distinct tags are joined with `-` and a
+warning is logged. Only Voyager is versioned; Pioneer entries stay `{name, zip}`
+and are downloaded only when absent.
 
 ## Zip structure
 
@@ -62,7 +73,8 @@ Builds `dist/`:
 - `dist/Voyager_Models.zip` from the `Voyager_Models/` directory.
 - `dist/<model>.zip` for **each subdirectory** of `Pioneer_Models/`.
 - `dist/models.json` (hand-written JSON — model names are safe ASCII, no
-  escaping needed; avoids a `jq` dependency).
+  escaping needed; avoids a `jq` dependency). Includes `voyager_version` parsed
+  from the `.hex` filenames when Voyager files are present.
 
 Rules:
 - Only subdirectories of `Pioneer_Models/` become models. Loose top-level files

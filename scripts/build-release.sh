@@ -30,11 +30,29 @@ dir_has_files() { find "$1" -type f -print -quit | grep -q .; }
 
 # --- Voyager: one zip with every model file ---
 voyager_zip=""
+voyager_version=""
 if [ -d Voyager_Models ] && dir_has_files Voyager_Models; then
   find Voyager_Models -type f | LC_ALL=C sort | zip -X -q "$DIST/Voyager_Models.zip" -@
   echo "built Voyager_Models.zip"
   voyager_zip="Voyager_Models.zip"
   produced=$((produced + 1))
+
+  # The version lives in every .hex filename as the last underscore-delimited
+  # token before the extension (e.g. DM10_34.hex, DM15_M80_34.hex -> "34").
+  # Emit it as voyager_version so the firmware re-downloads when it changes.
+  versions="$(find Voyager_Models -type f -name '*.hex' -printf '%f\n' \
+                | sed -E 's/\.hex$//; s/.*_//' \
+                | LC_ALL=C sort -u)"
+  vcount="$(printf '%s\n' "$versions" | grep -c .)"
+  if [ "$vcount" -eq 1 ]; then
+    voyager_version="$versions"
+  elif [ "$vcount" -gt 1 ]; then
+    echo "warning: Voyager files have differing version tags: $(echo $versions)" >&2
+    voyager_version="$(printf '%s' "$versions" | paste -sd- -)"
+  else
+    echo "warning: no version tag found in Voyager .hex filenames" >&2
+  fi
+  echo "voyager_version=$voyager_version"
 fi
 
 # --- Pioneer: one zip per model subdirectory ---
@@ -60,6 +78,9 @@ fi
 {
   printf '{\n'
   printf '  "voyager_zip": "%s",\n' "$voyager_zip"
+  if [ -n "$voyager_version" ]; then
+    printf '  "voyager_version": "%s",\n' "$voyager_version"
+  fi
   printf '  "pioneer": [\n'
   for i in "${!pioneer_names[@]}"; do
     sep=","
