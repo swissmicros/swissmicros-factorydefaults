@@ -1,0 +1,47 @@
+name: Build release artifacts
+
+# Rebuilds the per-model zips and models.json manifest and publishes them as
+# assets on a single rolling "latest" release. The esp32s3-toolkit firmware
+# downloads these from .../releases/latest/download/<asset>.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Pioneer_Models/**'
+      - 'Voyager_Models/**'
+      - 'scripts/build-release.sh'
+      - '.github/workflows/build-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: factory-defaults-release
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build artifacts
+        run: |
+          chmod +x scripts/build-release.sh
+          scripts/build-release.sh
+
+      - name: Publish rolling "latest" release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Latest factory defaults
+          body: |
+            Auto-generated factory-default model artifacts.
+
+            - `Voyager_Models.zip` — all Voyager `.hex` files
+            - `<model>.zip` — one per Pioneer model directory
+            - `models.json` — manifest consumed by the esp32s3-toolkit firmware
+          make_latest: true
+          files: dist/*
