@@ -1,0 +1,43 @@
+name: Update models.json
+
+# Regenerates models.json (the manifest the esp32s3-toolkit firmware reads from
+# raw.githubusercontent.com/.../main/models.json) whenever the model files
+# change, and commits it back to main.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Pioneer_Models/**'
+      - 'Voyager_Models/**'
+      - 'scripts/generate-manifest.py'
+      - '.github/workflows/update-manifest.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: factory-defaults-manifest
+  cancel-in-progress: false
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Regenerate models.json
+        run: python3 scripts/generate-manifest.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- models.json; then
+            echo "models.json unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add models.json
+          git commit -m "chore: regenerate models.json [skip ci]"
+          git push

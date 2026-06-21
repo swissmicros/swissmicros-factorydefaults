@@ -1,7 +1,12 @@
 # Zip-artifact release pipeline for swissmicros-factorydefaults
 
 **Date:** 2026-06-20
-**Status:** Approved
+**Status:** SUPERSEDED by `2026-06-21-raw-file-manifest-design.md`
+
+> The firmware was refactored to download individual raw files (dropping
+> on-device unzip), so the zip release pipeline described below is no longer
+> used. It has been removed (`scripts/build-release.sh`,
+> `.github/workflows/build-release.yml`). Kept for history.
 
 ## Background
 
