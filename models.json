@@ -45,7 +45,7 @@
       "name": "DM41X",
       "files": [
         "Pioneer_Models/DM41X/DMCP_flash_3.31_DM41X-2.4.bin",
-        "Pioneer_Models/DM41X/keymap.bin",
+        "Pioneer_Models/DM41X/keymap_DM41X.bin",
         "Pioneer_Models/DM41X/HELP/41x.html",
         "Pioneer_Models/DM41X/HELP/am_help.html",
         "Pioneer_Models/DM41X/HELP/help_devel.html",
