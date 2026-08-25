@@ -110,7 +110,7 @@
       "name": "DM42",
       "files": [
         "Pioneer_Models/DM42/DMCP_flash_3.29_DM42-3.26.bin",
-        "Pioneer_Models/DM42/keymap.bin",
+        "Pioneer_Models/DM42/keymap_DM42.bin",
         "Pioneer_Models/DM42/HELP/dm42functs.htm",
         "Pioneer_Models/DM42/HELP/dm42help.htm",
         "Pioneer_Models/DM42/OFFIMG/HELVETIA.bmp",
