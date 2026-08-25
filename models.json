@@ -16,7 +16,7 @@
       "name": "DM32",
       "files": [
         "Pioneer_Models/DM32/DMCP5_flash_3.56_DM32-2.11.bin",
-        "Pioneer_Models/DM32/keymap_dm32.bin",
+        "Pioneer_Models/DM32/keymap_DM32.bin",
         "Pioneer_Models/DM32/HELP/dm32help.html",
         "Pioneer_Models/DM32/OFFIMG/32siikeypad.bmp",
         "Pioneer_Models/DM32/OFFIMG/bars.bmp",
