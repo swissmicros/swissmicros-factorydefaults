@@ -1,17 +1,23 @@
-name: Update models.json
+name: Update generated files
 
-# Regenerates models.json (the manifest the esp32s3-toolkit firmware reads from
-# raw.githubusercontent.com/.../main/models.json) whenever the model files
-# change, and commits it back to main.
+# Regenerates the two generated artifacts and commits them back to main:
+#
+#   models.json  the manifest the esp32s3-toolkit firmware reads from
+#                raw.githubusercontent.com/.../main/models.json
+#   tree.json    the file index index.html reads to list directories without
+#                spending GitHub API requests
+#
+# models.json is regenerated first: tree.json records every tracked file's
+# size, models.json included, so the index would be stale within the same run
+# if the order were reversed.
+#
+# tree.json has to follow any tracked file, not just the model directories, so
+# this runs on every push to main. The bot's own commit carries [skip ci] to
+# keep it from retriggering.
 
 on:
   push:
     branches: [main]
-    paths:
-      - 'Pioneer_Models/**'
-      - 'Voyager_Models/**'
-      - 'scripts/generate-manifest.py'
-      - '.github/workflows/update-manifest.yml'
   workflow_dispatch:
 
 permissions:
@@ -30,14 +36,22 @@ jobs:
       - name: Regenerate models.json
         run: python3 scripts/generate-manifest.py
 
+      - name: Regenerate tree.json
+        run: python3 scripts/generate-tree.py
+
+      - name: Run tests
+        run: |
+          python3 -m unittest discover scripts
+          node --test scripts/test-repo-tree.js
+
       - name: Commit if changed
         run: |
-          if git diff --quiet -- models.json; then
-            echo "models.json unchanged"
+          if git diff --quiet -- models.json tree.json; then
+            echo "models.json and tree.json unchanged"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add models.json
-          git commit -m "chore: regenerate models.json [skip ci]"
+          git add models.json tree.json
+          git commit -m "chore: regenerate models.json and tree.json [skip ci]"
           git push

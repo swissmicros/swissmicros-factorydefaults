@@ -1,0 +1,1701 @@
+{
+ "branch": "main",
+ "tree": [
+  {
+   "path": ".github/workflows/update-manifest.yml",
+   "size": 1761
+  },
+  {
+   "path": ".gitignore",
+   "size": 132
+  },
+  {
+   "path": "CNAME",
+   "size": 23
+  },
+  {
+   "path": "Pioneer_Models/DM32/DMCP5_flash_3.56_DM32-2.11.bin",
+   "size": 1120256
+  },
+  {
+   "path": "Pioneer_Models/DM32/HELP/dm32help.html",
+   "size": 88922
+  },
+  {
+   "path": "Pioneer_Models/DM32/HISTORY.md",
+   "size": 6404
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/32siikeypad.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/bars.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/bluemarble.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/circlepak.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/craters.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/dip-8.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/dontpanic.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/enter.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/forks.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/fractree.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/hedron.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/helvetia.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/lcd32.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/owl_face.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/pyramids.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/qr.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/rule30.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/shuttle.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/staircase.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/torus.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/OFFIMG/triangle.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM32/keymap_DM32.bin",
+   "size": 65
+  },
+  {
+   "path": "Pioneer_Models/DM41X/DMCP_flash_3.31_DM41X-2.4.bin",
+   "size": 567296
+  },
+  {
+   "path": "Pioneer_Models/DM41X/HELP/41x.html",
+   "size": 25142
+  },
+  {
+   "path": "Pioneer_Models/DM41X/HELP/am_help.html",
+   "size": 10350
+  },
+  {
+   "path": "Pioneer_Models/DM41X/HELP/help_devel.html",
+   "size": 10349
+  },
+  {
+   "path": "Pioneer_Models/DM41X/HISTORY.md",
+   "size": 9110
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/Advantage.mod",
+   "size": 16293
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/Aviation.mod",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/CIRCUIT.MOD",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/Clinical.mod",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/FINANCE.MOD",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/GAMES.MOD",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/HOME-MGT.MOD",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/MACHINE.MOD",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/MATH.MOD",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/NAVIGATION.MOD",
+   "size": 11105
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/PETROLEUM.MOD",
+   "size": 11105
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/PPC.MOD",
+   "size": 11105
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/Real-Estate.mod",
+   "size": 11105
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/SURVEY.MOD",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/Securities.mod",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/Standard.mod",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/Stat.mod",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/Stress.mod",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/Structural.mod",
+   "size": 11105
+  },
+  {
+   "path": "Pioneer_Models/DM41X/MODS/Thermal.mod",
+   "size": 5917
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/HELVETIA.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/HP35.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/MATLAB.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/Soviet-spring-festival.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/Spock-vulcan-salute2.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/binary.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/brokenglass.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/dontpanic.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/earth.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/enterprise.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/fractals.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/frog1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/gears.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/gir1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/kontiki1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/matterhorn.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/mcescherbw.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/moon.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/numbers.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/numbers2.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/owl_vali.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/ping1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/prague.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/snail.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/space.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/swissmicros.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/tiger.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/wallee-2.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM41X/OFFIMG/wasserkirche.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM41X/keymap_DM41X.bin",
+   "size": 65
+  },
+  {
+   "path": "Pioneer_Models/DM41Xn/keymap_DM41X.bin",
+   "size": 65
+  },
+  {
+   "path": "Pioneer_Models/DM42/DMCP_flash_3.29_DM42-3.26.bin",
+   "size": 1026048
+  },
+  {
+   "path": "Pioneer_Models/DM42/HELP/dm42functs.htm",
+   "size": 44649
+  },
+  {
+   "path": "Pioneer_Models/DM42/HELP/dm42help.htm",
+   "size": 84809
+  },
+  {
+   "path": "Pioneer_Models/DM42/HISTORY.md",
+   "size": 11501
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/HELVETIA.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/HP35.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/MATLAB.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/PDAScreen.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/Soviet-spring-festival.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/SpeedRac.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/Spock-vulcan-salute2.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/audrey.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/bg01.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/binary.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/blank.bmp",
+   "size": 12606
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/brokenglass.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/dm15l.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/dontpanic.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/earth.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/enterprise.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/ferrari.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/flappy.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/fractals.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/frog1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/future.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/gears.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/gir1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/graffiti.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/img-lamostra.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/kontiki1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/mandala.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/matterhorn.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/mcescherbw.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/moon.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/norebbo-1bit.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/numbers.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/numbers2.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/owl_vali.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/ping1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/prague.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/snail.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/solitaire.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/space.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/swissmicros.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/tiger.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/wallee-2.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42/OFFIMG/wasserkirche.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/Base.raw",
+   "size": 184
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/Convert.raw",
+   "size": 3839
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/Finance.raw",
+   "size": 1648
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/G4_G3_G2.raw",
+   "size": 529
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/MANDEL.raw",
+   "size": 378
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/RealEigenvalues.raw",
+   "size": 536
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/RootsEqns.raw",
+   "size": 587
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/STATISTICS.raw",
+   "size": 4142
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/Triangle.raw",
+   "size": 718
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/days.raw",
+   "size": 204
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/diag.raw",
+   "size": 123
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/djplot2.raw",
+   "size": 997
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/dplot_orig.raw",
+   "size": 237
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/dplot_thomas.raw",
+   "size": 491
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/gc.raw",
+   "size": 111
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/labs.raw",
+   "size": 2052
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/lrnc.raw",
+   "size": 166
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/m3435.raw",
+   "size": 1425
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/mast.raw",
+   "size": 305
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/minehunt.raw",
+   "size": 737
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/miscfn.raw",
+   "size": 29
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/mlran.raw",
+   "size": 577
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/mort.raw",
+   "size": 223
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/ntrp.raw",
+   "size": 186
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/pi_dec.raw",
+   "size": 636
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/plot_orig.raw",
+   "size": 340
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/plot_thomas.raw",
+   "size": 618
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/prm_dec.raw",
+   "size": 791
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/rtmin.raw",
+   "size": 349
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/ses.raw",
+   "size": 224
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/sin1.raw",
+   "size": 118
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/sin2.raw",
+   "size": 116
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/stress.raw",
+   "size": 955
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/sun.raw",
+   "size": 95
+  },
+  {
+   "path": "Pioneer_Models/DM42/PROGRAMS/wave.raw",
+   "size": 34
+  },
+  {
+   "path": "Pioneer_Models/DM42/keymap_DM42.bin",
+   "size": 65
+  },
+  {
+   "path": "Pioneer_Models/DM42_qspi_3.x.bin",
+   "size": 1370864
+  },
+  {
+   "path": "Pioneer_Models/DM42n/DMCP5_flash_3.55_DM42-3.26.bin",
+   "size": 1486848
+  },
+  {
+   "path": "Pioneer_Models/DM42n/HELP/dm42functs.htm",
+   "size": 44649
+  },
+  {
+   "path": "Pioneer_Models/DM42n/HELP/dm42help.htm",
+   "size": 84809
+  },
+  {
+   "path": "Pioneer_Models/DM42n/HISTORY.md",
+   "size": 1385
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/HELVETIA.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/HP35.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/MATLAB.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/PDAScreen.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/Soviet-spring-festival.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/SpeedRac.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/Spock-vulcan-salute2.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/audrey.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/bars.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/bg01.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/binary.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/blank.bmp",
+   "size": 12606
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/bluemarble.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/brokenglass.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/circlepak.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/craters.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/dip-8.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/dm15l.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/dontpanic.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/earth.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/enterprise.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/ferrari.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/flappy.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/forks.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/fractals.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/fractree.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/frog1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/future.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/gears.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/gir1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/graffiti.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/hedron.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/img-lamostra.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/kontiki1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/mandala.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/matterhorn.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/mcescherbw.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/moon.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/norebbo-1bit.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/numbers.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/numbers2.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/owl_face.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/owl_vali.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/ping1.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/prague.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/pyramids.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/qr.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/rule30.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/shuttle.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/snail.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/solitaire.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/space.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/staircase.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/swissmicros.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/tiger.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/torus.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/triangle.bmp",
+   "size": 12544
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/wallee-2.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/DM42n/OFFIMG/wasserkirche.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/Base.raw",
+   "size": 184
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/Convert.raw",
+   "size": 3839
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/Finance.raw",
+   "size": 1648
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/G4_G3_G2.raw",
+   "size": 529
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/MANDEL.raw",
+   "size": 378
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/RealEigenvalues.raw",
+   "size": 536
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/RootsEqns.raw",
+   "size": 587
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/STATISTICS.raw",
+   "size": 4142
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/Triangle.raw",
+   "size": 718
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/days.raw",
+   "size": 204
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/diag.raw",
+   "size": 123
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/djplot2.raw",
+   "size": 997
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/dplot_orig.raw",
+   "size": 237
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/dplot_thomas.raw",
+   "size": 491
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/gc.raw",
+   "size": 111
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/labs.raw",
+   "size": 2052
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/lrnc.raw",
+   "size": 166
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/m3435.raw",
+   "size": 1425
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/mast.raw",
+   "size": 305
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/minehunt.raw",
+   "size": 737
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/miscfn.raw",
+   "size": 29
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/mlran.raw",
+   "size": 577
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/mort.raw",
+   "size": 223
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/ntrp.raw",
+   "size": 186
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/pi_dec.raw",
+   "size": 636
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/plot_orig.raw",
+   "size": 340
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/plot_thomas.raw",
+   "size": 618
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/prm_dec.raw",
+   "size": 791
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/rtmin.raw",
+   "size": 349
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/ses.raw",
+   "size": 224
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/sin1.raw",
+   "size": 118
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/sin2.raw",
+   "size": 116
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/stress.raw",
+   "size": 955
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/sun.raw",
+   "size": 95
+  },
+  {
+   "path": "Pioneer_Models/DM42n/PROGRAMS/wave.raw",
+   "size": 34
+  },
+  {
+   "path": "Pioneer_Models/DM42n/keymap_DM42.bin",
+   "size": 65
+  },
+  {
+   "path": "Pioneer_Models/DMCP5_HISTORY.md",
+   "size": 777
+  },
+  {
+   "path": "Pioneer_Models/DMCP_HISTORY.md",
+   "size": 3804
+  },
+  {
+   "path": "Pioneer_Models/R47/DMCP5_flash_3.57_R47-00.109.03.03b0.bin",
+   "size": 1726464
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/128k.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/41cv.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/9100.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/9100A.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/BMW-R47.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/C47.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/C47fill.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Clippy_YN.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Egypt JM.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Egyptian dancer JM.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Engineer.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Eye JM.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Fig1.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Giza JM.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Horus JM.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Nefertiti bust JM.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Nefertiti face JM.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/PTab.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Ramesses II Cairo JM.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Ramesses II Colossus JM.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Ramesses II tolerance JM.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/SeaTrollTK.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Sphinx JM.bmp",
+   "size": 12610
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Steve-Lisa.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/THT.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/Tall-keys.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/aboutfinder2.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/battersea.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/cat-out-of-bag.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/close_up_fg.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/controlpanel2.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/evoluon.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/fg.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/filament.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/global.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/hp35_diag.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/hp35lang.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/hp41-buttons.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/hp41-nasa.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/hp41-system.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/hp41-walk.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/hp85.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/jmlandscapeSA.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/kipling.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/magic-cap.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/mangamac.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/mascot47a.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/montreux.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/no-eq-detail.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/ophiuchus.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/pb100dd.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/pi_6205.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/ps-real.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/stuwdriel.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/tb2-lands.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/OFFIMG/tiger.bmp",
+   "size": 12542
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/.DS_Store",
+   "size": 6148
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/47DEFLT.p47",
+   "size": 505
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/47DEFLT.rtf",
+   "size": 976
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/Binet1.txt",
+   "size": 708
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/Binet3.rtf",
+   "size": 1495
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/BinetV3.p47",
+   "size": 628
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/Example programs.txt",
+   "size": 2479
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/GudrmPL.p47",
+   "size": 709
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/GudrmPL.rtf",
+   "size": 1387
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/HP35fun.p47",
+   "size": 471
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/HP35fun.rtf",
+   "size": 984
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/MANSLV2.p47",
+   "size": 6082
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/MANSLV2.rtf",
+   "size": 5470
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/NQueens.p47",
+   "size": 961
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/NQueens.rtf",
+   "size": 2385
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/OpAmp.p47",
+   "size": 1626
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/OpAmp.rtf",
+   "size": 4201
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/SETT.p47",
+   "size": 609
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/SETT.rtf",
+   "size": 1299
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/SPIRALk.p47",
+   "size": 1926
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/SPIRALk.rtf",
+   "size": 2359
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/TRIangle4.p47",
+   "size": 3502
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/TRIangle4.rtf",
+   "size": 7196
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/TRIv1p14.p47",
+   "size": 37033
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/TRIv1p14.rtf",
+   "size": 41209
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tstData.p47",
+   "size": 3734
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/.DS_Store",
+   "size": 6148
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P1.p47",
+   "size": 359
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P1.rtf",
+   "size": 744
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P10.p47",
+   "size": 370
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P10.rtf",
+   "size": 732
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P11.p47",
+   "size": 502
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P11.rtf",
+   "size": 829
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P12.p47",
+   "size": 444
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P12.rtf",
+   "size": 740
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P12a.p47",
+   "size": 482
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P12a.rtf",
+   "size": 795
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P1b.p47",
+   "size": 385
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P1b.rtf",
+   "size": 790
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P2.p47",
+   "size": 487
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P2.rtf",
+   "size": 966
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P3.p47",
+   "size": 332
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P3.rtf",
+   "size": 739
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P4.p47",
+   "size": 332
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P4.rtf",
+   "size": 707
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P5.p47",
+   "size": 329
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P5.rtf",
+   "size": 696
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P5b.p47",
+   "size": 371
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P5b.rtf",
+   "size": 769
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P6.p47",
+   "size": 365
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P6.rtf",
+   "size": 749
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P6b.p47",
+   "size": 368
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P6b.rtf",
+   "size": 769
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P7.p47",
+   "size": 345
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P7.rtf",
+   "size": 758
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P8.p47",
+   "size": 345
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P8.rtf",
+   "size": 739
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P9.p47",
+   "size": 367
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/P9.rtf",
+   "size": 729
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/Pall.p47",
+   "size": 1228
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/Pall.rtf",
+   "size": 2242
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/STATE/.DS_Store",
+   "size": 6148
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/TT.p47",
+   "size": 171
+  },
+  {
+   "path": "Pioneer_Models/R47/PROGRAMS/tvm/TT.rtf",
+   "size": 537
+  },
+  {
+   "path": "Pioneer_Models/R47/STATE/TVM012r2.s47",
+   "size": 10731
+  },
+  {
+   "path": "Pioneer_Models/R47/STATE/xfnToC47user.s47",
+   "size": 1717
+  },
+  {
+   "path": "Pioneer_Models/R47/STATE/xfnToR47user.s47",
+   "size": 1692
+  },
+  {
+   "path": "Pioneer_Models/R47/keymap_R47.bin",
+   "size": 65
+  },
+  {
+   "path": "Pioneer_Models/R47/resources/testPgms.txt",
+   "size": 442
+  },
+  {
+   "path": "Pioneer_Models/R47/resources/testPgms.zip",
+   "size": 75550
+  },
+  {
+   "path": "Pioneer_Models/R47/update_R47.txt",
+   "size": 3597
+  },
+  {
+   "path": "README.md",
+   "size": 2395
+  },
+  {
+   "path": "Voyager_Models/DM10_34.hex",
+   "size": 98790
+  },
+  {
+   "path": "Voyager_Models/DM11_34.hex",
+   "size": 105818
+  },
+  {
+   "path": "Voyager_Models/DM12_34.hex",
+   "size": 121864
+  },
+  {
+   "path": "Voyager_Models/DM15_34.hex",
+   "size": 163730
+  },
+  {
+   "path": "Voyager_Models/DM15_M1B_34.hex",
+   "size": 163818
+  },
+  {
+   "path": "Voyager_Models/DM15_M80_34.hex",
+   "size": 163838
+  },
+  {
+   "path": "Voyager_Models/DM16_34.hex",
+   "size": 126586
+  },
+  {
+   "path": "Voyager_Models/DM16_MC0_34.hex",
+   "size": 127334
+  },
+  {
+   "path": "Voyager_Models/DM41_34.hex",
+   "size": 174296
+  },
+  {
+   "path": "Voyager_Models/HISTORY.md",
+   "size": 7183
+  },
+  {
+   "path": "_config.yml",
+   "size": 131
+  },
+  {
+   "path": "assets/css/retro.css",
+   "size": 4173
+  },
+  {
+   "path": "assets/fonts/Theinhardt-Bold.ttf",
+   "size": 184644
+  },
+  {
+   "path": "assets/fonts/Theinhardt-Italic.ttf",
+   "size": 191248
+  },
+  {
+   "path": "assets/fonts/Theinhardt-Medium.ttf",
+   "size": 183308
+  },
+  {
+   "path": "assets/fonts/Theinhardt-Regular.ttf",
+   "size": 186400
+  },
+  {
+   "path": "assets/js/repo-tree.js",
+   "size": 4883
+  },
+  {
+   "path": "index.html",
+   "size": 27750
+  },
+  {
+   "path": "instructions.md",
+   "size": 4245
+  },
+  {
+   "path": "models.json",
+   "size": 20778
+  },
+  {
+   "path": "scripts/generate-manifest.py",
+   "size": 2827
+  },
+  {
+   "path": "scripts/generate-tree.py",
+   "size": 2921
+  },
+  {
+   "path": "scripts/test-repo-tree.js",
+   "size": 10444
+  },
+  {
+   "path": "scripts/test_generate_tree.py",
+   "size": 2516
+  },
+  {
+   "path": "scripts/test_update_history.py",
+   "size": 22146
+  },
+  {
+   "path": "scripts/update-history.py",
+   "size": 13030
+  }
+ ]
+}

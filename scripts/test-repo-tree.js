@@ -177,3 +177,89 @@ test('other statuses fall back to the status code', () => {
 test('missing headers object does not throw', () => {
   assert.doesNotThrow(() => RepoTree.describeHttpError(403, null, NOW * 1000));
 });
+
+/* ── fromFileIndex: tree.json carries files only, dirs are derived ── */
+
+function paths(entries) { return entries.map(e => e.path + ':' + e.type); }
+
+test('a nested file creates every ancestor directory', () => {
+  assert.deepStrictEqual(
+    paths(RepoTree.fromFileIndex([{ path: 'a/b/c.txt', size: 1 }])),
+    ['a:tree', 'a/b:tree', 'a/b/c.txt:blob']);
+});
+
+test('sibling files do not duplicate their shared directory', () => {
+  assert.deepStrictEqual(
+    paths(RepoTree.fromFileIndex([
+      { path: 'a/one.txt', size: 1 },
+      { path: 'a/two.txt', size: 2 },
+    ])),
+    ['a:tree', 'a/one.txt:blob', 'a/two.txt:blob']);
+});
+
+test('a root-level file creates no directories', () => {
+  assert.deepStrictEqual(
+    paths(RepoTree.fromFileIndex([{ path: 'README.md', size: 9 }])),
+    ['README.md:blob']);
+});
+
+test('blob sizes survive, directories have none', () => {
+  const out = RepoTree.fromFileIndex([{ path: 'a/c.txt', size: 42 }]);
+  assert.strictEqual(out.find(e => e.path === 'a/c.txt').size, 42);
+  assert.strictEqual(out.find(e => e.path === 'a').size, undefined);
+});
+
+test('output is sorted by path, so the artifact order cannot leak through', () => {
+  const out = RepoTree.fromFileIndex([
+    { path: 'z.txt', size: 1 },
+    { path: 'a/b.txt', size: 1 },
+    { path: 'README.md', size: 1 },
+  ]);
+  assert.deepStrictEqual(out.map(e => e.path), ['README.md', 'a', 'a/b.txt', 'z.txt']);
+});
+
+test('empty input yields an empty tree', () => {
+  assert.deepStrictEqual(RepoTree.fromFileIndex([]), []);
+});
+
+test('the derived tree feeds listDir unchanged', () => {
+  const tree = RepoTree.fromFileIndex([
+    { path: 'Pioneer_Models/DM32/HISTORY.md', size: 6580 },
+    { path: 'Pioneer_Models/DMCP_HISTORY.md', size: 3980 },
+    { path: 'README.md', size: 2395 },
+  ]);
+  assert.deepStrictEqual(
+    RepoTree.listDir(tree, '', OPTS).map(e => e.name).sort(),
+    ['Pioneer_Models', 'README.md']);
+  const dm32 = RepoTree.listDir(tree, 'Pioneer_Models', OPTS).find(e => e.name === 'DM32');
+  assert.strictEqual(dm32.type, 'dir');
+  const hist = RepoTree.listDir(tree, 'Pioneer_Models/DM32', OPTS)[0];
+  assert.strictEqual(hist.size, 6580);
+  assert.strictEqual(hist.download_url,
+    'https://raw.githubusercontent.com/swissmicros/swissmicros-factorydefaults/main/Pioneer_Models/DM32/HISTORY.md');
+});
+
+test('a directory that is also a path prefix of a file name is distinct', () => {
+  const tree = RepoTree.fromFileIndex([
+    { path: 'DM4/a.txt', size: 1 },
+    { path: 'DM42.txt', size: 1 },
+  ]);
+  assert.deepStrictEqual(paths(tree), ['DM4:tree', 'DM4/a.txt:blob', 'DM42.txt:blob']);
+  assert.deepStrictEqual(RepoTree.listDir(tree, '', OPTS).map(e => e.name), ['DM4', 'DM42.txt']);
+});
+
+test('malformed artifact entries are skipped, not rendered as blanks', () => {
+  const out = RepoTree.fromFileIndex([
+    { path: '', size: 1 },
+    { path: '/', size: 1 },
+    { size: 1 },
+    { path: 'good.txt', size: 2 },
+  ]);
+  assert.deepStrictEqual(out.map(e => e.path), ['good.txt']);
+});
+
+test('leading and trailing slashes in an artifact path are normalised', () => {
+  assert.deepStrictEqual(
+    RepoTree.fromFileIndex([{ path: '/a/b.txt', size: 1 }]).map(e => e.path),
+    ['a', 'a/b.txt']);
+});

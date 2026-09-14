@@ -48,6 +48,32 @@
         return out;
     }
 
+    /* tree.json lists tracked files only — git has no standalone directory
+     * objects — so derive the directories their paths imply. Sorted by path so
+     * the artifact's own ordering cannot affect what the page renders. */
+    function fromFileIndex(files) {
+        var dirs = {};
+        var out = [];
+
+        for (var i = 0; i < files.length; i++) {
+            var path = String(files[i].path || '').replace(/^\/+|\/+$/g, '');
+            if (!path) continue;
+
+            var parts = path.split('/');
+            for (var j = 0; j < parts.length - 1; j++) {
+                var dir = parts.slice(0, j + 1).join('/');
+                if (!dirs[dir]) {
+                    dirs[dir] = true;
+                    out.push({ path: dir, type: 'tree' });
+                }
+            }
+            out.push({ path: path, type: 'blob', size: files[i].size });
+        }
+
+        out.sort(function (a, b) { return a.path < b.path ? -1 : a.path > b.path ? 1 : 0; });
+        return out;
+    }
+
     /* A readable reason for a failed request. The rate-limit case is the one
      * people actually hit, so it says so plainly and when it clears. */
     function describeHttpError(status, headers, nowMs) {
@@ -82,5 +108,6 @@
         return 'HTTP ' + status + '.';
     }
 
-    return { listDir: listDir, rawUrl: rawUrl, describeHttpError: describeHttpError };
+    return { listDir: listDir, rawUrl: rawUrl, fromFileIndex: fromFileIndex,
+             describeHttpError: describeHttpError };
 }));
