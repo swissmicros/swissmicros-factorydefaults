@@ -1,2 +1,6 @@
 # Local-only design specs — kept on disk, not tracked
 docs/superpowers/specs/
+
+# Python bytecode from scripts/
+__pycache__/
+*.pyc
