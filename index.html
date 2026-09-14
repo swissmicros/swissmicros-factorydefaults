@@ -312,6 +312,7 @@
     <div class="preview-name" id="img-preview-name"></div>
 </div>
 
+<script src="assets/js/repo-tree.js"></script>
 <script>
 (function () {
     'use strict';
@@ -401,11 +402,39 @@
     }
 
     /* ── GitHub API ─────────────────────────────────────────────── */
+    /* The contents API costs one request per folder, and anonymous callers get
+       60 an hour — a few minutes of browsing used to exhaust it and leave every
+       folder showing a bare 403. Fetch the whole tree once instead; navigation
+       after that costs nothing. */
+    const TREE_OPTS = { owner: REPO_OWNER, repo: REPO_NAME, branch: BRANCH };
+    let treeCache = null;
+    let treeUnavailable = false;
+
+    async function fetchTree() {
+        if (treeCache || treeUnavailable) return treeCache;
+        const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/git/trees/${BRANCH}?recursive=1`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(RepoTree.describeHttpError(res.status, res.headers));
+        const data = await res.json();
+        if (data.truncated) {          // too large to slice client-side
+            treeUnavailable = true;
+            return null;
+        }
+        treeCache = data.tree;
+        return treeCache;
+    }
+
     async function fetchRepoContents(path) {
         const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}?ref=${BRANCH}`;
         const res = await fetch(url);
-        if (!res.ok) throw new Error(`HTTP\u00a0${res.status}`);
+        if (!res.ok) throw new Error(RepoTree.describeHttpError(res.status, res.headers));
         return res.json();
+    }
+
+    async function listPath(path) {
+        const tree = await fetchTree();
+        return tree ? RepoTree.listDir(tree, path, TREE_OPTS)
+                    : await fetchRepoContents(path);
     }
 
     /* ── Sort ───────────────────────────────────────────────────── */
@@ -527,7 +556,7 @@
         document.getElementById('status-bar').innerHTML = '&nbsp;';
 
         try {
-            const data   = await fetchRepoContents(path);
+            const data   = await listPath(path);
             currentFiles = data.filter(f => !hidden(f.name));
             renderTable(currentFiles);
         } catch (err) {
