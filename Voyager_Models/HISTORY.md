@@ -55,9 +55,6 @@
 ### DM16
 
 - New firmware version (DM16_MC0) with extended memory
-
-### DM16
-
 - Enhanced version of SHOW HEX/DEC/OCT/BIN (preview complete numbers for HEX/DEC/OCT)
 
 ## V32 — 2021-08-31
@@ -69,17 +66,8 @@
 ### DM1x
 
 - Added new 5x7 inspired font
-
-### DM1x
-
 - Default speed set to 12MHz to prolong battery life
-
-### DM1x
-
 - Added configuration key to toggle between annunciators on top or bottom
-
-### DM1x
-
 - Displaying "MEMORY CLEAR" instead of "Pr Error"
 
 ## V31 — 2020-10-19
@@ -95,13 +83,7 @@
 ### ALL
 
 - Added 'bootloader' serial console command
-
-### ALL
-
 - Abandoned support for 32kB firmwares
-
-### ALL
-
 - Improvements to Nut emulation layer
 
 ### DM41
@@ -131,9 +113,6 @@
 ### DM41
 
 - Fixed non-responsive keys during ALARM acknowledgment period
-
-### DM41
-
 - Emulation fixes - should fix earlier synthetic programming inaccuracies
 
 ## V27 — 2018-09-05
@@ -141,9 +120,6 @@
 ### DM1x
 
 - Programs were sometimes almost impossible to stop e.g. when PSE was used in short loop. Now fixed.
-
-### DM1x
-
 - Fixed missing dot in program listing of RCL .1 and similar (for non-segment fonts)
 
 ### DM41

@@ -268,7 +268,8 @@ def convert_voyager(text):
     version-major order."""
     body = []
     pending_note = None
-    current_model = None
+    open_model = None      # the "### model" section still accepting bullets
+    in_block = False       # inside a "DM1x:" block, so "- " items belong to it
 
     def push_heading(level, text):
         if not body or body[-1] != "":
@@ -294,32 +295,38 @@ def convert_voyager(text):
                     body.append("> " + escape_md(pending_note))
                     body.append("")
                     pending_note = None
-                current_model = None
+                open_model = None
+                in_block = False
                 continue
             continue  # the "Firmware History" banner line and any other stray text
 
         stripped = line.strip()
 
         item = _VOY_BLOCK_ITEM.match(line)
-        if item and current_model is not None:
+        if item and in_block:
             body.append("- " + escape_md(collapse(item.group(1))))
             continue
 
         split = _voy_split_label(stripped)
         if split:
             model, rest = split
-            push_heading(3, model)
-            if not rest:                       # block header: items follow
-                current_model = model
-            else:                              # label and text on one line
+            # V27 lists DM1x twice in a row and V33 lists DM16 twice; repeating
+            # the heading adds nothing, so keep the open section instead.
+            if model != open_model:
+                push_heading(3, model)
+                open_model = model
+            if rest:                           # label and text on one line
                 body.append("- " + escape_md(collapse(rest)))
-                current_model = None
+                in_block = False
+            else:                              # block header: items follow
+                in_block = True
             continue
 
         if item:                               # a "- " item with no open block
             stripped = item.group(1)
         body.append("- " + escape_md(collapse(stripped)))
-        current_model = None
+        open_model = None
+        in_block = False
 
     out = ["# Voyager Firmware History"] + body
     text = "\n".join(out)
