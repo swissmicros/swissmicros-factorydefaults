@@ -1631,7 +1631,7 @@
   },
   {
    "path": "Voyager_Models/HISTORY.md",
-   "size": 7183
+   "size": 7097
   },
   {
    "path": "_config.yml",
@@ -1691,11 +1691,11 @@
   },
   {
    "path": "scripts/test_update_history.py",
-   "size": 22146
+   "size": 24035
   },
   {
    "path": "scripts/update-history.py",
-   "size": 13030
+   "size": 13416
   }
  ]
 }

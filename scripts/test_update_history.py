@@ -308,13 +308,50 @@ class VoyagerBodyShapes(unittest.TestCase):
              "- New bold 7-segment font (all DM1x models)",
              "### DM41", "- Speed improvement"])
 
-    def test_same_model_label_twice_gets_two_headings(self):
+    def test_consecutive_same_label_merges_into_one_heading(self):
+        """V33 lists DM16 twice in a row and V27 lists DM1x twice; repeating the
+        heading adds nothing."""
         self.assertEqual(
             self.body("V33: 2024-12-21\n  DM16: New firmware version\n"
                       "  DM16: Enhanced SHOW HEX\n"),
             ["## V33 — 2024-12-21",
-             "### DM16", "- New firmware version",
-             "### DM16", "- Enhanced SHOW HEX"])
+             "### DM16", "- New firmware version", "- Enhanced SHOW HEX"])
+
+    def test_consecutive_same_label_merges_across_separator_styles(self):
+        self.assertEqual(
+            self.body("V27: 05.09.2018\n  DM1x - Programs were hard to stop\n"
+                      "  DM1x - Fixed missing dot\n  DM41 - Fixed stopwatch\n"),
+            ["## V27 — 2018-09-05",
+             "### DM1x", "- Programs were hard to stop", "- Fixed missing dot",
+             "### DM41", "- Fixed stopwatch"])
+
+    def test_consecutive_blocks_with_the_same_label_merge(self):
+        self.assertEqual(
+            self.body("V33: 2024-12-21\n  DM1x:\n   - one\n  DM1x:\n   - two\n"),
+            ["## V33 — 2024-12-21", "### DM1x", "- one", "- two"])
+
+    def test_different_labels_still_get_their_own_headings(self):
+        self.assertEqual(
+            self.body("V33: 2024-12-21\n  DM16: a\n  DM15: b\n"),
+            ["## V33 — 2024-12-21", "### DM16", "- a", "### DM15", "- b"])
+
+    def test_a_label_repeated_after_a_bare_item_starts_a_new_heading(self):
+        self.assertEqual(
+            self.body("V26: 25.03.2018\n  DM16: a\n  New bold font\n  DM16: b\n"),
+            ["## V26 — 2018-03-25",
+             "### DM16", "- a", "- New bold font", "### DM16", "- b"])
+
+    def test_a_label_repeated_after_another_label_starts_a_new_heading(self):
+        self.assertEqual(
+            self.body("V26: 25.03.2018\n  DM16: a\n  DM15: b\n  DM16: c\n"),
+            ["## V26 — 2018-03-25",
+             "### DM16", "- a", "### DM15", "- b", "### DM16", "- c"])
+
+    def test_the_same_label_in_the_next_release_gets_its_own_heading(self):
+        self.assertEqual(
+            self.body("V34: 2025-04-15\n  DM41: a\n\nV33: 2024-12-21\n  DM41: b\n"),
+            ["## V34 — 2025-04-15", "### DM41", "- a",
+             "## V33 — 2024-12-21", "### DM41", "- b"])
 
 
 class VoyagerLabelRule(unittest.TestCase):
