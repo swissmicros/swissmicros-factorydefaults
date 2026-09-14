@@ -9,13 +9,15 @@
     "Voyager_Models/DM15_M80_34.hex",
     "Voyager_Models/DM16_34.hex",
     "Voyager_Models/DM16_MC0_34.hex",
-    "Voyager_Models/DM41_34.hex"
+    "Voyager_Models/DM41_34.hex",
+    "Voyager_Models/HISTORY.md"
   ],
   "pioneer": [
     {
       "name": "DM32",
       "files": [
         "Pioneer_Models/DM32/DMCP5_flash_3.56_DM32-2.11.bin",
+        "Pioneer_Models/DM32/HISTORY.md",
         "Pioneer_Models/DM32/keymap_DM32.bin",
         "Pioneer_Models/DM32/HELP/dm32help.html",
         "Pioneer_Models/DM32/OFFIMG/32siikeypad.bmp",
@@ -45,6 +47,7 @@
       "name": "DM41X",
       "files": [
         "Pioneer_Models/DM41X/DMCP_flash_3.31_DM41X-2.4.bin",
+        "Pioneer_Models/DM41X/HISTORY.md",
         "Pioneer_Models/DM41X/keymap_DM41X.bin",
         "Pioneer_Models/DM41X/HELP/41x.html",
         "Pioneer_Models/DM41X/HELP/am_help.html",
@@ -110,6 +113,7 @@
       "name": "DM42",
       "files": [
         "Pioneer_Models/DM42/DMCP_flash_3.29_DM42-3.26.bin",
+        "Pioneer_Models/DM42/HISTORY.md",
         "Pioneer_Models/DM42/keymap_DM42.bin",
         "Pioneer_Models/DM42/HELP/dm42functs.htm",
         "Pioneer_Models/DM42/HELP/dm42help.htm",
@@ -197,6 +201,7 @@
       "name": "DM42n",
       "files": [
         "Pioneer_Models/DM42n/DMCP5_flash_3.55_DM42-3.26.bin",
+        "Pioneer_Models/DM42n/HISTORY.md",
         "Pioneer_Models/DM42n/keymap_DM42.bin",
         "Pioneer_Models/DM42n/HELP/dm42functs.htm",
         "Pioneer_Models/DM42n/HELP/dm42help.htm",
