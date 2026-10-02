@@ -15,6 +15,7 @@
   "pioneer": [
     {
       "name": "DM32",
+      "qspi": true,
       "files": [
         "Pioneer_Models/DM32/DMCP5_flash_3.56_DM32-2.11.bin",
         "Pioneer_Models/DM32/HISTORY.md",
@@ -45,6 +46,7 @@
     },
     {
       "name": "DM41X",
+      "qspi": false,
       "files": [
         "Pioneer_Models/DM41X/DMCP_flash_3.31_DM41X-2.4.bin",
         "Pioneer_Models/DM41X/HISTORY.md",
@@ -105,12 +107,14 @@
     },
     {
       "name": "DM41Xn",
+      "qspi": false,
       "files": [
         "Pioneer_Models/DM41Xn/keymap_DM41X.bin"
       ]
     },
     {
       "name": "DM42",
+      "qspi": true,
       "files": [
         "Pioneer_Models/DM42/DMCP_flash_3.29_DM42-3.26.bin",
         "Pioneer_Models/DM42/HISTORY.md",
@@ -199,6 +203,7 @@
     },
     {
       "name": "DM42n",
+      "qspi": true,
       "files": [
         "Pioneer_Models/DM42n/DMCP5_flash_3.55_DM42-3.26.bin",
         "Pioneer_Models/DM42n/HISTORY.md",
@@ -303,6 +308,7 @@
     },
     {
       "name": "R47",
+      "qspi": false,
       "files": [
         "Pioneer_Models/R47/DMCP5_flash_3.57_R47-00.109.03.03b0.bin",
         "Pioneer_Models/R47/keymap_R47.bin",

@@ -1671,11 +1671,11 @@
   },
   {
    "path": "models.json",
-   "size": 20778
+   "size": 20901
   },
   {
    "path": "scripts/generate-manifest.py",
-   "size": 2827
+   "size": 3864
   },
   {
    "path": "scripts/generate-tree.py",
@@ -1684,6 +1684,10 @@
   {
    "path": "scripts/test-repo-tree.js",
    "size": 10444
+  },
+  {
+   "path": "scripts/test_generate_manifest.py",
+   "size": 2583
   },
   {
    "path": "scripts/test_generate_tree.py",
