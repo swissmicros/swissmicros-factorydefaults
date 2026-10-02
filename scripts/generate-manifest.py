@@ -12,11 +12,14 @@ Schema:
     "voyager_version": "34",                  # opaque; bumped when Voyager changes
     "voyager": ["Voyager_Models/<file>", ...],
     "pioneer": [ { "name": "DM32",
+                   "qspi": true,              # needs the shared QSPI image
                    "files": ["Pioneer_Models/DM32/<file>", ...] }, ... ]
   }
 
 Loose top-level files in Pioneer_Models/ (e.g. DM42_qspi_3.x.bin) are not model
-directories and are intentionally ignored.
+directories and are intentionally ignored. A model with "qspi": true needs that
+shared image written to its QSPI flash after the firmware; every model states
+the flag, true or false.
 """
 
 import json
@@ -25,7 +28,10 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.chdir(ROOT)
+
+# Pioneer models that need the shared QSPI image (DM42_qspi_3.x.bin) after their
+# firmware. Keep in step with QSPI_MODELS in swissmicros-pioneer-flasher.
+QSPI_MODELS = {"DM32", "DM42", "DM42n"}
 
 
 def list_files(top):
@@ -54,33 +60,52 @@ def voyager_version(files):
     return ""
 
 
-manifest = {}
+def build_manifest(root):
+    """The manifest for the repo at `root`; paths in it are relative to `root`."""
+    cwd = os.getcwd()
+    os.chdir(root)
+    try:
+        manifest = {}
 
-voyager = list_files("Voyager_Models") if os.path.isdir("Voyager_Models") else []
-if voyager:
-    ver = voyager_version(voyager)
-    if ver:
-        manifest["voyager_version"] = ver
-    manifest["voyager"] = voyager
+        voyager = list_files("Voyager_Models") if os.path.isdir("Voyager_Models") else []
+        if voyager:
+            ver = voyager_version(voyager)
+            if ver:
+                manifest["voyager_version"] = ver
+            manifest["voyager"] = voyager
 
-pioneer = []
-if os.path.isdir("Pioneer_Models"):
-    for name in sorted(os.listdir("Pioneer_Models")):
-        d = os.path.join("Pioneer_Models", name)
-        if not os.path.isdir(d):
-            continue  # skip loose top-level files
-        files = list_files(d)
-        if files:
-            pioneer.append({"name": name, "files": files})
-manifest["pioneer"] = pioneer
+        pioneer = []
+        if os.path.isdir("Pioneer_Models"):
+            for name in sorted(os.listdir("Pioneer_Models")):
+                d = os.path.join("Pioneer_Models", name)
+                if not os.path.isdir(d):
+                    continue  # skip loose top-level files
+                files = list_files(d)
+                if files:
+                    pioneer.append({"name": name, "qspi": name in QSPI_MODELS,
+                                    "files": files})
+        manifest["pioneer"] = pioneer
+        return manifest
+    finally:
+        os.chdir(cwd)
 
-if not voyager and not pioneer:
-    sys.stderr.write("error: no model files found\n")
-    sys.exit(1)
 
-with open("models.json", "w") as fp:
-    json.dump(manifest, fp, indent=2)
-    fp.write("\n")
+def main():
+    manifest = build_manifest(ROOT)
+    voyager = manifest.get("voyager", [])
+    pioneer = manifest["pioneer"]
+    if not voyager and not pioneer:
+        sys.stderr.write("error: no model files found\n")
+        sys.exit(1)
 
-print("wrote models.json: %d voyager files, %d pioneer models (%d bytes)"
-      % (len(voyager), len(pioneer), os.path.getsize("models.json")))
+    out = os.path.join(ROOT, "models.json")
+    with open(out, "w") as fp:
+        json.dump(manifest, fp, indent=2)
+        fp.write("\n")
+
+    print("wrote models.json: %d voyager files, %d pioneer models (%d bytes)"
+          % (len(voyager), len(pioneer), os.path.getsize(out)))
+
+
+if __name__ == "__main__":
+    main()
