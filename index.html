@@ -11,18 +11,17 @@
     <style>
         :root {
             --border:      #d0d7de;
+            --divider:     #e5e5e5;
             --panel-bg:    #ffffff;
-            --th-bg:       #24292f;
-            --th-text:     #f6f8fa;
-            --th-hover:    #32383f;
-            --th-active:   #79c0ff;
-            --row-alt:     #f6f8fa;
-            --row-hover:   #ddf4ff;
-            --text:        #24292f;
-            --muted:       #57606a;
+            --chrome-bg:   #f3f3f3;
+            --hover-bg:    #e5f3ff;
+            --select-bg:   #cce8ff;
+            --select-edge: #99d1ff;
+            --focus:       #0067c0;
+            --text:        #1b1b1b;
+            --muted:       #5d5d5d;
             --link:        #0969da;
             --link-hover:  #0550ae;
-            --status-bg:   #f6f8fa;
             --radius:      6px;
             --shadow:      0 1px 3px rgba(27,31,36,0.12), 0 1px 2px rgba(27,31,36,0.08);
         }
@@ -33,7 +32,7 @@
             font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* ── Directory Panel ─────────────────────────────────────── */
+        /* ── Explorer window ─────────────────────────────────────── */
         .dir-panel {
             background: var(--panel-bg);
             border: 1px solid var(--border);
@@ -41,107 +40,196 @@
             box-shadow: var(--shadow);
             overflow: hidden;
             margin-bottom: 2rem;
+            color: var(--text);
         }
 
-        /* ── Breadcrumb bar ──────────────────────────────────────── */
-        .breadcrumb-bar {
+        /* ── Toolbar: back / forward / up + address bar ──────────── */
+        .toolbar {
             display: flex;
             align-items: center;
-            gap: 0.375rem;
-            padding: 0.5rem 0.875rem;
-            background: #f6f8fa;
-            border-bottom: 1px solid var(--border);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--muted);
-            min-height: 34px;
-            flex-wrap: wrap;
+            gap: 0.25rem;
+            padding: 0.4rem 0.5rem;
+            background: var(--chrome-bg);
+            border-bottom: 1px solid var(--divider);
         }
-        .breadcrumb-bar svg { flex-shrink: 0; }
-        .breadcrumb-bar a { color: var(--link); text-decoration: none; }
-        .breadcrumb-bar a:hover { text-decoration: underline; }
-        .breadcrumb-bar strong { color: var(--text); font-weight: 600; }
-        .bc-sep { color: #bbb; user-select: none; }
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+            border: 0;
+            border-radius: 4px;
+            background: transparent;
+            color: var(--text);
+            cursor: pointer;
+        }
+        .nav-btn:hover:not(:disabled)  { background: rgba(0,0,0,0.06); }
+        .nav-btn:active:not(:disabled) { background: rgba(0,0,0,0.1); }
+        .nav-btn:disabled { color: #b4b4b4; cursor: default; }
+        .nav-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
 
-        /* ── Table wrapper ───────────────────────────────────────── */
-        .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .address-bar {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            height: 30px;
+            margin-left: 0.25rem;
+            padding: 0 0.5rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.8125rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+        .address-bar svg { flex-shrink: 0; }
+        #breadcrumb { display: flex; align-items: center; }
+        .bc-seg {
+            padding: 0.15rem 0.35rem;
+            border-radius: 3px;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .bc-seg:hover { background: var(--hover-bg); }
+        .bc-sep { color: var(--muted); padding: 0 0.1rem; user-select: none; }
 
-        /* ── Directory Table ─────────────────────────────────────── */
+        /* ── Two panes: folder tree | details ────────────────────── */
+        .explorer-body {
+            display: flex;
+            height: min(70vh, 640px);
+            min-height: 360px;
+        }
+
+        .nav-pane {
+            width: 240px;
+            min-width: 160px;
+            max-width: 50%;
+            flex-shrink: 0;
+            overflow: auto;
+            padding: 0.375rem 0;
+            font-size: 0.8125rem;
+        }
+        .splitter {
+            width: 5px;
+            flex-shrink: 0;
+            margin: 0 -2px;
+            position: relative;
+            z-index: 1;
+            cursor: col-resize;
+            background: linear-gradient(to right, transparent 2px, var(--divider) 2px, var(--divider) 3px, transparent 3px);
+        }
+        .splitter:hover, .splitter.dragging {
+            background: linear-gradient(to right, transparent 1px, var(--select-edge) 1px, var(--select-edge) 4px, transparent 4px);
+        }
+        .content-pane { flex: 1; min-width: 0; overflow: auto; }
+
+        /* Folder tree */
+        .nav-tree, .nav-tree ul { list-style: none; }
+        .tree-row {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            height: 26px;
+            margin: 0 0.25rem;
+            padding-left: calc(var(--depth, 0) * 16px + 2px);
+            padding-right: 0.5rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            white-space: nowrap;
+            cursor: default;
+            user-select: none;
+        }
+        .tree-row:hover { background: var(--hover-bg); }
+        .tree-row.selected { background: var(--select-bg); }
+        .tree-row:focus { outline: none; }
+        .tree-row:focus-visible { border-color: var(--focus); }
+        .twisty {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            color: var(--muted);
+            border-radius: 3px;
+            transition: transform 0.1s ease;
+        }
+        .twisty:hover { color: var(--text); }
+        .twisty.open  { transform: rotate(90deg); }
+        .twisty.leaf  { visibility: hidden; }
+        .tree-row > svg { flex-shrink: 0; }
+        .tree-label { overflow: hidden; text-overflow: ellipsis; }
+
+        /* ── Details view ────────────────────────────────────────── */
         .dir-table {
             width: 100%;
-            border-collapse: collapse;
-            font-size: 0.875rem;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.8125rem;
         }
 
-        /* Head */
-        .dir-table thead tr { background: var(--th-bg); }
         .dir-table thead th {
-            padding: 0.5rem 0.75rem;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background: #fff;
+            padding: 0.4rem 0.6rem;
             text-align: left;
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-weight: 600;
-            font-size: 0.7rem;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--th-text);
+            font-weight: 400;
+            font-size: 0.78rem;
+            color: var(--muted);
+            border-bottom: 1px solid var(--divider);
             white-space: nowrap;
             user-select: none;
         }
+        .dir-table thead th + th { border-left: 1px solid var(--divider); }
         .dir-table thead th.sortable { cursor: pointer; }
-        .dir-table thead th.sortable:hover { background: var(--th-hover); }
-        .dir-table thead th.sort-active { color: var(--th-active); }
-        .dir-table thead th .sort-arrow { margin-left: 4px; font-size: 0.65rem; opacity: 0.5; }
-        .dir-table thead th.sort-active .sort-arrow { opacity: 1; }
+        .dir-table thead th.sortable:hover { background: var(--hover-bg); }
+        .dir-table thead th.sort-active { color: var(--text); }
+        .dir-table thead th .sort-arrow { margin-left: 4px; font-size: 0.65rem; opacity: 0; }
+        .dir-table thead th.sort-active .sort-arrow { opacity: 0.8; }
 
-        /* Column widths */
-        .th-icon  { width: 40px; padding-left: 1rem !important; }
-        .th-name  { min-width: 200px; }
+        .th-name  { min-width: 200px; padding-left: 1rem !important; }
         .th-size  { width: 90px; text-align: right !important; }
         .th-type  { width: 120px; }
-        .th-dl    { width: 110px; padding-right: 1rem !important; }
-
-        /* Body rows */
-        .dir-table tbody tr {
-            border-bottom: 1px solid var(--border);
-            transition: background 0.08s ease;
-        }
-        .dir-table tbody tr:last-child { border-bottom: none; }
-        .dir-table tbody tr:nth-child(even) { background: var(--row-alt); }
-        .dir-table tbody tr:hover { background: var(--row-hover); }
+        .th-dl    { width: 110px; }
 
         .dir-table tbody td {
-            padding: 0.375rem 0.75rem;
+            padding: 0.25rem 0.6rem;
             vertical-align: middle;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid transparent;
         }
-        .td-icon { padding-left: 1rem !important; width: 40px; }
+        .dir-table tbody tr:hover td { background: var(--hover-bg); }
+        .dir-table tbody tr.selected td {
+            background: var(--select-bg);
+            border-color: var(--select-edge);
+        }
+        .dir-table tbody tr.selected td:first-child { border-left: 1px solid var(--select-edge); }
+        .dir-table tbody tr.selected td:last-child  { border-right: 1px solid var(--select-edge); }
+
+        .td-name { padding-left: 1rem !important; }
+        .name-cell { display: inline-flex; align-items: center; gap: 0.5rem; }
+        .name-cell svg { flex-shrink: 0; }
         .td-size {
             text-align: right;
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             color: var(--muted);
         }
-        .td-type { font-size: 0.78rem; color: var(--muted); }
+        .td-type { font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
         .td-dl   { text-align: right; padding-right: 1rem !important; }
 
-        /* File name links */
         .name-link {
-            color: var(--link);
+            color: var(--text);
             text-decoration: none;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.8125rem;
         }
         .name-link:hover { color: var(--link-hover); text-decoration: underline; }
-
-        .parent-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            color: var(--muted);
-            text-decoration: none;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.8125rem;
-        }
-        .parent-link:hover { color: var(--link); text-decoration: underline; }
 
         /* Download button */
         .dl-btn {
@@ -167,17 +255,59 @@
             text-decoration: none;
         }
 
-        /* Status bar */
-        .status-bar {
-            padding: 0.375rem 0.875rem;
-            background: var(--status-bg);
-            border-top: 1px solid var(--border);
-            font-size: 0.75rem;
-            color: var(--muted);
-            font-family: 'IBM Plex Sans', sans-serif;
-            min-height: 30px;
+        button.dl-btn { cursor: pointer; }
+        .dl-btn:disabled, .dl-btn:disabled:hover {
+            background: transparent;
+            border-color: var(--border);
+            color: #b4b4b4;
+            cursor: default;
+        }
+        .tb-download { margin-left: 0.25rem; height: 30px; padding: 0 0.7rem; font-size: 0.78rem; }
+
+        /* Right-click menu */
+        #ctx-menu {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            min-width: 190px;
+            padding: 4px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.16);
+            font-size: 0.8125rem;
+        }
+        #ctx-menu button {
             display: flex;
             align-items: center;
+            gap: 0.6rem;
+            width: 100%;
+            padding: 0.4rem 0.75rem;
+            border: 0;
+            border-radius: 4px;
+            background: none;
+            color: var(--text);
+            font: inherit;
+            text-align: left;
+            cursor: pointer;
+        }
+        #ctx-menu button svg { flex: 0 0 16px; }
+        #ctx-menu button:hover, #ctx-menu button:focus-visible { background: var(--hover-bg); outline: none; }
+        #ctx-menu button:disabled { color: #b4b4b4; cursor: default; background: none; }
+        #ctx-menu hr { border: 0; border-top: 1px solid var(--divider); margin: 4px 2px; }
+
+        /* Status bar */
+        .status-bar .is-error { color: #cf222e; }
+        .status-bar {
+            padding: 0.3rem 0.875rem;
+            background: var(--chrome-bg);
+            border-top: 1px solid var(--divider);
+            font-size: 0.75rem;
+            color: var(--muted);
+            min-height: 28px;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
         }
 
         /* Loading / error states */
@@ -188,6 +318,7 @@
             font-style: italic;
         }
         .state-cell.is-error { color: #cf222e; font-style: normal; }
+        .dir-table tbody tr:hover td.state-cell { background: none; }
 
         .spinner {
             display: inline-block;
@@ -202,11 +333,24 @@
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* Responsive: hide Size & Type on small screens */
+        /* Narrow screens: stack the tree above the details, drop Size & Type */
+        @media (max-width: 720px) {
+            .explorer-body { flex-direction: column; height: auto; min-height: 0; }
+            .nav-pane {
+                width: auto !important;
+                max-width: none;
+                max-height: 220px;
+                border-bottom: 1px solid var(--divider);
+            }
+            .splitter { display: none; }
+            .content-pane { overflow: visible; }
+            .dir-table thead th { position: static; }
+        }
         @media (max-width: 580px) {
             .th-size, .th-type,
-            .dir-table tbody td:nth-child(3),
-            .dir-table tbody td:nth-child(4) { display: none; }
+            .dir-table tbody td:nth-child(2),
+            .dir-table tbody td:nth-child(3) { display: none; }
+            .tb-download .tb-label { display: none; }
         }
 
         /* BMP hover preview */
@@ -257,40 +401,63 @@
 
     <div class="dir-panel">
 
-        <!-- Breadcrumb -->
-        <div class="breadcrumb-bar" id="breadcrumb-bar">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="#d4a72c">
-                <path d="M1.75 2.5h3.5l2 2h6.25c.966 0 1.75.784 1.75 1.75v6.5A1.75 1.75 0 0 1 13.5 14.5H1.75A1.75 1.75 0 0 1 0 12.75V4.25C0 3.284.784 2.5 1.75 2.5z"/>
-            </svg>
-            <span id="breadcrumb"><a href="#" data-path="">root</a></span>
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <button type="button" class="nav-btn" id="btn-back" title="Back (Alt + Left Arrow)" aria-label="Back" disabled>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 8h-11M7 3.5 2.5 8 7 12.5"/></svg>
+            </button>
+            <button type="button" class="nav-btn" id="btn-forward" title="Forward (Alt + Right Arrow)" aria-label="Forward" disabled>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+            </button>
+            <button type="button" class="nav-btn" id="btn-up" title="Up to parent folder (Alt + Up Arrow)" aria-label="Up" disabled>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13.5v-11M3.5 7 8 2.5 12.5 7"/></svg>
+            </button>
+            <nav class="address-bar" id="breadcrumb-bar" aria-label="Current folder">
+                <span id="address-icon"></span>
+                <span id="breadcrumb"></span>
+            </nav>
+            <button type="button" class="dl-btn tb-download" id="btn-download" title="Download this folder as a ZIP file" disabled>
+                <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.97a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.779a.749.749 0 1 1 1.06-1.06z"/></svg>
+                <span class="tb-label">Download folder</span>
+            </button>
         </div>
 
-        <!-- Table -->
-        <div class="table-wrapper">
-            <table class="dir-table">
-                <thead>
-                    <tr>
-                        <th class="th-icon"></th>
-                        <th class="th-name sortable sort-active" data-col="name">
-                            Name <span class="sort-arrow">↑</span>
-                        </th>
-                        <th class="th-size sortable" data-col="size" style="text-align:right">
-                            Size <span class="sort-arrow">↕</span>
-                        </th>
-                        <th class="th-type sortable" data-col="type">
-                            Type <span class="sort-arrow">↕</span>
-                        </th>
-                        <th class="th-dl"></th>
-                    </tr>
-                </thead>
-                <tbody id="dir-body">
-                    <tr>
-                        <td colspan="5" class="state-cell">
-                            <span class="spinner"></span>Loading directory contents…
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="explorer-body">
+
+            <!-- Folder tree -->
+            <div class="nav-pane" id="nav-pane">
+                <ul class="nav-tree" id="nav-tree" role="tree" aria-label="Folders"></ul>
+            </div>
+
+            <div class="splitter" id="splitter" role="separator" aria-orientation="vertical" aria-label="Resize folder pane"></div>
+
+            <!-- Details -->
+            <div class="content-pane">
+                <table class="dir-table">
+                    <thead>
+                        <tr>
+                            <th class="th-name sortable sort-active" data-col="name">
+                                Name <span class="sort-arrow">▲</span>
+                            </th>
+                            <th class="th-size sortable" data-col="size">
+                                Size <span class="sort-arrow">▲</span>
+                            </th>
+                            <th class="th-type sortable" data-col="type">
+                                Type <span class="sort-arrow">▲</span>
+                            </th>
+                            <th class="th-dl"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="dir-body">
+                        <tr>
+                            <td colspan="4" class="state-cell">
+                                <span class="spinner"></span>Loading directory contents…
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
 
         <!-- Status bar -->
@@ -307,6 +474,8 @@
 
 </section>
 
+<div id="ctx-menu" role="menu"></div>
+
 <div id="img-preview">
     <img id="img-preview-img" src="" alt="">
     <div class="preview-name" id="img-preview-name"></div>
@@ -321,25 +490,42 @@
     const REPO_OWNER = 'swissmicros';
     const REPO_NAME  = 'swissmicros-factorydefaults';
     const BRANCH     = 'main';
-    const HIDDEN     = new Set(['index.html', '_config.yml', 'CNAME', 'README.md', 'instructions.md', 'assets', 'docs', 'scripts', 'models.json', 'tree.json']);
+    const ROOT_LABEL = 'Factory Defaults';
+    const PAGE_EXT   = new Set(['html', 'htm']);   // opened rendered, not downloaded
+    const HIDDEN     = new Set(['index.html', 'viewer.html', '_config.yml', 'CNAME', 'README.md', 'instructions.md', 'assets', 'docs', 'scripts', 'models.json', 'tree.json']);
 
     /* ── State ─────────────────────────────────────────────────── */
     let currentPath  = '';
     let currentFiles = [];
     let sortCol      = 'name';
     let sortDir      = 'asc';
+    const expanded   = new Set(['']);   // folder-tree nodes that are open
+    const dirCache   = new Map();       // path → [{name, path}] of its subfolders
 
     /* ── SVG icons ─────────────────────────────────────────────── */
-    const ICON_FOLDER = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M1.75 2.5h3.5l2 2h6.25c.966 0 1.75.784 1.75 1.75v6.5
-                 A1.75 1.75 0 0 1 13.5 14.5H1.75A1.75 1.75 0 0 1 0 12.75
-                 V4.25C0 3.284.784 2.5 1.75 2.5z" fill="#d4a72c"/>
+    const ICON_FOLDER = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h3.4l1.5 1.5h6.1A1.5 1.5 0 0 1 15 5v7.5A1.5 1.5 0 0 1 13.5 14h-11A1.5 1.5 0 0 1 1 12.5z" fill="#e0a526"/>
+        <path d="M1 5.5h14v7A1.5 1.5 0 0 1 13.5 14h-11A1.5 1.5 0 0 1 1 12.5z" fill="#ffca28"/>
     </svg>`;
 
-    const ICON_UP = `<svg width="14" height="14" viewBox="0 0 16 16" fill="#57606a">
-        <path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06
-                 l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042
-                 L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06z"/>
+    const ICON_FOLDER_OPEN = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h3.4l1.5 1.5h6.1A1.5 1.5 0 0 1 15 5v7.5A1.5 1.5 0 0 1 13.5 14h-11A1.5 1.5 0 0 1 1 12.5z" fill="#e0a526"/>
+        <path d="M3.4 6.5h12a.6.6 0 0 1 .58.75l-1.4 5.6A1.5 1.5 0 0 1 13.1 14H1.6a.6.6 0 0 1-.58-.75l1.5-6A1 1 0 0 1 3.4 6.5z" fill="#ffd54f"/>
+    </svg>`;
+
+    const ICON_ROOT = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+        <rect x="3" y="1" width="10" height="14" rx="1.5" fill="#3a3a3a"/>
+        <rect x="4.5" y="2.5" width="7" height="3" rx=".5" fill="#9fd3a8"/>
+        <g fill="#d9d9d9">
+            <rect x="4.5" y="7" width="1.8" height="1.4" rx=".3"/><rect x="7.1" y="7" width="1.8" height="1.4" rx=".3"/><rect x="9.7" y="7" width="1.8" height="1.4" rx=".3"/>
+            <rect x="4.5" y="9.4" width="1.8" height="1.4" rx=".3"/><rect x="7.1" y="9.4" width="1.8" height="1.4" rx=".3"/><rect x="9.7" y="9.4" width="1.8" height="1.4" rx=".3"/>
+            <rect x="4.5" y="11.8" width="1.8" height="1.4" rx=".3"/><rect x="7.1" y="11.8" width="1.8" height="1.4" rx=".3"/>
+        </g>
+        <rect x="9.7" y="11.8" width="1.8" height="1.4" rx=".3" fill="#f0a030"/>
+    </svg>`;
+
+    const ICON_CHEVRON = `<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3.5 1.5 7 5 3.5 8.5"/>
     </svg>`;
 
     const ICON_DL = `<svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor">
@@ -362,7 +548,7 @@
 
     function fileIcon(ext) {
         const c = EXT_COLOR[ext] || '#57606a';
-        return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513
                      l2.914 2.914c.329.328.513.773.513 1.237v9.586
                      A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25V1.75z"
@@ -385,20 +571,28 @@
     }
 
     function typeLabel(file) {
-        if (file.type === 'dir') return 'Folder';
+        if (file.type === 'dir') return 'File folder';
         const e = ext(file.name);
-        return e ? e.toUpperCase() + '\u2009File' : 'File';
+        return e ? e.toUpperCase() + ' File' : 'File';
     }
 
     function fmtSize(bytes) {
         if (!bytes) return '—';
-        if (bytes < 1024)        return bytes + '\u202fB';
-        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + '\u202fKB';
-        return (bytes / (1024 * 1024)).toFixed(2) + '\u202fMB';
+        if (bytes < 1024)        return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
     }
 
     function hidden(name) {
         return name.startsWith('.') || HIDDEN.has(name);
+    }
+
+    function parentOf(path) {
+        return path.split('/').slice(0, -1).join('/');
+    }
+
+    function baseName(path) {
+        return path ? path.split('/').pop() : ROOT_LABEL;
     }
 
     /* ── GitHub API ─────────────────────────────────────────────── */
@@ -457,9 +651,233 @@
 
     async function listPath(path) {
         const tree = await fetchTree();
-        return tree ? RepoTree.listDir(tree, path, TREE_OPTS)
-                    : await fetchRepoContents(path);
+        const entries = tree ? RepoTree.listDir(tree, path, TREE_OPTS)
+                             : await fetchRepoContents(path);
+        rememberSubdirs(path, entries);
+        return entries;
     }
+
+    /* ── Folder tree data ───────────────────────────────────────── */
+    function rememberSubdirs(path, entries) {
+        dirCache.set(path, entries
+            .filter(e => e.type === 'dir' && !hidden(e.name))
+            .map(e => ({ name: e.name, path: e.path }))
+            .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())));
+    }
+
+    /* Subfolders of `path`, or undefined while they are still unknown. With the
+       whole tree in memory every folder is known up front; only the contents-API
+       fallback leaves them to be discovered as nodes are opened. */
+    function knownSubdirs(path) {
+        if (!dirCache.has(path) && treeCache) {
+            rememberSubdirs(path, RepoTree.listDir(treeCache, path, TREE_OPTS));
+        }
+        return dirCache.get(path);
+    }
+
+    async function loadExpanded() {
+        for (const path of expanded) {
+            if (knownSubdirs(path)) continue;
+            try { await listPath(path); } catch (e) { dirCache.set(path, []); }
+        }
+    }
+
+    /* ── Folder tree rendering ──────────────────────────────────── */
+    function renderNode(path, depth) {
+        const kids     = knownSubdirs(path);
+        const isLeaf   = kids && kids.length === 0;
+        const isOpen   = expanded.has(path) && !isLeaf;
+        const selected = path === currentPath;
+        const icon     = depth === 0 ? ICON_ROOT : (selected ? ICON_FOLDER_OPEN : ICON_FOLDER);
+
+        let html = `<li role="treeitem" aria-level="${depth + 1}" aria-selected="${selected}"`
+                 + (isLeaf ? '' : ` aria-expanded="${isOpen}"`) + `>
+            <div class="tree-row${selected ? ' selected' : ''}" data-node="${h(path)}" tabindex="${selected ? 0 : -1}" style="--depth:${depth}" title="${h(baseName(path))}">
+                <span class="twisty${isOpen ? ' open' : ''}${isLeaf ? ' leaf' : ''}" data-toggle>${ICON_CHEVRON}</span>
+                ${icon}<span class="tree-label">${h(baseName(path))}</span>
+            </div>`;
+        if (isOpen && kids) {
+            html += `<ul role="group">${kids.map(k => renderNode(k.path, depth + 1)).join('')}</ul>`;
+        }
+        return html + '</li>';
+    }
+
+    function renderNav() {
+        const tree = document.getElementById('nav-tree');
+        const focused = tree.contains(document.activeElement) ? document.activeElement.dataset.node : null;
+        tree.innerHTML = renderNode('', 0);
+        if (focused != null) focusNode(focused);
+        const sel = tree.querySelector('.tree-row.selected');
+        if (sel && focused == null) sel.scrollIntoView({ block: 'nearest' });
+    }
+
+    function focusNode(path) {
+        const row = [...document.querySelectorAll('#nav-tree .tree-row')].find(r => r.dataset.node === path);
+        if (!row) return;
+        document.querySelectorAll('#nav-tree .tree-row[tabindex="0"]').forEach(r => r.tabIndex = -1);
+        row.tabIndex = 0;
+        row.focus();
+    }
+
+    async function toggleNode(path, open) {
+        if (open === undefined) open = !expanded.has(path);
+        if (open) expanded.add(path); else expanded.delete(path);
+        renderNav();
+        if (open) { await loadExpanded(); renderNav(); }
+    }
+
+    /* ── Folder download (ZIP built in the browser) ───────────────── */
+    /* Every file is listed in the tree we already hold, and raw.githubusercontent
+       serves them with CORS, so the zip can be assembled here — no third-party
+       zipping service, no extra tab. JSZip is only fetched on first use. */
+    const JSZIP_URL   = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+    const ZIP_WORKERS = 4;
+    let zipBusy = false;
+    let jszipLoading = null;
+
+    function loadJSZip() {
+        if (window.JSZip) return Promise.resolve(window.JSZip);
+        if (!jszipLoading) {
+            jszipLoading = new Promise((resolve, reject) => {
+                const tag = document.createElement('script');
+                tag.src = JSZIP_URL;
+                tag.onload  = () => resolve(window.JSZip);
+                tag.onerror = () => { jszipLoading = null; reject(new Error('could not load the ZIP library')); };
+                document.head.appendChild(tag);
+            });
+        }
+        return jszipLoading;
+    }
+
+    /* Files below `path`, skipping anything the browser hides (site files at
+       the root, dotfiles anywhere). */
+    async function collectFiles(path) {
+        const tree = await fetchTree();
+        if (tree) {
+            return RepoTree.filesUnder(tree, path, TREE_OPTS)
+                .filter(f => !f.relPath.split('/').some(hidden));
+        }
+        /* Contents-API fallback: walk the folders one listing at a time. */
+        const out = [];
+        const prefix = path ? path + '/' : '';
+        async function walk(dir) {
+            for (const e of await listPath(dir)) {
+                if (hidden(e.name)) continue;
+                if (e.type === 'dir') await walk(e.path);
+                else out.push({ path: e.path, relPath: e.path.slice(prefix.length), size: e.size, download_url: e.download_url });
+            }
+        }
+        await walk(path);
+        return out;
+    }
+
+    function setZipBusy(busy) {
+        zipBusy = busy;
+        document.querySelectorAll('#dir-body button[data-zip]').forEach(b => b.disabled = busy);
+        updateToolbar();
+    }
+
+    function zipStatus(html) {
+        document.getElementById('status-bar').innerHTML = html;
+    }
+
+    async function downloadFolder(path) {
+        if (zipBusy) return;
+        const name    = path ? baseName(path) : REPO_NAME;
+        const zipName = name + '.zip';
+        setZipBusy(true);
+        zipStatus(`<span><span class="spinner"></span>Preparing ${h(zipName)}…</span>`);
+
+        try {
+            const [JSZip, files] = await Promise.all([loadJSZip(), collectFiles(path)]);
+            if (files.length === 0) throw new Error('this folder has no files');
+
+            const zip   = new JSZip();
+            const root  = zip.folder(name);
+            const total = files.reduce((n, f) => n + (f.size || 0), 0);
+            let done = 0, bytes = 0, next = 0;
+
+            async function worker() {
+                while (next < files.length) {
+                    const f   = files[next++];
+                    const res = await fetch(f.download_url);
+                    if (!res.ok) throw new Error(`${f.relPath}: HTTP ${res.status}`);
+                    root.file(f.relPath, await res.arrayBuffer());
+                    done += 1;
+                    bytes += f.size || 0;
+                    zipStatus(`<span><span class="spinner"></span>Downloading ${h(zipName)} — ${done} of ${files.length} files (${fmtSize(bytes)} of ${fmtSize(total)})</span>`);
+                }
+            }
+            await Promise.all(Array.from({ length: Math.min(ZIP_WORKERS, files.length) }, worker));
+
+            zipStatus(`<span><span class="spinner"></span>Compressing ${h(zipName)}…</span>`);
+            const blob = await zip.generateAsync({ type: 'blob', compression: 'DEFLATE', compressionOptions: { level: 6 } });
+
+            const url = URL.createObjectURL(blob);
+            const a   = document.createElement('a');
+            a.href = url;
+            a.download = zipName;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 60000);
+
+            setZipBusy(false);
+            renderStatus();
+        } catch (err) {
+            setZipBusy(false);
+            zipStatus(`<span class="is-error">⚠ Could not download ${h(zipName)}: ${h(err.message)}</span>`);
+        }
+    }
+
+    /* ── Right-click menu (folder tree + folder rows) ───────────── */
+    const ctxMenu = document.getElementById('ctx-menu');
+
+    function openContextMenu(path, x, y) {
+        const kids   = knownSubdirs(path);
+        const isLeaf = kids && kids.length === 0;
+        const isOpen = expanded.has(path);
+        ctxMenu.innerHTML = `
+            <button type="button" role="menuitem" data-act="open">${ICON_FOLDER_OPEN} Open</button>
+            ${isLeaf ? '' : `<button type="button" role="menuitem" data-act="toggle">${ICON_CHEVRON} ${isOpen ? 'Collapse' : 'Expand'}</button>`}
+            <hr>
+            <button type="button" role="menuitem" data-act="zip"${zipBusy ? ' disabled' : ''}>${ICON_DL} Download as ZIP</button>`;
+        ctxMenu.dataset.path = path;
+        ctxMenu.style.display = 'block';
+        const r = ctxMenu.getBoundingClientRect();
+        ctxMenu.style.left = Math.min(x, window.innerWidth  - r.width  - 4) + 'px';
+        ctxMenu.style.top  = Math.min(y, window.innerHeight - r.height - 4) + 'px';
+        ctxMenu.querySelector('button').focus();
+    }
+
+    function closeContextMenu() {
+        ctxMenu.style.display = 'none';
+    }
+
+    ctxMenu.addEventListener('click', e => {
+        const item = e.target.closest('button[data-act]');
+        if (!item || item.disabled) return;
+        const path = ctxMenu.dataset.path;
+        closeContextMenu();
+        if (item.dataset.act === 'open' && path !== currentPath) loadDir(path);
+        if (item.dataset.act === 'toggle') toggleNode(path);
+        if (item.dataset.act === 'zip') downloadFolder(path);
+        e.stopPropagation();
+    });
+
+    document.addEventListener('contextmenu', e => {
+        const node = e.target.closest('.tree-row');
+        const row  = e.target.closest('#dir-body tr[data-dir]');
+        if (!node && !row) { closeContextMenu(); return; }
+        e.preventDefault();
+        openContextMenu(node ? node.dataset.node : row.dataset.dir, e.clientX, e.clientY);
+    });
+
+    document.addEventListener('mousedown', e => { if (!ctxMenu.contains(e.target)) closeContextMenu(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeContextMenu(); });
+    window.addEventListener('blur', closeContextMenu);
+    window.addEventListener('resize', closeContextMenu);
+    document.addEventListener('scroll', closeContextMenu, true);
 
     /* ── Sort ───────────────────────────────────────────────────── */
     function sorted(files) {
@@ -479,75 +897,85 @@
     function updateHeaders() {
         document.querySelectorAll('.dir-table thead th[data-col]').forEach(th => {
             const arrow = th.querySelector('.sort-arrow');
-            if (th.dataset.col === sortCol) {
-                th.classList.add('sort-active');
-                arrow.textContent = sortDir === 'asc' ? '↑' : '↓';
-            } else {
-                th.classList.remove('sort-active');
-                arrow.textContent = '↕';
-            }
+            th.classList.toggle('sort-active', th.dataset.col === sortCol);
+            arrow.textContent = th.dataset.col === sortCol && sortDir === 'desc' ? '▼' : '▲';
         });
     }
 
-    /* ── Breadcrumb ─────────────────────────────────────────────── */
+    /* ── Toolbar ────────────────────────────────────────────────── */
+    /* Each pushed history entry carries its position so the back and forward
+       buttons can tell whether there is anywhere to go. */
+    let histIdx = 0;
+    let histTop = 0;
+
+    function updateToolbar() {
+        document.getElementById('btn-back').disabled    = histIdx <= 0;
+        document.getElementById('btn-forward').disabled = histIdx >= histTop;
+        document.getElementById('btn-up').disabled      = !currentPath;
+        document.getElementById('btn-download').disabled = zipBusy;
+    }
+
     function renderBreadcrumb(path) {
         const parts = path ? path.split('/') : [];
-        let html = `<a href="./" data-path="">root</a>`;
+        const sep   = `<span class="bc-sep">${ICON_CHEVRON}</span>`;
+        let html = `${sep}<a class="bc-seg" href="./" data-path="">${h(ROOT_LABEL)}</a>`;
         let cur  = '';
-        parts.forEach((part, i) => {
+        parts.forEach(part => {
             cur += (cur ? '/' : '') + part;
-            html += ` <span class="bc-sep">/</span> `;
-            if (i < parts.length - 1) {
-                html += `<a href="#${h(cur)}" data-path="${h(cur)}">${h(part)}</a>`;
-            } else {
-                html += `<strong>${h(part)}</strong>`;
-            }
+            html += `${sep}<a class="bc-seg" href="#${h(cur)}" data-path="${h(cur)}">${h(part)}</a>`;
         });
+        document.getElementById('address-icon').innerHTML = path ? ICON_FOLDER : ICON_ROOT;
         document.getElementById('breadcrumb').innerHTML = html;
+        const bar = document.getElementById('breadcrumb-bar');
+        bar.scrollLeft = bar.scrollWidth;
     }
 
-    /* ── Table rendering ────────────────────────────────────────── */
+    /* ── Details rendering ──────────────────────────────────────── */
+    function renderStatus() {
+        const n   = currentFiles.length;
+        const sel = document.querySelector('#dir-body tr.selected');
+        let html  = `<span>${n} item${n !== 1 ? 's' : ''}</span>`;
+        if (sel) {
+            const f = currentFiles.find(x => x.path === sel.dataset.item);
+            html += `<span>1 item selected${f && f.type === 'file' ? ' ' + fmtSize(f.size) : ''}</span>`;
+        }
+        document.getElementById('status-bar').innerHTML = html;
+    }
+
     function renderTable(files) {
         const tbody = document.getElementById('dir-body');
         const list  = sorted(files);
         let   rows  = '';
 
-        if (currentPath) {
-            const parent = currentPath.split('/').slice(0, -1).join('/');
-            rows += `<tr>
-                <td class="td-icon">${ICON_UP}</td>
-                <td colspan="3"><a href="${parent ? '#' + h(parent) : './'}" class="parent-link" data-path="${h(parent)}">..\u2002(Parent Directory)</a></td>
-                <td class="td-dl"></td>
-            </tr>`;
-        }
-
         if (list.length === 0) {
-            rows += `<tr><td colspan="5" class="state-cell">This folder is empty.</td></tr>`;
+            rows += `<tr><td colspan="4" class="state-cell">This folder is empty.</td></tr>`;
         } else {
             list.forEach(f => {
-                const icon  = f.type === 'dir' ? ICON_FOLDER : fileIcon(ext(f.name));
-                const label = typeLabel(f);
-                const size  = f.type === 'dir' ? '—' : fmtSize(f.size);
-
                 if (f.type === 'dir') {
-                    const dlUrl = `https://download-directory.github.io/?url=https://github.com/${REPO_OWNER}/${REPO_NAME}/tree/${BRANCH}/${h(f.path)}`;
-                    rows += `<tr>
-                        <td class="td-icon">${icon}</td>
-                        <td><a href="#${h(f.path)}" class="name-link" data-path="${h(f.path)}">${h(f.name)}</a></td>
-                        <td class="td-size">—</td>
-                        <td class="td-type">${label}</td>
-                        <td class="td-dl"><a href="${dlUrl}" class="dl-btn" target="_blank" rel="noopener">${ICON_DL} Download</a></td>
+                    rows += `<tr data-item="${h(f.path)}" data-dir="${h(f.path)}">
+                        <td class="td-name"><span class="name-cell">${ICON_FOLDER}<a href="#${h(f.path)}" class="name-link" data-path="${h(f.path)}">${h(f.name)}</a></span></td>
+                        <td class="td-size"></td>
+                        <td class="td-type">${typeLabel(f)}</td>
+                        <td class="td-dl"><button type="button" class="dl-btn" data-zip="${h(f.path)}" title="Download as ZIP"${zipBusy ? ' disabled' : ''}>${ICON_DL} Download</button></td>
                     </tr>`;
                 } else {
                     const dl = h(f.download_url);
                     const fn = h(f.name);
                     const isBmp = ext(f.name) === 'bmp';
                     const bmpAttr = isBmp ? ` data-bmp="${dl}" data-bmp-name="${fn}"` : '';
-                    rows += `<tr${bmpAttr}>
-                        <td class="td-icon">${icon}</td>
-                        <td><a href="${dl}" class="name-link" download="${fn}">${fn}</a></td>
-                        <td class="td-size">${size}</td>
-                        <td class="td-type">${label}</td>
+                    /* raw.githubusercontent serves HTML and Markdown as text/plain:
+                       help pages open from this site's own copy, which renders, and
+                       Markdown opens in viewer.html. */
+                    const view = PAGE_EXT.has(ext(f.name)) ? f.path.split('/').map(encodeURIComponent).join('/')
+                               : ext(f.name) === 'md'     ? 'viewer.html?path=' + encodeURIComponent(f.path)
+                               : null;
+                    const nameLink = view
+                        ? `<a href="${h(view)}" class="name-link" target="_blank" rel="noopener" title="Open in a new tab">${fn}</a>`
+                        : `<a href="${dl}" class="name-link" download="${fn}">${fn}</a>`;
+                    rows += `<tr data-item="${h(f.path)}"${bmpAttr}>
+                        <td class="td-name"><span class="name-cell">${fileIcon(ext(f.name))}${nameLink}</span></td>
+                        <td class="td-size">${fmtSize(f.size)}</td>
+                        <td class="td-type">${typeLabel(f)}</td>
                         <td class="td-dl"><a href="${dl}" class="dl-btn" download="${fn}">${ICON_DL} Download</a></td>
                     </tr>`;
                 }
@@ -555,45 +983,64 @@
         }
 
         tbody.innerHTML = rows;
-
-        const nDir  = files.filter(f => f.type === 'dir').length;
-        const nFile = files.filter(f => f.type === 'file').length;
-        const parts = [];
-        if (nDir)  parts.push(`${nDir} folder${nDir  !== 1 ? 's' : ''}`);
-        if (nFile) parts.push(`${nFile} file${nFile !== 1 ? 's' : ''}`);
-        document.getElementById('status-bar').textContent = parts.join(', ') || 'Empty directory';
+        renderStatus();
     }
 
     /* ── Load directory ─────────────────────────────────────────── */
     async function loadDir(path, addHistory = true) {
         currentPath = path;
         if (addHistory) {
+            histIdx += 1;
+            histTop = histIdx;
             const url = path ? '#' + path : (location.pathname + location.search);
-            history.pushState({ path }, '', url);
+            history.pushState({ path, idx: histIdx }, '', url);
         }
+        RepoTree.ancestorPaths(parentOf(path)).forEach(p => expanded.add(p));
+        if (!path) expanded.add('');
         renderBreadcrumb(path);
+        updateToolbar();
+        renderNav();
 
         const tbody = document.getElementById('dir-body');
-        tbody.innerHTML = `<tr><td colspan="5" class="state-cell">
+        tbody.innerHTML = `<tr><td colspan="4" class="state-cell">
             <span class="spinner"></span>Loading…
         </td></tr>`;
         document.getElementById('status-bar').innerHTML = '&nbsp;';
 
         try {
             const data   = await listPath(path);
+            if (path !== currentPath) return;   // a newer navigation won the race
             currentFiles = data.filter(f => !hidden(f.name));
             renderTable(currentFiles);
         } catch (err) {
-            tbody.innerHTML = `<tr><td colspan="5" class="state-cell is-error">
+            if (path !== currentPath) return;
+            tbody.innerHTML = `<tr><td colspan="4" class="state-cell is-error">
                 ⚠ Failed to load: ${h(err.message)}
             </td></tr>`;
             document.getElementById('status-bar').textContent = 'Error loading contents.';
         }
+        await loadExpanded();
+        renderNav();
     }
 
     /* ── Event delegation ───────────────────────────────────────── */
     document.addEventListener('click', e => {
-        /* Nav links (breadcrumb + folder + parent) */
+        /* Folder tree: the chevron opens/closes, the rest of the row navigates */
+        const node = e.target.closest('.tree-row');
+        if (node) {
+            if (e.target.closest('[data-toggle]')) toggleNode(node.dataset.node);
+            else if (node.dataset.node !== currentPath) loadDir(node.dataset.node);
+            return;
+        }
+
+        /* Folder ZIP downloads */
+        const zipBtn = e.target.closest('button[data-zip]');
+        if (zipBtn) {
+            downloadFolder(zipBtn.dataset.zip);
+            return;
+        }
+
+        /* Nav links (address bar + folder names) */
         const navLink = e.target.closest('a[data-path]');
         if (navLink) {
             e.preventDefault();
@@ -609,7 +1056,96 @@
             sortCol = col;
             updateHeaders();
             renderTable(currentFiles);
+            return;
         }
+
+        /* Details rows: single click selects, like Explorer */
+        const row = e.target.closest('#dir-body tr[data-item]');
+        const was = document.querySelector('#dir-body tr.selected');
+        if (was === row) return;
+        if (was) was.classList.remove('selected');
+        if (row) row.classList.add('selected');
+        renderStatus();
+    });
+
+    document.getElementById('nav-tree').addEventListener('dblclick', e => {
+        const node = e.target.closest('.tree-row');
+        if (node && !e.target.closest('[data-toggle]')) toggleNode(node.dataset.node);
+    });
+
+    document.getElementById('dir-body').addEventListener('dblclick', e => {
+        const row = e.target.closest('tr[data-dir]');
+        if (row && !e.target.closest('a')) loadDir(row.dataset.dir);
+    });
+
+    document.getElementById('btn-download').addEventListener('click', () => downloadFolder(currentPath));
+    document.getElementById('btn-back').addEventListener('click', () => history.back());
+    document.getElementById('btn-forward').addEventListener('click', () => history.forward());
+    document.getElementById('btn-up').addEventListener('click', () => {
+        if (currentPath) loadDir(parentOf(currentPath));
+    });
+
+    document.addEventListener('keydown', e => {
+        if (!e.altKey || e.target.closest('input, textarea')) return;
+        if (e.key === 'ArrowUp' && currentPath) { e.preventDefault(); loadDir(parentOf(currentPath)); }
+    });
+
+    /* Folder tree keyboard: ↑/↓ move, →/← open/close or step in/out, Enter opens */
+    document.getElementById('nav-tree').addEventListener('keydown', e => {
+        const row = e.target.closest('.tree-row');
+        if (!row) return;
+        const rows = [...document.querySelectorAll('#nav-tree .tree-row')];
+        const i    = rows.indexOf(row);
+        const path = row.dataset.node;
+        const kids = knownSubdirs(path);
+        const open = expanded.has(path) && !(kids && kids.length === 0);
+
+        switch (e.key) {
+            case 'ArrowDown': if (rows[i + 1]) focusNode(rows[i + 1].dataset.node); break;
+            case 'ArrowUp':   if (rows[i - 1]) focusNode(rows[i - 1].dataset.node); break;
+            case 'Home':      focusNode(rows[0].dataset.node); break;
+            case 'End':       focusNode(rows[rows.length - 1].dataset.node); break;
+            case 'ArrowRight':
+                if (kids && kids.length === 0) break;
+                if (!open) toggleNode(path, true);
+                else if (rows[i + 1]) focusNode(rows[i + 1].dataset.node);
+                break;
+            case 'ArrowLeft':
+                if (open) toggleNode(path, false);
+                else if (path) focusNode(parentOf(path));
+                break;
+            case 'Enter':
+            case ' ':
+                if (path !== currentPath) loadDir(path);
+                break;
+            default: return;
+        }
+        e.preventDefault();
+    });
+
+    /* ── Resizable folder pane ──────────────────────────────────── */
+    const navPane  = document.getElementById('nav-pane');
+    const splitter = document.getElementById('splitter');
+    try {
+        const w = parseInt(localStorage.getItem('nav-pane-width'), 10);
+        if (w > 0) navPane.style.width = w + 'px';
+    } catch (e) { /* storage blocked — keep the default width */ }
+
+    splitter.addEventListener('pointerdown', e => {
+        e.preventDefault();
+        splitter.setPointerCapture(e.pointerId);
+        splitter.classList.add('dragging');
+        const startX = e.clientX;
+        const startW = navPane.offsetWidth;
+        const move = ev => { navPane.style.width = (startW + ev.clientX - startX) + 'px'; };
+        const up = () => {
+            splitter.classList.remove('dragging');
+            splitter.removeEventListener('pointermove', move);
+            splitter.removeEventListener('pointerup', up);
+            try { localStorage.setItem('nav-pane-width', navPane.offsetWidth); } catch (e) { /* ignore */ }
+        };
+        splitter.addEventListener('pointermove', move);
+        splitter.addEventListener('pointerup', up);
     });
 
     /* ── BMP hover preview ──────────────────────────────────────── */
@@ -651,13 +1187,18 @@
     /* ── Browser back/forward ───────────────────────────────────── */
     window.addEventListener('popstate', e => {
         const path = e.state != null ? e.state.path : decodeURIComponent(location.hash.slice(1));
+        histIdx = e.state && e.state.idx != null ? e.state.idx : histIdx;
+        histTop = Math.max(histTop, histIdx);
         loadDir(path, false);
     });
 
     /* ── Boot ───────────────────────────────────────────────────── */
     document.addEventListener('DOMContentLoaded', () => {
         const path = decodeURIComponent(location.hash.slice(1));
-        history.replaceState({ path }, '', location.href);
+        const prev = history.state;
+        histIdx = prev && prev.idx != null ? prev.idx : 0;
+        histTop = histIdx;
+        history.replaceState({ path, idx: histIdx }, '', location.href);
         loadDir(path, false);
     });
 })();
