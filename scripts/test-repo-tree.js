@@ -263,3 +263,63 @@ test('leading and trailing slashes in an artifact path are normalised', () => {
     RepoTree.fromFileIndex([{ path: '/a/b.txt', size: 1 }]).map(e => e.path),
     ['a', 'a/b.txt']);
 });
+
+test('ancestorPaths lists every folder from the root down to the path', () => {
+  assert.deepStrictEqual(RepoTree.ancestorPaths('Pioneer_Models/DM42/HELP'),
+    ['', 'Pioneer_Models', 'Pioneer_Models/DM42', 'Pioneer_Models/DM42/HELP']);
+  assert.deepStrictEqual(RepoTree.ancestorPaths(''), ['']);
+  assert.deepStrictEqual(RepoTree.ancestorPaths('/a/b/'), ['', 'a', 'a/b']);
+});
+
+test('filesUnder lists every file below a folder with paths relative to it', () => {
+  const out = RepoTree.filesUnder(TREE, 'Pioneer_Models', OPTS);
+  assert.deepStrictEqual(out.map(f => f.relPath).sort(),
+    ['DM32/HISTORY.md', 'DM32/programs/demo.raw', 'DM42_qspi_3.x.bin', 'DMCP_HISTORY.md']);
+  const demo = out.find(f => f.relPath === 'DM32/programs/demo.raw');
+  assert.strictEqual(demo.path, 'Pioneer_Models/DM32/programs/demo.raw');
+  assert.strictEqual(demo.size, 12);
+  assert.strictEqual(demo.download_url,
+    'https://raw.githubusercontent.com/swissmicros/swissmicros-factorydefaults/main/Pioneer_Models/DM32/programs/demo.raw');
+});
+
+test('filesUnder does not match a sibling that merely shares a prefix', () => {
+  const tree = [
+    { path: 'DM4', type: 'tree' },
+    { path: 'DM4/a.txt', type: 'blob', size: 1 },
+    { path: 'DM42.txt', type: 'blob', size: 1 },
+  ];
+  assert.deepStrictEqual(RepoTree.filesUnder(tree, 'DM4', OPTS).map(f => f.relPath), ['a.txt']);
+});
+
+test('filesUnder the root returns every file in the repository', () => {
+  assert.strictEqual(RepoTree.filesUnder(TREE, '', OPTS).length,
+    TREE.filter(e => e.type === 'blob').length);
+});
+
+test('resolveLink resolves a relative link against the linking file', () => {
+  assert.deepStrictEqual(RepoTree.resolveLink('Pioneer_Models/DM42/HISTORY.md', '../DMCP_HISTORY.md'),
+    { path: 'Pioneer_Models/DMCP_HISTORY.md', hash: '' });
+  assert.deepStrictEqual(RepoTree.resolveLink('Pioneer_Models/DM42/HISTORY.md', './HELP/dm42help.htm#keys'),
+    { path: 'Pioneer_Models/DM42/HELP/dm42help.htm', hash: '#keys' });
+  assert.deepStrictEqual(RepoTree.resolveLink('README.md', 'Voyager_Models/HISTORY.md'),
+    { path: 'Voyager_Models/HISTORY.md', hash: '' });
+});
+
+test('resolveLink treats a leading slash as the repository root', () => {
+  assert.deepStrictEqual(RepoTree.resolveLink('Pioneer_Models/DM42/HISTORY.md', '/README.md'),
+    { path: 'README.md', hash: '' });
+});
+
+test('resolveLink decodes escaped characters in the link', () => {
+  assert.deepStrictEqual(RepoTree.resolveLink('a/b.md', 'my%20notes.md'),
+    { path: 'a/my notes.md', hash: '' });
+});
+
+test('resolveLink leaves external links, in-page anchors and escapes above the root alone', () => {
+  assert.strictEqual(RepoTree.resolveLink('a/b.md', 'https://example.com/x.md'), null);
+  assert.strictEqual(RepoTree.resolveLink('a/b.md', '//example.com/x.md'), null);
+  assert.strictEqual(RepoTree.resolveLink('a/b.md', 'mailto:x@example.com'), null);
+  assert.strictEqual(RepoTree.resolveLink('a/b.md', '#section'), null);
+  assert.strictEqual(RepoTree.resolveLink('a/b.md', '../../x.md'), null);
+  assert.strictEqual(RepoTree.resolveLink('a/b.md', ''), null);
+});

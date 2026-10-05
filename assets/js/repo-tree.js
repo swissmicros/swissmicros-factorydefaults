@@ -48,6 +48,27 @@
         return out;
     }
 
+    /* Every file anywhere below `dir`, for zipping a folder: {path, relPath,
+     * size, download_url}, where relPath is relative to `dir`. */
+    function filesUnder(tree, dir, opts) {
+        var base = String(dir == null ? '' : dir).replace(/^\/+|\/+$/g, '');
+        var prefix = base ? base + '/' : '';
+        var out = [];
+
+        for (var i = 0; i < tree.length; i++) {
+            var entry = tree[i];
+            if (entry.type !== 'blob') continue;
+            if (entry.path.slice(0, prefix.length) !== prefix) continue;
+            out.push({
+                path: entry.path,
+                relPath: entry.path.slice(prefix.length),
+                size: entry.size,
+                download_url: rawUrl(opts, entry.path)
+            });
+        }
+        return out;
+    }
+
     /* tree.json lists tracked files only — git has no standalone directory
      * objects — so derive the directories their paths imply. Sorted by path so
      * the artifact's own ordering cannot affect what the page renders. */
@@ -72,6 +93,45 @@
 
         out.sort(function (a, b) { return a.path < b.path ? -1 : a.path > b.path ? 1 : 0; });
         return out;
+    }
+
+    /* Every folder from the root ('') down to and including `path` — the
+     * nodes the folder tree must expand for `path` to be visible. */
+    function ancestorPaths(path) {
+        var parts = String(path == null ? '' : path).replace(/^\/+|\/+$/g, '').split('/');
+        var out = [''];
+        for (var i = 0; i < parts.length; i++) {
+            if (parts[i]) out.push(parts.slice(0, i + 1).join('/'));
+        }
+        return out;
+    }
+
+    /* Where a link inside a repository file points: {path, hash} relative to
+     * the repository root, or null for links that are not into the repository
+     * (other sites, mailto:, in-page #anchors, paths climbing above the root). */
+    function resolveLink(fromPath, href) {
+        href = String(href == null ? '' : href).trim();
+        if (!href || href.charAt(0) === '#' || href.slice(0, 2) === '//' ||
+            /^[a-z][a-z0-9+.-]*:/i.test(href)) return null;
+
+        var hashAt = href.search(/[?#]/);
+        var hash = hashAt === -1 ? '' : href.slice(hashAt).replace(/^\?[^#]*/, '');
+        var target = hashAt === -1 ? href : href.slice(0, hashAt);
+        try { target = decodeURIComponent(target); } catch (e) { /* keep it as written */ }
+
+        var parts = target.charAt(0) === '/' ? []
+                  : String(fromPath || '').split('/').slice(0, -1);
+        var segs = target.split('/');
+        for (var i = 0; i < segs.length; i++) {
+            if (segs[i] === '' || segs[i] === '.') continue;
+            if (segs[i] === '..') {
+                if (!parts.length) return null;
+                parts.pop();
+            } else {
+                parts.push(segs[i]);
+            }
+        }
+        return parts.length ? { path: parts.join('/'), hash: hash } : null;
     }
 
     /* A readable reason for a failed request. The rate-limit case is the one
@@ -109,5 +169,6 @@
     }
 
     return { listDir: listDir, rawUrl: rawUrl, fromFileIndex: fromFileIndex,
-             describeHttpError: describeHttpError };
+             describeHttpError: describeHttpError, ancestorPaths: ancestorPaths,
+             filesUnder: filesUnder, resolveLink: resolveLink };
 }));
