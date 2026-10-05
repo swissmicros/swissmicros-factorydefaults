@@ -1659,11 +1659,11 @@
   },
   {
    "path": "assets/js/repo-tree.js",
-   "size": 4883
+   "size": 7525
   },
   {
    "path": "index.html",
-   "size": 27750
+   "size": 52937
   },
   {
    "path": "instructions.md",
@@ -1683,7 +1683,7 @@
   },
   {
    "path": "scripts/test-repo-tree.js",
-   "size": 10444
+   "size": 13540
   },
   {
    "path": "scripts/test_generate_manifest.py",
@@ -1700,6 +1700,10 @@
   {
    "path": "scripts/update-history.py",
    "size": 13416
+  },
+  {
+   "path": "viewer.html",
+   "size": 14285
   }
  ]
 }
