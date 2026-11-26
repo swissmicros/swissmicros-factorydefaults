@@ -35,12 +35,12 @@ For Pioneer models, the factory default files are stored in directories named af
 For Voyager models, the firmware can be updated easily using the web-based Voyager Web Tool.
 
 ### Steps:
-1.  **Open Web Tool**: Navigate to [https://tech.swissmicros.com/FlashingTool/](https://tech.swissmicros.com/FlashingTool/) using a browser that supports WebSerial (e.g., Chrome, Edge, Opera).
+1.  **Open Web Tool**: Navigate to [voyager-flasher.swissmicros.com](https://voyager-flasher.swissmicros.com/) using a browser that supports WebSerial (e.g., Chrome, Edge, Opera).
 2.  **Connect**: Connect your calculator to your computer via USB and click the **Connect** button in the web tool.
 3.  **Select Firmware**: Switch to the **Firmware** tab. You can select the desired firmware from the dropdown menu or load a local `.hex` file from the `Voyager_Models` directory of this repository.
 4.  **Flash**:
     -   **Enter Bootloader Mode**:
-        -   **Method 1 (Menu)**: On the calculator, go to `SETUP` -> `SYSTEM` -> `Bootloader` (see [User Manual](https://technical.swissmicros.com/voyager/doc/voyager_user_manual.html#conf_bootloader)).
+        -   **Method 1 (Menu)**: On the calculator, go to `SETUP` -> `SYSTEM` -> `Bootloader` (see [User Manual](https://tech.swissmicros.com/downloads/voyager/doc/voyager_user_manual.html#conf_bootloader)).
         -   **Method 2 (No Battery)**: Since the USB chip (CP2102) is powered by the cable, you can enter bootloader mode without a battery. Connect the calculator via USB, click **Connect** in the web tool, then insert the battery within 1-2 seconds.
         -   *Note: Newer models with LPC111X CPUs do not have a physical bootloader button.*
     -   Click **Flash** to start the update process.

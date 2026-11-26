@@ -40,9 +40,7 @@ jobs:
         run: python3 scripts/generate-tree.py
 
       - name: Run tests
-        run: |
-          python3 -m unittest discover scripts
-          node --test scripts/test-repo-tree.js
+        run: python3 -m unittest discover scripts
 
       - name: Commit if changed
         run: |

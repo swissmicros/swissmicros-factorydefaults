@@ -21,7 +21,7 @@ We are a small team focused on development and manufacturing. To help us work ef
 ## Support & Community
 
 - **Community Forum:** [forum.swissmicros.com](https://forum.swissmicros.com) (Best place for general questions & tips)
-- **Technical Documentation:** [technical.swissmicros.com](https://technical.swissmicros.com)
+- **Technical Documentation:** [tech.swissmicros.com](https://tech.swissmicros.com)
 - **Technical Support:** `support@swissmicros.com`
 - **Orders & Logistics:** `orders@swissmicros.com`
 

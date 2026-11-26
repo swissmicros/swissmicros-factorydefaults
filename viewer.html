@@ -4,31 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwissMicros Factory Defaults</title>
-    <link rel="stylesheet" href="https://swissmicros.github.io/swissmicros-factorydefaults/assets/css/style.css?v=2">
+    <link rel="stylesheet" href="https://tech.swissmicros.com/assets/css/swissmicros.css?v=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://tech.swissmicros.com/assets/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.9.0/github-markdown-light.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* Theinhardt from this site under its own name: tech.swissmicros.com/fonts/ is not open to other sites. */
+        body, button { font-family: 'Theinhardt Factory', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+        @font-face { font-family: 'Theinhardt Factory'; src: url('assets/fonts/Theinhardt-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+        @font-face { font-family: 'Theinhardt Factory'; src: url('assets/fonts/Theinhardt-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+        @font-face { font-family: 'Theinhardt Factory'; src: url('assets/fonts/Theinhardt-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+        @font-face { font-family: 'Theinhardt Factory'; src: url('assets/fonts/Theinhardt-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+
+        /* Portal tokens (swissmicros.css) under the names this page uses */
         :root {
-            --border:      #d0d7de;
-            --divider:     #e5e5e5;
+            --border:      var(--color-border);
+            --divider:     var(--color-border);
             --panel-bg:    #ffffff;
-            --chrome-bg:   #f3f3f3;
-            --hover-bg:    #e5f3ff;
-            --focus:       #0067c0;
-            --text:        #1b1b1b;
-            --muted:       #5d5d5d;
-            --link:        #0969da;
-            --radius:      6px;
-            --shadow:      0 1px 3px rgba(27,31,36,0.12), 0 1px 2px rgba(27,31,36,0.08);
+            --chrome-bg:   var(--brand-50);
+            --hover-bg:    #f1f5f9;
+            --focus:       var(--brand-500);
+            --text:        var(--color-text);
+            --muted:       var(--color-text-muted);
+            --link:        var(--brand-500);
+            --radius:      var(--radius-lg);
+            --shadow:      0 1px 2px rgba(15, 23, 42, .04), 0 4px 16px rgba(15, 23, 42, .05);
         }
 
         *, *::before, *::after { box-sizing: border-box; }
 
         body {
             margin: 0;
-            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Theinhardt Factory', ui-sans-serif, system-ui, sans-serif;
         }
 
         .doc-panel {
@@ -115,9 +121,11 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 2rem 2.5rem 2.5rem;
-            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Theinhardt Factory', ui-sans-serif, system-ui, sans-serif;
         }
-        .markdown-body code, .markdown-body pre { font-family: 'IBM Plex Mono', monospace; }
+        .markdown-body a { color: var(--brand-700); }
+        .markdown-body a:hover { color: var(--brand-600); }
+        .markdown-body code, .markdown-body pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 
         .state {
             padding: 3rem 1rem;
@@ -148,17 +156,24 @@
 </head>
 <body>
 
-<section class="page-header">
-    <h1 class="project-name">SwissMicros Factory Defaults</h1>
-    <h2 class="project-tagline">Factory default files for Pioneer &amp; Voyager models</h2>
-    <a href="https://swissmicros.com" class="btn">Shop</a>
-    <span class="btn-sep">|</span>
-    <a href="https://technical.swissmicros.com" class="btn">Documentation</a>
-    <span class="btn-sep">|</span>
-    <a href="https://forum.swissmicros.com" class="btn">Community Forum</a>
-</section>
+<header class="sm-header">
+    <div class="sm-container sm-header__row">
+        <a href="./" class="sm-brand">
+            <span>SwissMicros</span>
+            <span class="sm-brand__tag">Factory</span>
+        </a>
+        <nav class="sm-nav" aria-label="Primary">
+            <div class="sm-nav__external">
+                <a class="sm-nav__ext" href="https://tech.swissmicros.com/">Tech docs</a>
+                <a class="sm-nav__ext" href="https://www.swissmicros.com/" target="_blank" rel="noopener">SwissMicros.com <span aria-hidden="true">↗</span></a>
+                <a class="sm-nav__shop" href="https://webshop.swissmicros.com/" target="_blank" rel="noopener">Shop <span aria-hidden="true">↗</span></a>
+            </div>
+        </nav>
+    </div>
+</header>
 
-<section class="main-content">
+<main class="sm-main" aria-label="Content">
+<div class="sm-container">
 
     <div class="doc-panel">
 
@@ -189,18 +204,28 @@
 
     </div>
 
-    <footer class="site-footer">
-        <span class="site-footer-owner">
-            <a href="https://github.com/swissmicros/swissmicros-factorydefaults">SwissMicros Factory Defaults</a>
-            is maintained by <a href="https://github.com/swissmicros">SwissMicros</a>.
-        </span>
-    </footer>
+</div>
+</main>
 
-</section>
+<footer class="sm-footer">
+    <div class="sm-container sm-footer__row">
+        <div>
+            <span>&copy; <a href="https://www.swissmicros.com/">SwissMicros GmbH</a></span>
+            <span class="sm-footer__tagline">&nbsp;·&nbsp;Precision scientific calculators.</span>
+        </div>
+        <nav aria-label="Site info">
+            <a href="https://github.com/swissmicros/swissmicros-factorydefaults">Source on GitHub</a>
+            &nbsp;·&nbsp;
+            <a href="https://tech.swissmicros.com/">tech.swissmicros.com</a>
+            &nbsp;·&nbsp;
+            <a href="https://webshop.swissmicros.com/" target="_blank" rel="noopener">Webshop</a>
+        </nav>
+    </div>
+</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/18.0.14/lib/marked.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.4.16/purify.min.js"></script>
-<script src="assets/js/repo-tree.js"></script>
+<script src="https://tech.swissmicros.com/assets/js/sm-tree.js?v=1"></script>
 <script>
 /* Renders a Markdown file from the repository: viewer.html?path=<repo path>.
  * The site serves .md files as plain text, so the folder browser links here
