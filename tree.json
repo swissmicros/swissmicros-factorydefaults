@@ -3,7 +3,7 @@
  "tree": [
   {
    "path": ".github/workflows/update-manifest.yml",
-   "size": 1761
+   "size": 1701
   },
   {
    "path": ".gitignore",
@@ -1591,7 +1591,7 @@
   },
   {
    "path": "README.md",
-   "size": 2395
+   "size": 2385
   },
   {
    "path": "Voyager_Models/DM10_34.hex",
@@ -1658,16 +1658,12 @@
    "size": 186400
   },
   {
-   "path": "assets/js/repo-tree.js",
-   "size": 7525
-  },
-  {
    "path": "index.html",
-   "size": 52937
+   "size": 5389
   },
   {
    "path": "instructions.md",
-   "size": 4245
+   "size": 4237
   },
   {
    "path": "models.json",
@@ -1680,10 +1676,6 @@
   {
    "path": "scripts/generate-tree.py",
    "size": 2921
-  },
-  {
-   "path": "scripts/test-repo-tree.js",
-   "size": 13540
   },
   {
    "path": "scripts/test_generate_manifest.py",
@@ -1703,7 +1695,7 @@
   },
   {
    "path": "viewer.html",
-   "size": 14285
+   "size": 16153
   }
  ]
 }
