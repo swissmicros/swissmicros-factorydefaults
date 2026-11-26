@@ -1659,11 +1659,11 @@
   },
   {
    "path": "index.html",
-   "size": 5389
+   "size": 5233
   },
   {
    "path": "instructions.md",
-   "size": 4237
+   "size": 4333
   },
   {
    "path": "models.json",
@@ -1695,7 +1695,7 @@
   },
   {
    "path": "viewer.html",
-   "size": 16153
+   "size": 15997
   }
  ]
 }
