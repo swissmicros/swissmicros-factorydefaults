@@ -15,7 +15,7 @@ First, determine which series your calculator belongs to:
 
 For Pioneer models, the factory default files are stored in directories named after the model (e.g., `Pioneer_Models/DM42`).
 
-**Note regarding R47:** The R47 is a community-developed project (see [GitLab releases](https://gitlab.com/rpncalculators/c43/-/releases)). Although not yet fully public, it is available via this [hidden shop link](https://www.swissmicros.com/product/model-r47).
+**Note regarding R47:** The R47 runs firmware developed by the community (see the [GitLab releases](https://gitlab.com/rpncalculators/c43/-/releases)). It is available in the [SwissMicros shop](https://www.swissmicros.com/products/r47).
 
 ### Steps:
 1.  **Backup**: Before proceeding, ensure you have backed up any important programs or data currently on your calculator. Restoring factory defaults may overwrite existing files.
@@ -26,7 +26,7 @@ For Pioneer models, the factory default files are stored in directories named af
     -   **Overwrite**: If prompted, confirm that you want to overwrite existing files.
 5.  **Firmware Updates**: If there are `.bin` files (firmware updates), these should be copied to the root of the calculator's drive. After copying, safely eject the drive. The update will be initiated automatically.
 
-*Note: For advanced recovery or if the USB disk method is unavailable, the `STM32CubeProgrammer` tool can be used with Pioneer models.*
+*For experienced users: the [Pioneer Flasher](https://pioneer-flasher.swissmicros.com/) writes the firmware over USB straight from Chrome or Edge, and can recover a calculator when the USB disk method is unavailable. `STM32CubeProgrammer` can also be used.*
 
 ---
 
