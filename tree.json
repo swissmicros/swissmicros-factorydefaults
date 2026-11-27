@@ -14,7 +14,7 @@
    "size": 23
   },
   {
-   "path": "Pioneer_Models/DM32/DMCP5_flash_3.56_DM32-2.11.bin",
+   "path": "Pioneer_Models/DM32/DMCP5_flash_3.58_DM32-2.12.bin",
    "size": 1120256
   },
   {
@@ -110,7 +110,7 @@
    "size": 65
   },
   {
-   "path": "Pioneer_Models/DM41X/DMCP_flash_3.31_DM41X-2.4.bin",
+   "path": "Pioneer_Models/DM41X/DMCP_flash_3.32_DM41X-2.5.bin",
    "size": 567296
   },
   {
@@ -330,7 +330,7 @@
    "size": 65
   },
   {
-   "path": "Pioneer_Models/DM42/DMCP_flash_3.29_DM42-3.26.bin",
+   "path": "Pioneer_Models/DM42/DMCP_flash_3.32_DM42-3.27.bin",
    "size": 1026048
   },
   {
@@ -662,7 +662,7 @@
    "size": 1370864
   },
   {
-   "path": "Pioneer_Models/DM42n/DMCP5_flash_3.55_DM42-3.26.bin",
+   "path": "Pioneer_Models/DM42n/DMCP5_flash_3.58_DM42-3.27.bin",
    "size": 1486848
   },
   {
