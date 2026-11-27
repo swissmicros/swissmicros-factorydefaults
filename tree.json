@@ -2034,7 +2034,7 @@
   {
    "path": "index.html",
    "size": 5346,
-   "date": "2026-11-27 17:14"
+   "date": "2026-11-27 20:28"
   },
   {
    "path": "instructions.md",
@@ -2044,7 +2044,7 @@
   {
    "path": "models.json",
    "size": 20566,
-   "date": "2026-11-27 17:09"
+   "date": "2026-11-27 17:35"
   },
   {
    "path": "scripts/generate-manifest.py",
