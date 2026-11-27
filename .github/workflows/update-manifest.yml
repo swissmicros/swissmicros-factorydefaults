@@ -32,6 +32,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # tree.json dates come from each file's last commit
 
       - name: Regenerate models.json
         run: python3 scripts/generate-manifest.py

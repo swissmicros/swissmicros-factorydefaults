@@ -50,6 +50,38 @@ class BuildIndex(unittest.TestCase):
         self.assertEqual(gt.build_index(entries, "main"), gt.build_index(entries, "main"))
 
 
+class Dates(unittest.TestCase):
+
+    LOG = ("\x001700000000\n\nb/new.bin\na.txt\n"
+           "\x001600000000\n\nb/new.bin\nb/c/old.bin\n")
+
+    def test_parse_log_keeps_the_newest_commit_per_file(self):
+        """git log lists newest first; a file's first sighting is its last change."""
+        self.assertEqual(gt.parse_log(self.LOG),
+                         {"b/new.bin": 1700000000, "a.txt": 1700000000,
+                          "b/c/old.bin": 1600000000})
+
+    def test_format_date_is_zurich_local_time(self):
+        self.assertEqual(gt.format_date(1700000000), "2023-11-14 23:13")
+
+    def test_files_carry_their_date(self):
+        out = gt.build_index([("a.txt", 1)], "main", {"a.txt": 1700000000})
+        self.assertEqual(out["tree"], [{"path": "a.txt", "size": 1, "date": "2023-11-14 23:13"}])
+
+    def test_file_without_a_date_has_no_date_key(self):
+        out = gt.build_index([("a.txt", 1)], "main", {})
+        self.assertEqual(out["tree"], [{"path": "a.txt", "size": 1}])
+
+    def test_folders_take_their_newest_file_date(self):
+        out = gt.build_index([("b/new.bin", 1), ("b/c/old.bin", 2)], "main",
+                             {"b/new.bin": 1700000000, "b/c/old.bin": 1600000000})
+        self.assertEqual(out["folders"], {"b": {"date": "2023-11-14 23:13"},
+                                          "b/c": {"date": "2020-09-13 14:26"}})
+
+    def test_without_dates_there_is_no_folders_key(self):
+        self.assertNotIn("folders", gt.build_index([("a.txt", 1)], "main"))
+
+
 class Serialisation(unittest.TestCase):
 
     def test_render_ends_with_one_newline(self):
