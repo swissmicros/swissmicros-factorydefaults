@@ -9,7 +9,7 @@ page, so browsing the repository costs no API requests at all.
 Schema:
   {
     "branch": "main",
-    "tree": [ {"path": "Pioneer_Models/DM32/HISTORY.md", "size": 6580}, ... ]
+    "tree": [ {"path": "Pioneer_Models/DM32/keymap_DM32.bin", "size": 1024}, ... ]
   }
 
 Only tracked files are listed, taken from `git ls-files` — those are exactly

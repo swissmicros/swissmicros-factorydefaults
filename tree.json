@@ -22,10 +22,6 @@
    "size": 88922
   },
   {
-   "path": "Pioneer_Models/DM32/HISTORY.md",
-   "size": 6404
-  },
-  {
    "path": "Pioneer_Models/DM32/OFFIMG/32siikeypad.bmp",
    "size": 12544
   },
@@ -128,10 +124,6 @@
   {
    "path": "Pioneer_Models/DM41X/HELP/help_devel.html",
    "size": 10349
-  },
-  {
-   "path": "Pioneer_Models/DM41X/HISTORY.md",
-   "size": 9110
   },
   {
    "path": "Pioneer_Models/DM41X/MODS/Advantage.mod",
@@ -348,10 +340,6 @@
   {
    "path": "Pioneer_Models/DM42/HELP/dm42help.htm",
    "size": 84809
-  },
-  {
-   "path": "Pioneer_Models/DM42/HISTORY.md",
-   "size": 11501
   },
   {
    "path": "Pioneer_Models/DM42/OFFIMG/HELVETIA.bmp",
@@ -684,10 +672,6 @@
   {
    "path": "Pioneer_Models/DM42n/HELP/dm42help.htm",
    "size": 84809
-  },
-  {
-   "path": "Pioneer_Models/DM42n/HISTORY.md",
-   "size": 1385
   },
   {
    "path": "Pioneer_Models/DM42n/OFFIMG/HELVETIA.bmp",
@@ -1068,14 +1052,6 @@
   {
    "path": "Pioneer_Models/DM42n/keymap_DM42.bin",
    "size": 65
-  },
-  {
-   "path": "Pioneer_Models/DMCP5_HISTORY.md",
-   "size": 777
-  },
-  {
-   "path": "Pioneer_Models/DMCP_HISTORY.md",
-   "size": 3804
   },
   {
    "path": "Pioneer_Models/R47/DMCP5_flash_3.57_R47-00.109.03.03b0.bin",
@@ -1630,10 +1606,6 @@
    "size": 174296
   },
   {
-   "path": "Voyager_Models/HISTORY.md",
-   "size": 7097
-  },
-  {
    "path": "_config.yml",
    "size": 131
   },
@@ -1667,7 +1639,7 @@
   },
   {
    "path": "models.json",
-   "size": 20901
+   "size": 20698
   },
   {
    "path": "scripts/generate-manifest.py",
@@ -1675,7 +1647,7 @@
   },
   {
    "path": "scripts/generate-tree.py",
-   "size": 2921
+   "size": 2926
   },
   {
    "path": "scripts/test_generate_manifest.py",
@@ -1684,14 +1656,6 @@
   {
    "path": "scripts/test_generate_tree.py",
    "size": 2516
-  },
-  {
-   "path": "scripts/test_update_history.py",
-   "size": 24035
-  },
-  {
-   "path": "scripts/update-history.py",
-   "size": 13416
   },
   {
    "path": "viewer.html",
