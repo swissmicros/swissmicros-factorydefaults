@@ -103,13 +103,6 @@
       ]
     },
     {
-      "name": "DM41Xn",
-      "qspi": false,
-      "files": [
-        "Pioneer_Models/DM41Xn/keymap_DM41X.bin"
-      ]
-    },
-    {
       "name": "DM42",
       "qspi": true,
       "files": [

@@ -407,11 +407,6 @@
    "date": "2026-08-25 23:49"
   },
   {
-   "path": "Pioneer_Models/DM41Xn/keymap_DM41X.bin",
-   "size": 65,
-   "date": "2026-08-25 23:49"
-  },
-  {
    "path": "Pioneer_Models/DM42/DMCP_flash_3.32_DM42-3.27.bin",
    "size": 1026048,
    "date": "2026-11-27 17:01"
@@ -2048,7 +2043,7 @@
   },
   {
    "path": "models.json",
-   "size": 20698,
+   "size": 20566,
    "date": "2026-11-27 17:09"
   },
   {
@@ -2107,9 +2102,6 @@
   },
   "Pioneer_Models/DM41X/OFFIMG": {
    "date": "2026-02-18 17:57"
-  },
-  "Pioneer_Models/DM41Xn": {
-   "date": "2026-08-25 23:49"
   },
   "Pioneer_Models/DM42": {
    "date": "2026-11-27 17:01"
